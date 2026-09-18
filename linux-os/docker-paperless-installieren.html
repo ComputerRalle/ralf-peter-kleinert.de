@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="de-DE"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Cybersicherheit, Datenschutz, IT-Sicherheit, Cyberkriminalität, Virenschutz, Firewall, Datensicherung, Hackerabwehr, Cyberbedrohungen, digitale Sicherheit">
+    <meta name="description" content="Schützen Sie Ihre digitale Welt vor Cyberbedrohungen. Ich bin Ihr vertrauenswürdiger Partner für Cybersicherheit. Kontaktieren Sie mich heute!">
+    <title>docker-paperless-installieren</title>
+    <link rel="stylesheet" href="../nicepage.css" media="screen">
+<link rel="stylesheet" href="docker-paperless-installieren.css" media="screen">
+    <script class="u-script" type="text/javascript" src="../jquery.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="../nicepage.js" defer=""></script>
+    <link rel="icon" href="../images/favicon1.ico">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <link id="u-page-google-font" rel="stylesheet" href="../docker-paperless-installieren-fonts.css">
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": "Ralf-Peter Kleinert",
+		"logo": "../images/BannerHintergrund1.png",
+		"sameAs": [
+				"https://www.facebook.com/ralf.peter.kleinert.81",
+				"https://www.youtube.com/@ComputerRalle",
+				"https://www.linkedin.com/in/ralf-peter-kleinert/",
+				"https://mastodon.social/@digitaleasy",
+				"https://computerralle.blogspot.com/"
+		]
+}</script>
+    <meta name="theme-color" content="#0cbcf5">
+    <meta property="og:title" content="docker-paperless-installieren">
+    <meta property="og:description" content="Schützen Sie Ihre digitale Welt vor Cyberbedrohungen. Ich bin Ihr vertrauenswürdiger Partner für Cybersicherheit. Kontaktieren Sie mich heute!">
+    <meta property="og:type" content="website">
+  <meta name="author" content="Ralf-Peter Kleinert">
+<meta name="email" content="digitaleasy@ralf-peter-kleinert.de">
+<meta name="copyright" content="Copyright © by Ralf-Peter Kleinert">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="facebook-domain-verification" content="7cwzmpfwunyhwzz0dh72lsvrhynk3y"><link rel="preconnect" href="//app.eu.usercentrics.eu">
+<link rel="preconnect" href="//api.eu.usercentrics.eu">
+<link rel="preconnect" href="//sdp.eu.usercentrics.eu">
+<link rel="preload" href="//app.eu.usercentrics.eu/browser-ui/latest/loader.js" as="script">
+<link rel="preload" href="//sdp.eu.usercentrics.eu/latest/uc-block.bundle.js" as="script">
+<script id="usercentrics-cmp" async="" data-eu-mode="true" data-settings-id="rdKSWSBTj" src="https://app.eu.usercentrics.eu/browser-ui/latest/loader.js"></script>
+<script type="application/javascript" src="https://sdp.eu.usercentrics.eu/latest/uc-block.bundle.js"></script><meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
+  <body data-path-to-root="../" data-include-products="false" class="u-body u-clearfix u-xl-mode" data-lang="de"><header class=" u-border-no-bottom u-border-no-left u-border-no-right u-border-no-top u-clearfix u-header u-section-row-container" id="header-mit-navigation-hauptmenue" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="" style="border-style: solid;"><div class="u-section-rows" style="">
+        <div class="u-border-2 u-border-custom-color-20 u-border-no-left u-border-no-right u-border-no-top u-clearfix u-custom-color-2 u-section-row u-section-row-1" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="" id="haupt-menue">
+          <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+            <nav class="u-align-left-lg u-align-left-xl u-align-right-md u-align-right-sm u-align-right-xs u-menu u-menu-dropdown u-menu-open-right u-offcanvas u-menu-1" data-responsive-from="MD" data-position="navigation-hauptmenue" role="navigation">
+              <div class="menu-collapse u-custom-font u-font-raleway" style="font-size: 1.125rem; letter-spacing: 0px; font-weight: 500;">
+                <a class="u-button-style u-custom-active-color u-custom-border u-custom-border-color u-custom-color u-custom-color-2 u-custom-effect-duration u-custom-hover-color u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-text-active-color u-custom-text-color u-custom-text-hover-color u-custom-text-shadow u-custom-text-shadow-blur u-custom-text-shadow-color u-custom-text-shadow-transparency u-custom-text-shadow-x u-custom-text-shadow-y u-custom-top-bottom-menu-spacing u-hamburger-link u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base u-hamburger-link-1" href="#" tabindex="-1" aria-label="Open menu" aria-controls="092e">
+                  <svg class="u-svg-link" viewBox="0 0 24 24"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#menu-hamburger"></use></svg>
+                  <svg class="u-svg-content" version="1.1" id="menu-hamburger" viewBox="0 0 16 16" x="0px" y="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect>
+</g></svg><span> Menü</span>
+                </a>
+              </div>
+              <div class="u-custom-menu u-nav-container">
+                <ul class="u-custom-font u-font-raleway u-nav u-spacing-2 u-unstyled u-nav-1" role="menubar"><li role="none" class="u-nav-item"><a tabindex="-1" role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="../index.html" style="padding: 12px 22px;">Start</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="../inhaltsverzeichnis.html" style="padding: 12px 22px;">Inhalt</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="../sicherheit-in-der-it.html" style="padding: 12px 22px;">IT-Sicherheit &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-2" aria-label="IT-Sicherheit > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheit-in-der-it/uebersicht-it-cyber-security.html">Übersicht: IT-Sicherheit</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheit-in-der-it/verschluesselung-von-daten.html">Verschlüsselung &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-3" aria-label="Verschlüsselung > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheit-in-der-it/verschluesselung-von-daten/cryptomator-kostenlos.html">Cryptomator Dateien verschlüsseln</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheit-in-der-it/vaultwarden-ssl-local-network.html">Vaultwarden Passwortmanager im LAN mit SSL</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheit-in-der-it/passkeys-einrichten-und-nutzen.html">Passkeys Einrichten und Nutzen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheit-in-der-it/privatpersonen.html">Privatpersonen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheit-in-der-it/unternehmen.html">Unternehmen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheit-in-der-it/it-daten-info-sicherheit.html">IT-, Daten-, Informationssicherheit</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheit-in-der-it/backups-sind-exrem-wichtig.html">Backups wichtig für IT-Sicherheit</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheit-in-der-it/keepass-anleitung.html">KeePass-Anleitung</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheit-in-der-it/keepassxc-und-proton-drive.html">KeePassXC und Proton Drive</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheit-in-der-it/iperius-backup-kostenlos.html">Iperius Backup die kostenlose Backupsoftware</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheit-in-der-it/paragon-backup-kostenlos.html">Paragon Backup kostenlose Software</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheit-in-der-it/paragon-backup-rettungsstick.html">Paragon Backup Rettungsstick erstellen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheit-in-der-it/backupkonzept-backupstrategie.html">Datensicherungskonzept und Backupstrategie</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheit-in-der-it/wie-kann-ich-daten-schuetzen.html">Wie kann ich meine Daten vor Hackern besser schützen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheit-in-der-it/sicherheit-in-social-media.html">Sicherheit in Social-Media</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheit-in-der-it/delphi-migration.html">Delphi Software Migration</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheit-in-der-it/pcloud-pass-passwort-manager.html">Passwort Manager pCloud Pass</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="../it-und-computer-beratung.html" style="padding: 12px 22px;">Beratungen &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-4" aria-label="Beratungen > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../it-und-computer-beratung/kleine-unternehmen-startups.html">IT-Dokumentationen für Unternehmen, Praxen und Universitäten</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="../windows-os.html" style="padding: 12px 22px;">Windows &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-5" aria-label="Windows > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../windows-os/computerralle-isms-docker-win.html">ISMS von ComputerRalle</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../windows-os/fernwartungssoftware-hoptodesk.html">Remote Software HopToDesk</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="../linux-os.html" style="padding: 12px 22px;">Linux &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-6" aria-label="Linux > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="paperless-backup-programm.html">Paperless Backup Programm Anleitung</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="docker-desktop-paperless.html">Paperless auf Windows installieren WSL</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="linux-webdav-dateisynchro.html">Linux WebDAV Dateisynchronisation kostenlos</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="docker-paperless-installieren.html">Paperless Docker Installation</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server.html">Linux Server &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-7" aria-label="Linux Server > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server/proxmox-pve8-to-pve9-upgrade.html">Proxmox VE 8 zu Proxmox VE 9 Upgrade</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server/uebersicht-linux-server.html">Übersicht: Linux Server</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server/gitlab-auf-linux-installieren.html">Gitlab auf Linux Debian 11 installieren</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server/proxmox-server-sichern-haerten.html">Proxmox Server absichern und härten</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server/ssh-keys-auf-linux-erzeugen.html">Proxmox SSH-Keys auf Linux erzeugen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server/ssh-keys-auf-windows-erzeugen.html">Proxmox SSH-Key auf Windows erzeugen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server/proxmox-hochverfuegbare-vm.html">Proxmox Hochverfügbarkeits-Cluster aufbauen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server/proxmox-verschluesselt-backup.html">Proxmox verschlüsseltes Backup erstellen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server/proxmox-und-pfsense-eine-ip.html">Proxmox und pfSense Firewall</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheits-anbieter/1blu-backupserver.html">1blu Storage-Server für Proxmox-Backup-Server</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server/proxmox-netzwerk-bonding.html">Netzwerk-Bonding Ausfallschutz auf Proxmox</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server/opnsense-wireguard-vpn.html">OPNsense &amp; WireGuard-Tunnel einrichten</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server/pfsense-wireguard-vpn.html">pfSense &amp; WireGuard-Tunnel einrichten</a>
+</li></ul>
+</div>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="../meine-fachbuecher.html" style="padding: 12px 22px;">Bücher &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-8" aria-label="Bücher > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/uebersicht-meine-buecher.html">Übersicht: Bücher</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/proxmox-ve9-praxisbuch.html">Proxmox VE 9 Praxisbuch</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/proxmox-ve8-praxis-buch.html">Proxmox VE 8 Praxisbuch</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/proxmox-pve-8-pbs-3-profi-buch.html">Proxmox VE 8 Proxmox BS 3 Profibuch</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/proxmox-ve-8-powerbuch.html">Proxmox VE 8 Powerbuch</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/computer-it-sicherheits-fibel.html">Computer und IT Sicherheits-Fibel</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/schluss-mit-windows.html">Schluss mit Windows - jetzt kommt Linux</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/computer-sicherheit-fuer-kmu.html">Computer-Sicherheit für kleine und mittlere Unternehmen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/die-mutter-aller-ki-buecher.html">Die Mutter aller KI Bücher</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/proxmox-firewall-buch.html">Proxmox Firewall - Verstehen Einschalten Abschotten</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/cloud-verstehen-und-nutzen.html">Cloud verstehen und nutzen kostenloses eBook</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="../sicherheits-anbieter.html" style="padding: 12px 22px;">Sicherheits-Anbieter</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-9" aria-label="Sicherheits-Anbieter menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheits-anbieter/tuta-quantensichere-mail.html">Tuta verschlüsselte Mail und Kalender</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheits-anbieter/erecht24-anwalt-siebert.html">eRecht24</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheits-anbieter/1blu-backupserver.html">1blu Backupserver</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheit-in-der-it/ashampoo-backup-pro-26.html">Ashampoo Backup Pro</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheit-in-der-it/pcloud-pass-passwort-manager.html">pCloud Passwortmanager</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="../suchen.html" style="padding: 12px 22px;">Suchen</a>
+</li></ul>
+              </div>
+              <div class="u-custom-menu u-nav-container-collapse" id="092e" role="region" aria-label="Menu panel">
+                <div class="u-container-style u-custom-color-2 u-inner-container-layout u-sidenav u-sidenav-1">
+                  <div class="u-inner-container-layout u-sidenav-overflow">
+                    <div class="u-menu-close" tabindex="-1" aria-label="Close menu"></div>
+                    <ul class="u-align-left u-custom-font u-font-raleway u-nav u-popupmenu-items u-spacing-0 u-text-active-custom-color-5 u-text-hover-custom-color-5 u-text-white u-unstyled u-nav-10" role="menubar"><li role="none" class="u-nav-item"><a tabindex="-1" role="menuitem" class="u-button-style u-nav-link" href="../index.html">Start</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../inhaltsverzeichnis.html">Inhalt</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheit-in-der-it.html">IT-Sicherheit &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-11" aria-label="IT-Sicherheit > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheit-in-der-it/uebersicht-it-cyber-security.html">Übersicht: IT-Sicherheit</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheit-in-der-it/verschluesselung-von-daten.html">Verschlüsselung &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-12" aria-label="Verschlüsselung > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheit-in-der-it/verschluesselung-von-daten/cryptomator-kostenlos.html">Cryptomator Dateien verschlüsseln</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheit-in-der-it/vaultwarden-ssl-local-network.html">Vaultwarden Passwortmanager im LAN mit SSL</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheit-in-der-it/passkeys-einrichten-und-nutzen.html">Passkeys Einrichten und Nutzen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheit-in-der-it/privatpersonen.html">Privatpersonen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheit-in-der-it/unternehmen.html">Unternehmen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheit-in-der-it/it-daten-info-sicherheit.html">IT-, Daten-, Informationssicherheit</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheit-in-der-it/backups-sind-exrem-wichtig.html">Backups wichtig für IT-Sicherheit</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheit-in-der-it/keepass-anleitung.html">KeePass-Anleitung</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheit-in-der-it/keepassxc-und-proton-drive.html">KeePassXC und Proton Drive</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheit-in-der-it/iperius-backup-kostenlos.html">Iperius Backup die kostenlose Backupsoftware</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheit-in-der-it/paragon-backup-kostenlos.html">Paragon Backup kostenlose Software</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheit-in-der-it/paragon-backup-rettungsstick.html">Paragon Backup Rettungsstick erstellen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheit-in-der-it/backupkonzept-backupstrategie.html">Datensicherungskonzept und Backupstrategie</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheit-in-der-it/wie-kann-ich-daten-schuetzen.html">Wie kann ich meine Daten vor Hackern besser schützen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheit-in-der-it/sicherheit-in-social-media.html">Sicherheit in Social-Media</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheit-in-der-it/delphi-migration.html">Delphi Software Migration</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheit-in-der-it/pcloud-pass-passwort-manager.html">Passwort Manager pCloud Pass</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../it-und-computer-beratung.html">Beratungen &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-13" aria-label="Beratungen > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../it-und-computer-beratung/kleine-unternehmen-startups.html">IT-Dokumentationen für Unternehmen, Praxen und Universitäten</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../windows-os.html">Windows &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-14" aria-label="Windows > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../windows-os/computerralle-isms-docker-win.html">ISMS von ComputerRalle</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../windows-os/fernwartungssoftware-hoptodesk.html">Remote Software HopToDesk</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-os.html">Linux &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-15" aria-label="Linux > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="paperless-backup-programm.html">Paperless Backup Programm Anleitung</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="docker-desktop-paperless.html">Paperless auf Windows installieren WSL</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="linux-webdav-dateisynchro.html">Linux WebDAV Dateisynchronisation kostenlos</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="docker-paperless-installieren.html">Paperless Docker Installation</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server.html">Linux Server &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-16" aria-label="Linux Server > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server/proxmox-pve8-to-pve9-upgrade.html">Proxmox VE 8 zu Proxmox VE 9 Upgrade</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server/uebersicht-linux-server.html">Übersicht: Linux Server</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server/gitlab-auf-linux-installieren.html">Gitlab auf Linux Debian 11 installieren</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server/proxmox-server-sichern-haerten.html">Proxmox Server absichern und härten</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server/ssh-keys-auf-linux-erzeugen.html">Proxmox SSH-Keys auf Linux erzeugen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server/ssh-keys-auf-windows-erzeugen.html">Proxmox SSH-Key auf Windows erzeugen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server/proxmox-hochverfuegbare-vm.html">Proxmox Hochverfügbarkeits-Cluster aufbauen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server/proxmox-verschluesselt-backup.html">Proxmox verschlüsseltes Backup erstellen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server/proxmox-und-pfsense-eine-ip.html">Proxmox und pfSense Firewall</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheits-anbieter/1blu-backupserver.html">1blu Storage-Server für Proxmox-Backup-Server</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server/proxmox-netzwerk-bonding.html">Netzwerk-Bonding Ausfallschutz auf Proxmox</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server/opnsense-wireguard-vpn.html">OPNsense &amp; WireGuard-Tunnel einrichten</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server/pfsense-wireguard-vpn.html">pfSense &amp; WireGuard-Tunnel einrichten</a>
+</li></ul>
+</div>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher.html">Bücher &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-17" aria-label="Bücher > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/uebersicht-meine-buecher.html">Übersicht: Bücher</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/proxmox-ve9-praxisbuch.html">Proxmox VE 9 Praxisbuch</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/proxmox-ve8-praxis-buch.html">Proxmox VE 8 Praxisbuch</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/proxmox-pve-8-pbs-3-profi-buch.html">Proxmox VE 8 Proxmox BS 3 Profibuch</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/proxmox-ve-8-powerbuch.html">Proxmox VE 8 Powerbuch</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/computer-it-sicherheits-fibel.html">Computer und IT Sicherheits-Fibel</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/schluss-mit-windows.html">Schluss mit Windows - jetzt kommt Linux</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/computer-sicherheit-fuer-kmu.html">Computer-Sicherheit für kleine und mittlere Unternehmen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/die-mutter-aller-ki-buecher.html">Die Mutter aller KI Bücher</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/proxmox-firewall-buch.html">Proxmox Firewall - Verstehen Einschalten Abschotten</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/cloud-verstehen-und-nutzen.html">Cloud verstehen und nutzen kostenloses eBook</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheits-anbieter.html">Sicherheits-Anbieter</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-18" aria-label="Sicherheits-Anbieter menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheits-anbieter/tuta-quantensichere-mail.html">Tuta verschlüsselte Mail und Kalender</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheits-anbieter/erecht24-anwalt-siebert.html">eRecht24</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheits-anbieter/1blu-backupserver.html">1blu Backupserver</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheit-in-der-it/ashampoo-backup-pro-26.html">Ashampoo Backup Pro</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheit-in-der-it/pcloud-pass-passwort-manager.html">pCloud Passwortmanager</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../suchen.html">Suchen</a>
+</li></ul>
+                  </div>
+                </div>
+                <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+              </div>
+              <style class="menu-style">@media (max-width: 1198px) {
+                    [data-responsive-from="MD"] .u-nav-container {
+                        display: none;
+                    }
+                    [data-responsive-from="MD"] .menu-collapse {
+                        display: block;
+                    }
+                }</style>
+            </nav>
+          </div>
+          
+          
+          
+          
+          
+        </div>
+        <div class="u-clearfix u-container-align-left u-section-row" id="DIGITAL-easy-Logo">
+          <div class="u-clearfix u-sheet u-sheet-2">
+            <a href="#" class="u-image u-logo u-image-1" data-image-width="2040" data-image-height="400">
+              <img src="../images/BannerHintergrund1.png" class="u-logo-image u-logo-image-1" alt="DIGITAL-easy Logo">
+            </a>
+          </div>
+          
+          
+          
+          
+          
+        </div>
+      </div></header>
+    <section class="u-clearfix u-section-1" id="kopfbild-paperless-ngx">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <img class="custom-expanded u-expanded-width-xs u-image u-image-default lazyload u-image-1" alt="Bild mit dem Schriftzug: Paperless-ngx" data-image-width="880" data-image-height="350" data-src="../images/paperless-neu-ngx-docker-installation.jpg" loading="lazy">
+      </div>
+    </section>
+    <section class="u-clearfix u-section-2" id="paperless-schritt-fuer-schritt-installation">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h1 class="u-text u-text-1"> Paperless - Das papierlose Büro mit KI unter Linux in Docker, Installationsanleitung Schritt für Schritt</h1>
+            <p class="u-text u-text-2"> Die Digitalisierung des Büros ist für viele Menschen ein großer Schritt in Richtung mehr Effizienz. Wer auf Papier verzichten möchte, benötigt eine Software, die Dokumente organisiert und verwaltet. Genau hier kommt Paperless ins Spiel. Die Open-Source-Lösung ermöglicht das automatische Sortieren und Durchsuchen von Dokumenten mithilfe von KI. In diesem Artikel zeige ich, wie Paperless in Docker auf einem Linux-System wie Debian oder Linux Mint installiert und betrieben werden kann.<br>
+            </p>
+            <p class="u-text u-text-3"> Ich habe verschiedene Szenarien getestet und die Installation für Debian- und Ubuntu-basierte Systeme optimiert. Das Vorgehen ist so einfach wie möglich gehalten: Wer einen Linux-Rechner nutzt, kann die nachfolgenden Schritte von oben nach unten ausführen und hat am Ende ein laufendes System.</p>
+            <p class="u-text u-text-4"> Paperless verwendet eine KI-gestützte Texterkennung (OCR), um eingescannte Dokumente automatisch zu verschlagworten und zu kategorisieren. Das bedeutet, dass Rechnungen, Verträge und andere Schriftstücke schnell auffindbar sind, ohne manuell Ordnerstrukturen zu verwalten. Durch die Nutzung von Docker ist das System zudem leicht wartbar und kann bei Bedarf unkompliziert aktualisiert werden.</p>
+            <p class="u-text u-text-5"> Die Vorteile eines papierlosen Büros liegen auf der Hand: weniger Chaos, schnellere Suche und eine digitale Ablage, die jederzeit und von überall zugänglich ist. Paperless bietet dabei eine vollständige Selbstverwaltung, ohne dass Daten in einer Cloud gespeichert werden müssen. Die Sicherheit bleibt in der eigenen Hand.</p>
+            <p class="u-text u-text-6">Nach der Installation steht eine webbasierte Benutzeroberfläche zur Verfügung, in der Dokumente hochgeladen, durchsucht und organisiert werden können.</p>
+            <p class="u-text u-text-7"> Die Kombination aus Open Source, KI-gestützter Dokumentenerkennung und einfacher Handhabung macht Paperless zu einer attraktiven Lösung für alle, die Ordnung in ihr digitales Büro bringen wollen.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-3" id="inhaltsmenue-paperless-docker">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-10 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <p class="u-large-text u-text u-text-default u-text-variant u-text-1"> Inhalte des Artikels Paperless Docker Installation</p>
+            <ol class="u-align-left u-spacing-12 u-text u-text-2">
+              <li>
+                <a href="docker-paperless-installieren.html#paperless-nicht-im-internet-betreiben" data-page-id="2792320538" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Paperless im Internet betreiben? Nein!</a>
+              </li>
+              <li>
+                <a href="docker-paperless-installieren.html#sicherheit-ist-am-wichtigsten" data-page-id="2792320538" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-2"> Sicherheit hat höchste Priorität!</a>
+              </li>
+              <li>
+                <a href="docker-paperless-installieren.html#paperless-auf-proxmox" data-page-id="2792320538" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-3"> Paperless auf Proxmox</a>
+              </li>
+              <li>
+                <a href="docker-paperless-installieren.html#paperless-linux-mint-21-install" data-page-id="2792320538" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-4"> Paperless auf Linux Mint 21 Vanessa Installation - Schritt für Schritt</a>
+              </li>
+              <li>
+                <a href="docker-paperless-installieren.html#paperless-linux-debian-bookworm-vm-install" data-page-id="2792320538" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-5">Paperless als eigene VM installieren und warum<br>
+                </a>
+              </li>
+              <li>
+                <a href="docker-paperless-installieren.html#paperless-vm-vorteile" data-page-id="2792320538" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-6"> Vorteil eine Perperless-VM</a>
+              </li>
+              <li>
+                <a href="docker-paperless-installieren.html#paperless-vm-nachteile" data-page-id="2792320538" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-7"> Nachteil eine Perperless-VM</a>
+              </li>
+              <li>
+                <a href="docker-paperless-installieren.html#paperless-debian-install-schritt-fuer-schritt" data-page-id="2792320538" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-8">Paperless in VM installieren Schritt für Schritt<br>
+                </a>
+              </li>
+              <li>
+                <a href="docker-paperless-installieren.html#erklaerung-der-befehle" data-page-id="2792320538" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-9"> Erklärung der Befehle</a>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="skrollable u-clearfix u-section-4" id="wichtige-info" data-image-width="2000" data-image-height="1333">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-4 u-border-custom-color-13 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-95 u-group-1" data-animation-name="jello" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">
+          <div class="u-container-layout u-container-layout-1">
+            <p class="u-large-text u-text u-text-default-lg u-text-default-md u-text-default-sm u-text-default-xl u-text-variant u-text-1">Wichtige Information zu diesem Artikel</p>
+            <p class="u-text u-text-default u-text-2">Es gibt nun eine neue Version der Software, die ich selbst entwickelt habe. Das Programm, welches Paperless-ngx jetzt auch auf Windows installieren, sichern, wiederherstellen und migrieren kann. Lesen Sie <a href="paperless-backup-programm.html" data-page-id="2451422025" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1" title="Paperless Backup Programm Artikel und Anleitung">zum neuen Paperless Backup Programm diesen Artikel</a> und holen Sie sich das Tool.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-5" id="paperless-nicht-im-internet-betreiben">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h2 class="u-text u-text-1"> Paperless im Internet betreiben?&nbsp;Ein klares Nein zur Cloud-Lösung</h2>
+            <p class="u-text u-text-2"> Paperless-ngx ist eine großartige Software, wenn es darum geht, Dokumente digital zu verwalten und mit einer KI automatisch zu sortieren. Doch ich rate ausdrücklich davon ab, Paperless im Internet zu betreiben. Warum? Weil Dokumente – egal ob privat oder geschäftlich – extrem sensible Daten enthalten und nicht unnötig einem Risiko ausgesetzt werden sollten.<br>
+            </p>
+            <p class="u-text u-text-3"> Paperless ist eine Bürosoftware – nicht für das Internet gemacht</p>
+            <p class="u-text u-text-4"> Paperless-ngx ist dafür gedacht, lokal auf einem Computer oder maximal im internen Netzwerk eines Büros zu laufen. Es ist keine klassische Cloud-Anwendung, die dafür entwickelt wurde, im Internet erreichbar zu sein. Wenn Sie versuchen, Paperless von außen zugänglich zu machen, müssen Sie sich über erhebliche Sicherheitsrisiken im Klaren sein.</p>
+            <p class="u-text u-text-5"> Die technischen Herausforderungen bei einem Internet-Betrieb</p>
+            <p class="u-text u-text-6"> Wer Paperless-ngx doch im Internet betreiben will, muss eine Reihe von Sicherheitsmaßnahmen treffen, die nicht trivial sind:</p>
+            <ol class="u-text u-text-7">
+              <li> Reverse Proxy mit SSL-Verschlüsselung: Damit Paperless sicher über HTTPS erreichbar ist, muss ein Reverse Proxy wie Nginx oder Traefik eingerichtet werden. Das klingt einfach, ist es aber nicht, weil Zertifikate und Weiterleitungen korrekt konfiguriert werden müssen.</li>
+              <li>Absicherung von Docker, Linux und Paperless selbst: Ein offenes Paperless-System im Internet ist eine Einladung für Angreifer. Docker selbst muss gesichert werden, Paperless braucht regelmäßige Updates, und die gesamte Linux-Umgebung muss gehärtet werden. Ohne ausreichende Kenntnisse in IT-Sicherheit kann das schnell nach hinten losgehen.</li>
+              <li>Angriffsfläche bleibt bestehen: Selbst wenn alles richtig abgesichert wurde, bleibt Paperless-ngx ein attraktives Ziel für Angriffe. Sicherheitslücken in Docker, Paperless oder dem zugrunde liegenden Betriebssystem könnten ausgenutzt werden, um an Ihre sensiblen Dokumente zu gelangen.</li>
+            </ol>
+            <p class="u-text u-text-8"> Langsame Übertragungen – ein weiteres Problem</p>
+            <p class="u-text u-text-9"> Ein weiteres Argument gegen den Internet-Betrieb ist die Geschwindigkeit. Wenn große Mengen an Dokumenten hoch- und heruntergeladen werden, zieht sich das in die Länge. Lokal hingegen sind Dokumente sofort verfügbar, ohne dass eine Internetverbindung benötigt wird.</p>
+            <p class="u-text u-text-10"> Die beste Lösung: Paperless lokal oder im Büro-Netzwerk betreiben</p>
+            <p class="u-text u-text-11"> Wer Paperless-ngx sinnvoll nutzen will, sollte es lokal auf seinem Rechner oder einem kleinen Server im Büro-Netzwerk installieren. So bleiben die Dokumente sicher und die Software läuft stabil und schnell, ohne dass man sich mit komplizierten Sicherheitsmaßnahmen herumschlagen muss.</p>
+            <p class="u-text u-text-12"> Paperless ist kein Cloud-Dienst und sollte auch nicht als solcher genutzt werden. Setzen Sie auf eine lokale Installation – das ist sicherer, schneller und verhindert unangenehme Überraschungen.<br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-6" id="zurueck-zum-inhaltsmenue-1">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="docker-paperless-installieren.html#inhaltsmenue-paperless-docker" data-page-id="2792320538" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Zurück zum Inhalts Menü</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-7" id="sicherheit-ist-am-wichtigsten">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h3 class="u-text u-text-1">Sicherheit hat höchste Priorität!</h3>
+            <p class="u-text u-text-2"> Ich beschäftige mich intensiv mit IT-Sicherheit – und das schon seit vielen Jahren. Genau deshalb werde ich keine Anleitung bereitstellen, die zeigt, wie man Paperless-ngx im Internet betreibt und von außen erreichbar macht. Warum? Weil ich es schlicht für keine gute Idee halte, sensible Dokumente unnötig einem Risiko auszusetzen.<br>
+            </p>
+            <p class="u-text u-text-3"> Paperless-ngx ist eine Software für das papierlose Büro – eine Lösung, die auf einem lokalen Rechner oder im internen Netzwerk läuft. Es ist nicht dafür gedacht, über das Internet erreichbar zu sein, und das aus gutem Grund. In der Standardinstallation gibt es keine eingebaute Unterstützung für SSL-Verschlüsselung, was bedeutet, dass eine sichere HTTPS-Verbindung erst umständlich über einen Reverse Proxy eingerichtet werden müsste. Und selbst dann bleibt das System angreifbar, wenn nicht weitere umfassende Schutzmaßnahmen getroffen werden.</p>
+            <p class="u-text u-text-4"> Ich sehe keinen Sinn darin, Menschen eine Anleitung in die Hand zu geben, mit der sie ihre vertraulichen Dokumente potenziell ungeschützt ins Internet laden. Die Risiken sind einfach zu hoch. Ein offenes Paperless-System im Netz wäre ein attraktives Ziel für Hacker, und wenn es nicht professionell abgesichert ist, könnten Angreifer Zugriff auf Rechnungen, Verträge oder andere persönliche Daten erhalten. Das ist eine Verantwortung, die ich nicht übernehme.</p>
+            <p class="u-text u-text-5"> Wer Paperless nutzen möchte, sollte es lokal auf seinem Computer oder in einem sicheren, internen Netzwerk betreiben. Das ist nicht nur sicherer, sondern auch schneller und zuverlässiger. Alles andere ist ein unnötiges Sicherheitsrisiko, das niemand eingehen sollte.<br>
+            </p>
+            <p class="u-text u-text-6"> Wer Paperless-ngx doch im Internet betreiben will, muss eine Reihe von Sicherheitsmaßnahmen treffen, die nicht trivial sind:</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-8" id="zurueck-zum-inhaltsmenue-2">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="docker-paperless-installieren.html#inhaltsmenue-paperless-docker" data-page-id="2792320538" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Zurück zum Inhalts Menü</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-9" id="paperless-auf-proxmox">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h4 class="u-text u-text-1">Paperless auf Proxmox</h4>
+            <p class="u-text u-text-2"> Auf meinem YouTube-Kanal haben einige User gefragt, ob ich die Installation von Paperless auf Proxmox zeigen kann. Das werde ich tun. Allerdings nicht, um Paperless im Internet zu betreiben. Das Video wird sich darauf konzentrieren, Paperless innerhalb eines Proxmox-Systems zu installieren, das entweder in einer Firma oder zu Hause läuft und über das lokale Netzwerk bereitgestellt wird.<br>
+            </p>
+            <p class="u-text u-text-3"> Ich werde im Video ausdrücklich davon abraten, eine Paperless-Instanz im Internet zu betreiben. Jeder, der darüber nachdenkt, sollte sich sehr genau überlegen, ob es wirklich notwendig ist, seine Dokumente – oder noch schlimmer, Dokumente von anderen –, Verträge, Kontodaten und andere sensible Informationen einer solchen Gefahr auszusetzen. Es gibt keinen guten Grund, dieses Risiko einzugehen.</p>
+            <p class="u-text u-text-4"> Lassen Sie es bleiben! Paperless gehört ins lokale Netzwerk und nicht ins Internet. Wer eine sichere und schnelle Lösung sucht, fährt mit einer lokalen Installation auf Proxmox deutlich besser.<br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-10" id="zurueck-zum-inhaltsmenue-3">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="docker-paperless-installieren.html#inhaltsmenue-paperless-docker" data-page-id="2792320538" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Zurück zum Inhalts Menü</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-11" id="newsletter-abonnieren">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-align-left u-border-4 u-border-custom-color-20 u-container-align-left u-container-align-left-lg u-container-align-left-md u-container-align-left-sm u-container-align-left-xl u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-90 u-group-1" data-animation-out="0">
+          <div class="u-container-layout u-valign-bottom-lg u-valign-bottom-md u-valign-bottom-sm u-valign-top-xl u-container-layout-1">
+            <p class="u-large-text u-text u-text-variant u-text-1">Kostenlose IT-Sicherheits-Bücher &amp; Information via Newsletter</p>
+            <p class="u-text u-text-default-lg u-text-default-md u-text-default-sm u-text-default-xl u-text-2"> Bleiben Sie informiert, wann es meine Bücher kostenlos in einer Aktion gibt: <a href="../newsletter.html" data-page-id="103346126" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1">Mit meinem Newsletter</a> erfahren Sie viermal im Jahr von Aktionen auf Amazon und anderen Plattformen, bei denen meine IT-Sicherheits-Bücher gratis erhältlich sind. Sie verpassen keine Gelegenheit und erhalten zusätzlich hilfreiche Tipps zur IT-Sicherheit. Der Newsletter ist kostenlos und unverbindlich – einfach abonnieren und profitieren!<br>
+            </p>
+            <div class="u-border-3 u-border-grey-dark-1 u-expanded-width u-line u-line-horizontal u-line-1"></div>
+            <a href="../newsletter.html" data-page-id="103346126" class="u-align-center u-btn u-button-style u-custom-color-20 u-hover-custom-color-3 u-btn-2" target="_blank" title="Zur Newsletter-Anmeldeseite von Ralf-Peter Kleinert">Zur Anmeldung</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-12" id="achtung-hetzner-rescue">
+      <div class="u-clearfix u-sheet u-valign-middle-lg u-valign-middle-md u-valign-middle-sm u-valign-middle-xl u-sheet-1">
+        <div class="u-border-2 u-border-grey-10 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <p class="u-large-text u-text u-text-default-lg u-text-default-md u-text-default-sm u-text-default-xl u-text-variant u-text-1"><b>Achtung</b>
+            </p>
+            <p class="u-text u-text-2"><i>Achtung. Keine Garantie auf Vollständigkeit. Eingriffe an 
+Linux-Servern, können bei Unachtsamkeit oder Fehlern zu einem 
+Datenverlust führen. Auch kann man sich aussperren, wenn man die 
+Firewall, Ports, Netzwerke oder Konfigurationen falsch einstellt. Wenn 
+Sie keine Erfahrung mit Linux haben, sollten Sie am besten zunächst die 
+Finger davon lassen und sich erst mal an Linux rantasten. Die unten 
+stehenden Anleitungen sind getestet und Funktionieren. Wenn Sie allerdings etwas nicht richtig machen, dann sperren Sie sich womöglich im
+ Bereich SSH oder Firewall aus!</i>
+              <br>
+            </p>
+            <p class="u-text u-text-3"> Linux Befehle nicht einfach blind in die Konsole eingeben. Es ist immer zu Prüfen, welche Linux- und Proxmox-Version verwendet werden. Auch ist die Netzwerk-, IP-, Server- und Umgebungskonfiguration ausschlaggebend, ob und wie die hier angegebenen Tipps angewendet werden können. Es sollte sich auch mit jedem Punkt einzeln und intensiv befasst werden. Man kann nicht einfach alles "abarbeiten" und dann läuft es. Proxmox abzusichern braucht Zeit und muss mit äußerster Vorsicht vonstatten gehen. Außerdem ist die Sicherheit von Servern ein dauernder Prozess. Alles einrichten und die Kellertür zuknallen, ist nicht.&nbsp;</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-13" id="zurueck-zum-inhaltsmenue-4">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="docker-paperless-installieren.html#inhaltsmenue-paperless-docker" data-page-id="2792320538" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Zurück zum Inhalts Menü</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-14" id="paperless-linux-mint-21-install">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h5 class="u-text u-text-1">Paperless auf Linux Mint 21 Vanessa Installation - Schritt für Schritt</h5>
+            <p class="u-text u-text-2"> Sie können diese Befehle einen nach dem anderen in Linux Mint eingeben. Ich habe das getestet, und nachdem die Installation und die darauffolgende Konfiguration abgeschlossen ist, lässt sich Paperless sofort über localhost:8000 im Browser aufrufen und nutzen. Hier ist zu beachten, dass dieses Vorgehen auf Linux Mint Vanessa zugeschnitten ist. Ich habe viele Tests gemacht und festgestellt, dass es zwischen den einzelnen Linuxversionen starke Abweichungen in der Installation gibt. Deswegen habe ich mich entschieden, weiter unten im Artikel noch einmal die Installation für Linux Debian 12 Bookworm zu thematisieren. Auch werde ich ein Video dazu auf meinem YouTube-Kanal veröffentlichen.<br>
+            </p>
+            <p class="u-text u-text-3"> Alles läuft unter Linux Mint 21 Vanessa, direkt nach der Einrichtung, ohne dass weitere Anpassungen nötig sind. Paperless ist dann sofort einsatzbereit und kann Dokumente verwalten, durchsuchen und sortieren.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-15" id="paperless-installieren-befehle">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-group u-opacity u-opacity-55 u-shape-rectangle u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <div class="u-clearfix u-custom-html u-expanded-width u-custom-html-1">
+              <pre id="code-block-1" class="code-style"></pre>
+              <script> fetch('../text-dateien/paperless-docker/docker-paperless-intallation-linux.txt')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("code-block-1").textContent = data;
+        })
+        .catch(error => console.error('Fehler beim Laden der Datei:', error)); </script>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-16" id="zurueck-zum-inhaltsmenue-5">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="docker-paperless-installieren.html#inhaltsmenue-paperless-docker" data-page-id="2792320538" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Zurück zum Inhalts Menü</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-17" id="proxmox-fachbuch-auflage-4">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="custom-expanded data-layout-selected u-clearfix u-gutter-0 u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout" style="">
+            <div class="u-layout-row" style="">
+              <div class="u-align-center u-container-align-center u-container-style u-layout-cell u-left-cell u-opacity u-opacity-30 u-palette-2-base u-shape-rectangle u-size-30 u-size-xs-60 u-layout-cell-1" src="">
+                <div class="u-container-layout u-valign-bottom-sm u-valign-bottom-xs u-container-layout-1"><span class="u-align-center u-file-icon u-icon u-icon-1" data-animation-name="customAnimationIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction=""><img src="../images/2972169.png" alt=""></span>
+                  <h4 class="u-align-center u-text u-text-1"> Proxmox VE 8 Praxisbuch</h4>
+                  <p class="u-align-center u-text u-text-2"> Informationen, Tipps und Tricks für Proxmox-Einsteiger und Fortgeschrittene - umfassend überarbeitete Ausgabe 4 mit 450 Seiten Proxmox-Wissen</p>
+                  <a href="https://www.amazon.de/dp/B0DPJ99CRS" class="btn-ralf u-align-center u-btn u-button-style u-hover-palette-1-dark-1 u-palette-1-base u-btn-1" target="_blank">Buch auf Amazon </a>
+                  <div class="u-shape u-shape-svg u-text-custom-color-44 u-shape-1">
+                    <svg class="u-svg-link" preserveAspectRatio="none" viewBox="0 0 150 160" style=""><use xlink:href="#svg-cbc7"></use></svg>
+                    <svg class="u-svg-content" viewBox="0 0 150 160" x="0px" y="0px" id="svg-cbc7"><path d="M150,96.6c0-6.9-3.8-10.1-7.4-11.7c2.9-2.5,4.7-6.3,4.7-10.4c0-7.6-6.1-13.8-13.6-13.8H94.5l2-9.4
+	c2.7-12.5,0.9-26.8,0.3-30.9C95.4,10.8,87,0,77.8,0h-0.7c-4.4,0-11.7,2.5-11.7,19.3c0,40.9-18.2,41.4-19.1,41.4l0,0h-2.7v-5.5H0V160
+	h43.6v-5.5H120c7.5,0,13.6-6.2,13.6-13.8c0-3.2-1.1-6.2-2.9-8.5c6.3-1.2,11.1-6.8,11.1-13.6c0-3.2-1.1-6.2-2.9-8.5
+	C145.2,108.9,150,103.3,150,96.6z"></path></svg>
+                  </div>
+                  <p class="u-align-center u-text u-text-custom-color-44 u-text-3">NEU</p>
+                </div>
+              </div>
+              <div class="u-align-center u-container-align-center u-container-style u-layout-cell u-right-cell u-size-30 u-size-xs-60 u-layout-cell-2" src="">
+                <div class="u-container-layout u-valign-bottom u-container-layout-2" src="">
+                  <img class="u-expanded-width u-image lazyload u-image-1" data-image-width="500" data-image-height="800" data-href="https://www.amazon.de/dp/B0DPJ99CRS" data-target="_blank" alt="Proxmox Fachbuch von Ralf-Peter Kleinert Auflage 3" data-src="../images/WebsiteCoverProxmoxVE8Aufl4.jpg" loading="lazy">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-18" id="paperless-linux-debian-bookworm-vm-install">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h2 class="u-text u-text-1">Paperless als eigene VM installieren und warum</h2>
+            <p class="u-text u-text-2"> Paperless, das papierlose Büro, ist derzeit in aller Munde, und scheinbar möchte jeder es nutzen. Auf YouTube und per E-Mail erhalte ich immer wieder Anfragen, ob ich eine Installationsanleitung veröffentlichen oder Paperless selbst einrichten kann. Weiter oben habe ich bereits eine Anleitung für Linux Mint Vanessa erstellt, die zuverlässig funktioniert. Dennoch stelle ich fest, dass selbst technisch versierte Nutzer, die täglich mit Computern arbeiten, bei der Nutzung von Paperless auf Schwierigkeiten stoßen.<br>
+            </p>
+            <p class="u-text u-text-3"> Ich habe umfassende Tests durchgeführt und Paperless unter Linux Mint, Debian sowie auf verschiedenen Windows-Systemen installiert. Dabei wurde mir schnell bewusst, dass selbst für jemanden, der täglich Computer einrichtet und programmiert, die Installation von Paperless eine Herausforderung darstellt.</p>
+            <p class="u-text u-text-4"> Die Installation von Docker unter Linux erwies sich bei den verschiedenen Distributionen als äußerst problematisch. Unter Windows mit Docker Desktop stieß ich ebenfalls auf Schwierigkeiten: Aufgrund der parallelen Nutzung von VMware und VirtualBox kam es nach der Installation von Docker Desktop in der Standard-HyperV-Konfiguration sofort zu Konflikten, sodass Docker überhaupt nicht starten konnte.<br>
+            </p>
+            <p class="u-text u-text-5"> Nachdem ich Paperless mit großen Schwierigkeiten zum Laufen gebracht hatte, lud ich meine Dokumente in das System und stellte fest, dass Paperless selbst sehr gut funktionierte. Da ich jedoch YouTube-Anleitungen und Tutorials erstelle, die auch normalen Nutzern den einfachsten Weg aufzeigen sollen, teste ich meine Umgebung entsprechend. Ich habe meinen Computer – unabhängig von der verwendeten Betriebssystemversion – absichtlich extrem belastet und dabei Viren sowie Hardwaredefekte simuliert. Auch die Backup- und Wiederherstellungsprozesse von Paperless habe ich eingehend getestet. Dabei zeigte sich, dass nichts reibungslos funktionierte: Die Wiederherstellung erwies sich als viel zu kompliziert, und zuvor musste ich erneut mühsam Docker und Paperless installieren.</p>
+            <p class="u-text u-text-6"> Ich habe mir auch ein Paperless-Buch gekauft. Die Anweisungen darin haben jedoch nicht funktioniert – nicht, weil sie grundsätzlich falsch waren, sondern weil nicht angegeben wurde, für welche Linux-Version sie gelten sollten. Daher habe ich einen Workaround entwickelt, der normalen Nutzern und Nutzerinnen die Möglichkeit bietet, Paperless zu verwenden, ohne sich Gedanken über Backup und Wiederherstellung von Docker und Paperless machen zu müssen.</p>
+            <p class="u-text u-text-7">Einmal installieren muss sein</p>
+            <p class="u-text u-text-8"> Jedoch kommt der Benutzer bzw. die Benutzerin nicht darum herum, die Installation einmal durchzuführen. Ich habe den Prozess jedoch so einfach wie möglich gestaltet.</p>
+            <p class="u-text u-text-9"><span style="font-weight: 700;"> Schritt 1:</span> Sie benötigen eine virtuelle Umgebung. Mein Video basiert auf VMware, allerdings können Sie auch VirtualBox, HyperV oder Proxmox verwenden. Anschließend installieren wir eine virtuelle Maschine mit Debian Bookworm – in dieser gesamten Maschine wird Paperless betrieben.
+            </p>
+            <p class="u-text u-text-10"> Der Hintergrund: Paperless verarbeitet Ihre Dokumente, Verträge, Texte, Dateien und PDFs – also Ihre persönlichen, wichtigen Daten. Diese benötigen einen erhöhten Schutz und eine hohe Ausfallsicherheit. Deshalb erhält Paperless seine eigene Umgebung, sein eigenes Betriebssystem und seine eigene virtuelle Maschine.<br>
+            </p>
+            <p class="u-text u-text-11">Dann spielt es keine Rolle, ob Ihr Host, also das Muttersystem, ausfällt, eine Festplatte defekt ist oder ein anderes Problem auftritt. Paperless läuft in einer eigenen virtuellen Maschine, für die regelmäßig ein oder mehrere Backups erstellt werden. Diese VM können Sie problemlos auf ein anderes System importieren, ohne die Paperless-Installation erneut vornehmen zu müssen. Einfach die VM auf einem anderen PC starten – und schon stehen Ihnen alle Ihre Dokumente und Einstellungen in Paperless zur Verfügung, ohne dass Sie die komplizierte Einrichtung wiederholen müssen.<br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-19" id="zurueck-zum-inhaltsmenue-7">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="docker-paperless-installieren.html#inhaltsmenue-paperless-docker" data-page-id="2792320538" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Zurück zum Inhalts Menü</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-20" id="paperless-vm-vorteile">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="custom-expanded u-container-style u-custom-color-19 u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h3 class="u-text u-text-default u-text-1">Vorteil eine Perperless-VM</h3>
+            <p class="u-text u-text-default u-text-2"> Der absolute Vorteil einer eigenen virtuellen Maschine – also eines dedizierten Computers für Paperless – liegt auf der Hand. Sie müssen die Installation nur einmal durchführen und können diese VM anschließend auf jedem anderen System importieren, auf dem der Hypervisor wie VMware, VirtualBox, HyperV oder Proxmox installiert ist, in dem Sie ihre Paperless-VM installiert haben. Dadurch entfällt die mühsame Wiederholung der Einrichtung, und Sie können das gesamte System sauber sichern sowie problemlos transportieren.<br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-21" id="zurueck-zum-inhaltsmenue-8">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="docker-paperless-installieren.html#inhaltsmenue-paperless-docker" data-page-id="2792320538" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Zurück zum Inhalts Menü</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-22" id="paperless-vm-nachteile">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="custom-expanded u-container-style u-custom-color-19 u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h3 class="u-text u-text-default u-text-1"> Nachteil eine Perperless-VM</h3>
+            <p class="u-text u-text-default u-text-2"> Der einzige Nachteil einer virtuellen Maschine für Paperless liegt in der Größe des Backups. Haben Sie beispielsweise eine 100-GB-VM eingerichtet, benötigt das Backup ebenfalls 100 GB Speicherplatz. Ich persönlich sehe dies jedoch nicht als Nachteil, denn dieser Speicheraufwand ist ein kleiner Preis im Vergleich zu einer Neuinstallation oder dem Verlust aller Paperless-Einstellungen. Glauben Sie mir: Wenn Ihr PC einmal ausfällt und Sie dank einer Paperless-VM problemlos auf einen neuen Rechner umsteigen können, werden Sie mir für diesen Tip einen Präsentkorb mit Salami, Brot und Sekt an mich senden.<br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-23" id="zurueck-zum-inhaltsmenue-9">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="docker-paperless-installieren.html#inhaltsmenue-paperless-docker" data-page-id="2792320538" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Zurück zum Inhalts Menü</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-24" id="paperless-debian-install-schritt-fuer-schritt">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="custom-expanded u-container-style u-custom-color-19 u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h3 class="u-text u-text-default u-text-1">Paperless in VM installieren Schritt für Schritt</h3>
+            <p class="u-text u-text-default u-text-2"> Nun habe ich hier die Schritt-für-Schritt-Anleitung, um Paperless in einer Debian Bookworm-VM zu installieren und einzurichten. Dank dieser Anleitung müssen Sie dies vorerst nur einmal tun und können die VM überall verwenden. Irgendwann, wenn neue Linux-Versionen und Paperless-Versionen erscheinen, werde ich diese Anleitung entsprechend anpassen. Debian 12 erhält bis Juni 2028 Updates. Bis dahin haben Sie aber dann Ruhe.<br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-25" id="paperless-installieren-befehle-bookworm">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-group u-opacity u-opacity-55 u-shape-rectangle u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <div class="u-clearfix u-custom-html u-expanded-width u-custom-html-1">
+              <pre id="code-block-2" class="code-style"></pre>
+              <script> fetch('../text-dateien/paperless-docker/paperless-in-debian-vm-installieren.txt')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("code-block-2").textContent = data;
+        })
+        .catch(error => console.error('Fehler beim Laden der Datei:', error)); </script>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-26" id="zurueck-zum-inhaltsmenue-10">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="docker-paperless-installieren.html#inhaltsmenue-paperless-docker" data-page-id="2792320538" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Zurück zum Inhalts Menü</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-27" id="erklaerung-der-befehle">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h4 class="u-text u-text-1">Erklärung der Befehle</h4>
+            <p class="u-text u-text-2"> Installation von Docker und notwendigen Werkzeugen<br>
+            </p>
+            <p class="u-text u-text-3"> Befehl:<br>sudo apt install docker.io curl net-tools -y
+            </p>
+            <p class="u-text u-text-4"> Dieser Befehl installiert Docker und zusätzliche Pakete wie Curl und Net-Tools. Curl wird benötigt, um Installationsskripte herunterzuladen, und Net-Tools enthält nützliche Netzwerkwerkzeuge.</p>
+            <p class="u-text u-text-5"> Docker-Installationsskript herunterladen</p>
+            <p class="u-text u-text-6"> Befehl:<br>sudo curl -fsSL https://get.docker.com -o get-docker.sh
+            </p>
+            <p class="u-text u-text-7"> Dieser Befehl lädt das offizielle Docker-Installationsskript von Docker herunter und speichert es unter dem Namen „get-docker.sh“.</p>
+            <p class="u-text u-text-8"> Docker-Installationsskript ausführen</p>
+            <p class="u-text u-text-9"> Befehl:<br>sudo sh get-docker.sh
+            </p>
+            <p class="u-text u-text-10"> Hier wird das zuvor heruntergeladene Skript ausgeführt, um Docker automatisch zu installieren.</p>
+            <p class="u-text u-text-11"> Nachdem Docker installiert wurde, sollte man kurz warten, damit alle Dienste ordnungsgemäß gestartet sind.</p>
+            <p class="u-text u-text-12"> Docker beim Systemstart aktivieren</p>
+            <p class="u-text u-text-13"> Befehl:<br>sudo systemctl enable docker
+            </p>
+            <p class="u-text u-text-14"> Damit Docker automatisch mit dem System startet, wird dieser Befehl ausgeführt.</p>
+            <p class="u-text u-text-15"> Docker sofort starten</p>
+            <p class="u-text u-text-16"> Befehl:<br>sudo systemctl start docker
+            </p>
+            <p class="u-text u-text-17"> Falls Docker nach der Installation noch nicht läuft, wird es hiermit direkt gestartet.</p>
+            <p class="u-text u-text-18"> Docker Compose herunterladen</p>
+            <p class="u-text u-text-19"> Befehl:<br>sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+            </p>
+            <p class="u-text u-text-20"> Hier wird die neueste Version von Docker Compose von GitHub heruntergeladen und unter /usr/local/bin gespeichert.</p>
+            <p class="u-text u-text-21"> Docker Compose ausführbar machen</p>
+            <p class="u-text u-text-22"> Befehl:<br>sudo chmod +x /usr/local/bin/docker-compose
+            </p>
+            <p class="u-text u-text-23"> Damit das heruntergeladene Docker Compose-Skript ausgeführt werden kann, werden die entsprechenden Berechtigungen gesetzt.</p>
+            <p class="u-text u-text-24"> Symbolischen Link für Docker Compose erstellen</p>
+            <p class="u-text u-text-25"> Befehl:<br>sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+            </p>
+            <p class="u-text u-text-26"> Dieser Befehl erstellt eine Verknüpfung, sodass der Befehl „docker-compose“ systemweit genutzt werden kann.</p>
+            <p class="u-text u-text-27"> Eigenen Benutzer zur Docker-Gruppe hinzufügen</p>
+            <p class="u-text u-text-28"> Befehl:<br>sudo usermod -a -G docker ralf-peter-kleinert
+            </p>
+            <p class="u-text u-text-29"> Hier wird der Benutzer zur Docker-Gruppe hinzugefügt, damit Docker-Befehle auch ohne Root-Rechte ausgeführt werden können. Dabei muss der eigene Benutzername anstelle von „ralf-peter-kleinert“ angegeben werden.</p>
+            <p class="u-text u-text-30"> Überprüfung, ob Docker läuft</p>
+            <p class="u-text u-text-31"> Befehl:<br>sudo systemctl status docker
+            </p>
+            <p class="u-text u-text-32"> Mit diesem Befehl wird überprüft, ob der Docker-Dienst erfolgreich gestartet wurde.</p>
+            <p class="u-text u-text-33"> Verzeichnis für Paperless erstellen</p>
+            <p class="u-text u-text-34"> Befehl:<br>sudo mkdir /opt/paperless
+            </p>
+            <p class="u-text u-text-35"> Dieser Befehl erstellt das Verzeichnis, in dem Paperless gespeichert wird.</p>
+            <p class="u-text u-text-36"> Eigene Benutzerrechte für das Paperless-Verzeichnis setzen</p>
+            <p class="u-text u-text-37"> Befehl:<br>sudo chown ralf-peter-kleinert:ralf-peter-kleinert /opt/paperless
+            </p>
+            <p class="u-text u-text-38"> Hier wird sichergestellt, dass der eigene Benutzer Schreibrechte auf das Paperless-Verzeichnis hat. Dabei muss „ralf-peter-kleinert“ durch den eigenen Benutzernamen ersetzt werden.</p>
+            <p class="u-text u-text-39"> Berechtigungen für die Docker-Socket-Datei setzen</p>
+            <p class="u-text u-text-40"> Befehl:<br>sudo chmod 666 /run/docker.sock
+            </p>
+            <p class="u-text u-text-41"> Damit Docker ohne Root-Rechte verwendet werden kann, wird hier die Berechtigung für die Docker-Socket-Datei angepasst.</p>
+            <p class="u-text u-text-42"> Paperless-Installation starten</p>
+            <p class="u-text u-text-43"> bash -c "$(curl --location --silent --show-error https://raw.githubusercontent.com/paperless-ngx/paperless-ngx/main/install-paperless-ngx.sh)"</p>
+            <p class="u-text u-text-44"> Dieser Befehl startet die Installation von Paperless-ngx. Das Installationsskript wird von der offiziellen Paperless-ngx-Quelle geladen und ausgeführt. Dieser Befehl muss als normaler Benutzer eingegeben werden, nicht als Root.</p>
+            <p class="u-text u-text-45"> Nach Abschluss der Installation ist Paperless über localhost:8000 erreichbar und kann genutzt werden.<br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-28" id="zurueck-zum-inhaltsmenue-11">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="docker-paperless-installieren.html#inhaltsmenue-paperless-docker" data-page-id="2792320538" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Zurück zum Inhalts Menü</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-29" id="ueber-mich-ueber-den-autor">
+      <div class="u-clearfix u-sheet u-valign-top-md u-valign-top-sm u-valign-top-xs u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <div class="custom-expanded data-layout-selected u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+              <div class="u-layout">
+                <div class="u-layout-row">
+                  <div class="u-container-style u-layout-cell u-size-23-lg u-size-23-xl u-size-25-md u-size-25-sm u-size-25-xs u-layout-cell-1">
+                    <div class="u-container-layout u-valign-top-xs u-container-layout-2">
+                      <img class="u-expanded-width u-image lazyload u-image-1" data-image-width="1974" data-image-height="2521" alt="Ralf-Peter Kleinert - Buchautor für IT-Sichereit, Computersicherheit und Cybersecurity" data-src="../images/Ralf-PeterKleinertIchaktuellesPortrait2024.webp" loading="lazy">
+                    </div>
+                  </div>
+                  <div class="u-container-style u-layout-cell u-size-35-md u-size-35-sm u-size-35-xs u-size-37-lg u-size-37-xl u-layout-cell-2">
+                    <div class="u-container-layout u-valign-bottom-xs u-container-layout-3">
+                      <p class="u-text u-text-default-lg u-text-default-xl u-text-1"> Über den Autor: Ralf-Peter Kleinert</p>
+                      <p class="u-text u-text-default-lg u-text-default-xl u-text-2"> Über 30 Jahre Erfahrung in der IT legen meinen Fokus auf die Computer- und IT-Sicherheit. Auf meiner Website biete ich detaillierte Informationen zu aktuellen IT-Themen. Mein Ziel ist es, komplexe Konzepte verständlich zu vermitteln und meine Leserinnen und Leser für die Herausforderungen und Lösungen in der IT-Sicherheit zu sensibilisieren.<br>
+                      </p>
+                      <p class="u-text u-text-default-lg u-text-default-xl u-text-3">
+                        <a href="../ueber-mich.html" data-page-id="38997572" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Mehr über mich, Ausbildung, Zertifizierungen</a>
+                      </p>
+                      <p class="u-text u-text-default-lg u-text-default-xl u-text-4">
+                        <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-2" href="https://www.amazon.de/stores/Ralf-Peter-Kleinert-RPK/author/B0D6FVWCTN" target="_blank"> Meine Amazon Autorenseite</a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-30" id="aktualisiert-am">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <p class="u-small-text u-text u-text-default u-text-variant u-text-1"> Aktualisiert:&nbsp;Ralf-Peter Kleinert 04.08.2025</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    
+    
+    <footer class="u-align-center u-clearfix u-container-align-center u-custom-color-2 u-footer u-footer" id="footer-mit-navigation"><div class="u-clearfix u-sheet u-sheet-1">
+        <p class="u-small-text u-text u-text-variant u-text-1">
+          <a href="../datenschutzerklaerung.html" data-page-id="735813554" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1">Datenschutz</a> | <a href="../impressum.html" data-page-id="63266619" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-2">Impressum</a> | <a href="../inhaltsverzeichnis.html" data-page-id="50765561" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-3">Inhalt</a> | <a href="../nutzungsbedingungen.html" data-page-id="117449462" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-4">Nutzungsbedingungen</a> | <a href="../hinweise-haftungsausschluss.html" data-page-id="98103025" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-5">Haftung</a> | <a href="../hinweise-haftungsausschluss.html#affiliate-info-ausfuehrlich" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-6">Affiliate</a>&nbsp;|&nbsp;<a href="../kontakt.html" data-page-id="125601662" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-7">Kontakt</a> | <a href="../newsletter.html" data-page-id="103346126" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-8">Newsletter</a>&nbsp;| <a href="../preise.html" data-page-id="130192720" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-9">Preise</a>&nbsp;| <a href="../support.html" data-page-id="86002539" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-10">Support </a>|&nbsp;<a href="../ueber-mich.html" data-page-id="38997572" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-11">Über mich</a> | <a href="../downloads.html" data-page-id="70811588" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-12" title="Downloads und kostenlose Downloads">Downloads</a> |<span style="font-weight: 700;">
+            <a href="https://digital-easy.de" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-13" title="DIGITAL-easy" target="_blank">digital-easy.de</a>&nbsp;| <a href="https://blog.ralf-peter-kleinert.de" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-14" title="BLOG Ralf-Peter Kleinert" target="_blank">blog.ralf-peter-kleinert.de</a>&nbsp;| <span style="font-weight: 400;">
+              <a href="https://computerralle.de" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-15" title="#ComputerRalle" target="_blank" rel="noopener">computerralle.de</a></span> |&nbsp;<a href="../hinweise-haftungsausschluss.html#agb-allgemeine-geschaeftsbedingungen" data-page-id="98103025" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-16">AGB</a>&nbsp;| <span style="font-weight: 400;">
+              <a href="https://portal.dnb.de/opac/simpleSearch?query=ralf-peter+kleinert&amp;cqlMode=true" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-17" title="Bücher von Ralf-Peter Kleinert in der Deutschen Nationalbibliothek" target="_blank">Nationalbibliothek</a></span></span>
+        </p>
+        <p class="u-text u-text-2"> Copyright © Ralf-Peter Kleinert DIGITAL-easy #ComputerRalle<br>SSR-Entertainment seit 2005&nbsp;<br> Alle Rechte vorbehalten.
+        </p>
+        <div class="u-social-icons u-social-icons-1">
+          <a class="u-social-url" title="facebook" target="_blank" href="https://www.facebook.com/ralf.peter.kleinert.81" rel="nofollow"><span class="u-icon u-social-facebook u-social-icon u-text-custom-color-29 u-icon-1"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 112 112" style=""><use xlink:href="#svg-1c85"></use></svg><svg class="u-svg-content" viewBox="0 0 112 112" x="0" y="0" id="svg-1c85"><circle fill="currentColor" cx="56.1" cy="56.1" r="55"></circle><path fill="#FFFFFF" d="M73.5,31.6h-9.1c-1.4,0-3.6,0.8-3.6,3.9v8.5h12.6L72,58.3H60.8v40.8H43.9V58.3h-8V43.9h8v-9.2
+c0-6.7,3.1-17,17-17h12.5v13.9H73.5z"></path></svg></span>
+          </a>
+          <a class="u-social-url" target="_blank" data-type="YouTube" title="YouTube" href="https://www.youtube.com/@ComputerRalle"><span class="u-icon u-social-icon u-social-youtube u-text-custom-color-29 u-icon-2"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 112 112" style=""><use xlink:href="#svg-5bbf"></use></svg><svg class="u-svg-content" viewBox="0 0 112 112" x="0" y="0" id="svg-5bbf"><circle fill="currentColor" cx="56.1" cy="56.1" r="55"></circle><path fill="#FFFFFF" d="M74.9,33.3H37.3c-7.4,0-13.4,6-13.4,13.4v18.8c0,7.4,6,13.4,13.4,13.4h37.6c7.4,0,13.4-6,13.4-13.4V46.7 C88.3,39.3,82.3,33.3,74.9,33.3L74.9,33.3z M65.9,57l-17.6,8.4c-0.5,0.2-1-0.1-1-0.6V47.5c0-0.5,0.6-0.9,1-0.6l17.6,8.9 C66.4,56,66.4,56.8,65.9,57L65.9,57z"></path></svg></span>
+          </a>
+          <a class="u-social-url" target="_blank" data-type="LinkedIn" title="LinkedIn" href="https://www.linkedin.com/in/ralf-peter-kleinert/" rel="nofollow"><span class="u-icon u-social-icon u-social-linkedin u-text-custom-color-29 u-icon-3"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 112 112" style=""><use xlink:href="#svg-d54c"></use></svg><svg class="u-svg-content" viewBox="0 0 112 112" x="0" y="0" id="svg-d54c"><circle fill="currentColor" cx="56.1" cy="56.1" r="55"></circle><path fill="#FFFFFF" d="M41.3,83.7H27.9V43.4h13.4V83.7z M34.6,37.9L34.6,37.9c-4.6,0-7.5-3.1-7.5-7c0-4,3-7,7.6-7s7.4,3,7.5,7
+      C42.2,34.8,39.2,37.9,34.6,37.9z M89.6,83.7H76.2V62.2c0-5.4-1.9-9.1-6.8-9.1c-3.7,0-5.9,2.5-6.9,4.9c-0.4,0.9-0.4,2.1-0.4,3.3v22.5
+      H48.7c0,0,0.2-36.5,0-40.3h13.4v5.7c1.8-2.7,5-6.7,12.1-6.7c8.8,0,15.4,5.8,15.4,18.1V83.7z"></path></svg></span>
+          </a>
+          <a class="u-social-url" target="_blank" data-type="Custom" title="Mastodon" href="https://mastodon.social/@digitaleasy" rel="nofollow noopener"><span class="u-file-icon u-icon u-social-custom u-social-icon u-text-custom-color-29 u-icon-4"><img src="../images/mastodon1-4909f8ae.png" alt=""></span>
+          </a>
+          <a class="u-social-url" target="_blank" data-type="Blogspot" title="Blogspot" href="https://computerralle.blogspot.com/"><span class="u-icon u-social-blogspot u-social-icon u-text-custom-color-29 u-icon-5"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 112 112" style=""><use xlink:href="#svg-35b7"></use></svg><svg class="u-svg-content" viewBox="0 0 112 112" x="0" y="0" id="svg-35b7"><circle fill="currentColor" cx="56.1" cy="56.1" r="55"></circle><path id="Blogger" fill="#FFFFFF" d="M82.9,47.9c-4.4,0-5.4-2.3-5.4-5.4s-0.7-7.9-6.2-13.7C65.9,23.2,59.6,23,59.6,23
+	s-12.5,0-17.9,0c-5.8,0-10.2,3.2-14.2,7.9c-5,5.9-4.5,12-4.5,12s0,18.7,0,23.2s0.5,10.4,6.3,16.8c5.8,6.4,14.9,6.3,14.9,6.3H68
+	c7,0,11-2.1,15.9-6.6c5.3-4.8,5.7-13.7,5.7-13.7s0-14.7,0-17.4C89.6,48.7,87.3,47.9,82.9,47.9z M39.7,43.3c0-2,1.7-3.7,3.7-3.7h14.2
+	c2,0,3.7,1.7,3.7,3.7v0.9c0,2-1.7,3.7-3.7,3.7H43.4c-2,0-3.7-1.7-3.7-3.7V43.3z M71.7,68.6c0,2-1.7,3.7-3.7,3.7H43.4
+	c-2,0-3.7-1.7-3.7-3.7v-0.9c0-2,1.7-3.7,3.7-3.7H68c2,0,3.7,1.7,3.7,3.7V68.6z"></path></svg></span>
+          </a>
+        </div>
+        <div class="u-clearfix u-custom-html u-expanded-width u-custom-html-1">
+          <a href="javascript:UC_UI.showSecondLayer();">Cookie-Einstellungen</a>
+        </div>
+      </div></footer><span style="height: 48px; width: 48px; margin-left: 0px; margin-right: auto; margin-top: 0px; right: 0px; bottom: 15px;" class="u-back-to-top u-file-icon u-icon u-text-custom-color-20" data-href="#"><img src="../images/e77d2435.png" alt=""></span>
+  
+</body></html>

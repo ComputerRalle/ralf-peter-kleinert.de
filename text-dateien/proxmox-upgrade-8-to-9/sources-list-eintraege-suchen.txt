@@ -1,0 +1,13 @@
+Standard Listen pruefen:
+
+nano /etc/apt/sources.list
+
+nano /etc/apt/sources.list.d/pve-install-repo.list
+
+nano /etc/apt/sources.list.d/pve-no-subscription.list
+
+Listen nach "Bookworm" durchsuchen:
+
+grep -r bookworm /etc/apt/
+
+grep -rl bookworm /etc/apt/

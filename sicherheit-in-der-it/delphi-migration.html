@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="de-DE"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Delphi Migration, Object Pascal, Delphi 7, Delphi 11">
+    <meta name="description" content="Delphi Software Migration von Delphi 7 nach Delphi 10, Delphi 11, Delphi 12">
+    <meta property="og:title" content="Delphi legacy Software auf neue Delphi Version Migrieren">
+    <meta property="og:description" content="Delphi Software Migration von Delphi 7 nach Delphi 10, Delphi 11, Delphi 12">
+    <meta property="og:image" content="https://ralf-peter-kleinert.de/images/a3e8e1894c805e8d2582ae9f45f1cf16103986affb6d39f6f239514a417f3beb6ca8442533eee9fa034b03df5edcddde27a7a16d46073035d81bf0_1280.jpg">
+    <meta property="og:url" content="https://ralf-peter-kleinert.de/sicherheit-in-der-it/delphi-migration.html">
+    <title>Delphi legacy Software auf neue Delphi Version Migrieren</title>
+    <link rel="stylesheet" href="../nicepage.css" media="screen">
+<link rel="stylesheet" href="delphi-migration.css" media="screen">
+    <script class="u-script" type="text/javascript" src="../jquery.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="../nicepage.js" defer=""></script>
+    <link rel="icon" href="../images/favicon1.ico">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <link id="u-page-google-font" rel="stylesheet" href="../delphi-migration-fonts.css">
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": "Ralf-Peter Kleinert",
+		"logo": "../images/BannerHintergrund1.png",
+		"sameAs": [
+				"https://www.facebook.com/ralf.peter.kleinert.81",
+				"https://www.youtube.com/@ComputerRalle",
+				"https://www.linkedin.com/in/ralf-peter-kleinert/",
+				"https://mastodon.social/@digitaleasy",
+				"https://computerralle.blogspot.com/"
+		]
+}</script>
+    <meta name="theme-color" content="#0cbcf5">
+    <meta property="og:type" content="website">
+  <meta name="author" content="Ralf-Peter Kleinert">
+<meta name="email" content="digitaleasy@ralf-peter-kleinert.de">
+<meta name="copyright" content="Copyright © by Ralf-Peter Kleinert">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="facebook-domain-verification" content="7cwzmpfwunyhwzz0dh72lsvrhynk3y"><link rel="preconnect" href="//app.eu.usercentrics.eu">
+<link rel="preconnect" href="//api.eu.usercentrics.eu">
+<link rel="preconnect" href="//sdp.eu.usercentrics.eu">
+<link rel="preload" href="//app.eu.usercentrics.eu/browser-ui/latest/loader.js" as="script">
+<link rel="preload" href="//sdp.eu.usercentrics.eu/latest/uc-block.bundle.js" as="script">
+<script id="usercentrics-cmp" async="" data-eu-mode="true" data-settings-id="rdKSWSBTj" src="https://app.eu.usercentrics.eu/browser-ui/latest/loader.js"></script>
+<script type="application/javascript" src="https://sdp.eu.usercentrics.eu/latest/uc-block.bundle.js"></script><meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
+  <body data-path-to-root="../" data-include-products="false" class="u-body u-clearfix u-xl-mode" data-lang="de"><header class=" u-border-no-bottom u-border-no-left u-border-no-right u-border-no-top u-clearfix u-header u-section-row-container" id="header-mit-navigation-hauptmenue" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="" style="border-style: solid;"><div class="u-section-rows" style="">
+        <div class="u-border-2 u-border-custom-color-20 u-border-no-left u-border-no-right u-border-no-top u-clearfix u-custom-color-2 u-section-row u-section-row-1" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="" id="haupt-menue">
+          <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+            <nav class="u-align-left-lg u-align-left-xl u-align-right-md u-align-right-sm u-align-right-xs u-menu u-menu-dropdown u-menu-open-right u-offcanvas u-menu-1" data-responsive-from="MD" data-position="navigation-hauptmenue" role="navigation">
+              <div class="menu-collapse u-custom-font u-font-raleway" style="font-size: 1.125rem; letter-spacing: 0px; font-weight: 500;">
+                <a class="u-button-style u-custom-active-color u-custom-border u-custom-border-color u-custom-color u-custom-color-2 u-custom-effect-duration u-custom-hover-color u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-text-active-color u-custom-text-color u-custom-text-hover-color u-custom-text-shadow u-custom-text-shadow-blur u-custom-text-shadow-color u-custom-text-shadow-transparency u-custom-text-shadow-x u-custom-text-shadow-y u-custom-top-bottom-menu-spacing u-hamburger-link u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base u-hamburger-link-1" href="#" tabindex="-1" aria-label="Open menu" aria-controls="092e">
+                  <svg class="u-svg-link" viewBox="0 0 24 24"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#menu-hamburger"></use></svg>
+                  <svg class="u-svg-content" version="1.1" id="menu-hamburger" viewBox="0 0 16 16" x="0px" y="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect>
+</g></svg><span> Menü</span>
+                </a>
+              </div>
+              <div class="u-custom-menu u-nav-container">
+                <ul class="u-custom-font u-font-raleway u-nav u-spacing-2 u-unstyled u-nav-1" role="menubar"><li role="none" class="u-nav-item"><a tabindex="-1" role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="../index.html" style="padding: 12px 22px;">Start</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="../inhaltsverzeichnis.html" style="padding: 12px 22px;">Inhalt</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="../sicherheit-in-der-it.html" style="padding: 12px 22px;">IT-Sicherheit &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-2" aria-label="IT-Sicherheit > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="uebersicht-it-cyber-security.html">Übersicht: IT-Sicherheit</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="verschluesselung-von-daten.html">Verschlüsselung &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-3" aria-label="Verschlüsselung > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="verschluesselung-von-daten/cryptomator-kostenlos.html">Cryptomator Dateien verschlüsseln</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="vaultwarden-ssl-local-network.html">Vaultwarden Passwortmanager im LAN mit SSL</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="passkeys-einrichten-und-nutzen.html">Passkeys Einrichten und Nutzen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="privatpersonen.html">Privatpersonen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="unternehmen.html">Unternehmen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="it-daten-info-sicherheit.html">IT-, Daten-, Informationssicherheit</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="backups-sind-exrem-wichtig.html">Backups wichtig für IT-Sicherheit</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="keepass-anleitung.html">KeePass-Anleitung</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="keepassxc-und-proton-drive.html">KeePassXC und Proton Drive</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="iperius-backup-kostenlos.html">Iperius Backup die kostenlose Backupsoftware</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="paragon-backup-kostenlos.html">Paragon Backup kostenlose Software</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="paragon-backup-rettungsstick.html">Paragon Backup Rettungsstick erstellen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="backupkonzept-backupstrategie.html">Datensicherungskonzept und Backupstrategie</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="wie-kann-ich-daten-schuetzen.html">Wie kann ich meine Daten vor Hackern besser schützen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="sicherheit-in-social-media.html">Sicherheit in Social-Media</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="delphi-migration.html">Delphi Software Migration</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="pcloud-pass-passwort-manager.html">Passwort Manager pCloud Pass</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="../it-und-computer-beratung.html" style="padding: 12px 22px;">Beratungen &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-4" aria-label="Beratungen > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../it-und-computer-beratung/kleine-unternehmen-startups.html">IT-Dokumentationen für Unternehmen, Praxen und Universitäten</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="../windows-os.html" style="padding: 12px 22px;">Windows &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-5" aria-label="Windows > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../windows-os/computerralle-isms-docker-win.html">ISMS von ComputerRalle</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../windows-os/fernwartungssoftware-hoptodesk.html">Remote Software HopToDesk</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="../linux-os.html" style="padding: 12px 22px;">Linux &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-6" aria-label="Linux > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-os/paperless-backup-programm.html">Paperless Backup Programm Anleitung</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-os/docker-desktop-paperless.html">Paperless auf Windows installieren WSL</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-os/linux-webdav-dateisynchro.html">Linux WebDAV Dateisynchronisation kostenlos</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-os/docker-paperless-installieren.html">Paperless Docker Installation</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server.html">Linux Server &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-7" aria-label="Linux Server > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server/proxmox-pve8-to-pve9-upgrade.html">Proxmox VE 8 zu Proxmox VE 9 Upgrade</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server/uebersicht-linux-server.html">Übersicht: Linux Server</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server/gitlab-auf-linux-installieren.html">Gitlab auf Linux Debian 11 installieren</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server/proxmox-server-sichern-haerten.html">Proxmox Server absichern und härten</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server/ssh-keys-auf-linux-erzeugen.html">Proxmox SSH-Keys auf Linux erzeugen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server/ssh-keys-auf-windows-erzeugen.html">Proxmox SSH-Key auf Windows erzeugen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server/proxmox-hochverfuegbare-vm.html">Proxmox Hochverfügbarkeits-Cluster aufbauen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server/proxmox-verschluesselt-backup.html">Proxmox verschlüsseltes Backup erstellen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server/proxmox-und-pfsense-eine-ip.html">Proxmox und pfSense Firewall</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheits-anbieter/1blu-backupserver.html">1blu Storage-Server für Proxmox-Backup-Server</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server/proxmox-netzwerk-bonding.html">Netzwerk-Bonding Ausfallschutz auf Proxmox</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server/opnsense-wireguard-vpn.html">OPNsense &amp; WireGuard-Tunnel einrichten</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server/pfsense-wireguard-vpn.html">pfSense &amp; WireGuard-Tunnel einrichten</a>
+</li></ul>
+</div>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="../meine-fachbuecher.html" style="padding: 12px 22px;">Bücher &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-8" aria-label="Bücher > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/uebersicht-meine-buecher.html">Übersicht: Bücher</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/proxmox-ve9-praxisbuch.html">Proxmox VE 9 Praxisbuch</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/proxmox-ve8-praxis-buch.html">Proxmox VE 8 Praxisbuch</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/proxmox-pve-8-pbs-3-profi-buch.html">Proxmox VE 8 Proxmox BS 3 Profibuch</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/proxmox-ve-8-powerbuch.html">Proxmox VE 8 Powerbuch</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/computer-it-sicherheits-fibel.html">Computer und IT Sicherheits-Fibel</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/schluss-mit-windows.html">Schluss mit Windows - jetzt kommt Linux</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/computer-sicherheit-fuer-kmu.html">Computer-Sicherheit für kleine und mittlere Unternehmen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/die-mutter-aller-ki-buecher.html">Die Mutter aller KI Bücher</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/proxmox-firewall-buch.html">Proxmox Firewall - Verstehen Einschalten Abschotten</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/cloud-verstehen-und-nutzen.html">Cloud verstehen und nutzen kostenloses eBook</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="../sicherheits-anbieter.html" style="padding: 12px 22px;">Sicherheits-Anbieter</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-9" aria-label="Sicherheits-Anbieter menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheits-anbieter/tuta-quantensichere-mail.html">Tuta verschlüsselte Mail und Kalender</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheits-anbieter/erecht24-anwalt-siebert.html">eRecht24</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheits-anbieter/1blu-backupserver.html">1blu Backupserver</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="ashampoo-backup-pro-26.html">Ashampoo Backup Pro</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="pcloud-pass-passwort-manager.html">pCloud Passwortmanager</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="../suchen.html" style="padding: 12px 22px;">Suchen</a>
+</li></ul>
+              </div>
+              <div class="u-custom-menu u-nav-container-collapse" id="092e" role="region" aria-label="Menu panel">
+                <div class="u-container-style u-custom-color-2 u-inner-container-layout u-sidenav u-sidenav-1">
+                  <div class="u-inner-container-layout u-sidenav-overflow">
+                    <div class="u-menu-close" tabindex="-1" aria-label="Close menu"></div>
+                    <ul class="u-align-left u-custom-font u-font-raleway u-nav u-popupmenu-items u-spacing-0 u-text-active-custom-color-5 u-text-hover-custom-color-5 u-text-white u-unstyled u-nav-10" role="menubar"><li role="none" class="u-nav-item"><a tabindex="-1" role="menuitem" class="u-button-style u-nav-link" href="../index.html">Start</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../inhaltsverzeichnis.html">Inhalt</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheit-in-der-it.html">IT-Sicherheit &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-11" aria-label="IT-Sicherheit > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="uebersicht-it-cyber-security.html">Übersicht: IT-Sicherheit</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="verschluesselung-von-daten.html">Verschlüsselung &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-12" aria-label="Verschlüsselung > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="verschluesselung-von-daten/cryptomator-kostenlos.html">Cryptomator Dateien verschlüsseln</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="vaultwarden-ssl-local-network.html">Vaultwarden Passwortmanager im LAN mit SSL</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="passkeys-einrichten-und-nutzen.html">Passkeys Einrichten und Nutzen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="privatpersonen.html">Privatpersonen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="unternehmen.html">Unternehmen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="it-daten-info-sicherheit.html">IT-, Daten-, Informationssicherheit</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="backups-sind-exrem-wichtig.html">Backups wichtig für IT-Sicherheit</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="keepass-anleitung.html">KeePass-Anleitung</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="keepassxc-und-proton-drive.html">KeePassXC und Proton Drive</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="iperius-backup-kostenlos.html">Iperius Backup die kostenlose Backupsoftware</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="paragon-backup-kostenlos.html">Paragon Backup kostenlose Software</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="paragon-backup-rettungsstick.html">Paragon Backup Rettungsstick erstellen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="backupkonzept-backupstrategie.html">Datensicherungskonzept und Backupstrategie</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="wie-kann-ich-daten-schuetzen.html">Wie kann ich meine Daten vor Hackern besser schützen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="sicherheit-in-social-media.html">Sicherheit in Social-Media</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="delphi-migration.html">Delphi Software Migration</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="pcloud-pass-passwort-manager.html">Passwort Manager pCloud Pass</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../it-und-computer-beratung.html">Beratungen &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-13" aria-label="Beratungen > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../it-und-computer-beratung/kleine-unternehmen-startups.html">IT-Dokumentationen für Unternehmen, Praxen und Universitäten</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../windows-os.html">Windows &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-14" aria-label="Windows > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../windows-os/computerralle-isms-docker-win.html">ISMS von ComputerRalle</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../windows-os/fernwartungssoftware-hoptodesk.html">Remote Software HopToDesk</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-os.html">Linux &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-15" aria-label="Linux > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-os/paperless-backup-programm.html">Paperless Backup Programm Anleitung</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-os/docker-desktop-paperless.html">Paperless auf Windows installieren WSL</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-os/linux-webdav-dateisynchro.html">Linux WebDAV Dateisynchronisation kostenlos</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-os/docker-paperless-installieren.html">Paperless Docker Installation</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server.html">Linux Server &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-16" aria-label="Linux Server > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server/proxmox-pve8-to-pve9-upgrade.html">Proxmox VE 8 zu Proxmox VE 9 Upgrade</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server/uebersicht-linux-server.html">Übersicht: Linux Server</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server/gitlab-auf-linux-installieren.html">Gitlab auf Linux Debian 11 installieren</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server/proxmox-server-sichern-haerten.html">Proxmox Server absichern und härten</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server/ssh-keys-auf-linux-erzeugen.html">Proxmox SSH-Keys auf Linux erzeugen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server/ssh-keys-auf-windows-erzeugen.html">Proxmox SSH-Key auf Windows erzeugen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server/proxmox-hochverfuegbare-vm.html">Proxmox Hochverfügbarkeits-Cluster aufbauen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server/proxmox-verschluesselt-backup.html">Proxmox verschlüsseltes Backup erstellen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server/proxmox-und-pfsense-eine-ip.html">Proxmox und pfSense Firewall</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheits-anbieter/1blu-backupserver.html">1blu Storage-Server für Proxmox-Backup-Server</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server/proxmox-netzwerk-bonding.html">Netzwerk-Bonding Ausfallschutz auf Proxmox</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server/opnsense-wireguard-vpn.html">OPNsense &amp; WireGuard-Tunnel einrichten</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server/pfsense-wireguard-vpn.html">pfSense &amp; WireGuard-Tunnel einrichten</a>
+</li></ul>
+</div>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher.html">Bücher &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-17" aria-label="Bücher > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/uebersicht-meine-buecher.html">Übersicht: Bücher</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/proxmox-ve9-praxisbuch.html">Proxmox VE 9 Praxisbuch</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/proxmox-ve8-praxis-buch.html">Proxmox VE 8 Praxisbuch</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/proxmox-pve-8-pbs-3-profi-buch.html">Proxmox VE 8 Proxmox BS 3 Profibuch</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/proxmox-ve-8-powerbuch.html">Proxmox VE 8 Powerbuch</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/computer-it-sicherheits-fibel.html">Computer und IT Sicherheits-Fibel</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/schluss-mit-windows.html">Schluss mit Windows - jetzt kommt Linux</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/computer-sicherheit-fuer-kmu.html">Computer-Sicherheit für kleine und mittlere Unternehmen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/die-mutter-aller-ki-buecher.html">Die Mutter aller KI Bücher</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/proxmox-firewall-buch.html">Proxmox Firewall - Verstehen Einschalten Abschotten</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/cloud-verstehen-und-nutzen.html">Cloud verstehen und nutzen kostenloses eBook</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheits-anbieter.html">Sicherheits-Anbieter</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-18" aria-label="Sicherheits-Anbieter menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheits-anbieter/tuta-quantensichere-mail.html">Tuta verschlüsselte Mail und Kalender</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheits-anbieter/erecht24-anwalt-siebert.html">eRecht24</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheits-anbieter/1blu-backupserver.html">1blu Backupserver</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="ashampoo-backup-pro-26.html">Ashampoo Backup Pro</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="pcloud-pass-passwort-manager.html">pCloud Passwortmanager</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../suchen.html">Suchen</a>
+</li></ul>
+                  </div>
+                </div>
+                <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+              </div>
+              <style class="menu-style">@media (max-width: 1198px) {
+                    [data-responsive-from="MD"] .u-nav-container {
+                        display: none;
+                    }
+                    [data-responsive-from="MD"] .menu-collapse {
+                        display: block;
+                    }
+                }</style>
+            </nav>
+          </div>
+          
+          
+          
+          
+          
+        </div>
+        <div class="u-clearfix u-container-align-left u-section-row" id="DIGITAL-easy-Logo">
+          <div class="u-clearfix u-sheet u-sheet-2">
+            <a href="#" class="u-image u-logo u-image-1" data-image-width="2040" data-image-height="400">
+              <img src="../images/BannerHintergrund1.png" class="u-logo-image u-logo-image-1" alt="DIGITAL-easy Logo">
+            </a>
+          </div>
+          
+          
+          
+          
+          
+        </div>
+      </div></header>
+    <section class="u-clearfix u-section-1" id="artikelbild-delphi-migration">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <img class="custom-expanded u-image lazyload u-image-1" data-image-width="880" data-image-height="350" data-href="../inhaltsverzeichnis.html" data-page-id="50765561" alt="Delphi Software migrieren" data-src="../images/delphi-software-migrieren-migration-1.webp" loading="lazy">
+      </div>
+    </section>
+    <section class="u-clearfix u-section-2" id="sec-1564">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="custom-expanded u-container-style u-custom-color-19 u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h1 class="u-text u-text-default u-text-1"> Alte legacy Delphi-Software auf neue Delphi-Version migrieren (Delphi 7 nach Delphi 10 Migration) </h1>
+            <p class="u-text u-text-default u-text-2"> Die Migration von alter Legacy-Delphi-Software, insbesondere von Delphi 7 auf die neueste Version, Delphi 10, birgt Herausforderungen und Chancen. Die Aktualisierung ermöglicht den Zugang zu modernen Funktionen, Sicherheitsverbesserungen und Leistungssteigerungen. Jedoch erfordert dies eine gründliche Planung, Tests und Anpassungen, um Kompatibilitätsprobleme zu lösen und das volle Potenzial der neuen Plattform auszuschöpfen. Eine sorgfältige Analyse der Codebasis, die Aktualisierung von Bibliotheken und die Überprüfung von Drittanbieterkomponenten sind entscheidend für einen reibungslosen Übergang. Mit der richtigen Vorbereitung kann die Migration zu einer verbesserten Entwicklungs- und Wartbarkeitsumgebung führen, die die Zukunftsfähigkeit Ihrer Anwendung gewährleistet.</p>
+            <p class="u-text u-text-default u-text-3">Insbesondere im Bezug auf die IT-Sicherheit habe ich diesen Artikel in meine Website mit aufgenommen. Um eine möglichst hohe IT-Security zu gewährleisten, ist das Upgraden von veralteten Softwareprodukten unerlässlich.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-3" id="sec-6bea">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-border-2 u-border-grey-10 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <p class="u-large-text u-text u-text-default u-text-variant u-text-1"> Inhalte des Artikels: Delphi Software-Migration</p>
+            <ol class="u-align-left u-spacing-12 u-text u-text-default u-text-2">
+              <li>
+                <a href="delphi-migration.html#sec-469f" data-page-id="69497143" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-4 u-btn-1"> Warum informiere ich über Delphi Migration?</a>
+              </li>
+              <li>
+                <a href="delphi-migration.html#sec-4e12" data-page-id="69497143" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-4 u-btn-2">Was ist Delphi? (kleine Info)</a>
+              </li>
+              <li>
+                <a href="delphi-migration.html#sec-f3a5" data-page-id="69497143" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-4 u-btn-3">Wichtige Punkte für Delphi Migration</a>
+              </li>
+              <li>
+                <a href="delphi-migration.html#sec-41ac" data-page-id="69497143" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-4 u-btn-4">Datenbanken und Datenbankmigration in Delphi</a>
+              </li>
+              <li>
+                <a href="delphi-migration.html#sec-f3f6" data-page-id="69497143" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-4 u-btn-5">Welche Tools können bei einer Delphi Migration helfen?</a>
+              </li>
+              <li>
+                <a href="delphi-migration.html#sec-eb14" data-page-id="69497143" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-4 u-btn-6">Kosten der Tools welche ich vorstelle</a>
+              </li>
+              <li>
+                <a href="delphi-migration.html#sec-1c7a" data-page-id="69497143" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-4 u-btn-7">Anbieter für Delphi Software Migration</a>
+              </li>
+              <li>
+                <a href="delphi-migration.html#sec-7783" data-page-id="69497143" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-4 u-btn-8">Fazit Delphi Software Migration</a>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-4" id="sec-469f">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h2 class="u-text u-text-default u-text-1"> Warum informiere ich über Delphi Migration? </h2>
+            <p class="u-text u-text-default u-text-2"> Als Administrator, Softwaretester, Programmierer und Experte in der 
+Computersicherheit erreichen mich oft Anfragen zum Thema 
+Delphi-Migration. Diese Anfragen kommen von Unternehmen und Entwicklern,
+ die ihre Legacy-Anwendungen von älteren Versionen wie Delphi 7 auf 
+modernere Versionen wie Delphi 10 aktualisieren möchten. Die Gründe für 
+eine Migration können vielfältig sein, von der Verbesserung der Leistung
+ und Stabilität bis hin zur Unterstützung neuer Plattformen und 
+Technologien.</p>
+            <p class="u-text u-text-default u-text-3"> Achtung!</p>
+            <p class="u-text u-text-default u-text-4"> Die Migration von Delphi 7 Anwendungen in eine Delphi 10 Anwendung 
+ist nichts für schwache Nerven und erfordert umfassende Kenntnisse in 
+Delphi und der Programmiersprache Object Pascal. Eine Migration ist 
+nicht mal eben so gemacht. Deshalb ist dieser Artikel extrem 
+umfangreich. Dieser Artikel richtet sich auch an Programmierer und 
+Entwickler. Diese Menschen sind dicke Bücher gewohnt :-).</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-5" id="sec-d126">
+      <div class="u-clearfix u-sheet u-valign-middle-lg u-valign-middle-md u-valign-middle-sm u-valign-middle-xl u-sheet-1">
+        <div class="u-border-2 u-border-grey-10 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <p class="u-large-text u-text u-text-default-lg u-text-default-md u-text-default-sm u-text-default-xl u-text-variant u-text-1"> Hauptaugenmerk ist die IT-Sicherheit</p>
+            <p class="u-text u-text-2"><i>Die Migration von Delphi-Anwendungen ist wichtig für die 
+IT-Sicherheit aus mehreren Gründen. Erstens werden ältere Versionen von 
+Delphi möglicherweise nicht mehr mit Sicherheitsupdates und Patches 
+unterstützt, was potenzielle Sicherheitslücken und Angriffspunkte 
+schafft. Durch die Migration auf eine neuere Version können 
+Sicherheitsrisiken reduziert werden. Zweitens könnten veraltete 
+Bibliotheken und Komponenten in älteren Delphi-Versionen 
+Sicherheitsprobleme aufweisen.</i>
+            </p>
+            <p class="u-text u-text-3"><i>Die Migration ermöglicht es, veraltete Teile der Anwendung durch 
+sicherere Alternativen zu ersetzen. Drittens bieten neuere 
+Delphi-Versionen oft verbesserte Sicherheitsfunktionen und -Frameworks, 
+die helfen können, die Anwendung vor bekannten Angriffen und Bedrohungen
+ zu schützen. Durch die Aktualisierung auf eine modernere Version können
+ Entwickler diese Funktionen nutzen, um die Sicherheit ihrer Anwendung 
+zu erhöhen. Insgesamt ist die Migration von Delphi-Anwendungen ein 
+wichtiger Schritt, um die Sicherheit der IT-Systeme zu gewährleisten und
+ potenzielle Risiken zu minimieren.</i>
+            </p>
+            <p class="u-text u-text-4">
+              <a href="uebersicht-it-cyber-security.html" data-page-id="66995349" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-4 u-btn-1"> Übersicht IT-Sicherheit</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-6" id="sec-40be">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h1 class="u-text u-text-default u-text-1"> Nach Stand 2021 ist Delphi 10 die aktuelle Delphi Version.</h1>
+            <p class="u-text u-text-default u-text-2"> Eine der größten Herausforderungen bei der Migration von Delphi 5, 6, 7 
+nach Delphi 10 besteht darin, sicherzustellen, dass die Anwendung 
+weiterhin ordnungsgemäß funktioniert und alle erforderlichen Funktionen 
+beibehält. Dies erfordert eine gründliche Planung und Analyse der 
+vorhandenen Codebasis sowie eine umfassende Kenntnis der Unterschiede 
+zwischen den beiden Delphi-Versionen.</p>
+            <p class="u-text u-text-default u-text-3"> Als Administrator ist es meine Aufgabe, sicherzustellen, dass die 
+Migration reibungslos verläuft und keine unerwarteten Ausfallzeiten oder
+ Probleme verursacht. Dazu gehört auch die Bereitstellung von Ressourcen
+ und Unterstützung für das Entwicklungsteam sowie die Überwachung des 
+Fortschritts und die Behebung auftretender Probleme.</p>
+            <p class="u-text u-text-default u-text-4"> Als Softwaretester spiele ich eine wichtige Rolle bei der 
+Qualitätssicherung des Migrationsprozesses. Ich führe umfangreiche Tests
+ durch, um sicherzustellen, dass die Anwendung nach der Migration wie 
+erwartet funktioniert und keine Fehler oder Inkonsistenzen aufweist. 
+Dazu gehören sowohl manuelle als auch automatisierte Tests auf 
+verschiedenen Plattformen und Umgebungen.</p>
+            <p class="u-text u-text-default u-text-5"> Als Programmierer arbeite ich eng mit dem Entwicklungsteam zusammen, um 
+die erforderlichen Änderungen am Code vorzunehmen und sicherzustellen, 
+dass alle neuen Funktionen und Verbesserungen von Delphi 10 optimal 
+genutzt werden. Dies kann die Aktualisierung von Bibliotheken und 
+Komponenten, die Anpassung von APIs und die Optimierung der Leistung 
+umfassen.</p>
+            <p class="u-text u-text-default u-text-6"> Insgesamt erfordert die Migration von Delphi 7 nach Delphi 10 eine 
+sorgfältige Planung, Zusammenarbeit und Durchführung, um 
+sicherzustellen, dass die Anwendung erfolgreich aktualisiert wird und 
+weiterhin den Anforderungen der Benutzer und des Unternehmens 
+entspricht.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-7" id="sec-1efa">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="delphi-migration.html#sec-6bea" data-page-id="69497143" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-4 u-btn-1"> Zurück zum Inhalts Menü</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-8" id="sec-4e12">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h4 class="u-text u-text-default u-text-1"> Was ist Delphi? </h4>
+            <p class="u-text u-text-default u-text-2"> Delphi ist eine integrierte Entwicklungsumgebung (IDE) und eine objektorientierte Programmiersprache, die von <a href="https://www.embarcadero.com/" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-4 u-btn-1" target="_blank">Embarcadero Technologies</a> entwickelt wurde. Sie ermöglicht die Entwicklung 
+plattformübergreifender Anwendungen für Windows, macOS, iOS, Android und
+ Linux. Delphi basiert auf der Object Pascal-Sprache und bietet eine 
+Vielzahl von Funktionen wie visuelle Entwicklungswerkzeuge, eine 
+umfangreiche Komponentenbibliothek und eine schnelle Compilerleistung. 
+Delphi wird häufig für die Entwicklung von Desktop-Anwendungen, 
+Datenbankanwendungen, Webanwendungen und mobilen Apps verwendet und ist 
+bekannt für seine Benutzerfreundlichkeit und Effizienz.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-9" id="sec-f3a5">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h5 class="u-text u-text-default u-text-1"> Die wichtigsten Punkte bei der Delphi Migration </h5>
+            <p class="u-text u-text-default u-text-2"> 1. Unterstützte Features:</p>
+            <p class="u-text u-text-default u-text-3"> Zunächst einmal ist es wichtig zu verstehen, dass Delphi 10 viele neue 
+Funktionen und Verbesserungen im Vergleich zu Delphi 7 bietet. Dies 
+umfasst Verbesserungen in der Sprache, der IDE, der Compilerleistung, 
+der Unterstützung für moderne Plattformen und Frameworks usw.</p>
+            <p class="u-text u-text-default u-text-4"> 2.&nbsp;Kompatibilitätsüberprüfung:</p>
+            <p class="u-text u-text-default u-text-5"> Bevor man mit der Migration beginnt, solltest man sicherstellen, dass 
+die verwendeten Komponenten und Bibliotheken in Delphi 10 unterstützt 
+werden. Einige ältere Komponenten oder Bibliotheken könnten 
+möglicherweise nicht mehr kompatibel sein und müssen möglicherweise 
+aktualisiert oder ersetzt werden.</p>
+            <p class="u-text u-text-default u-text-6"> 3.&nbsp;IDE-Unterschiede:</p>
+            <p class="u-text u-text-default u-text-7"> Die IDE von Delphi 10 unterscheidet sich erheblich von Delphi 7. Es gibt
+ neue Funktionen, Layoutänderungen und Verbesserungen, die 
+berücksichtigt werden müssen. Das könnte bedeuten, dass man sich an eine
+ neue Benutzeroberfläche und eine andere Arbeitsweise gewöhnen muss.</p>
+            <p class="u-text u-text-default u-text-8"> 4.&nbsp;Sprachänderungen und Verbesserungen:</p>
+            <p class="u-text u-text-default u-text-9"> Delphi hat sich seit Version 7 weiterentwickelt, und es gibt neue 
+Sprachfeatures und Verbesserungen, die in den Code eingefügt werden 
+können, um ihn effizienter und wartungsfreundlicher zu machen. 
+Beispielsweise wurden seit Delphi 7 Generics, Inline-Variablen, 
+Attribute und andere Funktionen eingeführt. </p>
+            <p class="u-text u-text-default u-text-10"> 5.&nbsp;Unicode-Unterstützung:</p>
+            <p class="u-text u-text-default u-text-11"> Eine der wichtigsten Änderungen, die mit Delphi 2009 eingeführt wurde, 
+war die Unicode-Unterstützung. Wenn deine Delphi 7-Anwendung keine 
+Unicode-Unterstützung bietet, muss man wahrscheinlich eine Menge 
+Änderungen vornehmen, um sie in Delphi 10 zu migrieren.</p>
+            <p class="u-text u-text-default u-text-12"> 6.&nbsp;Plattformunterstützung:</p>
+            <p class="u-text u-text-default u-text-13"> Delphi 7 unterstützt möglicherweise nicht die neuesten Plattformen 
+wie macOS und iOS. Delphi 10 bietet jedoch Unterstützung für eine breite
+ Palette von Plattformen, einschließlich Desktop, Mobile und Web.</p>
+            <p class="u-text u-text-default u-text-14"> 7.&nbsp;Unit-Benennung:</p>
+            <p class="u-text u-text-default u-text-15"> In Delphi 7 gab es keine Namensräume, während in Delphi 10 die 
+Verwendung von Namensräumen unterstützt wird. Dies könnte zu Änderungen 
+in der Art und Weise führen, wie Units benannt und aufgerufen werden.</p>
+            <p class="u-text u-text-default u-text-16"> 8.&nbsp;Aktualisierung von Drittanbieterkomponenten:</p>
+            <p class="u-text u-text-default u-text-17"> Wenn eine Anwendung Drittanbieterkomponenten verwendet, muss man 
+sicherstellen, dass sie mit Delphi 10 kompatibel sind. Gegebenenfalls 
+muss man die neuesten Versionen dieser Komponenten erwerben und in die 
+Anwendung integrieren.</p>
+            <p class="u-text u-text-default u-text-18"> 9. Datenbanken:</p>
+            <p class="u-text u-text-default u-text-19"> Delphi Programme zeichnen sich oft durch Ihre Datenbankanbindungen 
+aus. Delphi 10 unterstützt mit FireDac viele Datenbanksysteme. Die 
+Migration von Datenbanken wie BDE oder ADS nach FireDac bzw. Interbase 
+stellt eine der komplexesten Aufgaben dar.</p>
+            <p class="u-text u-text-default u-text-20"> 10.&nbsp;Tests und Validierung:</p>
+            <p class="u-text u-text-default u-text-21"> Nach der Migration ist es wichtig, die Anwendung gründlich zu testen, um
+ sicherzustellen, dass alles wie erwartet funktioniert. Dies beinhaltet 
+das Durchführen von Funktionstests, Leistungstests und 
+Kompatibilitätstests auf den unterstützten Plattformen.</p>
+            <p class="u-text u-text-default u-text-22"> 11.&nbsp;Sicherung und Versionskontrolle:</p>
+            <p class="u-text u-text-default u-text-23"> Bevor mit der Migration begonnen wird, sollte man sicherstellen, dass 
+eine vollständige Sicherungskopie der Delphi 7-Anwendung vorliegt. 
+Außerdem ist es ratsam, eine Versionskontrolle z.b. Git einzurichten, um
+ Änderungen zu verfolgen und den Entwicklungsprozess zu erleichtern.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-10" id="sec-8b79">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="delphi-migration.html#sec-6bea" data-page-id="69497143" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-4 u-btn-1"> Zurück zum Inhalts Menü</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-11" id="sec-41ac">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h2 class="u-text u-text-default u-text-1"> Datenbanken und Datenbank Migration in Delphi </h2>
+            <p class="u-text u-text-default u-text-2"> Die Einstellung von Advantage Database Server (ADS) und Borland Database
+ Engine (BDE) hat viele Entwickler dazu veranlasst, nach Alternativen 
+für ihre Datenbankmigration zu suchen. FireDAC, ein 
+Datenzugriffsframework von Embarcadero, ist eine beliebte Wahl für die 
+Migration von Delphi-Anwendungen, die zuvor ADS oder BDE verwendet 
+haben. FireDAC bietet eine breite Unterstützung für verschiedene 
+Datenbanken und Plattformen, darunter MySQL, PostgreSQL, SQL Server, 
+Oracle, Interbase und viele andere.</p>
+            <p class="u-text u-text-default u-text-3"> Die Migration von ADS oder BDE zu FireDAC erfordert in der Regel einige 
+umfangreiche Anpassungen im Code, insbesondere beim Verbindungsaufbau 
+und bei der Ausführung von Abfragen. Glücklicherweise bietet FireDAC 
+eine Vielzahl von Funktionen und Komponenten, die die Migration 
+erleichtern, einschließlich einer einheitlichen Schnittstelle für den 
+Zugriff auf verschiedene Datenbanken, einer robusten Fehlerbehandlung 
+und Transaktionsunterstützung sowie einer breiten Palette von 
+Konnektivitätsoptionen.</p>
+            <p class="u-text u-text-default u-text-4"> Darüber hinaus bietet Embarcadero Ressourcen und Dokumentationen zur 
+Unterstützung bei der Migration von ADS oder BDE zu FireDAC. Entwickler 
+können auf Tutorials, Beispiele und Foren zugreifen, um Hilfe bei 
+spezifischen Problemen oder Fragen während des Migrationsprozesses zu 
+erhalten.</p>
+            <p class="u-text u-text-default u-text-5"> Insgesamt bietet die Migration von ADS oder BDE zu FireDAC Entwicklern 
+die Möglichkeit, ihre Anwendungen auf eine moderne und unterstützte 
+Datenzugriffstechnologie umzustellen, die eine verbesserte Leistung, 
+Flexibilität und Zukunftssicherheit bietet. Es ist jedoch wichtig, den 
+Migrationsprozess sorgfältig zu planen und durchzuführen, um 
+sicherzustellen, dass alle Funktionen und Daten erfolgreich übertragen 
+werden und die Anwendung weiterhin reibungslos funktioniert.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-12" id="newsletter-abonnieren">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-align-left u-border-4 u-border-custom-color-20 u-container-align-left u-container-align-left-lg u-container-align-left-md u-container-align-left-sm u-container-align-left-xl u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-90 u-group-1" data-animation-out="0">
+          <div class="u-container-layout u-valign-bottom-lg u-valign-bottom-md u-valign-bottom-sm u-valign-top-xl u-container-layout-1">
+            <p class="u-large-text u-text u-text-variant u-text-1">Kostenlose IT-Sicherheits-Bücher &amp; Information via Newsletter</p>
+            <p class="u-text u-text-default-lg u-text-default-md u-text-default-sm u-text-default-xl u-text-2"> Bleiben Sie informiert, wann es meine Bücher kostenlos in einer Aktion gibt: <a href="../newsletter.html" data-page-id="103346126" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1">Mit meinem Newsletter</a> erfahren Sie viermal im Jahr von Aktionen auf Amazon und anderen Plattformen, bei denen meine IT-Sicherheits-Bücher gratis erhältlich sind. Sie verpassen keine Gelegenheit und erhalten zusätzlich hilfreiche Tipps zur IT-Sicherheit. Der Newsletter ist kostenlos und unverbindlich – einfach abonnieren und profitieren!<br>
+            </p>
+            <div class="u-border-3 u-border-grey-dark-1 u-expanded-width u-line u-line-horizontal u-line-1"></div>
+            <a href="../newsletter.html" data-page-id="103346126" class="u-align-center u-btn u-button-style u-custom-color-20 u-hover-custom-color-3 u-btn-2" target="_blank" title="Zur Newsletter-Anmeldeseite von Ralf-Peter Kleinert">Zur Anmeldung</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-13" id="sec-5729">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="delphi-migration.html#sec-6bea" data-page-id="69497143" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-4 u-btn-1"> Zurück zum Inhalts Menü</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-14" id="sec-f3f6">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h3 class="u-text u-text-default u-text-1"> Welche Tools können bei der Delphi Migration helfen? </h3>
+            <p class="u-text u-text-default u-text-2"> Um eine möglichst gute Vergleichsmöglichkeit zu haben, habe 
+ich die folgenden Erläuterungen zu den einzelnen Tools sehr ähnlich 
+aufgebaut.&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+            <p class="u-text u-text-default u-text-3"> 1. CnWizards</p>
+            <p class="u-text u-text-default u-text-4"> CnWizards ist ein umfangreiches Open-Source-Plugin für die 
+integrierte Entwicklungsumgebung (IDE) von Delphi und C++Builder. Es 
+bietet eine Vielzahl von Funktionen und Werkzeugen, die die Entwicklung 
+in Delphi und C++Builder erleichtern und beschleunigen. Eines der 
+herausragenden Merkmale von CnWizards ist seine umfassende Unterstützung
+ für die visuelle Entwicklung und das Code-Management. </p>
+            <p class="u-text u-text-default u-text-5"> Mit CnWizards können Entwickler schnell und einfach Code erstellen, 
+navigieren und bearbeiten. Das Plugin bietet Funktionen wie automatische
+ Code-Vervollständigung, Syntaxhervorhebung, Code-Schnipsel und vieles 
+mehr. Es erleichtert auch die Organisation und Verwaltung von Projekten 
+durch Funktionen wie das Erstellen von Projekten, das Hinzufügen von 
+Dateien, das Anzeigen von Projektstatistiken und das Generieren von 
+Build-Skripten. </p>
+            <p class="u-text u-text-default u-text-6"> Darüber hinaus bietet CnWizards eine Reihe von Tools und Utilities, 
+die die Entwicklung effizienter gestalten. Dazu gehören Tools zur 
+Analyse und Optimierung von Code, zur Extraktion von Ressourcen, zur 
+Integration von Versionskontrollsystemen und zur Unterstützung bei der 
+Lokalisierung von Anwendungen. </p>
+            <p class="u-text u-text-default u-text-7"> Ein weiteres nützliches Merkmal von CnWizards ist seine 
+Anpassbarkeit. Entwickler können das Plugin an ihre individuellen 
+Bedürfnisse und Arbeitsabläufe anpassen, indem sie Funktionen aktivieren
+ oder deaktivieren, Tastenkombinationen zuweisen und benutzerdefinierte 
+Skripte erstellen. </p>
+            <p class="u-text u-text-default u-text-8"> Insgesamt ist CnWizards ein äußerst wertvolles Werkzeug für Entwickler, 
+die mit Delphi und C++Builder arbeiten. Es verbessert die Effizienz, 
+Produktivität und Qualität der Entwicklung und trägt dazu bei, den 
+Entwicklungsprozess zu beschleunigen und zu vereinfachen. Mit seiner 
+breiten Palette von Funktionen und seiner einfachen Benutzeroberfläche 
+ist CnWizards ein unverzichtbares Plugin für jeden Delphi- oder 
+C++Builder-Entwickler.</p>
+            <p class="u-text u-text-default u-text-9"> 2.&nbsp;Mida Studio</p>
+            <p class="u-text u-text-default u-text-10"> Mida Studio ist ein leistungsstarkes kommerzielles Tool, das die 
+Migration von Delphi 7-Anwendungen auf neuere Delphi-Versionen 
+erleichtert. Es bietet eine umfassende Lösung für die Konvertierung von 
+VCL-Formularen und -Komponenten in das FireMonkey-Framework, das in 
+moderneren Delphi-Versionen wie Delphi 10 verwendet wird. </p>
+            <p class="u-text u-text-default u-text-11"> Das Hauptmerkmal von Mida Studio ist seine Fähigkeit, den 
+Migrationsprozess zu automatisieren und Entwicklern Zeit und Aufwand zu 
+sparen. Das Tool analysiert den vorhandenen Delphi 7-Code und führt 
+automatische Konvertierungen durch, um VCL-Komponenten in ihre 
+FireMonkey-Äquivalente umzuwandeln. Es unterstützt eine Vielzahl von 
+Komponenten und Funktionen, einschließlich Formularen, Steuerelementen, 
+Ereignissen und Datenbankverbindungen. </p>
+            <p class="u-text u-text-default u-text-12"> Darüber hinaus bietet Mida Studio eine benutzerfreundliche Oberfläche
+ und verschiedene Konfigurationsoptionen, die es Entwicklern 
+ermöglichen, den Migrationsprozess an ihre spezifischen Anforderungen 
+anzupassen. Das Tool bietet auch Funktionen zur Fehlerbehebung und zum 
+Debuggen, um sicherzustellen, dass die konvertierte Anwendung 
+ordnungsgemäß funktioniert. </p>
+            <p class="u-text u-text-default u-text-13"> Ein weiterer Vorteil von Mida Studio ist seine Unterstützung für die 
+Migration von Code von Delphi 7 nach Delphi 10 auf verschiedenen 
+Plattformen, einschließlich Windows, macOS, iOS und Android. Dies 
+ermöglicht es Entwicklern, plattformübergreifende Anwendungen zu 
+erstellen, die auf einer modernen und unterstützten Codebasis basieren. </p>
+            <p class="u-text u-text-default u-text-14"> Insgesamt ist Mida Studio ein äußerst nützliches Werkzeug für 
+Entwickler, die ihre Delphi 7-Anwendungen auf neuere Delphi-Versionen 
+migrieren möchten. Mit seiner automatisierten Konvertierungsfunktion und
+ seiner benutzerfreundlichen Oberfläche erleichtert es den 
+Migrationsprozess und trägt dazu bei, die Produktivität und Effizienz 
+der Entwicklung zu steigern.</p>
+            <p class="u-text u-text-default u-text-15"> 3. Mida Converter</p>
+            <p class="u-text u-text-default u-text-16"> Mida Converter ist ein spezialisiertes kommerzielles Tool, das 
+Entwicklern dabei hilft, Delphi 7-Anwendungen auf neuere 
+Delphi-Versionen zu migrieren, insbesondere auf Delphi-Versionen, die 
+das FireMonkey-Framework verwenden. Dieses Framework ermöglicht die 
+plattformübergreifende Entwicklung für Windows, macOS, iOS und Android. </p>
+            <p class="u-text u-text-default u-text-17"> Das Hauptmerkmal von Mida Converter ist seine Fähigkeit, die 
+visuellen Komponenten und Layouts von VCL (Visual Component Library) in 
+die entsprechenden FireMonkey-Komponenten umzuwandeln. Auf diese Weise 
+können Entwickler ihre Delphi 7-Anwendungen aktualisieren, um moderne 
+Benutzeroberflächen und plattformübergreifende Funktionalität zu 
+unterstützen. </p>
+            <p class="u-text u-text-default u-text-18"> Mida Converter bietet eine benutzerfreundliche Oberfläche und einen 
+einfachen Konvertierungsprozess. Entwickler können ihre Delphi 
+7-Projekte in Mida Converter importieren, wo das Tool automatisch die 
+VCL-Komponenten erkennt und die entsprechenden FireMonkey-Komponenten 
+vorschlägt. Darüber hinaus bietet Mida Converter Funktionen zur 
+Fehlerbehebung und zum Debuggen, um sicherzustellen, dass die 
+konvertierte Anwendung ordnungsgemäß funktioniert. </p>
+            <p class="u-text u-text-default u-text-19"> Ein weiterer Vorteil von Mida Converter ist seine Unterstützung für 
+verschiedene Delphi-Versionen und Plattformen. Entwickler können ihre 
+Anwendungen nicht nur von Delphi 7 auf neuere Delphi-Versionen 
+migrieren, sondern auch plattformübergreifende Anwendungen erstellen, 
+die auf Windows, macOS, iOS und Android laufen. </p>
+            <p class="u-text u-text-default u-text-20"> Insgesamt ist Mida Converter ein äußerst nützliches Werkzeug für 
+Entwickler, die ihre Delphi 7-Anwendungen aktualisieren möchten, um 
+modernere Funktionen und Plattformunterstützung zu bieten. Mit seiner 
+einfachen Benutzeroberfläche und seinem automatisierten 
+Konvertierungsprozess erleichtert es den Migrationsprozess und trägt 
+dazu bei, die Produktivität und Effizienz der Entwicklung zu steigern. </p>
+            <p class="u-text u-text-default u-text-21"> 4.&nbsp;Delphi Parser</p>
+            <p class="u-text u-text-default u-text-22"> Delphi Parser ist ein leistungsfähiges Tool, das Entwicklern hilft, 
+ihre Delphi-Codebasis zu analysieren und zu optimieren. Es ermöglicht 
+eine gründliche Untersuchung des Codes, um potenzielle Probleme, 
+ineffiziente Strukturen oder veraltete Konstruktionen zu identifizieren,
+ die möglicherweise die Leistung, Wartbarkeit oder Sicherheit der 
+Anwendung beeinträchtigen könnten. </p>
+            <p class="u-text u-text-default u-text-23"> Das Hauptmerkmal von Delphi Parser ist seine Fähigkeit, den 
+Delphi-Code auf verschiedene Aspekte zu prüfen, darunter Code-Stil, Best
+ Practices, Fehler, Warnungen und ungenutzte Ressourcen. Es bietet eine 
+umfangreiche Palette von Analysen und Berichten, die Entwicklern dabei 
+helfen, den Code zu verstehen, zu optimieren und zu verbessern. </p>
+            <p class="u-text u-text-default u-text-24"> Das Tool ermöglicht es Entwicklern auch, benutzerdefinierte Regeln 
+und Prüfungen zu definieren, um sicherzustellen, dass der Code den 
+internen Standards und Anforderungen des Entwicklungsteams entspricht. 
+Dies trägt dazu bei, die Konsistenz und Qualität des Codes zu erhöhen 
+und potenzielle Probleme frühzeitig zu erkennen. </p>
+            <p class="u-text u-text-default u-text-25"> Darüber hinaus bietet Delphi Parser Funktionen zur Integration in den
+ Entwicklungsworkflow, einschließlich automatisierter Prüfungen während 
+des Build-Prozesses oder der Integration in Continuous Integration 
+(CI)-Pipelines. Auf diese Weise können Entwickler sicherstellen, dass 
+der Code kontinuierlich überprüft und verbessert wird. </p>
+            <p class="u-text u-text-default u-text-26"> Insgesamt ist Delphi Parser ein äußerst wertvolles Werkzeug für 
+Delphi-Entwickler, das ihnen dabei hilft, die Qualität, Effizienz und 
+Sicherheit ihres Codes zu verbessern. Durch seine umfangreichen 
+Analysefunktionen und Anpassungsmöglichkeiten trägt es dazu bei, die 
+Leistungsfähigkeit und Zuverlässigkeit von Delphi-Anwendungen zu 
+steigern.</p>
+            <p class="u-text u-text-default u-text-27"> 5.&nbsp;Parnassus Bookmarks Converter</p>
+            <p class="u-text u-text-default u-text-28"> Parnassus Bookmarks Converter ist ein hilfreiches Tool, das 
+Entwicklern dabei unterstützt, Lesezeichen aus Delphi 7 zu migrieren, um
+ sie in neueren Delphi-Versionen effektiv zu nutzen. In älteren 
+Delphi-Versionen wurden Lesezeichen oft verwendet, um schnell zu 
+bestimmten Stellen im Code zu navigieren oder häufig besuchte Abschnitte
+ zu markieren. </p>
+            <p class="u-text u-text-default u-text-29"> Das Hauptmerkmal des Parnassus Bookmarks Converters ist seine 
+Fähigkeit, diese Lesezeichen aus Delphi 7 zu extrahieren und in das 
+Format zu konvertieren, das von neueren Delphi-Versionen unterstützt 
+wird. Auf diese Weise können Entwickler ihre vertrauten Lesezeichen auch
+ nach der Migration in die neue Entwicklungsumgebung nutzen. </p>
+            <p class="u-text u-text-default u-text-30"> Der Converter bietet eine benutzerfreundliche Oberfläche und einen 
+einfachen Konvertierungsprozess. Entwickler können ihre Delphi 
+7-Projekte in das Tool importieren, wo es automatisch die vorhandenen 
+Lesezeichen erkennt und in das entsprechende Format für die 
+Ziel-Delphi-Version konvertiert. </p>
+            <p class="u-text u-text-default u-text-31"> Ein weiterer Vorteil des Parnassus Bookmarks Converters ist seine 
+Unterstützung für verschiedene Delphi-Versionen. Entwickler können ihre 
+Lesezeichen nicht nur von Delphi 7 auf neuere Delphi-Versionen 
+migrieren, sondern auch zwischen verschiedenen Entwicklungsumgebungen 
+und -versionen. </p>
+            <p class="u-text u-text-default u-text-32"> Insgesamt ist der Parnassus Bookmarks Converter ein äußerst nützliches 
+Werkzeug für Delphi-Entwickler, das ihnen dabei hilft, ihre vertrauten 
+Lesezeichen auch nach der Migration auf neuere Delphi-Versionen zu 
+nutzen. Mit seiner einfachen Benutzeroberfläche und seinem 
+automatisierten Konvertierungsprozess erleichtert es den 
+Migrationsprozess und trägt dazu bei, die Produktivität und Effizienz 
+der Entwicklung zu steigern.</p>
+            <p class="u-text u-text-default u-text-33"> 6.&nbsp;CAST Highlight</p>
+            <p class="u-text u-text-default u-text-34"> CAST Highlight ist ein leistungsstarkes Softwareanalysetool, das 
+Entwicklern und Organisationen dabei hilft, Legacy-Anwendungen zu 
+bewerten und Risiken sowie Verbesserungspotenziale zu identifizieren. 
+Für Delphi-Entwickler, die eine Migration von Delphi 7 auf neuere 
+Versionen in Betracht ziehen, kann CAST Highlight wertvolle Einblicke 
+und Unterstützung bieten. </p>
+            <p class="u-text u-text-default u-text-35"> Das Hauptmerkmal von CAST Highlight ist seine Fähigkeit, den 
+Delphi-Code zu analysieren und potenzielle Sicherheitsrisiken, 
+Leistungsprobleme, Veraltungen und andere Qualitätsmängel aufzudecken. 
+Durch eine gründliche Code-Analyse ermöglicht es CAST Highlight den 
+Entwicklern, die Herausforderungen und Risiken im Zusammenhang mit der 
+Migration von Delphi 7 zu verstehen und zu bewerten. </p>
+            <p class="u-text u-text-default u-text-36"> Das Tool bietet auch eine Reihe von Funktionen und Berichten, die 
+Entwicklern dabei helfen, die Ergebnisse der Code-Analyse zu 
+interpretieren und Maßnahmen zu ergreifen. Es identifiziert nicht nur 
+Probleme, sondern bietet auch Empfehlungen und Best Practices für die 
+Code-Optimierung und -Modernisierung. </p>
+            <p class="u-text u-text-default u-text-37"> Ein weiterer Vorteil von CAST Highlight ist seine Fähigkeit, nicht 
+nur den Delphi-Code selbst zu analysieren, sondern auch die 
+Abhängigkeiten und Interaktionen zwischen verschiedenen Komponenten und 
+Systemen zu berücksichtigen. Auf diese Weise erhalten Entwickler einen 
+umfassenden Überblick über die Auswirkungen der Migration auf das 
+gesamte System. </p>
+            <p class="u-text u-text-default u-text-38"> Insgesamt ist CAST Highlight ein äußerst wertvolles Werkzeug für 
+Delphi-Entwickler, die eine Migration von Delphi 7 auf neuere Versionen 
+in Erwägung ziehen. Mit seiner gründlichen Code-Analyse und seinen 
+praktischen Empfehlungen trägt es dazu bei, die Herausforderungen und 
+Risiken im Zusammenhang mit der Migration zu bewältigen und die 
+Qualität, Sicherheit und Leistungsfähigkeit der Anwendung zu verbessern.</p>
+            <p class="u-text u-text-default u-text-39"> 7.&nbsp;CodeHealer</p>
+            <p class="u-text u-text-default u-text-40"> CodeHealer ist ein leistungsstarkes Werkzeug, das Entwicklern dabei 
+hilft, Delphi-Code zu überprüfen, zu analysieren und zu optimieren. 
+Insbesondere bei der Migration von Delphi 7 auf neuere Versionen wie 
+Delphi 10 kann CodeHealer äußerst nützlich sein. </p>
+            <p class="u-text u-text-default u-text-41"> Das Hauptmerkmal von CodeHealer ist seine Fähigkeit, potenzielle 
+Probleme, Fehler und ineffiziente Konstruktionen im Delphi-Code zu 
+identifizieren. Durch eine gründliche Code-Analyse hilft es Entwicklern,
+ versteckte Fehler und Qualitätsmängel aufzudecken, die möglicherweise 
+die Leistung, Wartbarkeit oder Sicherheit der Anwendung beeinträchtigen 
+könnten. </p>
+            <p class="u-text u-text-default u-text-42"> CodeHealer bietet eine Vielzahl von Analysefunktionen und Berichten, 
+die Entwicklern dabei helfen, die Ergebnisse der Code-Überprüfung zu 
+interpretieren und Maßnahmen zu ergreifen. Es identifiziert nicht nur 
+Probleme, sondern bietet auch Empfehlungen und Best Practices für die 
+Code-Optimierung und -Modernisierung. </p>
+            <p class="u-text u-text-default u-text-43"> Ein weiterer Vorteil von CodeHealer ist seine Integration in die 
+Delphi-IDE. Entwickler können das Tool nahtlos in ihren 
+Entwicklungsworkflow integrieren und von der automatischen 
+Code-Überprüfung während des Entwicklungsprozesses profitieren. Dies 
+trägt dazu bei, potenzielle Probleme frühzeitig zu erkennen und zu 
+beheben, bevor sie zu größeren Problemen werden. </p>
+            <p class="u-text u-text-default u-text-44"> Insgesamt ist CodeHealer ein äußerst wertvolles Werkzeug für 
+Delphi-Entwickler, insbesondere während der Migration von Delphi 7 auf 
+neuere Versionen. Mit seiner gründlichen Code-Analyse und seinen 
+praktischen Empfehlungen trägt es dazu bei, die Qualität, Sicherheit und
+ Leistungsfähigkeit der Anwendung zu verbessern und den 
+Migrationsprozess zu erleichtern.</p>
+            <p class="u-text u-text-default u-text-45"> 8.&nbsp;Refactor Embarcadero / Enthalten in de IDE</p>
+            <p class="u-text u-text-default u-text-46"> Refactor ist ein leistungsstarkes Such- und Ersetzungstool, das in 
+der Delphi-IDE integriert ist und von Embarcadero bereitgestellt wird. 
+Es ermöglicht Entwicklern, schnell nach bestimmten Textmustern im Code 
+zu suchen und sie durch andere zu ersetzen. </p>
+            <p class="u-text u-text-default u-text-47"> Das Hauptmerkmal von Refactor ist seine Fähigkeit, komplexe 
+Suchanfragen durchzuführen und die Ergebnisse in einer übersichtlichen 
+Liste darzustellen. Entwickler können die Suche anpassen, um nach 
+bestimmten Zeichenfolgen, Ausdrücken oder Mustern zu suchen, und sie 
+können die Suchergebnisse filtern, um nur relevante Ergebnisse 
+anzuzeigen. </p>
+            <p class="u-text u-text-default u-text-48"> Ein weiteres nützliches Merkmal von Refactor ist seine Fähigkeit, die
+ gefundenen Textstellen schnell und einfach zu ersetzen. Entwickler 
+können den Text manuell bearbeiten oder automatisierte 
+Ersetzungsfunktionen verwenden, um Änderungen im Code effizient 
+vorzunehmen. </p>
+            <p class="u-text u-text-default u-text-49"> Darüber hinaus bietet Refactor Funktionen zur Unterstützung bei der 
+Refaktorisierung des Codes, einschließlich der Extraktion von Methoden, 
+der Umbenennung von Variablen und der Umstrukturierung von Codeblöcken. 
+Dies hilft Entwicklern, den Code zu organisieren und zu verbessern, ohne
+ mühsame manuelle Änderungen vornehmen zu müssen. </p>
+            <p class="u-text u-text-default u-text-50"> Insgesamt ist Refactor ein äußerst nützliches Werkzeug für 
+Delphi-Entwickler, das ihnen dabei hilft, Änderungen im Code schnell und
+ effizient vorzunehmen. Mit seiner benutzerfreundlichen Oberfläche und 
+seinen leistungsstarken Funktionen erleichtert es den 
+Entwicklungsprozess und trägt dazu bei, die Produktivität und Effizienz 
+der Entwicklung zu steigern.</p>
+            <p class="u-text u-text-default u-text-51"> 9. reFind Embarcadero</p>
+            <p class="u-text u-text-default u-text-52"> reFind ist ein Such- und Ersetzungstool, das in der Delphi-IDE 
+integriert ist und von Embarcadero bereitgestellt wird. Es ermöglicht 
+Entwicklern, schnell nach bestimmten Textmustern im Code zu suchen und 
+sie durch andere zu ersetzen. </p>
+            <p class="u-text u-text-default u-text-53"> Das Hauptmerkmal von reFind ist seine Fähigkeit, komplexe 
+Suchanfragen durchzuführen und die Ergebnisse in einer übersichtlichen 
+Liste darzustellen. Entwickler können die Suche anpassen, um nach 
+bestimmten Zeichenfolgen, Ausdrücken oder Mustern zu suchen, und sie 
+können die Suchergebnisse filtern, um nur relevante Ergebnisse 
+anzuzeigen. </p>
+            <p class="u-text u-text-default u-text-54"> Ein weiteres nützliches Merkmal von reFind ist seine Fähigkeit, die 
+gefundenen Textstellen schnell und einfach zu ersetzen. Entwickler 
+können den Text manuell bearbeiten oder automatisierte 
+Ersetzungsfunktionen verwenden, um Änderungen im Code effizient 
+vorzunehmen. </p>
+            <p class="u-text u-text-default u-text-55"> Darüber hinaus bietet reFind Funktionen zur Unterstützung bei der 
+Refaktorisierung des Codes, einschließlich der Extraktion von Methoden, 
+der Umbenennung von Variablen und der Umstrukturierung von Codeblöcken. 
+Dies hilft Entwicklern, den Code zu organisieren und zu verbessern, ohne
+ mühsame manuelle Änderungen vornehmen zu müssen. </p>
+            <p class="u-text u-text-default u-text-56"> Insgesamt ist reFind ein äußerst nützliches Werkzeug für 
+Delphi-Entwickler, das ihnen dabei hilft, Änderungen im Code schnell und
+ effizient vorzunehmen. Mit seiner benutzerfreundlichen Oberfläche und 
+seinen leistungsstarken Funktionen erleichtert es den 
+Entwicklungsprozess und trägt dazu bei, die Produktivität und Effizienz 
+der Entwicklung zu steigern. </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-15" id="sec-3bc7">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="delphi-migration.html#sec-6bea" data-page-id="69497143" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-4 u-btn-1"> Zurück zum Inhalts Menü</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-16" id="sec-eb14">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h4 class="u-text u-text-default u-text-1"> Kosten der einzelnen Tools, welche ich hier angeführt habe </h4>
+            <p class="u-text u-text-default u-text-2"> Die Kosten</p>
+            <p class="u-text u-text-default u-text-3">1. <a href="https://www.cnpack.org/index.php?lang=en" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-4 u-btn-1" target="_blank">CnWizards</a> ist ein Open-Source-Tool und daher kostenlos verfügbar.
+            </p>
+            <p class="u-text u-text-default u-text-4">2. <a href="https://www.codehealer.com/" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-4 u-btn-2" target="_blank">CodeHealer</a> ist ein kommerzielles Tool und erfordert den Kauf einer Lizenz. Die 
+Kosten können je nach Lizenztyp variieren, liegen jedoch typischerweise 
+im Bereich von ca 300€ pro Entwicklerplatz.
+            </p>
+            <p class="u-text u-text-default u-text-5">3. ​Die Kosten für <a href="https://www.castsoftware.de/highlight" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-4 u-btn-3" target="_blank">CAST Highlight</a> variieren je nach den Anforderungen und der Größe des zu analysierenden
+ Codes. Es handelt sich normalerweise um ein Abonnementmodell mit 
+variablen Preisen je nach Nutzungsumfang und Dauer des Abonnements. Die 
+Preise gehen bis auf über 100.000€.
+            </p>
+            <p class="u-text u-text-default u-text-6">4. ​Mida Studio ist ebenfalls ein kommerzielles Tool und erfordert den 
+Kauf einer Lizenz. Die Preise können je nach Edition und Funktionsumfang
+ variieren, liegen jedoch typischerweise im Bereich von 200€ bis 500€ 
+pro Entwicklerplatz.</p>
+            <p class="u-text u-text-default u-text-7">5. ​Die Kosten für den Parnassus Bookmarks Converter sind nicht direkt 
+bekannt, da sie möglicherweise im Rahmen anderer Dienstleistungen oder 
+Produkte von Parnassus angeboten werden.</p>
+            <p class="u-text u-text-default u-text-8">6. ​Die Kosten für <a href="https://delphiparser.com/" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-4 u-btn-4" target="_blank">Delphi Parser</a> können je nach Lizenzmodell variieren. Es gibt sowohl kostenlose als 
+auch kommerzielle Versionen, wobei die Preise für kommerzielle Lizenzen 
+je nach Nutzungsumfang und Funktionsumfang variieren können. Aktuell 
+liegen die Preise zwischen 2.475€ - 9.745€ für die verschiedenen 
+Versionen.
+            </p>
+            <p class="u-text u-text-default u-text-9">7. ​reFind ist in der <a href="https://www.embarcadero.com/de/products/rad-studio" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-4 u-btn-5" target="_blank">Delphi-IDE</a> integriert und daher für Delphi-Entwickler, die bereits eine Lizenz für
+ Delphi besitzen, kostenlos verfügbar. Delphi 10 ist zwischen 1.400€ - 
+5.500€ in den verschiedenen Versionen zu haben.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-17" id="sec-0e62">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <p class="u-text u-text-default u-text-1"> Angesichts der umfangreichen Aufgaben im Zusammenhang mit der 
+Migration von Delphi 7-Anwendungen auf neuere Versionen sowie der 
+Vielzahl von verfügbaren Tools ist es entscheidend, die richtige Auswahl
+ zu treffen. Jedes Tool bietet spezifische Funktionen und Vorteile, die 
+je nach den individuellen Anforderungen und Zielen eines Projekts 
+variieren können. Bei der Auswahl eines Tools müssen Faktoren wie 
+Funktionsumfang, Benutzerfreundlichkeit, Kosten und Support 
+berücksichtigt werden.&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+            <p class="u-text u-text-default u-text-2"> Es ist ratsam, eine gründliche Evaluierung der verfügbaren Tools 
+durchzuführen, um sicherzustellen, dass das ausgewählte Tool den 
+Anforderungen des Projekts entspricht und die gewünschten Ergebnisse 
+liefert. Dabei sollten auch die zu erwartenden Kosten und der Nutzen, 
+den das Tool bietet, sorgfältig abgewogen werden. </p>
+            <p class="u-text u-text-default u-text-3"> Darüber hinaus ist es wichtig, den Migrationsprozess als langfristige 
+Investition in die Zukunft der Anwendung zu betrachten. Die richtige 
+Wahl des Tools kann nicht nur den Migrationsprozess erleichtern, sondern
+ auch die Wartbarkeit, Leistung und Zukunftsfähigkeit der Anwendung 
+verbessern. Daher ist es entscheidend, Zeit und Ressourcen in die 
+Auswahl des richtigen Tools zu investieren, um langfristigen Erfolg zu 
+gewährleisten.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-18" id="sec-7395">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="delphi-migration.html#sec-6bea" data-page-id="69497143" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-4 u-btn-1"> Zurück zum Inhalts Menü</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-19" id="sec-1c7a">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h5 class="u-text u-text-default u-text-1"> Anbieter für Delphi Migration </h5>
+            <p class="u-text u-text-default u-text-2"> Die Migration von Delphi 7-Anwendungen auf neuere Versionen kann eine
+ komplexe und zeitaufwändige Aufgabe sein, die spezielle Kenntnisse und 
+Ressourcen erfordert. Angesichts der Herausforderungen, die mit diesem 
+Prozess verbunden sind, kann die Unterstützung durch spezialisierte 
+Dienstleister wie GDK aus den Niederlanden von unschätzbarem Wert sein.&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+            <p class="u-text u-text-default u-text-3">
+              <a href="https://gdksoftware.com/" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-4 u-btn-1" target="_blank">GDK ist eine renommierte Softwarefirma</a>,
+ die sich auf die Migration von Delphi-Anwendungen spezialisiert hat. 
+Mit langjähriger Erfahrung und einem Expertenteam von Delphi-Entwicklern
+ bietet GDK umfassende Dienstleistungen und Lösungen, um Kunden bei der 
+Aktualisierung und Modernisierung ihrer Delphi-Anwendungen zu 
+unterstützen.&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            </p>
+            <p class="u-text u-text-default u-text-4"> Die Experten von GDK verfügen über fundiertes Fachwissen und 
+technisches Know-how, um komplexe Migrationsprojekte effizient und 
+erfolgreich durchzuführen. Sie können Kunden dabei helfen, die 
+Herausforderungen im Zusammenhang mit der Migration zu bewältigen, 
+einschließlich der Anpassung des Codes an neue Frameworks, der 
+Aktualisierung von Drittanbieterkomponenten und der Behebung von 
+Kompatibilitätsproblemen. </p>
+            <p class="u-text u-text-default u-text-5"> Darüber hinaus bietet GDK maßgeschneiderte Lösungen, die auf die 
+spezifischen Anforderungen und Ziele jedes Kunden zugeschnitten sind. 
+Sie arbeiten eng mit ihren Kunden zusammen, um eine umfassende Analyse 
+der bestehenden Anwendung durchzuführen und eine individuelle 
+Migrationsstrategie zu entwickeln, die den Bedürfnissen des Unternehmens
+ entspricht. </p>
+            <p class="u-text u-text-default u-text-6"> Ein weiterer Vorteil der Zusammenarbeit mit GDK ist ihr Engagement 
+für Qualität und Kundenzufriedenheit. Sie stellen sicher, dass die 
+migrierten Anwendungen den höchsten Standards entsprechen und optimal 
+funktionieren, um den langfristigen Erfolg ihrer Kunden zu 
+gewährleisten. </p>
+            <p class="u-text u-text-default u-text-7"> Insgesamt ist die Unterstützung durch GDK eine ausgezeichnete Wahl für 
+Unternehmen, die eine reibungslose und erfolgreiche Migration ihrer 
+Delphi-Anwendungen anstreben. Durch ihre Fachkenntnisse, Erfahrung und 
+maßgeschneiderten Lösungen bieten sie einen wertvollen Beitrag zur 
+Modernisierung und Weiterentwicklung von Delphi-Anwendungen für die 
+Zukunft.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-20" id="sec-b948">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="delphi-migration.html#sec-6bea" data-page-id="69497143" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-4 u-btn-1"> Zurück zum Inhalts Menü</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-21" id="sec-7783">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h1 class="u-text u-text-default u-text-1"> Fazit zu Migration von Delphi 5, 6, 7 Software zu Delphi 10 </h1>
+            <p class="u-text u-text-default u-text-2"> Als Entwickler, der kürzlich eine Delphi 7-Migration auf neuere 
+Versionen durchgeführt hat, möchte ich meine Erfahrungen und 
+Erkenntnisse über die verschiedenen Tools teilen, die ich während dieses
+ Prozesses verwendet habe. Während meiner Arbeit habe ich eine Reihe von
+ Tools getestet und ihre Vor- und Nachteile kennengelernt. Leider konnte
+ ich jedoch nicht alle verfügbaren Tools testen, insbesondere nicht CAST
+ Highlight und Delphi Parser. Dennoch möchte ich meine Einsichten 
+teilen, um anderen Entwicklern bei ihren Migrationsprojekten zu helfen.&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+            <p class="u-text u-text-default u-text-3"> Die Migration von Delphi-Anwendungen ist eine anspruchsvolle Aufgabe, 
+die spezifisches Fachwissen und geeignete Werkzeuge erfordert. Während 
+des Prozesses habe ich festgestellt, dass jedes Tool seine Stärken und 
+Schwächen hat und kein einzelnes Tool alle Anforderungen abdecken kann. 
+Daher ist es wichtig, eine Kombination von Tools zu verwenden und 
+manuelle Anpassungen vorzunehmen, um ein erfolgreiches Ergebnis zu 
+erzielen.</p>
+            <p class="u-text u-text-default u-text-4"> Die Umstellung von Delphi 7 auf Delphi 10 erwies sich für mich als 
+eine äußerst komplexe und anspruchsvolle Aufgabe. Während des Prozesses 
+stieß ich auf eine Vielzahl von Herausforderungen, die von der Anpassung
+ veralteter Codestrukturen bis hin zur Integration moderner Frameworks 
+reichten. Angesichts dieser Komplexität und der potenziell hohen Kosten 
+für die Migration war es entscheidend, die richtigen Werkzeuge und 
+Partner zur Unterstützung zu finden. </p>
+            <p class="u-text u-text-default u-text-5"> In meiner Suche nach einer effektiven Lösung stieß ich auf GDK, eine 
+renommierte Softwarefirma aus den Niederlanden, die auf Delphi-Migration
+ spezialisiert ist. Die Zusammenarbeit mit GDK erwies sich als 
+Glücksgriff und machte den Übergang von Delphi 7 auf Delphi 10 zu einem 
+reibungslosen und effizienten Prozess. </p>
+            <p class="u-text u-text-default u-text-6"> In Anbetracht der Komplexität und der potenziell hohen Kosten für die 
+Delphi-Migration kann ich GDK wärmstens empfehlen. Ihre Expertise, 
+Erfahrung und maßgeschneiderten Lösungen machen sie zu einem wertvollen 
+Partner für Unternehmen, die eine reibungslose und erfolgreiche 
+Migration ihrer Delphi-Anwendungen anstreben.</p>
+            <p class="u-text u-text-default u-text-7"> Zum Schluss kann ich sagen, dass die Migration ein Haareraufen-Thema 
+ist und ich empfehle schlussendlich von Anfang an einen Profi an die 
+Migration zu setzen. Sonst wird das wahrscheinlich nichts.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-22" id="sec-acf1">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="delphi-migration.html#sec-6bea" data-page-id="69497143" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-4 u-btn-1"> Zurück zum Inhalts Menü</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-23" id="ueber-mich-ueber-den-autor">
+      <div class="u-clearfix u-sheet u-valign-top-md u-valign-top-sm u-valign-top-xs u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <div class="custom-expanded data-layout-selected u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+              <div class="u-layout">
+                <div class="u-layout-row">
+                  <div class="u-container-style u-layout-cell u-size-23-lg u-size-23-xl u-size-25-md u-size-25-sm u-size-25-xs u-layout-cell-1">
+                    <div class="u-container-layout u-valign-top-xs u-container-layout-2">
+                      <img class="u-expanded-width u-image lazyload u-image-1" data-image-width="1974" data-image-height="2521" alt="Ralf-Peter Kleinert - Buchautor für IT-Sichereit, Computersicherheit und Cybersecurity" data-src="../images/Ralf-PeterKleinertIchaktuellesPortrait2024.webp" loading="lazy">
+                    </div>
+                  </div>
+                  <div class="u-container-style u-layout-cell u-size-35-md u-size-35-sm u-size-35-xs u-size-37-lg u-size-37-xl u-layout-cell-2">
+                    <div class="u-container-layout u-valign-bottom-xs u-container-layout-3">
+                      <p class="u-text u-text-default-lg u-text-default-xl u-text-1"> Über den Autor: Ralf-Peter Kleinert</p>
+                      <p class="u-text u-text-default-lg u-text-default-xl u-text-2"> Über 30 Jahre Erfahrung in der IT legen meinen Fokus auf die Computer- und IT-Sicherheit. Auf meiner Website biete ich detaillierte Informationen zu aktuellen IT-Themen. Mein Ziel ist es, komplexe Konzepte verständlich zu vermitteln und meine Leserinnen und Leser für die Herausforderungen und Lösungen in der IT-Sicherheit zu sensibilisieren.<br>
+                      </p>
+                      <p class="u-text u-text-default-lg u-text-default-xl u-text-3">
+                        <a href="../ueber-mich.html" data-page-id="38997572" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Mehr über mich, Ausbildung, Zertifizierungen</a>
+                      </p>
+                      <p class="u-text u-text-default-lg u-text-default-xl u-text-4">
+                        <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-2" href="https://www.amazon.de/stores/Ralf-Peter-Kleinert-RPK/author/B0D6FVWCTN" target="_blank"> Meine Amazon Autorenseite</a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-24" id="sec-b9b5">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <p class="u-small-text u-text u-text-default u-text-variant u-text-1"> Aktualisiert: Ralf-Peter Kleinert 04.04.2024 </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    
+    
+    <footer class="u-align-center u-clearfix u-container-align-center u-custom-color-2 u-footer u-footer" id="footer-mit-navigation"><div class="u-clearfix u-sheet u-sheet-1">
+        <p class="u-small-text u-text u-text-variant u-text-1">
+          <a href="../datenschutzerklaerung.html" data-page-id="735813554" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1">Datenschutz</a> | <a href="../impressum.html" data-page-id="63266619" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-2">Impressum</a> | <a href="../inhaltsverzeichnis.html" data-page-id="50765561" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-3">Inhalt</a> | <a href="../nutzungsbedingungen.html" data-page-id="117449462" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-4">Nutzungsbedingungen</a> | <a href="../hinweise-haftungsausschluss.html" data-page-id="98103025" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-5">Haftung</a> | <a href="../hinweise-haftungsausschluss.html#affiliate-info-ausfuehrlich" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-6">Affiliate</a>&nbsp;|&nbsp;<a href="../kontakt.html" data-page-id="125601662" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-7">Kontakt</a> | <a href="../newsletter.html" data-page-id="103346126" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-8">Newsletter</a>&nbsp;| <a href="../preise.html" data-page-id="130192720" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-9">Preise</a>&nbsp;| <a href="../support.html" data-page-id="86002539" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-10">Support </a>|&nbsp;<a href="../ueber-mich.html" data-page-id="38997572" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-11">Über mich</a> | <a href="../downloads.html" data-page-id="70811588" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-12" title="Downloads und kostenlose Downloads">Downloads</a> |<span style="font-weight: 700;">
+            <a href="https://digital-easy.de" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-13" title="DIGITAL-easy" target="_blank">digital-easy.de</a>&nbsp;| <a href="https://blog.ralf-peter-kleinert.de" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-14" title="BLOG Ralf-Peter Kleinert" target="_blank">blog.ralf-peter-kleinert.de</a>&nbsp;| <span style="font-weight: 400;">
+              <a href="https://computerralle.de" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-15" title="#ComputerRalle" target="_blank" rel="noopener">computerralle.de</a></span> |&nbsp;<a href="../hinweise-haftungsausschluss.html#agb-allgemeine-geschaeftsbedingungen" data-page-id="98103025" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-16">AGB</a>&nbsp;| <span style="font-weight: 400;">
+              <a href="https://portal.dnb.de/opac/simpleSearch?query=ralf-peter+kleinert&amp;cqlMode=true" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-17" title="Bücher von Ralf-Peter Kleinert in der Deutschen Nationalbibliothek" target="_blank">Nationalbibliothek</a></span></span>
+        </p>
+        <p class="u-text u-text-2"> Copyright © Ralf-Peter Kleinert DIGITAL-easy #ComputerRalle<br>SSR-Entertainment seit 2005&nbsp;<br> Alle Rechte vorbehalten.
+        </p>
+        <div class="u-social-icons u-social-icons-1">
+          <a class="u-social-url" title="facebook" target="_blank" href="https://www.facebook.com/ralf.peter.kleinert.81" rel="nofollow"><span class="u-icon u-social-facebook u-social-icon u-text-custom-color-29 u-icon-1"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 112 112" style=""><use xlink:href="#svg-1c85"></use></svg><svg class="u-svg-content" viewBox="0 0 112 112" x="0" y="0" id="svg-1c85"><circle fill="currentColor" cx="56.1" cy="56.1" r="55"></circle><path fill="#FFFFFF" d="M73.5,31.6h-9.1c-1.4,0-3.6,0.8-3.6,3.9v8.5h12.6L72,58.3H60.8v40.8H43.9V58.3h-8V43.9h8v-9.2
+c0-6.7,3.1-17,17-17h12.5v13.9H73.5z"></path></svg></span>
+          </a>
+          <a class="u-social-url" target="_blank" data-type="YouTube" title="YouTube" href="https://www.youtube.com/@ComputerRalle"><span class="u-icon u-social-icon u-social-youtube u-text-custom-color-29 u-icon-2"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 112 112" style=""><use xlink:href="#svg-5bbf"></use></svg><svg class="u-svg-content" viewBox="0 0 112 112" x="0" y="0" id="svg-5bbf"><circle fill="currentColor" cx="56.1" cy="56.1" r="55"></circle><path fill="#FFFFFF" d="M74.9,33.3H37.3c-7.4,0-13.4,6-13.4,13.4v18.8c0,7.4,6,13.4,13.4,13.4h37.6c7.4,0,13.4-6,13.4-13.4V46.7 C88.3,39.3,82.3,33.3,74.9,33.3L74.9,33.3z M65.9,57l-17.6,8.4c-0.5,0.2-1-0.1-1-0.6V47.5c0-0.5,0.6-0.9,1-0.6l17.6,8.9 C66.4,56,66.4,56.8,65.9,57L65.9,57z"></path></svg></span>
+          </a>
+          <a class="u-social-url" target="_blank" data-type="LinkedIn" title="LinkedIn" href="https://www.linkedin.com/in/ralf-peter-kleinert/" rel="nofollow"><span class="u-icon u-social-icon u-social-linkedin u-text-custom-color-29 u-icon-3"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 112 112" style=""><use xlink:href="#svg-d54c"></use></svg><svg class="u-svg-content" viewBox="0 0 112 112" x="0" y="0" id="svg-d54c"><circle fill="currentColor" cx="56.1" cy="56.1" r="55"></circle><path fill="#FFFFFF" d="M41.3,83.7H27.9V43.4h13.4V83.7z M34.6,37.9L34.6,37.9c-4.6,0-7.5-3.1-7.5-7c0-4,3-7,7.6-7s7.4,3,7.5,7
+      C42.2,34.8,39.2,37.9,34.6,37.9z M89.6,83.7H76.2V62.2c0-5.4-1.9-9.1-6.8-9.1c-3.7,0-5.9,2.5-6.9,4.9c-0.4,0.9-0.4,2.1-0.4,3.3v22.5
+      H48.7c0,0,0.2-36.5,0-40.3h13.4v5.7c1.8-2.7,5-6.7,12.1-6.7c8.8,0,15.4,5.8,15.4,18.1V83.7z"></path></svg></span>
+          </a>
+          <a class="u-social-url" target="_blank" data-type="Custom" title="Mastodon" href="https://mastodon.social/@digitaleasy" rel="nofollow noopener"><span class="u-file-icon u-icon u-social-custom u-social-icon u-text-custom-color-29 u-icon-4"><img src="../images/mastodon1-4909f8ae.png" alt=""></span>
+          </a>
+          <a class="u-social-url" target="_blank" data-type="Blogspot" title="Blogspot" href="https://computerralle.blogspot.com/"><span class="u-icon u-social-blogspot u-social-icon u-text-custom-color-29 u-icon-5"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 112 112" style=""><use xlink:href="#svg-35b7"></use></svg><svg class="u-svg-content" viewBox="0 0 112 112" x="0" y="0" id="svg-35b7"><circle fill="currentColor" cx="56.1" cy="56.1" r="55"></circle><path id="Blogger" fill="#FFFFFF" d="M82.9,47.9c-4.4,0-5.4-2.3-5.4-5.4s-0.7-7.9-6.2-13.7C65.9,23.2,59.6,23,59.6,23
+	s-12.5,0-17.9,0c-5.8,0-10.2,3.2-14.2,7.9c-5,5.9-4.5,12-4.5,12s0,18.7,0,23.2s0.5,10.4,6.3,16.8c5.8,6.4,14.9,6.3,14.9,6.3H68
+	c7,0,11-2.1,15.9-6.6c5.3-4.8,5.7-13.7,5.7-13.7s0-14.7,0-17.4C89.6,48.7,87.3,47.9,82.9,47.9z M39.7,43.3c0-2,1.7-3.7,3.7-3.7h14.2
+	c2,0,3.7,1.7,3.7,3.7v0.9c0,2-1.7,3.7-3.7,3.7H43.4c-2,0-3.7-1.7-3.7-3.7V43.3z M71.7,68.6c0,2-1.7,3.7-3.7,3.7H43.4
+	c-2,0-3.7-1.7-3.7-3.7v-0.9c0-2,1.7-3.7,3.7-3.7H68c2,0,3.7,1.7,3.7,3.7V68.6z"></path></svg></span>
+          </a>
+        </div>
+        <div class="u-clearfix u-custom-html u-expanded-width u-custom-html-1">
+          <a href="javascript:UC_UI.showSecondLayer();">Cookie-Einstellungen</a>
+        </div>
+      </div></footer><span style="height: 48px; width: 48px; margin-left: 0px; margin-right: auto; margin-top: 0px; right: 0px; bottom: 15px;" class="u-back-to-top u-file-icon u-icon u-text-custom-color-20" data-href="#"><img src="../images/e77d2435.png" alt=""></span>
+  
+</body></html>

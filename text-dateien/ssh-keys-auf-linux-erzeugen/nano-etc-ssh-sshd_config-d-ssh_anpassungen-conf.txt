@@ -1,0 +1,1 @@
+nano /etc/ssh/sshd_config.d/ssh_anpassungen.conf

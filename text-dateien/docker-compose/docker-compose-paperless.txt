@@ -1,0 +1,89 @@
+#compose Datei fuer den Einsatz des "Paperless Backup Programm" von ComputerRalle
+# ralf-peter-kleinert.de
+#Name des Containers, wird vor die Volumes gesetzt
+name: paperless-ngx
+
+services:
+  broker:
+    image: redis:latest
+    restart: always
+
+  db:
+    image: postgres:17
+    restart: always
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: paperless
+      POSTGRES_USER: paperless
+      POSTGRES_PASSWORD: paperless
+
+  gotenberg:
+    image: gotenberg/gotenberg:latest
+    restart: always
+    environment:
+      DISABLE_GOOGLE_CHROME: "1"
+
+  tika:
+    image: apache/tika:latest
+    restart: always
+
+# alpine wird vom Paperless Backup Program benötigt
+  alpine:
+    image: alpine
+    container_name: alpine_helper
+    entrypoint: sh
+    stdin_open: true
+    tty: true
+
+# busybox als zusätzliche Testumgebung (optional)
+  busybox:
+    image: busybox
+    container_name: busybox_helper
+    entrypoint: sh
+    stdin_open: true
+    tty: true
+
+  paperless:
+    image: ghcr.io/paperless-ngx/paperless-ngx:latest
+    depends_on:
+      - db
+      - broker
+      - gotenberg
+      - tika
+    ports:
+      - "8000:8000"
+    restart: always
+    volumes:
+      - data:/usr/src/paperless/data
+      - media:/usr/src/paperless/media
+      - export:/usr/src/paperless/export
+      - C:\Users\konta\Desktop\Paperless-Input:/usr/src/paperless/consume
+    env_file:
+      - ./email-versand.env
+    environment:
+      PAPERLESS_REDIS: redis://broker:6379
+      PAPERLESS_DBHOST: db
+      PAPERLESS_DBNAME: paperless
+      PAPERLESS_DBUSER: paperless
+      PAPERLESS_DBPASS: paperless
+      PAPERLESS_TIME_ZONE: Europe/Berlin
+      PAPERLESS_SECRET_KEY: aksjdfhs87H/(&986jlkhgiu87659zol
+      PAPERLESS_CONSUMPTION_DIR: /usr/src/paperless/consume
+      PAPERLESS_MEDIA_ROOT: /usr/src/paperless/media
+      PAPERLESS_EXPORT_DIR: /usr/src/paperless/export
+      PAPERLESS_TIKA_ENABLED: "1"
+      PAPERLESS_TIKA_GOTENBERG_ENDPOINT: http://gotenberg:3000
+      PAPERLESS_TIKA_ENDPOINT: http://tika:9998
+      PAPERLESS_CONSUMER_POLLING: "60"
+      PAPERLESS_CONSUMER_POLLING_DELAY: "30"
+      PAPERLESS_CONSUMER_POLLING_RETRY_COUNT: "3"
+      PAPERLESS_CONSUMER_DELETE_DUPLICATES: "true"
+      PAPERLESS_CONSUMER_RECURSIVE: "true"
+      PAPERLESS_EMPTY_TRASH_DELAY: "30"
+      PAPERLESS_OCR_LANGUAGE: deu+eng
+volumes:
+  data:
+  media:
+  export:
+  db_data:

@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="de-DE"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Vaultwarden, Caddy, Debian 13, Proxmox, Passwortmanager, selbst gehostet, SSL, Docker Compose, LAN Server, IT-Sicherheit">
+    <meta name="description" content="Anleitung: Vaultwarden mit Caddy unter Debian 13 Trixie installieren. Schritt für Schritt erklärt – vom Proxmox-Setup über SSL bis zur sicheren Passwortverwaltung im eigenen LAN.">
+    <title>Vaultwarden Passwortmanager - mit SSL im LAN betreiben</title>
+    <link rel="stylesheet" href="../nicepage.css" media="screen">
+<link rel="stylesheet" href="vaultwarden-ssl-local-network.css" media="screen">
+    <script class="u-script" type="text/javascript" src="../jquery.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="../nicepage.js" defer=""></script>
+    <meta name="twitter:card" content="player">
+    <meta name="twitter:title" content="Passwortmanager hoch-verschlüsselt - KeePassXC und Proton-Drive mit Synchronisation 100% kostenlos">
+    <meta name="twitter:description" content="In dem Tutorial zeige ich Ihnen Schritt für Schritt, wie Sie KeePassXC und Proton Drive kombinieren und Ihre Passwort-Datenbank sicher und verschlüsselt in der Cloud speichern können.">
+    <meta name="twitter:image" content="https://img.youtube.com/vi/j4DWjU9XucI/maxresdefault.jpg">
+    <meta name="twitter:player" content="https://www.youtube-nocookie.com/embed/j4DWjU9XucI">
+    <meta name="twitter:player:width" content="1920">
+    <meta name="twitter:player:height" content="1080">
+    <meta name="twitter:site" content="@DIGITALeasy_RPK">
+    <meta name="twitter:creator" content="@DIGITALeasy_RPK">
+    <meta property="og:title" content="Vaultwarden Passwortmanager - mit SSL im LAN betreiben">
+    <meta property="og:description" content="Anleitung: Vaultwarden mit Caddy unter Debian 13 Trixie installieren. Schritt für Schritt erklärt – vom Proxmox-Setup über SSL bis zur sicheren Passwortverwaltung im eigenen LAN.">
+    <meta property="og:image" content="https://ralf-peter-kleinert.de/images/ransomware-3998798_1920-2.webp">
+    <meta property="og:url" content="https://ralf-peter-kleinert.de/sicherheit-in-der-it/vaultwarden-ssl-local-network.html">
+    <script type="application/ld+json"> {
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "Passwortmanager hoch-verschlüsselt - KeePassXC und Proton-Drive mit Synchronisation 100% kostenlos",
+  "description": "In dem Tutorial zeige ich Ihnen Schritt für Schritt, wie Sie KeePassXC und Proton Drive kombinieren und Ihre Passwort-Datenbank sicher und verschlüsselt in der Cloud speichern können.",
+  "thumbnailUrl": "https://img.youtube.com/vi/j4DWjU9XucI/maxresdefault.jpg",
+  "uploadDate": "2025-03-23T00:00:00+00:00",
+  "contentUrl": "https://www.youtube-nocookie.com/embed/j4DWjU9XucI",
+  "embedUrl": "https://www.youtube-nocookie.com/embed/j4DWjU9XucI",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Ralf-Peter Kleinert DIGITALeasy",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ralf-peter-kleinert.de/images/digitaleasy_kopfbanner.png"
+    }
+  }
+} </script>
+    <link rel="icon" href="../images/favicon1.ico">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <link id="u-page-google-font" rel="stylesheet" href="../vaultwarden-ssl-local-network-fonts.css">
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": "Ralf-Peter Kleinert",
+		"logo": "../images/BannerHintergrund1.png",
+		"sameAs": [
+				"https://www.facebook.com/ralf.peter.kleinert.81",
+				"https://www.youtube.com/@ComputerRalle",
+				"https://www.linkedin.com/in/ralf-peter-kleinert/",
+				"https://mastodon.social/@digitaleasy",
+				"https://computerralle.blogspot.com/"
+		]
+}</script>
+    <meta name="theme-color" content="#0cbcf5">
+    <meta property="og:type" content="website">
+  <meta name="author" content="Ralf-Peter Kleinert">
+<meta name="email" content="digitaleasy@ralf-peter-kleinert.de">
+<meta name="copyright" content="Copyright © by Ralf-Peter Kleinert">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="facebook-domain-verification" content="7cwzmpfwunyhwzz0dh72lsvrhynk3y"><link rel="preconnect" href="//app.eu.usercentrics.eu">
+<link rel="preconnect" href="//api.eu.usercentrics.eu">
+<link rel="preconnect" href="//sdp.eu.usercentrics.eu">
+<link rel="preload" href="//app.eu.usercentrics.eu/browser-ui/latest/loader.js" as="script">
+<link rel="preload" href="//sdp.eu.usercentrics.eu/latest/uc-block.bundle.js" as="script">
+<script id="usercentrics-cmp" async="" data-eu-mode="true" data-settings-id="rdKSWSBTj" src="https://app.eu.usercentrics.eu/browser-ui/latest/loader.js"></script>
+<script type="application/javascript" src="https://sdp.eu.usercentrics.eu/latest/uc-block.bundle.js"></script><meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
+  <body data-path-to-root="../" data-include-products="false" class="u-body u-clearfix u-xl-mode" data-lang="de"><header class=" u-border-no-bottom u-border-no-left u-border-no-right u-border-no-top u-clearfix u-header u-section-row-container" id="header-mit-navigation-hauptmenue" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="" style="border-style: solid;"><div class="u-section-rows" style="">
+        <div class="u-border-2 u-border-custom-color-20 u-border-no-left u-border-no-right u-border-no-top u-clearfix u-custom-color-2 u-section-row u-section-row-1" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="" id="haupt-menue">
+          <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+            <nav class="u-align-left-lg u-align-left-xl u-align-right-md u-align-right-sm u-align-right-xs u-menu u-menu-dropdown u-menu-open-right u-offcanvas u-menu-1" data-responsive-from="MD" data-position="navigation-hauptmenue" role="navigation">
+              <div class="menu-collapse u-custom-font u-font-raleway" style="font-size: 1.125rem; letter-spacing: 0px; font-weight: 500;">
+                <a class="u-button-style u-custom-active-color u-custom-border u-custom-border-color u-custom-color u-custom-color-2 u-custom-effect-duration u-custom-hover-color u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-text-active-color u-custom-text-color u-custom-text-hover-color u-custom-text-shadow u-custom-text-shadow-blur u-custom-text-shadow-color u-custom-text-shadow-transparency u-custom-text-shadow-x u-custom-text-shadow-y u-custom-top-bottom-menu-spacing u-hamburger-link u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base u-hamburger-link-1" href="#" tabindex="-1" aria-label="Open menu" aria-controls="092e">
+                  <svg class="u-svg-link" viewBox="0 0 24 24"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#menu-hamburger"></use></svg>
+                  <svg class="u-svg-content" version="1.1" id="menu-hamburger" viewBox="0 0 16 16" x="0px" y="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect>
+</g></svg><span> Menü</span>
+                </a>
+              </div>
+              <div class="u-custom-menu u-nav-container">
+                <ul class="u-custom-font u-font-raleway u-nav u-spacing-2 u-unstyled u-nav-1" role="menubar"><li role="none" class="u-nav-item"><a tabindex="-1" role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="../index.html" style="padding: 12px 22px;">Start</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="../inhaltsverzeichnis.html" style="padding: 12px 22px;">Inhalt</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="../sicherheit-in-der-it.html" style="padding: 12px 22px;">IT-Sicherheit &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-2" aria-label="IT-Sicherheit > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="uebersicht-it-cyber-security.html">Übersicht: IT-Sicherheit</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="verschluesselung-von-daten.html">Verschlüsselung &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-3" aria-label="Verschlüsselung > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="verschluesselung-von-daten/cryptomator-kostenlos.html">Cryptomator Dateien verschlüsseln</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="vaultwarden-ssl-local-network.html">Vaultwarden Passwortmanager im LAN mit SSL</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="passkeys-einrichten-und-nutzen.html">Passkeys Einrichten und Nutzen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="privatpersonen.html">Privatpersonen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="unternehmen.html">Unternehmen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="it-daten-info-sicherheit.html">IT-, Daten-, Informationssicherheit</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="backups-sind-exrem-wichtig.html">Backups wichtig für IT-Sicherheit</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="keepass-anleitung.html">KeePass-Anleitung</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="keepassxc-und-proton-drive.html">KeePassXC und Proton Drive</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="iperius-backup-kostenlos.html">Iperius Backup die kostenlose Backupsoftware</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="paragon-backup-kostenlos.html">Paragon Backup kostenlose Software</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="paragon-backup-rettungsstick.html">Paragon Backup Rettungsstick erstellen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="backupkonzept-backupstrategie.html">Datensicherungskonzept und Backupstrategie</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="wie-kann-ich-daten-schuetzen.html">Wie kann ich meine Daten vor Hackern besser schützen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="sicherheit-in-social-media.html">Sicherheit in Social-Media</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="delphi-migration.html">Delphi Software Migration</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="pcloud-pass-passwort-manager.html">Passwort Manager pCloud Pass</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="../it-und-computer-beratung.html" style="padding: 12px 22px;">Beratungen &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-4" aria-label="Beratungen > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../it-und-computer-beratung/kleine-unternehmen-startups.html">IT-Dokumentationen für Unternehmen, Praxen und Universitäten</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="../windows-os.html" style="padding: 12px 22px;">Windows &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-5" aria-label="Windows > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../windows-os/computerralle-isms-docker-win.html">ISMS von ComputerRalle</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../windows-os/fernwartungssoftware-hoptodesk.html">Remote Software HopToDesk</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="../linux-os.html" style="padding: 12px 22px;">Linux &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-6" aria-label="Linux > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-os/paperless-backup-programm.html">Paperless Backup Programm Anleitung</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-os/docker-desktop-paperless.html">Paperless auf Windows installieren WSL</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-os/linux-webdav-dateisynchro.html">Linux WebDAV Dateisynchronisation kostenlos</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-os/docker-paperless-installieren.html">Paperless Docker Installation</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server.html">Linux Server &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-7" aria-label="Linux Server > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server/proxmox-pve8-to-pve9-upgrade.html">Proxmox VE 8 zu Proxmox VE 9 Upgrade</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server/uebersicht-linux-server.html">Übersicht: Linux Server</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server/gitlab-auf-linux-installieren.html">Gitlab auf Linux Debian 11 installieren</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server/proxmox-server-sichern-haerten.html">Proxmox Server absichern und härten</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server/ssh-keys-auf-linux-erzeugen.html">Proxmox SSH-Keys auf Linux erzeugen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server/ssh-keys-auf-windows-erzeugen.html">Proxmox SSH-Key auf Windows erzeugen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server/proxmox-hochverfuegbare-vm.html">Proxmox Hochverfügbarkeits-Cluster aufbauen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server/proxmox-verschluesselt-backup.html">Proxmox verschlüsseltes Backup erstellen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server/proxmox-und-pfsense-eine-ip.html">Proxmox und pfSense Firewall</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheits-anbieter/1blu-backupserver.html">1blu Storage-Server für Proxmox-Backup-Server</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server/proxmox-netzwerk-bonding.html">Netzwerk-Bonding Ausfallschutz auf Proxmox</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server/opnsense-wireguard-vpn.html">OPNsense &amp; WireGuard-Tunnel einrichten</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server/pfsense-wireguard-vpn.html">pfSense &amp; WireGuard-Tunnel einrichten</a>
+</li></ul>
+</div>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="../meine-fachbuecher.html" style="padding: 12px 22px;">Bücher &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-8" aria-label="Bücher > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/uebersicht-meine-buecher.html">Übersicht: Bücher</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/proxmox-ve9-praxisbuch.html">Proxmox VE 9 Praxisbuch</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/proxmox-ve8-praxis-buch.html">Proxmox VE 8 Praxisbuch</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/proxmox-pve-8-pbs-3-profi-buch.html">Proxmox VE 8 Proxmox BS 3 Profibuch</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/proxmox-ve-8-powerbuch.html">Proxmox VE 8 Powerbuch</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/computer-it-sicherheits-fibel.html">Computer und IT Sicherheits-Fibel</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/schluss-mit-windows.html">Schluss mit Windows - jetzt kommt Linux</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/computer-sicherheit-fuer-kmu.html">Computer-Sicherheit für kleine und mittlere Unternehmen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/die-mutter-aller-ki-buecher.html">Die Mutter aller KI Bücher</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/proxmox-firewall-buch.html">Proxmox Firewall - Verstehen Einschalten Abschotten</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/cloud-verstehen-und-nutzen.html">Cloud verstehen und nutzen kostenloses eBook</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="../sicherheits-anbieter.html" style="padding: 12px 22px;">Sicherheits-Anbieter</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-9" aria-label="Sicherheits-Anbieter menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheits-anbieter/tuta-quantensichere-mail.html">Tuta verschlüsselte Mail und Kalender</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheits-anbieter/erecht24-anwalt-siebert.html">eRecht24</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheits-anbieter/1blu-backupserver.html">1blu Backupserver</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="ashampoo-backup-pro-26.html">Ashampoo Backup Pro</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="pcloud-pass-passwort-manager.html">pCloud Passwortmanager</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="../suchen.html" style="padding: 12px 22px;">Suchen</a>
+</li></ul>
+              </div>
+              <div class="u-custom-menu u-nav-container-collapse" id="092e" role="region" aria-label="Menu panel">
+                <div class="u-container-style u-custom-color-2 u-inner-container-layout u-sidenav u-sidenav-1">
+                  <div class="u-inner-container-layout u-sidenav-overflow">
+                    <div class="u-menu-close" tabindex="-1" aria-label="Close menu"></div>
+                    <ul class="u-align-left u-custom-font u-font-raleway u-nav u-popupmenu-items u-spacing-0 u-text-active-custom-color-5 u-text-hover-custom-color-5 u-text-white u-unstyled u-nav-10" role="menubar"><li role="none" class="u-nav-item"><a tabindex="-1" role="menuitem" class="u-button-style u-nav-link" href="../index.html">Start</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../inhaltsverzeichnis.html">Inhalt</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheit-in-der-it.html">IT-Sicherheit &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-11" aria-label="IT-Sicherheit > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="uebersicht-it-cyber-security.html">Übersicht: IT-Sicherheit</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="verschluesselung-von-daten.html">Verschlüsselung &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-12" aria-label="Verschlüsselung > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="verschluesselung-von-daten/cryptomator-kostenlos.html">Cryptomator Dateien verschlüsseln</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="vaultwarden-ssl-local-network.html">Vaultwarden Passwortmanager im LAN mit SSL</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="passkeys-einrichten-und-nutzen.html">Passkeys Einrichten und Nutzen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="privatpersonen.html">Privatpersonen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="unternehmen.html">Unternehmen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="it-daten-info-sicherheit.html">IT-, Daten-, Informationssicherheit</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="backups-sind-exrem-wichtig.html">Backups wichtig für IT-Sicherheit</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="keepass-anleitung.html">KeePass-Anleitung</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="keepassxc-und-proton-drive.html">KeePassXC und Proton Drive</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="iperius-backup-kostenlos.html">Iperius Backup die kostenlose Backupsoftware</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="paragon-backup-kostenlos.html">Paragon Backup kostenlose Software</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="paragon-backup-rettungsstick.html">Paragon Backup Rettungsstick erstellen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="backupkonzept-backupstrategie.html">Datensicherungskonzept und Backupstrategie</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="wie-kann-ich-daten-schuetzen.html">Wie kann ich meine Daten vor Hackern besser schützen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="sicherheit-in-social-media.html">Sicherheit in Social-Media</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="delphi-migration.html">Delphi Software Migration</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="pcloud-pass-passwort-manager.html">Passwort Manager pCloud Pass</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../it-und-computer-beratung.html">Beratungen &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-13" aria-label="Beratungen > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../it-und-computer-beratung/kleine-unternehmen-startups.html">IT-Dokumentationen für Unternehmen, Praxen und Universitäten</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../windows-os.html">Windows &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-14" aria-label="Windows > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../windows-os/computerralle-isms-docker-win.html">ISMS von ComputerRalle</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../windows-os/fernwartungssoftware-hoptodesk.html">Remote Software HopToDesk</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-os.html">Linux &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-15" aria-label="Linux > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-os/paperless-backup-programm.html">Paperless Backup Programm Anleitung</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-os/docker-desktop-paperless.html">Paperless auf Windows installieren WSL</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-os/linux-webdav-dateisynchro.html">Linux WebDAV Dateisynchronisation kostenlos</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-os/docker-paperless-installieren.html">Paperless Docker Installation</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server.html">Linux Server &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-16" aria-label="Linux Server > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server/proxmox-pve8-to-pve9-upgrade.html">Proxmox VE 8 zu Proxmox VE 9 Upgrade</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server/uebersicht-linux-server.html">Übersicht: Linux Server</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server/gitlab-auf-linux-installieren.html">Gitlab auf Linux Debian 11 installieren</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server/proxmox-server-sichern-haerten.html">Proxmox Server absichern und härten</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server/ssh-keys-auf-linux-erzeugen.html">Proxmox SSH-Keys auf Linux erzeugen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server/ssh-keys-auf-windows-erzeugen.html">Proxmox SSH-Key auf Windows erzeugen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server/proxmox-hochverfuegbare-vm.html">Proxmox Hochverfügbarkeits-Cluster aufbauen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server/proxmox-verschluesselt-backup.html">Proxmox verschlüsseltes Backup erstellen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server/proxmox-und-pfsense-eine-ip.html">Proxmox und pfSense Firewall</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheits-anbieter/1blu-backupserver.html">1blu Storage-Server für Proxmox-Backup-Server</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server/proxmox-netzwerk-bonding.html">Netzwerk-Bonding Ausfallschutz auf Proxmox</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server/opnsense-wireguard-vpn.html">OPNsense &amp; WireGuard-Tunnel einrichten</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server/pfsense-wireguard-vpn.html">pfSense &amp; WireGuard-Tunnel einrichten</a>
+</li></ul>
+</div>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher.html">Bücher &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-17" aria-label="Bücher > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/uebersicht-meine-buecher.html">Übersicht: Bücher</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/proxmox-ve9-praxisbuch.html">Proxmox VE 9 Praxisbuch</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/proxmox-ve8-praxis-buch.html">Proxmox VE 8 Praxisbuch</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/proxmox-pve-8-pbs-3-profi-buch.html">Proxmox VE 8 Proxmox BS 3 Profibuch</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/proxmox-ve-8-powerbuch.html">Proxmox VE 8 Powerbuch</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/computer-it-sicherheits-fibel.html">Computer und IT Sicherheits-Fibel</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/schluss-mit-windows.html">Schluss mit Windows - jetzt kommt Linux</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/computer-sicherheit-fuer-kmu.html">Computer-Sicherheit für kleine und mittlere Unternehmen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/die-mutter-aller-ki-buecher.html">Die Mutter aller KI Bücher</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/proxmox-firewall-buch.html">Proxmox Firewall - Verstehen Einschalten Abschotten</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/cloud-verstehen-und-nutzen.html">Cloud verstehen und nutzen kostenloses eBook</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheits-anbieter.html">Sicherheits-Anbieter</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-18" aria-label="Sicherheits-Anbieter menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheits-anbieter/tuta-quantensichere-mail.html">Tuta verschlüsselte Mail und Kalender</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheits-anbieter/erecht24-anwalt-siebert.html">eRecht24</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheits-anbieter/1blu-backupserver.html">1blu Backupserver</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="ashampoo-backup-pro-26.html">Ashampoo Backup Pro</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="pcloud-pass-passwort-manager.html">pCloud Passwortmanager</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../suchen.html">Suchen</a>
+</li></ul>
+                  </div>
+                </div>
+                <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+              </div>
+              <style class="menu-style">@media (max-width: 1198px) {
+                    [data-responsive-from="MD"] .u-nav-container {
+                        display: none;
+                    }
+                    [data-responsive-from="MD"] .menu-collapse {
+                        display: block;
+                    }
+                }</style>
+            </nav>
+          </div>
+          
+          
+          
+          
+          
+        </div>
+        <div class="u-clearfix u-container-align-left u-section-row" id="DIGITAL-easy-Logo">
+          <div class="u-clearfix u-sheet u-sheet-2">
+            <a href="#" class="u-image u-logo u-image-1" data-image-width="2040" data-image-height="400">
+              <img src="../images/BannerHintergrund1.png" class="u-logo-image u-logo-image-1" alt="DIGITAL-easy Logo">
+            </a>
+          </div>
+          
+          
+          
+          
+          
+        </div>
+      </div></header>
+    <section class="u-clearfix u-section-1" id="vaultwarden-kostenloser-passwortserver-manager">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle-lg u-valign-middle-md u-valign-middle-sm u-valign-middle-xs u-container-layout-1">
+            <h1 class="u-text u-text-default u-text-1"> Passwortmanager hochverschlüsselt: Vaultwarden im LAN mit Verschlüsselung und SSL</h1>
+            <p class="u-text u-text-default u-text-2"> Passwörter sind das Tor zu Ihrem digitalen Leben. Sie schützen E-Mails, Online-Banking, soziale Netzwerke und Unternehmenszugänge. Viele Menschen vertrauen diese sensiblen Daten Cloud-Diensten an, weil es bequem ist. Doch Bequemlichkeit hat ihren Preis: Immer wieder werden große Passwortanbieter gehackt, Kundendaten landen im Netz, und plötzlich steht man mit offenen Türen da.<br>
+              <br><span style="font-weight: 700;">Dieses Tutorial ist für Menschen und Unternehmen gedacht, die einen Server im LAN betreiben. Vaultwarden benötigt, um richtig zu funktionieren, eine Verbindung zum Server. Es ist als Online-Passwort-Manager konzipiert. Wenn Sie ihre Passwörter ganz one Server verwalten möchten Empfehle ich ihnen dringend KeePass, KeePassDX, KeepassXC - kommt auf ihr Betriebsystem und auf das Handy Betriebssystem an.</span>
+              <br>
+            </p>
+            <p class="u-text u-text-default u-text-3"> Vaultwarden setzt genau hier an. Statt Ihre Zugangsdaten auf fremden Servern zu speichern, holen Sie sich mit Vaultwarden Ihren eigenen Passwortmanager ins Haus. Sie betreiben Ihren eigenen Server – auf Ihrer Hardware, in Ihrem Netzwerk, unter Ihrer Kontrolle. Die Passwörter werden auf Ihrem Gerät verschlüsselt, bevor sie den Server erreichen. Niemand kann sie entschlüsseln, niemand kann sie einsehen – nicht einmal Sie selbst ohne Ihr Masterpasswort. </p>
+            <p class="u-text u-text-default u-text-4"> Das System basiert technisch auf Bitwarden, nutzt aber eine leichtgewichtige, offene Architektur. Es läuft auf so gut wie jeder Plattform: von einem kleinen Mini-PC über einen dedizierten Server bis hin zu einer virtuellen Maschine unter Proxmox. Damit behalten Sie die volle Datenhoheit, ohne auf Komfort verzichten zu müssen. </p>
+            <p class="u-text u-text-default u-text-5"> Vaultwarden ist kein Klick-und-fertig-Tool – es will verstanden, eingerichtet und gepflegt werden. Dafür bekommen Sie am Ende einen Passwortmanager, der stabil, sicher und komplett unabhängig arbeitet. Keine Abo-Kosten, keine Cloud, kein Risiko durch Dritte. Nur Sie, Ihr Server und Ihre Daten. </p>
+            <p class="u-text u-text-default u-text-6"> Wenn Sie Wert auf echte Datensouveränität legen und die Kontrolle über Ihre digitale Sicherheit behalten wollen, ist Vaultwarden die richtige Wahl. Einmal richtig eingerichtet, läuft es zuverlässig wie ein Tresor, den nur Sie öffnen können.</p>
+            <p class="u-text u-text-default u-text-7"> Im Vergleich zu KeePass bietet Vaultwarden einige entscheidende Vorteile, die es besonders für Teams, Familien oder kleine Unternehmen interessant machen. Während KeePass rein lokal arbeitet, bringt Vaultwarden viele Funktionen mit, die über das einfache Speichern von Passwörtern hinausgehen. </p>
+            <ol class="u-text u-text-default u-text-8">
+              <li> Mehrbenutzerfähigkeit: Vaultwarden kann von mehreren Personen gleichzeitig genutzt werden. Sie können Benutzer anlegen, Berechtigungen vergeben und sogar Passwörter innerhalb einer Organisation sicher teilen.</li>
+              <li>Zentrale Synchronisation: Alle Geräte greifen auf denselben Server zu. Änderungen, neue Einträge oder Aktualisierungen werden automatisch synchronisiert – egal ob vom PC, Smartphone oder Tablet.</li>
+              <li>Zugriff über Browser und App: Vaultwarden funktioniert mit den offiziellen Bitwarden-Apps und Browser-Erweiterungen. So können Sie Ihre Passwörter direkt im Browser einfügen, egal ob Chrome, Firefox, Brave oder Edge.</li>
+              <li>Plattformunabhängig: Der Zugriff funktioniert von überall – Windows, macOS, Linux, Android oder iOS. Sie brauchen keine zusätzliche Software wie bei KeePass, sondern nur Ihre Zugangsdaten und den Serverlink.</li>
+              <li>Sicheres Teilen von Passwörtern: Über Organisationen und Sammlungen können Sie Passwörter gezielt mit anderen Nutzern teilen, ohne dass sie unverschlüsselt sichtbar werden.</li>
+              <li>Automatische Backups und Updates: Da Vaultwarden zentral auf einem Server läuft, lässt sich das gesamte System einfach sichern. Ein Backup des Servers reicht, um alle Benutzer und Passwörter zu schützen.</li>
+              <li>Weboberfläche: Vaultwarden bietet eine vollständige Web-GUI, über die sich alle Funktionen bequem bedienen lassen – ganz ohne lokale Programme.</li>
+            </ol>
+            <p class="u-text u-text-default u-text-9"> KeePass ist ideal für Einzelanwender, die alles lokal speichern wollen. Vaultwarden hingegen ist die bessere Wahl, wenn mehrere Nutzer gemeinsam sicher auf Passwörter zugreifen sollen, ohne Cloud-Dienste zu nutzen oder Daten aus der Hand zu geben.<br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-2" id="artikel-menue-vaultwarden-ssl-lan">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-10 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <p class="u-large-text u-text u-text-custom-color-40 u-text-default-lg u-text-default-md u-text-default-sm u-text-default-xl u-text-variant u-text-1"> Inhalte des Artikels Vaultwarden Passwortmanager</p>
+            <ol class="u-align-left u-spacing-12 u-text u-text-default-lg u-text-default-md u-text-default-sm u-text-default-xl u-text-2">
+              <li>
+                <a href="vaultwarden-ssl-local-network.html#was-ist-vaultwarden-eigentlich" data-page-id="194899691" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Was ist Vaultwarden?</a>
+              </li>
+              <li>
+                <a href="vaultwarden-ssl-local-network.html#vaultwarden-warum-nicht-auf-proxmox" data-page-id="194899691" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-2"> Vaultwarden auf Debian 13 Trixie VM auf PVE</a>
+              </li>
+              <li>
+                <a href="vaultwarden-ssl-local-network.html#vaultwarden-auf-debian-in-pve-installieren" data-page-id="194899691" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-3"> Vaultwarden in Debian installieren</a>
+              </li>
+              <li>
+                <a href="vaultwarden-ssl-local-network.html#debian-13-vm-installieren" data-page-id="194899691" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-4"> Debian VM auf Proxmox installieren</a>
+              </li>
+              <li>
+                <a href="vaultwarden-ssl-local-network.html#warum-sind-passwoerter-so-wichtig" data-page-id="194899691" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-5"> Schritt für Schritt Anleitung: Vaultwarden in Debian installieren</a>
+              </li>
+              <li>
+                <a href="vaultwarden-ssl-local-network.html#docker-vaultwarden-caddy-installieren" data-page-id="194899691" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-6"> Installation Docker und Caddy in Debian</a>
+              </li>
+              <li>
+                <a href="vaultwarden-ssl-local-network.html#docker-compose-vaultwarden-caddy-ssl" data-page-id="194899691" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-7"> Docker Compose Datei</a>
+              </li>
+              <li>
+                <a href="vaultwarden-ssl-local-network.html#caddy-vaultwarden-compose" data-page-id="194899691" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-8"> Vaultwarden Compose starten</a>
+              </li>
+              <li>
+                <a href="vaultwarden-ssl-local-network.html#windows-hosts-anpassen" data-page-id="194899691" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-9"> Windows Host Datei bearbeiten</a>
+              </li>
+              <li>
+                <a href="vaultwarden-ssl-local-network.html#zertifikat-holen-und-installiaren" data-page-id="194899691" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-10"> Zertifikat für Windows und Handy holen</a>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-3" id="was-ist-vaultwarden-eigentlich">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h2 class="u-text u-text-default u-text-1"> Was ist Vaultwarden?</h2>
+            <p class="u-text u-text-default u-text-2"> Vaultwarden ist ein Passwort-Manager, der auf dem bekannten System Bitwarden basiert. Der große Unterschied: Vaultwarden ist eine unabhängige, selbst gehostete Version. Sie brauchen also keinen Account bei einem fremden Anbieter, sondern betreiben Ihren eigenen Passwort-Server. Das macht Vaultwarden zu einer datenschutzfreundlichen Lösung für alle, die ihre sensiblen Zugangsdaten nicht in fremde Hände legen wollen. Sie können aber natürlich auch einen Account bei Bitwarden verwednen.<br>
+            </p>
+            <p class="u-text u-text-default u-text-3"> Im Kern arbeitet Vaultwarden genauso wie Bitwarden. Sie speichern Ihre Passwörter, Logins, Kreditkartendaten und Notizen in einem sogenannten Tresor. Dieser Tresor wird mit einem Hauptpasswort verschlüsselt. Ohne dieses Passwort kann niemand auf Ihre Daten zugreifen – nicht einmal der Administrator Ihres Servers. Die Verschlüsselung erfolgt clientseitig, das heißt, sie passiert auf Ihrem Gerät, bevor die Daten an den Server gesendet werden. </p>
+            <p class="u-text u-text-default u-text-4"> Ein weiterer Vorteil ist die Flexibilität. Vaultwarden kann auf einem kleinen Server, einem Raspberry Pi oder auch in einer virtuellen Maschine betrieben werden. Viele Nutzer installieren es über Docker, weil die Einrichtung grundsätzlich machbar ist – bequem ist das aber keineswegs. Vaultwarden ist nämlich ziemlich eigen, wenn es um Sicherheit geht. Ohne SSL läuft hier gar nichts. Und genau da kommen viele Nutzer schnell an ihre Grenzen.&nbsp;</p>
+            <p class="u-text u-text-default u-text-5"> Auf einem normalen Webserver mit öffentlicher Domain ist das kein Problem. Ein Let's-Encrypt-Zertifikat ist schnell eingerichtet, und schon läuft der Tresor. Wenn man Vaultwarden aber als Unternehmen im lokalen Netzwerk, also im LAN, betreiben möchte, dann ist schon ordentlich Schmackes gefragt. Hier müssen eigene Zertifikate erzeugt, vertrauenswürdig eingebunden und sauber konfiguriert werden. Das ist kein Hexenwerk, aber auch nichts, was man mal eben nebenbei macht. </p>
+            <p class="u-text u-text-default u-text-6"> Dafür wird man am Ende mit einem System belohnt, das komplett unter der eigenen Kontrolle steht. Kein fremder Anbieter, keine Datenspeicherung irgendwo in der Cloud – alles bleibt auf dem eigenen Server. Wer bereit ist, sich mit SSL, Zertifikaten und Netzwerkkonfiguration auseinanderzusetzen, bekommt mit Vaultwarden ein starkes Werkzeug für maximale Datensouveränität.</p>
+            <p class="u-text u-text-default u-text-7"> Vaultwarden ist auf dem Papier ein Traum für alle, die ihre Passwörter selbst verwalten wollen – in der Praxis aber oft ein echter Geduldstest. Ich wollte das System ursprünglich ganz entspannt lokal auf meinem Windows-PC in Docker aufsetzen. Die Idee war simpel: schnell eine Container-Instanz hochziehen, im Browser testen, fertig. Tja, daraus wurden drei Tage Frickelei. </p>
+            <p class="u-text u-text-default u-text-8"> Der Grund liegt bei Microsoft. Seit einem Update funktionierte der Zugriff auf "localhost" nicht mehr so, wie man es gewohnt war. Damit hat Microsoft still und heimlich viele lokale Setups zerschossen. Mehr dazu finden Sie hier: <a rel="noopener" target="_new" class="decorated-link skrollable u-active-none u-border-none u-btn u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1" href="https://www.it-administrator.de/Windows-Update-localhost-HTTP-Fehler">https://www.it-administrator.de/Windows-Update-localhost-HTTP-Fehler</a>. Genau das hat mir den Spaß gründlich verdorben. Vaultwarden will nämlich unbedingt SSL – ohne geht gar nichts. Und wenn man dann lokal mit Docker arbeitet, kommt man mit selbstsignierten Zertifikaten, Browserwarnungen und Portkonflikten schnell an seine Grenzen - besonders wenn localhost par tout nicht will!.
+            </p>
+            <p class="u-text u-text-default u-text-9"> Für normale Nutzer ist das schlicht nicht praktikabel. Selbst wer sich technisch gut auskennt, wird hier ordentlich fluchen. Ich jedenfalls hatte genug. Also habe ich meinen Proxmox-Server angeworfen und Vaultwarden in einer Debian-13-VM installiert. Und siehe da – einwandfrei! Kein Theater mit localhost, keine Zertifikatsprobleme, keine faulen Kompromisse. </p>
+            <p class="u-text u-text-default u-text-10"> Wer Vaultwarden wirklich stabil und sicher betreiben will, sollte sich von der Idee verabschieden, es mal eben lokal unter Windows laufen zu lassen. Im Proxmox-Cluster, auf einem dedizierten Linux-System oder einem kleinen Server mit richtiger SSL-Konfiguration läuft das Teil dagegen wie ein Uhrwerk.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-4" id="zurueck-zum-keepassxc-proton-menue-a">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="vaultwarden-ssl-local-network.html#artikel-menue-vaultwarden-ssl-lan" data-page-id="194899691" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Zurück zum Inhalts Menü Vaultwarden im lokalen Netzwerk</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-5" id="vaultwarden-warum-nicht-auf-proxmox">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h3 class="u-text u-text-default u-text-1">Vaultwarden auf Debian 13 Trixie VM auf PVE&nbsp;</h3>
+            <p class="u-text u-text-default u-text-2"> Warum also nicht direkt in Proxmox? Mein ganzes Tun und Handeln hängt ohnehin mit PVE zusammen – beruflich wie privat. Die meisten meiner Kunden kommen wegen Proxmox zu mir oder betreiben inzwischen selbst eine eigene Umgebung. Also liegt es doch nahe, Vaultwarden gleich dort zu installieren. Ich nehme dafür eine ganz klassische Debian-VM. Und zwar bewusst eine VM und keinen Container, denn das hat klare Vorteile. <br>
+            </p>
+            <p class="u-text u-text-default u-text-3"> Eine virtuelle Maschine ist vollständig vom Hostsystem getrennt. Das bedeutet: eigene Kernel, eigene Dienste, eigene Sicherheitsebene. Wenn in der VM etwas schiefläuft oder ein Update schadet, bleibt der Host unangetastet. Backups und Snapshots sind einfacher und vollständiger – Sie sichern das komplette System, nicht nur ein paar Verzeichnisse. Außerdem lässt sich eine VM leichter migrieren, zum Beispiel auf einen anderen Proxmox-Knoten. </p>
+            <p class="u-text u-text-default u-text-4"> Läuft auf dem Host was schief, dagegen zerledert es nicht gleich den Container – Win-Win. Denn in einer virtuellen Maschine läuft Vaultwarden komplett isoliert vom eigentlichen System. Selbst wenn der Proxmox-Host oder ein anderer Container auf demselben Server Probleme macht, bleibt die VM davon unberührt. Genau das ist der große Vorteil dieser Trennung: Stabilität, Sicherheit und Kontrolle. Während Container direkt vom Host abhängen und dessen Kernel nutzen, bringt eine VM ihr eigenes, sauberes Betriebssystem mit. Das macht sie deutlich robuster und weniger fehleranfällig, gerade wenn mehrere Dienste parallel laufen oder Updates eingespielt werden. </p>
+            <p class="u-text u-text-default u-text-5"> Vaultwarden profitiert auch davon, dass es sich in einer VM wie auf echtem Blech verhält. SSL, Netzwerkdienste und Zertifikate lassen sich dort ohne die typischen Einschränkungen eines Containers einrichten. Kein Ärger mit AppArmor, Namespace-Isolation oder restriktiven Berechtigungen. Kurz gesagt: Die VM ist robuster, flexibler und unabhängiger. </p>
+            <p class="u-text u-text-default u-text-6"> Container sind zwar ressourcenschonender, aber gerade bei sicherheitsrelevanten Anwendungen wie einem Passwort-Server ist mir die zusätzliche Isolation einer VM lieber. Wenn Vaultwarden läuft, läuft es – und zwar sauber getrennt vom Rest.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-6" id="sec-45af">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="vaultwarden-ssl-local-network.html#artikel-menue-vaultwarden-ssl-lan" data-page-id="194899691" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Zurück zum Inhalts Menü Vaultwarden im lokalen Netzwerk</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-7" id="vaultwarden-auf-debian-in-pve-installieren">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h3 class="u-text u-text-default u-text-1">Vaultwarden in Debian installieren</h3>
+            <p class="u-text u-text-default u-text-2"> Meine Schritt-für-Schritt-Anleitung "Vaultwarden mit Caddy in Debian 13 Trixie installieren" hat einen langen Geburtsprozess hinter sich. Wie oben schon beschrieben, habe ich mir tagelang die Zähne ausgebissen, bis das Setup endlich sinnvoll funktioniert hat. Es war ein harter Weg voller kleiner Stolperfallen, kaputter Zertifikate und kryptischer Fehlermeldungen. Aber am Ende steht ein sauber laufendes System, das sich sehen lassen kann. <br>
+            </p>
+            <p class="u-text u-text-default u-text-3"> Also fangen wir an. In dieser Anleitung zeige ich genau, wie Sie Vaultwarden zusammen mit dem Caddy-Webserver unter Debian 13 installieren, SSL korrekt einrichten und das Ganze so konfigurieren, dass es stabil und sicher im LAN läuft. Ohne Cloud, ohne Gefrickel – und vor allem ohne die typischen Windows-Fallen, die mich anfangs fast in den Wahnsinn getrieben hätten.</p>
+            <p class="u-text u-text-default u-text-4"> Achtung. Diese Anleitung geht davon aus, dass Sie einen Proxmox-Server im LAN, also in Ihrem lokalen Netzwerk, betreiben. Ein solches Setup haben viele, vor allem technisch versierte Anwender oder kleine Firmen, die ihre IT selbst in der Hand behalten wollen. Falls Sie keinen Proxmox-Server haben, ist das aber kein Hindernis. Ein kleiner Mini-PC reicht völlig aus – oder einer der unzähligen ausrangierten Windows-10-Rechner, die noch top funktionieren. </p>
+            <p class="u-text u-text-default u-text-5"> Diese Geräte sind ideal, um sie als PVE-Host wiederzubeleben. Ein bisschen RAM, eine SSD und ein stabiles Netzwerk – mehr braucht es gar nicht. So wird aus alter Hardware im Handumdrehen ein leistungsfähiger Server, auf dem sich Vaultwarden mit Caddy sicher und zuverlässig betreiben lässt. Und mal ehrlich: besser so, als wenn der alte Rechner weiter Staub fängt oder auf dem Elektroschrott landet. </p>
+            <p class="u-large-text u-text u-text-default u-text-variant u-text-6"> Tipp: Ich zeige in einem Video ganz genau, wie die ganze Sache abläuft – von der ISO bis zum laufenden Vaultwarden-Server. Gehen Sie dazu auf meinen YouTube-Kanal und schauen Sie sich die Anleitung dort in Ruhe an. Schritt für Schritt, ohne Gehetze, genau so, wie ich es selbst eingerichtet habe. So können Sie den kompletten Ablauf nachvollziehen und sehen direkt, wie alles zusammenpasst.<br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-8" id="sec-edc1">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="vaultwarden-ssl-local-network.html#artikel-menue-vaultwarden-ssl-lan" data-page-id="194899691" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Zurück zum Inhalts Menü Vaultwarden im lokalen Netzwerk</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-9" id="debian-13-vm-installieren">
+      <div class="u-clearfix u-sheet u-valign-top u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h3 class="u-text u-text-default u-text-1">Debian VM auf Proxmox installieren</h3>
+            <p class="u-text u-text-default u-text-2"> Laden Sie sich die Debian-Minimal-ISO (Netinstall-ISO) direkt von der offiziellen Debian-Webseite herunter und speichern Sie sie anschließend im lokalen ISO-Speicher Ihres Proxmox-Servers. Öffnen Sie dazu in der Proxmox-Oberfläche den Speicherbereich, wählen Sie den Reiter ISO-Images und laden Sie die Datei hoch. Diese kleine Installations-ISO ist ideal, weil sie nur das Nötigste enthält und während der Installation alle weiteren Pakete frisch aus dem Netz lädt. So stellen Sie sicher, dass Ihr Debian-System aktuell, schlank und perfekt für den Vaultwarden-Server vorbereitet ist.<br>
+            </p>
+            <p class="u-text u-text-default u-text-3">Schritt 1&nbsp;</p>
+            <p class="u-text u-text-default u-text-4"> Wenn Sie die ISO hochgeladen haben, erstellen Sie im Anschluss eine neue virtuelle Maschine in Proxmox. In der Einrichtungs-GUI wählen Sie bei der Erstellung am besten folgende Einstellungen, die sich in der Praxis bewährt haben: </p>
+            <p class="u-text u-text-default u-text-5"> Als Name geben Sie zum Beispiel "vw-debian-13-001" ein. Unter OS wählen Sie "Linux" und Version "6.x - 2.6 Kernel". Bei der ISO-Datei wählen Sie die zuvor hochgeladene Datei "debian-13.1.0-amd64-netinst.iso". </p>
+            <p class="u-text u-text-default u-text-6"> Unter System aktivieren Sie den QEMU Agent (Haken bei "QEMU Guest Agent"). Stellen Sie das BIOS auf "OVMF (UEFI)" um und aktivieren Sie "Pre-Enrolled Keys", damit Secure Boot problemlos funktioniert. Wählen Sie als Maschinentyp "q35". </p>
+            <p class="u-text u-text-default u-text-7"> Im Reiter Festplatte wählen Sie "SCSI" als Bus/Device-Typ, aktivieren "Discard" und "IO-Thread" und geben der VM eine Größe von etwa 60 GB. Als Controller wählen Sie "VirtIO SCSI single".&nbsp;</p>
+            <p class="u-text u-text-default u-text-8"> Bei CPU wählen Sie 2 Kerne mit dem Typ "x86-64-v2-AES", damit AES-Befehle für Verschlüsselung unterstützt werden. Speicher: 2048 MB RAM reichen völlig. NUMA bleibt deaktiviert. </p>
+            <p class="u-text u-text-default u-text-9"> Im Netzwerk wählen Sie "VirtIO (paravirtualized)" und als Bridge "vmbr0". Damit hängt die VM sauber im LAN. Aktivieren Sie außerdem "Start at boot", damit Vaultwarden später automatisch mit hochfährt. </p>
+            <p class="u-text u-text-default u-text-10"> Wenn alles eingerichtet ist, starten Sie die VM und beginnen Sie mit der Debian-Installation. Wählen Sie dabei keine Desktopumgebung und kein GNOME aus. Installieren Sie nur die Standard-Systemwerkzeuge und den SSH-Server. Mehr brauchen wir nicht, um Vaultwarden und Caddy zu betreiben. So bleibt die VM extrem schlank und ressourcenschonend. Im Notfall können Sie später jederzeit eine grafische Oberfläche nachrüsten, falls Sie das möchten. </p>
+            <p class="u-text u-text-default u-text-11"> Vergeben Sie während der Installation ein Root-Passwort, legen Sie einen Benutzernamen und ein Benutzerpasswort fest und wählen Sie bei der Partitionierung die gesamte Festplatte aus. Sobald die Installation abgeschlossen ist, starten Sie die VM neu. </p>
+            <p class="u-text u-text-default u-text-12"> Nach dem Neustart melden Sie sich an der Konsole oder über SSH mit Ihrem Benutzer an – ab hier geht es dann richtig los mit der Einrichtung von Caddy und Vaultwarden.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-10" id="newsletter-abonnieren">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-align-left u-border-4 u-border-custom-color-20 u-container-align-left u-container-align-left-lg u-container-align-left-md u-container-align-left-sm u-container-align-left-xl u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-90 u-group-1" data-animation-out="0">
+          <div class="u-container-layout u-valign-bottom-lg u-valign-bottom-md u-valign-bottom-sm u-valign-top-xl u-container-layout-1">
+            <p class="u-large-text u-text u-text-variant u-text-1">Kostenlose IT-Sicherheits-Bücher &amp; Information via Newsletter</p>
+            <p class="u-text u-text-default-lg u-text-default-md u-text-default-sm u-text-default-xl u-text-2"> Bleiben Sie informiert, wann es meine Bücher kostenlos in einer Aktion gibt: <a href="../newsletter.html" data-page-id="103346126" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1">Mit meinem Newsletter</a> erfahren Sie viermal im Jahr von Aktionen auf Amazon und anderen Plattformen, bei denen meine IT-Sicherheits-Bücher gratis erhältlich sind. Sie verpassen keine Gelegenheit und erhalten zusätzlich hilfreiche Tipps zur IT-Sicherheit. Der Newsletter ist kostenlos und unverbindlich – einfach abonnieren und profitieren!<br>
+            </p>
+            <div class="u-border-3 u-border-grey-dark-1 u-expanded-width u-line u-line-horizontal u-line-1"></div>
+            <a href="../newsletter.html" data-page-id="103346126" class="u-align-center u-btn u-button-style u-custom-color-20 u-hover-custom-color-3 u-btn-2" target="_blank" title="Zur Newsletter-Anmeldeseite von Ralf-Peter Kleinert">Zur Anmeldung</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-11" id="sec-8f56">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="vaultwarden-ssl-local-network.html#artikel-menue-vaultwarden-ssl-lan" data-page-id="194899691" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Zurück zum Inhalts Menü Vaultwarden im lokalen Netzwerk</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-12" id="warum-sind-passwoerter-so-wichtig">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h3 class="u-text u-text-default u-text-1"> Schritt für Schritt Anleitung: Vaultwarden in Debian installieren</h3>
+            <p class="u-text u-text-default u-text-2"><span style="font-weight: 700;">Schritt 1 </span>
+              <br>
+              <br>Als Erstes öffnen wir den SSH-Zugang, damit Sie sich bequem über einen SSH-Client wie KiTTY oder PuTTY mit der VM verbinden können. Das hat einen großen Vorteil: Sie müssen nicht alles mühsam in der Proxmox-Konsole tippen, sondern können die Befehle direkt von hier kopieren und in Ihr Terminal einfügen. <br>
+            </p>
+            <p class="u-text u-text-default u-text-3"> Melden Sie sich also zunächst in der &gt;_Console auf PVE in Ihrer Debian-VM. Bei der Installation haben wir SSH Server angehakelt und dieser sollte installiert sein.&nbsp;</p>
+            <p class="u-text u-text-default u-text-4"> Öffnen Sie die SSH-Konfigurationsdatei, um den Zugriff auf Ihre Debian-VM anzupassen. Geben Sie dazu folgenden Befehl ein: </p>
+            <p class="meincode u-text u-text-default u-text-5"> nano /etc/ssh/sshd_config</p>
+            <p class="u-text u-text-default u-text-6"> Scrollen Sie in der Datei bis zur Zeile mit dem Port-Eintrag: #22. Ändern Sie diesen wie folgt: <br>
+            </p>
+            <p class="meincode u-text u-text-default u-text-7"> Port 2255 </p>
+            <p class="u-text u-text-default u-text-8"> Suchen Sie anschließend nach der Zeile PermitRootLogin und stellen Sie sicher, dass dort steht:</p>
+            <p class="meincode u-text u-text-default u-text-9"> PermitRootLogin Yes </p>
+            <p class="u-text u-text-default u-text-10"> Damit erlauben Sie sich die direkte Anmeldung als root-Benutzer. Das ist für die Einrichtung praktisch, kann später aber wieder auf "No" oder "prohibit-password" gestellt werden, wenn alles fertig ist. </p>
+            <p class="u-text u-text-default u-text-11"> Speichern Sie die Änderungen mit Strg+O, bestätigen Sie mit Enter und schließen Sie den Editor mit Strg+X. Starten Sie anschließend den SSH-Dienst neu: </p>
+            <p class="u-text u-text-default u-text-12"> systemctl restart ssh<br>
+            </p>
+            <p class="u-text u-text-default u-text-13">Schritt 2<span style="font-weight: 700;"></span>
+            </p>
+            <p class="u-text u-text-default u-text-14"> Dann die Interfaces anpassen (natürlich auf den eigenen IP Bereich)</p>
+            <p class="u-text u-text-default u-text-15"> nano /etc/network/interfaces</p>
+            <p class="meincode u-text u-text-default u-text-16"> auto lo<br>iface lo inet loopbackauto ens18<br>iface ens18 inet static<br>&nbsp; &nbsp; address 192.168.2.130/24<br>&nbsp; &nbsp; gateway 192.168.2.1<br>&nbsp; &nbsp; dns-nameservers 1.1.1.1.1 8.8.8.8&nbsp;192.168.2.1
+            </p>
+            <p class="meincode u-text u-text-default u-text-17"> systemctl restart networking</p>
+            <p class="u-text u-text-default u-text-18"> Ab jetzt können Sie sich über Ihren SSH-Client, zum Beispiel KiTTY oder PuTTY, mit der IP 192.168.2.130 auf Port 2255 verbinden.</p>
+            <p class="u-text u-text-default u-text-19">Schritt 3&nbsp;</p>
+            <p class="u-text u-text-default u-text-20"> Wenn Sie diese Einstellungen vorgenommen haben und sich erfolgreich über KiTTY auf Ihre Debian-VM verbinden konnten, ist alles richtig konfiguriert. Der SSH-Zugang funktioniert, und die Verbindung über Port 2255 steht.<br>
+              <br>Öffnen Sie die Hosts Datei mit:<br>
+              <br>nano /etc/hosts<br>
+              <br>Geben sie den Namen: "vw-debian-13-001" ein. Sie können später die Domain immer noch ändern.<br>
+              <br>Tun Sie das auch in der:<br>
+              <br>nano /etc/hostname
+            </p>
+            <p class="u-text u-text-default u-text-21"> Jetzt fahren Sie die VM sauber herunter, damit Sie anschließend die restliche Konfiguration direkt in Proxmox oder an der VM vornehmen können. Geben Sie dazu einfach folgenden Befehl ein: </p>
+            <p class="meincode u-text u-text-default u-text-22"> shutdown -h now</p>
+            <p class="u-text u-text-default u-text-23"> Nach wenigen Sekunden schaltet sich die VM aus. Sobald der Status in Proxmox auf „stopped“ steht, geht es mit der nächsten Phase weiter.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-13" id="sec-7893">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-group u-opacity u-opacity-55 u-shape-rectangle u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <div class="u-clearfix u-custom-html u-expanded-width u-custom-html-1">
+              <pre id="code-block-1" class="code-style"></pre>
+              <script> fetch('../text-dateien/vaultwarden/docker-compose-vaultwarden-caddy.txt')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Fehler beim Laden der Datei: ' + response.statusText);
+            }
+            return response.text();
+        })
+        .then(data => {
+            document.getElementById("code-block-1").textContent = data;
+        })
+        .catch(error => console.error(error)); </script>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-14" id="sec-97e9">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="vaultwarden-ssl-local-network.html#artikel-menue-vaultwarden-ssl-lan" data-page-id="194899691" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Zurück zum Inhalts Menü Vaultwarden im lokalen Netzwerk</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-15" id="docker-vaultwarden-caddy-installieren">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h3 class="u-text u-text-default u-text-1">Installation Docker und Caddy in Debian</h3>
+            <p class="u-text u-text-default u-text-2"> Fahren Sie die VM nach dem Backup wieder hoch, melden Sie sich an – per SSH über Port 2255 – und dann geht’s weiter mit der Einrichtung. Ab hier kümmern wir uns um die Vorbereitung für Caddy und Vaultwarden, damit Ihr Passwortserver bald stabil und sicher im LAN läuft. <br>
+            </p>
+            <p class="u-text u-text-default u-text-3"> Aktualisieren Sie den Debian-Server zunächst vollständig, damit alle Pakete auf dem neuesten Stand sind. Geben Sie dazu folgende Befehle ein: </p>
+            <p class="u-text u-text-default u-text-4"> apt update </p>
+            <p class="u-text u-text-default u-text-5"> apt upgrade -y <br>
+            </p>
+            <p class="u-text u-text-default u-text-6"> Damit werden die Paketlisten aktualisiert und alle verfügbaren Updates installiert. Wenn alles durchgelaufen ist, empfiehlt es sich, einmal neu zu starten: </p>
+            <p class="u-text u-text-default u-text-7"> reboot </p>
+            <p class="u-text u-text-default u-text-8"> Nach dem Neustart melden Sie sich wieder an – dann ist Ihr System auf aktuellem Stand und bereit für die Installation von Caddy und Vaultwarden.</p>
+            <p class="u-text u-text-default u-text-9">Schritt 4</p>
+            <p class="u-text u-text-default u-text-10"> Die Debian-VM ist also neu gestartet und einsatzbereit. Jetzt kümmern wir uns um die Installation von Docker und Docker Compose, damit wir Vaultwarden später in sauberen Containern betreiben können. Docker sorgt dafür, dass alle Komponenten voneinander getrennt laufen, und mit Compose lässt sich das gesamte Setup bequem mit einer einzigen Datei steuern. Sobald Docker läuft, legen wir das Arbeitsverzeichnis an und bereiten die Umgebung für Vaultwarden und Caddy vor.</p>
+            <p class="u-text u-text-default u-text-11"> apt install -y docker.io docker-compose curl</p>
+            <p class="u-text u-text-default u-text-12">Nach der Installation Docker aktivieren:</p>
+            <p class="u-text u-text-default u-text-13"> systemctl enable --now docker</p>
+            <p class="u-text u-text-default u-text-14"> Vaultwarden und Caddy benötigen eigene Arbeitsverzeichnisse, in denen sie ihre Konfigurationen, Zertifikate und Daten speichern können. Diese Verzeichnisse legen wir nun im Ordner /opt an. Damit bleiben alle relevanten Dateien sauber getrennt vom restlichen System und sind bei einem Backup oder einer Migration leicht zu sichern. Sobald die Ordner angelegt sind, werden dort später die Docker-Container ihre Daten persistieren – also dauerhaft ablegen, auch wenn die Container selbst einmal neu gestartet oder aktualisiert werden.</p>
+            <p class="u-text u-text-default u-text-15"> mkdir -p /opt/vaultwarden</p>
+            <p class="u-text u-text-default u-text-16">Betreten Sie das neue Verzeichnis:</p>
+            <p class="u-text u-text-default u-text-17"> cd /opt/vaultwarden</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-16" id="sec-500a">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="vaultwarden-ssl-local-network.html#artikel-menue-vaultwarden-ssl-lan" data-page-id="194899691" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Zurück zum Inhalts Menü Vaultwarden im lokalen Netzwerk</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-17" id="docker-compose-vaultwarden-caddy-ssl">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h2 class="u-text u-text-default u-text-1">Docker Compose Datei</h2>
+            <p class="u-text u-text-default u-text-2">Schritt 5<br>
+            </p>
+            <p class="u-text u-text-default u-text-3"> Vaultwarden und Caddy werden gemeinsam über eine docker-compose.yml-Datei eingerichtet. Diese Datei sorgt dafür, dass beide Systeme automatisch miteinander kommunizieren und korrekt gestartet werden. Caddy übernimmt dabei die SSL-Verschlüsselung und den Webzugriff, während Vaultwarden im Hintergrund als Passwortserver läuft. </p>
+            <p class="u-text u-text-default u-text-4"> Die folgende Compose-Datei ist getestet und funktioniert einwandfrei. Achten Sie aber unbedingt darauf, alle IP-Adressen, Ports und Domainnamen an Ihre eigene Umgebung anzupassen. Gerade beim Betrieb im LAN ist es wichtig, dass die internen Adressen korrekt gesetzt sind – sonst finden sich die Dienste später nicht oder SSL schlägt fehl. </p>
+            <p class="u-text u-text-default u-text-5"> Kurz gesagt: Auch wenn ich mich im Video bei diesem Detail vertan habe – Ihre Daten sind bei dieser Kombination genauso gut aufgehoben. Und darum geht es ja: maximale Sicherheit, maximale Kontrolle, minimale Angriffsfläche.<br>
+            </p>
+            <p class="u-text u-text-default u-text-6"> In meinem Tutorial zeige ich Ihnen Schritt für Schritt, wie Sie KeePassXC mit Proton-Drive kombinieren und Ihre Passwort-Datenbank sicher und hoch verschlüsselt in der Cloud speichern – ohne einem Cloudpasswortmanager Ihre sensibelsten Daten anzuvertrauen - völlig ohne Zusatzkosten.&nbsp;</p>
+            <p class="u-text u-text-default u-text-7">Erstellen Sie mit dem folgenden Befehl die docker-compose.yml Datei:</p>
+            <p class="u-text u-text-default u-text-8"> nano /opt/vaultwarden/docker-compose.yml</p>
+            <p class="u-text u-text-default u-text-9">Fügen Sie folgenden Inhalt ein:</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-18" id="docker-compose-datei-vaultwarden">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-group u-opacity u-opacity-55 u-shape-rectangle u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <div class="u-clearfix u-custom-html u-expanded-width u-custom-html-1">
+              <pre id="code-block-1" class="code-style"></pre>
+              <script> fetch('../text-dateien/vaultwarden/docker-compose-vaultwarden-caddy.txt')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Fehler beim Laden der Datei: ' + response.statusText);
+            }
+            return response.text();
+        })
+        .then(data => {
+            document.getElementById("code-block-1").textContent = data;
+        })
+        .catch(error => console.error(error)); </script>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-19" id="caddyfile-anlegen">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h2 class="u-text u-text-default u-text-1">Caddyfile</h2>
+            <p class="u-text u-text-default u-text-2"> Um Vaultwarden und Caddy miteinander zu verbinden, benötigen Sie eine Caddy-Konfigurationsdatei – das sogenannte Caddyfile. Diese Datei legt fest, unter welcher Domain oder IP-Adresse Ihr Vaultwarden-Server erreichbar ist, welches Zertifikat verwendet wird und wie der Datenverkehr weitergeleitet wird. </p>
+            <p class="u-text u-text-default u-text-3"> Legen Sie die Datei jetzt an und fügen Sie den folgenden Inhalt ein. Achten Sie dabei darauf, die Domain und IP-Adresse an Ihre eigene Umgebung anzupassen, damit Caddy korrekt mit Vaultwarden kommunizieren kann. Sobald das Caddyfile gespeichert ist, startet Caddy automatisch mit den richtigen SSL-Einstellungen und leitet alle Anfragen sicher an Vaultwarden weiter. </p>
+            <p class="u-text u-text-default u-text-4"> nano /opt/vaultwarden/Caddyfile<br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-20" id="caddyfile-inhalt">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-group u-opacity u-opacity-55 u-shape-rectangle u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <div class="u-clearfix u-custom-html u-expanded-width u-custom-html-1">
+              <pre id="code-block-2" class="code-style"></pre>
+              <script> fetch('../text-dateien/vaultwarden/Caddyfile-vaultwarden.txt')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Fehler beim Laden der Datei: ' + response.statusText);
+            }
+            return response.text();
+        })
+        .then(data => {
+            document.getElementById("code-block-2").textContent = data;
+        })
+        .catch(error => console.error(error)); </script>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-21" id="sec-364e">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="vaultwarden-ssl-local-network.html#artikel-menue-vaultwarden-ssl-lan" data-page-id="194899691" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Zurück zum Inhalts Menü Vaultwarden im lokalen Netzwerk</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-22" id="caddy-vaultwarden-compose">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h2 class="u-text u-text-default u-text-1">Vaultwarden Compose starten</h2>
+            <p class="u-text u-text-default u-text-2">Schritt 6<br>
+            </p>
+            <p class="u-text u-text-default u-text-3"> Sie bleiben im Ordner /opt/vaultwarden, denn hier liegt Ihre docker-compose.yml-Datei. Von hier aus starten wir gleich das komplette Setup. Falls Sie sich gerade in einem anderen Verzeichnis befinden, wechseln Sie zuerst mit dem folgenden Befehl dorthin: </p>
+            <p class="u-text u-text-default u-text-4"> cd /opt/vaultwarden </p>
+            <p class="u-text u-text-default u-text-5"> Sobald Sie sich im richtigen Ordner befinden, starten Sie Docker Compose. Damit werden die Container für Vaultwarden und Caddy automatisch heruntergeladen, erstellt und gestartet. Nach wenigen Minuten laufen beide Systeme und arbeiten Hand in Hand – Caddy kümmert sich um SSL und den Webzugriff, Vaultwarden um die sichere Passwortverwaltung.<br>
+            </p>
+            <p class="u-text u-text-default u-text-6">Starten Sie also den Befehl:</p>
+            <p class="u-text u-text-default u-text-7"> docker-compose up -d</p>
+            <p class="u-text u-text-default u-text-8"> Jetzt werden die Container heruntergeladen und gestartet. Warten Sie, bis beide Container&nbsp; im Docker-Status als „grün“ beziehungsweise „running“ angezeigt werden. Erst wenn beide Systeme vollständig laufen, fahren Sie mit dem nächsten Schritt fort. Dann kümmern wir uns um die Feineinstellungen von Caddy und die abschließende Konfiguration von Vaultwarden, damit Ihr Passwortserver über SSL erreichbar ist und im LAN stabil läuft.</p>
+            <p class="u-text u-text-default u-text-9">Prüfen Sie, in der Debian VM:</p>
+            <p class="u-text u-text-default u-text-10"># sollte HTML von Vaultwarden liefern<br>curl -v&nbsp;http://127.0.0.1:8081<br>
+              <br># Caddy muss auf 0.0.0.0:8443 lauschen<br>ss -tulpen | grep 8443<br>
+              <br># HTTPS durch Caddy testen<br>curl -vk&nbsp;https://vw-debian-13-001:8443<br>curl -vk&nbsp;https://192.168.2.130:8443<br>
+              <br>Check ob beide Zertifikate, für Domain und IP angelegt wurden:<br>
+              <br>ls /opt/vaultwarden/caddy-data/caddy/certificates/local/
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-23" id="sec-9ee6">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="vaultwarden-ssl-local-network.html#artikel-menue-vaultwarden-ssl-lan" data-page-id="194899691" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Zurück zum Inhalts Menü Vaultwarden im lokalen Netzwerk</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-24" id="windows-hosts-anpassen">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h2 class="u-text u-text-default u-text-1">Windows Host Datei bearbeiten</h2>
+            <p class="u-text u-text-default u-text-2">Schritt 7<br>
+            </p>
+            <p class="u-text u-text-default u-text-3">Öffnen Sie die Windows Hosts Datei:</p>
+            <p class="u-text u-text-default u-text-4"> C:\Windows\System32\drivers\etc\hosts</p>
+            <p class="u-text u-text-default u-text-5"> Ganz unten eintragen, die IP der VM:<br>
+            </p>
+            <p class="u-text u-text-default u-text-6"> 192.168.2.130 vw-debian-13-001</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-25" id="sec-2312">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="vaultwarden-ssl-local-network.html#artikel-menue-vaultwarden-ssl-lan" data-page-id="194899691" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Zurück zum Inhalts Menü Vaultwarden im lokalen Netzwerk</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-26" id="zertifikat-holen-und-installiaren">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h2 class="u-text u-text-default u-text-1"> Zertifikat für Windows und Handy holen</h2>
+            <p class="u-text u-text-default u-text-2">Schritt 8<br>
+            </p>
+            <p class="u-text u-text-default u-text-3"> Root-CA von Caddy aus dem Container holen, also diese Befehle auf der Debian VM ausführen:</p>
+            <p class="u-text u-text-default u-text-4"> cd /opt/vaultwarden</p>
+            <p class="u-text u-text-default u-text-5"> Dann Zert Kopieren:<br>
+            </p>
+            <p class="u-text u-text-default u-text-6"> docker cp caddy:/data/caddy/pki/authorities/local/root.crt /opt/vaultwarden/vw.crt</p>
+            <p class="u-text u-text-default u-text-7"> Das Zertifikat ist der entscheidende Baustein für die sichere Verbindung zwischen Ihren Geräten und dem Vaultwarden-Server. Es sorgt dafür, dass der Datenverkehr verschlüsselt und Ihre Domain als vertrauenswürdig eingestuft wird. </p>
+            <p class="u-text u-text-default u-text-8"> Zeigen Sie das Zertifikat in Caddy an und exportieren Sie es anschließend. Dieses Zertifikat müssen Sie dann auf den Geräten installieren, die auf Vaultwarden zugreifen sollen – insbesondere unter Windows und Android. Nur so erkennen diese Systeme Ihre gewählte Domain und die IP-Adresse als sicher an. Danach können Sie sich mit dem Server verbinden, ohne dass eine Warnmeldung über ein unsicheres Zertifikat erscheint.</p>
+            <p class="u-text u-text-default u-text-9">Zertifikat anzeigen, Markieren, mit Strg + Shift + C kopieren und auf einem Windows Computer in eine TXT Datei kopieren:</p>
+            <p class="u-text u-text-default u-text-10"> cat /opt/vaultwarden/vw.crt&nbsp;</p>
+            <p class="u-text u-text-default u-text-11">diese TXT als ve.crt Speichern.</p>
+            <p class="u-text u-text-default u-text-12"><span style="font-weight: 700;"> Windows:</span>
+              <br>vw.crt per Doppelklick installieren →&nbsp;Lokaler Computer&nbsp;→ Vertrauenswürdige Stammzertifizierungsstellen.
+            </p>
+            <p class="u-text u-text-default u-text-13"><span style="font-weight: 700;"> Android:</span>
+              <br>Einstellungen → Sicherheit → Anmeldedaten/Zertifikate → CA-Zertifikat installieren → vaultwarden.crt wählen.
+            </p>
+            <p class="u-text u-text-default u-text-14">Bei Android in den Einstellungen nach CA suchen, wenn Sie es nicht sofort finden.</p>
+            <p class="u-text u-text-default u-text-15">Damit sollten sie jetzt eine Verbindung zum Vaultwarden aufbauen können. Auf Windows über die Domain und die IP und auf Android auf die IP. Android muss im selben LAN sein.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-27" id="sec-e368">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="vaultwarden-ssl-local-network.html#artikel-menue-vaultwarden-ssl-lan" data-page-id="194899691" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Zurück zum Inhalts Menü Vaultwarden im lokalen Netzwerk</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-28" id="ueber-mich-ueber-den-autor">
+      <div class="u-clearfix u-sheet u-valign-top-md u-valign-top-sm u-valign-top-xs u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <div class="custom-expanded data-layout-selected u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+              <div class="u-layout">
+                <div class="u-layout-row">
+                  <div class="u-container-style u-layout-cell u-size-23-lg u-size-23-xl u-size-25-md u-size-25-sm u-size-25-xs u-layout-cell-1">
+                    <div class="u-container-layout u-valign-top-xs u-container-layout-2">
+                      <img class="u-expanded-width u-image lazyload u-image-1" data-image-width="1974" data-image-height="2521" alt="Ralf-Peter Kleinert - Buchautor für IT-Sicherheit, Computersicherheit und Cybersecurity" data-src="../images/Ralf-PeterKleinertIchaktuellesPortrait2024.webp" loading="lazy">
+                    </div>
+                  </div>
+                  <div class="u-container-style u-layout-cell u-size-35-md u-size-35-sm u-size-35-xs u-size-37-lg u-size-37-xl u-layout-cell-2">
+                    <div class="u-container-layout u-valign-bottom-xs u-container-layout-3">
+                      <p class="u-text u-text-default-lg u-text-default-xl u-text-1"> Über den Autor: Ralf-Peter Kleinert</p>
+                      <p class="u-text u-text-default-lg u-text-default-xl u-text-2"> Über 30 Jahre Erfahrung in der IT legen meinen Fokus auf die Computer- und IT-Sicherheit. Auf meiner Website biete ich detaillierte Informationen zu aktuellen IT-Themen. Mein Ziel ist es, komplexe Konzepte verständlich zu vermitteln und meine Leserinnen und Leser für die Herausforderungen und Lösungen in der IT-Sicherheit zu sensibilisieren.<br>
+                      </p>
+                      <p class="u-text u-text-default-lg u-text-default-xl u-text-3">
+                        <a href="../ueber-mich.html" data-page-id="38997572" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Mehr über mich, Ausbildung, Zertifizierungen</a>
+                      </p>
+                      <p class="u-text u-text-default-lg u-text-default-xl u-text-4">
+                        <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-2" href="https://www.amazon.de/stores/Ralf-Peter-Kleinert-RPK/author/B0D6FVWCTN" target="_blank"> Meine Amazon Autorenseite</a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-29" id="sec-f203">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <p class="u-small-text u-text u-text-default u-text-variant u-text-1">Aktualisiert:&nbsp;Ralf-Peter Kleinert 19.10.2025</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    
+    
+    <footer class="u-align-center u-clearfix u-container-align-center u-custom-color-2 u-footer u-footer" id="footer-mit-navigation"><div class="u-clearfix u-sheet u-sheet-1">
+        <p class="u-small-text u-text u-text-variant u-text-1">
+          <a href="../datenschutzerklaerung.html" data-page-id="735813554" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1">Datenschutz</a> | <a href="../impressum.html" data-page-id="63266619" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-2">Impressum</a> | <a href="../inhaltsverzeichnis.html" data-page-id="50765561" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-3">Inhalt</a> | <a href="../nutzungsbedingungen.html" data-page-id="117449462" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-4">Nutzungsbedingungen</a> | <a href="../hinweise-haftungsausschluss.html" data-page-id="98103025" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-5">Haftung</a> | <a href="../hinweise-haftungsausschluss.html#affiliate-info-ausfuehrlich" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-6">Affiliate</a>&nbsp;|&nbsp;<a href="../kontakt.html" data-page-id="125601662" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-7">Kontakt</a> | <a href="../newsletter.html" data-page-id="103346126" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-8">Newsletter</a>&nbsp;| <a href="../preise.html" data-page-id="130192720" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-9">Preise</a>&nbsp;| <a href="../support.html" data-page-id="86002539" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-10">Support </a>|&nbsp;<a href="../ueber-mich.html" data-page-id="38997572" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-11">Über mich</a> | <a href="../downloads.html" data-page-id="70811588" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-12" title="Downloads und kostenlose Downloads">Downloads</a> |<span style="font-weight: 700;">
+            <a href="https://digital-easy.de" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-13" title="DIGITAL-easy" target="_blank">digital-easy.de</a>&nbsp;| <a href="https://blog.ralf-peter-kleinert.de" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-14" title="BLOG Ralf-Peter Kleinert" target="_blank">blog.ralf-peter-kleinert.de</a>&nbsp;| <span style="font-weight: 400;">
+              <a href="https://computerralle.de" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-15" title="#ComputerRalle" target="_blank" rel="noopener">computerralle.de</a></span> |&nbsp;<a href="../hinweise-haftungsausschluss.html#agb-allgemeine-geschaeftsbedingungen" data-page-id="98103025" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-16">AGB</a>&nbsp;| <span style="font-weight: 400;">
+              <a href="https://portal.dnb.de/opac/simpleSearch?query=ralf-peter+kleinert&amp;cqlMode=true" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-17" title="Bücher von Ralf-Peter Kleinert in der Deutschen Nationalbibliothek" target="_blank">Nationalbibliothek</a></span></span>
+        </p>
+        <p class="u-text u-text-2"> Copyright © Ralf-Peter Kleinert DIGITAL-easy #ComputerRalle<br>SSR-Entertainment seit 2005&nbsp;<br> Alle Rechte vorbehalten.
+        </p>
+        <div class="u-social-icons u-social-icons-1">
+          <a class="u-social-url" title="facebook" target="_blank" href="https://www.facebook.com/ralf.peter.kleinert.81" rel="nofollow"><span class="u-icon u-social-facebook u-social-icon u-text-custom-color-29 u-icon-1"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 112 112" style=""><use xlink:href="#svg-1c85"></use></svg><svg class="u-svg-content" viewBox="0 0 112 112" x="0" y="0" id="svg-1c85"><circle fill="currentColor" cx="56.1" cy="56.1" r="55"></circle><path fill="#FFFFFF" d="M73.5,31.6h-9.1c-1.4,0-3.6,0.8-3.6,3.9v8.5h12.6L72,58.3H60.8v40.8H43.9V58.3h-8V43.9h8v-9.2
+c0-6.7,3.1-17,17-17h12.5v13.9H73.5z"></path></svg></span>
+          </a>
+          <a class="u-social-url" target="_blank" data-type="YouTube" title="YouTube" href="https://www.youtube.com/@ComputerRalle"><span class="u-icon u-social-icon u-social-youtube u-text-custom-color-29 u-icon-2"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 112 112" style=""><use xlink:href="#svg-5bbf"></use></svg><svg class="u-svg-content" viewBox="0 0 112 112" x="0" y="0" id="svg-5bbf"><circle fill="currentColor" cx="56.1" cy="56.1" r="55"></circle><path fill="#FFFFFF" d="M74.9,33.3H37.3c-7.4,0-13.4,6-13.4,13.4v18.8c0,7.4,6,13.4,13.4,13.4h37.6c7.4,0,13.4-6,13.4-13.4V46.7 C88.3,39.3,82.3,33.3,74.9,33.3L74.9,33.3z M65.9,57l-17.6,8.4c-0.5,0.2-1-0.1-1-0.6V47.5c0-0.5,0.6-0.9,1-0.6l17.6,8.9 C66.4,56,66.4,56.8,65.9,57L65.9,57z"></path></svg></span>
+          </a>
+          <a class="u-social-url" target="_blank" data-type="LinkedIn" title="LinkedIn" href="https://www.linkedin.com/in/ralf-peter-kleinert/" rel="nofollow"><span class="u-icon u-social-icon u-social-linkedin u-text-custom-color-29 u-icon-3"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 112 112" style=""><use xlink:href="#svg-d54c"></use></svg><svg class="u-svg-content" viewBox="0 0 112 112" x="0" y="0" id="svg-d54c"><circle fill="currentColor" cx="56.1" cy="56.1" r="55"></circle><path fill="#FFFFFF" d="M41.3,83.7H27.9V43.4h13.4V83.7z M34.6,37.9L34.6,37.9c-4.6,0-7.5-3.1-7.5-7c0-4,3-7,7.6-7s7.4,3,7.5,7
+      C42.2,34.8,39.2,37.9,34.6,37.9z M89.6,83.7H76.2V62.2c0-5.4-1.9-9.1-6.8-9.1c-3.7,0-5.9,2.5-6.9,4.9c-0.4,0.9-0.4,2.1-0.4,3.3v22.5
+      H48.7c0,0,0.2-36.5,0-40.3h13.4v5.7c1.8-2.7,5-6.7,12.1-6.7c8.8,0,15.4,5.8,15.4,18.1V83.7z"></path></svg></span>
+          </a>
+          <a class="u-social-url" target="_blank" data-type="Custom" title="Mastodon" href="https://mastodon.social/@digitaleasy" rel="nofollow noopener"><span class="u-file-icon u-icon u-social-custom u-social-icon u-text-custom-color-29 u-icon-4"><img src="../images/mastodon1-4909f8ae.png" alt=""></span>
+          </a>
+          <a class="u-social-url" target="_blank" data-type="Blogspot" title="Blogspot" href="https://computerralle.blogspot.com/"><span class="u-icon u-social-blogspot u-social-icon u-text-custom-color-29 u-icon-5"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 112 112" style=""><use xlink:href="#svg-35b7"></use></svg><svg class="u-svg-content" viewBox="0 0 112 112" x="0" y="0" id="svg-35b7"><circle fill="currentColor" cx="56.1" cy="56.1" r="55"></circle><path id="Blogger" fill="#FFFFFF" d="M82.9,47.9c-4.4,0-5.4-2.3-5.4-5.4s-0.7-7.9-6.2-13.7C65.9,23.2,59.6,23,59.6,23
+	s-12.5,0-17.9,0c-5.8,0-10.2,3.2-14.2,7.9c-5,5.9-4.5,12-4.5,12s0,18.7,0,23.2s0.5,10.4,6.3,16.8c5.8,6.4,14.9,6.3,14.9,6.3H68
+	c7,0,11-2.1,15.9-6.6c5.3-4.8,5.7-13.7,5.7-13.7s0-14.7,0-17.4C89.6,48.7,87.3,47.9,82.9,47.9z M39.7,43.3c0-2,1.7-3.7,3.7-3.7h14.2
+	c2,0,3.7,1.7,3.7,3.7v0.9c0,2-1.7,3.7-3.7,3.7H43.4c-2,0-3.7-1.7-3.7-3.7V43.3z M71.7,68.6c0,2-1.7,3.7-3.7,3.7H43.4
+	c-2,0-3.7-1.7-3.7-3.7v-0.9c0-2,1.7-3.7,3.7-3.7H68c2,0,3.7,1.7,3.7,3.7V68.6z"></path></svg></span>
+          </a>
+        </div>
+        <div class="u-clearfix u-custom-html u-expanded-width u-custom-html-1">
+          <a href="javascript:UC_UI.showSecondLayer();">Cookie-Einstellungen</a>
+        </div>
+      </div></footer><span style="height: 48px; width: 48px; margin-left: 0px; margin-right: auto; margin-top: 0px; right: 0px; bottom: 15px;" class="u-back-to-top u-file-icon u-icon u-text-custom-color-20" data-href="#"><img src="../images/e77d2435.png" alt=""></span>
+  
+</body></html>

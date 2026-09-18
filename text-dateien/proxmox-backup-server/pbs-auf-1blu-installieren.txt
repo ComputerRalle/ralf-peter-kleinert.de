@@ -1,0 +1,46 @@
+##### Neue Befehle für Debian 13  ###############################
+
+# System aktualisieren
+apt update && apt full-upgrade -y
+
+# Proxmox-Repository hinzufuegen / den gesamten Block in die Console einfügen:
+
+cat > /etc/apt/sources.list.d/proxmox.sources << 'EOF'
+Types: deb
+URIs: http://download.proxmox.com/debian/pbs
+Suites: trixie
+Components: pbs-no-subscription
+Signed-By: /usr/share/keyrings/proxmox-archive-keyring.gpg
+EOF
+
+# Proxmox-Schluessel hinzufuegen
+wget https://enterprise.proxmox.com/debian/proxmox-archive-keyring-trixie.gpg -O /usr/share/keyrings/proxmox-archive-keyring.gpg
+
+# Paketliste aktualisieren
+apt update
+
+# Proxmox Backup Server installieren
+apt install proxmox-backup -y
+
+# Neustart
+reboot
+
+##### Alte Befehle für Debian 12  ###############################
+
+# System aktualisieren
+apt update && apt full-upgrade -y
+
+# Proxmox-Repository hinzufuegen
+echo "deb http://download.proxmox.com/debian/pbs bookworm pbs-no-subscription" > /etc/apt/sources.list.d/pbs.list
+
+# Proxmox-Schluessel hinzufuegen
+wget -O- http://download.proxmox.com/debian/proxmox-release-bookworm.gpg | tee /etc/apt/trusted.gpg.d/proxmox-release-bookworm.gpg > /dev/null
+
+# Paketliste aktualisieren
+apt update
+
+# Proxmox Backup Server installieren
+apt install proxmox-backup -y
+
+# Neustart
+reboot

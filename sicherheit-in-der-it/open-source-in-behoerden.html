@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="de-DE"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Computer, PC, Sicherheit, Cybersicherheit, Datenschutz, IT-Sicherheit, Cyberkriminalität, Open Source, Firewall, Datensicherung, Hackerabwehr, digitale Sicherheit">
+    <meta name="description" content="Schützen von Behörden vor neuen Cyberbedrohungen. Ich helfe den Richtigen Weg zu ermitteln - weit vor einer Umsetzung, steht die Analyse und Planung.">
+    <meta property="og:title" content="Für Behörden: IT-Security, Computer-Sicherheit und Schutz ">
+    <meta property="og:description" content="Schützen von Behörden vor neuen Cyberbedrohungen. Ich helfe den Richtigen Weg zu ermitteln - weit vor einer Umsetzung, steht die Analyse und Planung.">
+    <meta property="og:image" content="https://ralf-peter-kleinert.de/images/e56b8da66a4756217317cb77730555c8b31e102e63353d1a874165e15c22c9147a52fc71e52285937dbde995fb396b54a2f454ae3079dec1b1a0b8_1280.jpg">
+    <meta property="og:url" content="https://ralf-peter-kleinert.de/sicherheit-in-der-it/open-source-in-behoerden.html">
+    <title>Für Behörden: IT-Security, Computer-Sicherheit und Schutz </title>
+    <link rel="stylesheet" href="../nicepage.css" media="screen">
+<link rel="stylesheet" href="open-source-in-behoerden.css" media="screen">
+    <script class="u-script" type="text/javascript" src="../jquery.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="../nicepage.js" defer=""></script>
+    <link rel="icon" href="../images/favicon1.ico">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <link id="u-page-google-font" rel="stylesheet" href="../open-source-in-behoerden-fonts.css">
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": "Ralf-Peter Kleinert",
+		"logo": "../images/BannerHintergrund1.png",
+		"sameAs": [
+				"https://www.facebook.com/ralf.peter.kleinert.81",
+				"https://www.youtube.com/@ComputerRalle",
+				"https://www.linkedin.com/in/ralf-peter-kleinert/",
+				"https://mastodon.social/@digitaleasy",
+				"https://computerralle.blogspot.com/"
+		]
+}</script>
+    <meta name="theme-color" content="#0cbcf5">
+    <meta property="og:type" content="website">
+  <meta name="author" content="Ralf-Peter Kleinert">
+<meta name="email" content="digitaleasy@ralf-peter-kleinert.de">
+<meta name="copyright" content="Copyright © by Ralf-Peter Kleinert">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="facebook-domain-verification" content="7cwzmpfwunyhwzz0dh72lsvrhynk3y"><link rel="preconnect" href="//app.eu.usercentrics.eu">
+<link rel="preconnect" href="//api.eu.usercentrics.eu">
+<link rel="preconnect" href="//sdp.eu.usercentrics.eu">
+<link rel="preload" href="//app.eu.usercentrics.eu/browser-ui/latest/loader.js" as="script">
+<link rel="preload" href="//sdp.eu.usercentrics.eu/latest/uc-block.bundle.js" as="script">
+<script id="usercentrics-cmp" async="" data-eu-mode="true" data-settings-id="rdKSWSBTj" src="https://app.eu.usercentrics.eu/browser-ui/latest/loader.js"></script>
+<script type="application/javascript" src="https://sdp.eu.usercentrics.eu/latest/uc-block.bundle.js"></script><meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
+  <body data-path-to-root="../" data-include-products="false" class="u-body u-clearfix u-xl-mode" data-lang="de"><header class=" u-border-no-bottom u-border-no-left u-border-no-right u-border-no-top u-clearfix u-header u-section-row-container" id="header-mit-navigation-hauptmenue" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="" style="border-style: solid;"><div class="u-section-rows" style="">
+        <div class="u-border-2 u-border-custom-color-20 u-border-no-left u-border-no-right u-border-no-top u-clearfix u-custom-color-2 u-section-row u-section-row-1" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="" id="haupt-menue">
+          <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+            <nav class="u-align-left-lg u-align-left-xl u-align-right-md u-align-right-sm u-align-right-xs u-menu u-menu-dropdown u-menu-open-right u-offcanvas u-menu-1" data-responsive-from="MD" data-position="navigation-hauptmenue" role="navigation">
+              <div class="menu-collapse u-custom-font u-font-raleway" style="font-size: 1.125rem; letter-spacing: 0px; font-weight: 500;">
+                <a class="u-button-style u-custom-active-color u-custom-border u-custom-border-color u-custom-color u-custom-color-2 u-custom-effect-duration u-custom-hover-color u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-text-active-color u-custom-text-color u-custom-text-hover-color u-custom-text-shadow u-custom-text-shadow-blur u-custom-text-shadow-color u-custom-text-shadow-transparency u-custom-text-shadow-x u-custom-text-shadow-y u-custom-top-bottom-menu-spacing u-hamburger-link u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base u-hamburger-link-1" href="#" tabindex="-1" aria-label="Open menu" aria-controls="092e">
+                  <svg class="u-svg-link" viewBox="0 0 24 24"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#menu-hamburger"></use></svg>
+                  <svg class="u-svg-content" version="1.1" id="menu-hamburger" viewBox="0 0 16 16" x="0px" y="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect>
+</g></svg><span> Menü</span>
+                </a>
+              </div>
+              <div class="u-custom-menu u-nav-container">
+                <ul class="u-custom-font u-font-raleway u-nav u-spacing-2 u-unstyled u-nav-1" role="menubar"><li role="none" class="u-nav-item"><a tabindex="-1" role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="../index.html" style="padding: 12px 22px;">Start</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="../inhaltsverzeichnis.html" style="padding: 12px 22px;">Inhalt</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="../sicherheit-in-der-it.html" style="padding: 12px 22px;">IT-Sicherheit &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-2" aria-label="IT-Sicherheit > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="uebersicht-it-cyber-security.html">Übersicht: IT-Sicherheit</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="verschluesselung-von-daten.html">Verschlüsselung &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-3" aria-label="Verschlüsselung > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="verschluesselung-von-daten/cryptomator-kostenlos.html">Cryptomator Dateien verschlüsseln</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="vaultwarden-ssl-local-network.html">Vaultwarden Passwortmanager im LAN mit SSL</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="passkeys-einrichten-und-nutzen.html">Passkeys Einrichten und Nutzen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="privatpersonen.html">Privatpersonen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="unternehmen.html">Unternehmen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="it-daten-info-sicherheit.html">IT-, Daten-, Informationssicherheit</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="backups-sind-exrem-wichtig.html">Backups wichtig für IT-Sicherheit</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="keepass-anleitung.html">KeePass-Anleitung</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="keepassxc-und-proton-drive.html">KeePassXC und Proton Drive</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="iperius-backup-kostenlos.html">Iperius Backup die kostenlose Backupsoftware</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="paragon-backup-kostenlos.html">Paragon Backup kostenlose Software</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="paragon-backup-rettungsstick.html">Paragon Backup Rettungsstick erstellen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="backupkonzept-backupstrategie.html">Datensicherungskonzept und Backupstrategie</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="wie-kann-ich-daten-schuetzen.html">Wie kann ich meine Daten vor Hackern besser schützen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="sicherheit-in-social-media.html">Sicherheit in Social-Media</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="delphi-migration.html">Delphi Software Migration</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="pcloud-pass-passwort-manager.html">Passwort Manager pCloud Pass</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="../it-und-computer-beratung.html" style="padding: 12px 22px;">Beratungen &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-4" aria-label="Beratungen > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../it-und-computer-beratung/kleine-unternehmen-startups.html">IT-Dokumentationen für Unternehmen, Praxen und Universitäten</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="../windows-os.html" style="padding: 12px 22px;">Windows &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-5" aria-label="Windows > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../windows-os/computerralle-isms-docker-win.html">ISMS von ComputerRalle</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../windows-os/fernwartungssoftware-hoptodesk.html">Remote Software HopToDesk</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="../linux-os.html" style="padding: 12px 22px;">Linux &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-6" aria-label="Linux > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-os/paperless-backup-programm.html">Paperless Backup Programm Anleitung</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-os/docker-desktop-paperless.html">Paperless auf Windows installieren WSL</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-os/linux-webdav-dateisynchro.html">Linux WebDAV Dateisynchronisation kostenlos</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-os/docker-paperless-installieren.html">Paperless Docker Installation</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server.html">Linux Server &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-7" aria-label="Linux Server > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server/proxmox-pve8-to-pve9-upgrade.html">Proxmox VE 8 zu Proxmox VE 9 Upgrade</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server/uebersicht-linux-server.html">Übersicht: Linux Server</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server/gitlab-auf-linux-installieren.html">Gitlab auf Linux Debian 11 installieren</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server/proxmox-server-sichern-haerten.html">Proxmox Server absichern und härten</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server/ssh-keys-auf-linux-erzeugen.html">Proxmox SSH-Keys auf Linux erzeugen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server/ssh-keys-auf-windows-erzeugen.html">Proxmox SSH-Key auf Windows erzeugen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server/proxmox-hochverfuegbare-vm.html">Proxmox Hochverfügbarkeits-Cluster aufbauen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server/proxmox-verschluesselt-backup.html">Proxmox verschlüsseltes Backup erstellen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server/proxmox-und-pfsense-eine-ip.html">Proxmox und pfSense Firewall</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheits-anbieter/1blu-backupserver.html">1blu Storage-Server für Proxmox-Backup-Server</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server/proxmox-netzwerk-bonding.html">Netzwerk-Bonding Ausfallschutz auf Proxmox</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server/opnsense-wireguard-vpn.html">OPNsense &amp; WireGuard-Tunnel einrichten</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server/pfsense-wireguard-vpn.html">pfSense &amp; WireGuard-Tunnel einrichten</a>
+</li></ul>
+</div>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="../meine-fachbuecher.html" style="padding: 12px 22px;">Bücher &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-8" aria-label="Bücher > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/uebersicht-meine-buecher.html">Übersicht: Bücher</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/proxmox-ve9-praxisbuch.html">Proxmox VE 9 Praxisbuch</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/proxmox-ve8-praxis-buch.html">Proxmox VE 8 Praxisbuch</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/proxmox-pve-8-pbs-3-profi-buch.html">Proxmox VE 8 Proxmox BS 3 Profibuch</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/proxmox-ve-8-powerbuch.html">Proxmox VE 8 Powerbuch</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/computer-it-sicherheits-fibel.html">Computer und IT Sicherheits-Fibel</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/schluss-mit-windows.html">Schluss mit Windows - jetzt kommt Linux</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/computer-sicherheit-fuer-kmu.html">Computer-Sicherheit für kleine und mittlere Unternehmen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/die-mutter-aller-ki-buecher.html">Die Mutter aller KI Bücher</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/proxmox-firewall-buch.html">Proxmox Firewall - Verstehen Einschalten Abschotten</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/cloud-verstehen-und-nutzen.html">Cloud verstehen und nutzen kostenloses eBook</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="../sicherheits-anbieter.html" style="padding: 12px 22px;">Sicherheits-Anbieter</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-9" aria-label="Sicherheits-Anbieter menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheits-anbieter/tuta-quantensichere-mail.html">Tuta verschlüsselte Mail und Kalender</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheits-anbieter/erecht24-anwalt-siebert.html">eRecht24</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheits-anbieter/1blu-backupserver.html">1blu Backupserver</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="ashampoo-backup-pro-26.html">Ashampoo Backup Pro</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="pcloud-pass-passwort-manager.html">pCloud Passwortmanager</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="../suchen.html" style="padding: 12px 22px;">Suchen</a>
+</li></ul>
+              </div>
+              <div class="u-custom-menu u-nav-container-collapse" id="092e" role="region" aria-label="Menu panel">
+                <div class="u-container-style u-custom-color-2 u-inner-container-layout u-sidenav u-sidenav-1">
+                  <div class="u-inner-container-layout u-sidenav-overflow">
+                    <div class="u-menu-close" tabindex="-1" aria-label="Close menu"></div>
+                    <ul class="u-align-left u-custom-font u-font-raleway u-nav u-popupmenu-items u-spacing-0 u-text-active-custom-color-5 u-text-hover-custom-color-5 u-text-white u-unstyled u-nav-10" role="menubar"><li role="none" class="u-nav-item"><a tabindex="-1" role="menuitem" class="u-button-style u-nav-link" href="../index.html">Start</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../inhaltsverzeichnis.html">Inhalt</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheit-in-der-it.html">IT-Sicherheit &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-11" aria-label="IT-Sicherheit > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="uebersicht-it-cyber-security.html">Übersicht: IT-Sicherheit</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="verschluesselung-von-daten.html">Verschlüsselung &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-12" aria-label="Verschlüsselung > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="verschluesselung-von-daten/cryptomator-kostenlos.html">Cryptomator Dateien verschlüsseln</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="vaultwarden-ssl-local-network.html">Vaultwarden Passwortmanager im LAN mit SSL</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="passkeys-einrichten-und-nutzen.html">Passkeys Einrichten und Nutzen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="privatpersonen.html">Privatpersonen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="unternehmen.html">Unternehmen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="it-daten-info-sicherheit.html">IT-, Daten-, Informationssicherheit</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="backups-sind-exrem-wichtig.html">Backups wichtig für IT-Sicherheit</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="keepass-anleitung.html">KeePass-Anleitung</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="keepassxc-und-proton-drive.html">KeePassXC und Proton Drive</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="iperius-backup-kostenlos.html">Iperius Backup die kostenlose Backupsoftware</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="paragon-backup-kostenlos.html">Paragon Backup kostenlose Software</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="paragon-backup-rettungsstick.html">Paragon Backup Rettungsstick erstellen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="backupkonzept-backupstrategie.html">Datensicherungskonzept und Backupstrategie</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="wie-kann-ich-daten-schuetzen.html">Wie kann ich meine Daten vor Hackern besser schützen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="sicherheit-in-social-media.html">Sicherheit in Social-Media</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="delphi-migration.html">Delphi Software Migration</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="pcloud-pass-passwort-manager.html">Passwort Manager pCloud Pass</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../it-und-computer-beratung.html">Beratungen &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-13" aria-label="Beratungen > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../it-und-computer-beratung/kleine-unternehmen-startups.html">IT-Dokumentationen für Unternehmen, Praxen und Universitäten</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../windows-os.html">Windows &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-14" aria-label="Windows > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../windows-os/computerralle-isms-docker-win.html">ISMS von ComputerRalle</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../windows-os/fernwartungssoftware-hoptodesk.html">Remote Software HopToDesk</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-os.html">Linux &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-15" aria-label="Linux > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-os/paperless-backup-programm.html">Paperless Backup Programm Anleitung</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-os/docker-desktop-paperless.html">Paperless auf Windows installieren WSL</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-os/linux-webdav-dateisynchro.html">Linux WebDAV Dateisynchronisation kostenlos</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-os/docker-paperless-installieren.html">Paperless Docker Installation</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server.html">Linux Server &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-16" aria-label="Linux Server > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server/proxmox-pve8-to-pve9-upgrade.html">Proxmox VE 8 zu Proxmox VE 9 Upgrade</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server/uebersicht-linux-server.html">Übersicht: Linux Server</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server/gitlab-auf-linux-installieren.html">Gitlab auf Linux Debian 11 installieren</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server/proxmox-server-sichern-haerten.html">Proxmox Server absichern und härten</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server/ssh-keys-auf-linux-erzeugen.html">Proxmox SSH-Keys auf Linux erzeugen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server/ssh-keys-auf-windows-erzeugen.html">Proxmox SSH-Key auf Windows erzeugen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server/proxmox-hochverfuegbare-vm.html">Proxmox Hochverfügbarkeits-Cluster aufbauen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server/proxmox-verschluesselt-backup.html">Proxmox verschlüsseltes Backup erstellen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server/proxmox-und-pfsense-eine-ip.html">Proxmox und pfSense Firewall</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheits-anbieter/1blu-backupserver.html">1blu Storage-Server für Proxmox-Backup-Server</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server/proxmox-netzwerk-bonding.html">Netzwerk-Bonding Ausfallschutz auf Proxmox</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server/opnsense-wireguard-vpn.html">OPNsense &amp; WireGuard-Tunnel einrichten</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server/pfsense-wireguard-vpn.html">pfSense &amp; WireGuard-Tunnel einrichten</a>
+</li></ul>
+</div>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher.html">Bücher &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-17" aria-label="Bücher > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/uebersicht-meine-buecher.html">Übersicht: Bücher</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/proxmox-ve9-praxisbuch.html">Proxmox VE 9 Praxisbuch</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/proxmox-ve8-praxis-buch.html">Proxmox VE 8 Praxisbuch</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/proxmox-pve-8-pbs-3-profi-buch.html">Proxmox VE 8 Proxmox BS 3 Profibuch</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/proxmox-ve-8-powerbuch.html">Proxmox VE 8 Powerbuch</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/computer-it-sicherheits-fibel.html">Computer und IT Sicherheits-Fibel</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/schluss-mit-windows.html">Schluss mit Windows - jetzt kommt Linux</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/computer-sicherheit-fuer-kmu.html">Computer-Sicherheit für kleine und mittlere Unternehmen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/die-mutter-aller-ki-buecher.html">Die Mutter aller KI Bücher</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/proxmox-firewall-buch.html">Proxmox Firewall - Verstehen Einschalten Abschotten</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/cloud-verstehen-und-nutzen.html">Cloud verstehen und nutzen kostenloses eBook</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheits-anbieter.html">Sicherheits-Anbieter</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-18" aria-label="Sicherheits-Anbieter menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheits-anbieter/tuta-quantensichere-mail.html">Tuta verschlüsselte Mail und Kalender</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheits-anbieter/erecht24-anwalt-siebert.html">eRecht24</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheits-anbieter/1blu-backupserver.html">1blu Backupserver</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="ashampoo-backup-pro-26.html">Ashampoo Backup Pro</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="pcloud-pass-passwort-manager.html">pCloud Passwortmanager</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../suchen.html">Suchen</a>
+</li></ul>
+                  </div>
+                </div>
+                <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+              </div>
+              <style class="menu-style">@media (max-width: 1198px) {
+                    [data-responsive-from="MD"] .u-nav-container {
+                        display: none;
+                    }
+                    [data-responsive-from="MD"] .menu-collapse {
+                        display: block;
+                    }
+                }</style>
+            </nav>
+          </div>
+          
+          
+          
+          
+          
+        </div>
+        <div class="u-clearfix u-container-align-left u-section-row" id="DIGITAL-easy-Logo">
+          <div class="u-clearfix u-sheet u-sheet-2">
+            <a href="#" class="u-image u-logo u-image-1" data-image-width="2040" data-image-height="400">
+              <img src="../images/BannerHintergrund1.png" class="u-logo-image u-logo-image-1" alt="DIGITAL-easy Logo">
+            </a>
+          </div>
+          
+          
+          
+          
+          
+        </div>
+      </div></header>
+    <section class="u-clearfix u-section-1" id="it-sicherheit-fuer-behoerden">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h1 class="u-text u-text-default u-text-1">Open Source - ​Kosteneffizienz und IT-Sicherheit in und für Städte, Behörden, Schulen und Gemeinde-Verwaltungen</h1>
+            <p class="u-text u-text-default u-text-2"> Open Source bietet nicht nur im öffentlichen Sektor, sondern auch in Schulen enorme Chancen. Software wie LibreOffice, Thunderbird oder Proxmox Virtualisierung kann dabei helfen, Kosten zu senken, die Abhängigkeit von teuren, proprietären Anbietern zu reduzieren und gleichzeitig mehr Transparenz und Kontrolle über die IT-Infrastruktur zu gewinnen. Gerade in Behörden, Schulen und Bildungseinrichtungen, wo Datenschutz und langfristige Verfügbarkeit entscheidend sind, ist das ein großer Vorteil. Allerdings liegt die finanzielle Verantwortung für solche Systeme letztlich immer beim Steuerzahler – ein Punkt, der eine kluge und nachhaltige Planung umso wichtiger macht.<br>
+              <br><span style="font-weight: 700;"></span><span style="font-weight: 700;">Warum Open Source für Schulen und Verwaltungen?<br></span>
+              <br> In Schulen und Verwaltungen fallen Lizenzgebühren oft Jahr für Jahr an – ein ständiger Posten, der direkt aus den öffentlichen Haushalten finanziert wird. Bei einer typischen Office-365-Installation für Schulen mit 100 Lizenzen kommen schnell Summen von mehreren Tausend Euro pro Jahr zusammen. Dieses Geld wird nicht für Lehrmittel, Ausstattung oder Weiterbildungen verwendet, sondern fließt direkt an große Softwareanbieter. Die Umstellung auf Open-Source-Alternativen könnte diese Mittel sinnvoller einsetzen und gleichzeitig die Unabhängigkeit fördern.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-3"> Gerade Schulen, die ohnehin unter finanziellen Einschränkungen leiden, könnten von Open Source profitieren. Software wie LibreOffice erfüllt alle grundlegenden Anforderungen, ohne dass für jede Installation Lizenzgebühren anfallen. Auch für virtuelle Klassenräume oder Schulserver bietet Open Source mit Tools wie Moodle oder Proxmox Virtualisierung leistungsstarke Alternativen, die den Anforderungen des Bildungssektors gerecht werden.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-2" id="inhalte-des-artikels-open-source-behoerden">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-10 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-bottom u-container-layout-1">
+            <p class="u-large-text u-text u-text-default-lg u-text-default-md u-text-default-sm u-text-default-xl u-text-variant u-text-1"> Inhalte des Artikels</p>
+            <ol class="u-align-left u-spacing-12 u-text u-text-default-lg u-text-default-md u-text-default-sm u-text-default-xl u-text-2">
+              <li>
+                <a href="open-source-in-behoerden.html#computersicherheit-ist-wichtig" data-page-id="619917593" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> IT-Sicherheit in Behörden. Die Verantwortung des Steuerzahlers?</a>
+              </li>
+              <li>
+                <a href="open-source-in-behoerden.html#kleine-unternehmen-werden-angegriffen" data-page-id="619917593" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-2"> Kostenbeispiel: Office 365 vs. Open Source</a>
+              </li>
+              <li>
+                <a href="open-source-in-behoerden.html#nachteile-us-software" data-page-id="619917593" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-3"> Nachteile von US Software - DSGVO</a>
+              </li>
+              <li>
+                <a href="open-source-in-behoerden.html#deutsche-und-eu-anbieter" data-page-id="619917593" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-4"> Besser: deutsche Anbieter wie Hetzner, IONOS, STRATO</a>
+              </li>
+              <li>
+                <a href="open-source-in-behoerden.html#wer-entscheidet-ueber-it" data-page-id="619917593" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-5"> Wer entscheidet über IT Systeme?</a>
+              </li>
+              <li>
+                <a href="open-source-in-behoerden.html#grosse-it-ausfaelle-und-proxmox" data-page-id="619917593" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-6"> Die grossen IT Ausfälle</a>
+              </li>
+              <li>
+                <a href="open-source-in-behoerden.html#pve-pbs-pmg-proxmox-vorteile" data-page-id="619917593" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-7"> Zusätzliche Sicherheit: Proxmox Backup Server und Proxmox Mail Gateway</a>
+              </li>
+              <li>
+                <a href="open-source-in-behoerden.html#open-source-nutzen" data-page-id="619917593" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-8"> Nachdenken, auf Open Source zu setzen</a>
+                <br>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-3" id="computersicherheit-ist-wichtig">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h2 class="u-text u-text-default u-text-1"> IT-Sicherheit in Behörden. Die Verantwortung des Steuerzahlers?</h2>
+            <p class="u-text u-text-default u-text-2"> Es ist wichtig zu betonen, dass die Kosten für IT-Systeme in öffentlichen Einrichtungen letztendlich immer beim Steuerzahler liegen. Ob es sich um Lizenzgebühren für Software, Hardwareanschaffungen oder die Bezahlung von IT-Dienstleistern handelt – all das wird durch Steuergelder finanziert. Ein ineffizientes System, das unnötige Ausgaben verursacht, belastet also nicht nur den Haushalt der Institution, sondern jeden einzelnen Bürger.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-3"> Die Frage ist also nicht nur, ob eine Lösung funktioniert, sondern auch, ob sie wirtschaftlich sinnvoll ist. Proprietäre Anbieter verlangen oft wiederkehrende Gebühren, die über die Jahre immense Summen verschlingen können. Open Source bietet die Möglichkeit, diese Kosten deutlich zu senken und damit den Steuerzahler langfristig zu entlasten.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-4"> Ein durchdachter Migrationsplan&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-5"> Die Umstellung auf Open Source sollte sorgfältig geplant werden, um Stabilität und Akzeptanz sicherzustellen. Ein bewährtes Vorgehen ist der Aufbau eines parallelen Systems, das unter realen Bedingungen getestet werden kann, bevor das alte System abgeschaltet wird. Schulen könnten zunächst ein Pilotprojekt starten, bei dem ein Teil der Computer mit LibreOffice oder Nextcloud ausgestattet wird. Lehrkräfte und Schüler erhalten Schulungen, um sich mit der neuen Umgebung vertraut zu machen. Dabei ist es wichtig, Feedback einzuholen und gegebenenfalls Anpassungen vorzunehmen.&nbsp;<br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-4" id="zurueck-zum-inhaltsmenue-it-behoerden-1">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="open-source-in-behoerden.html#inhalte-des-artikels-open-source-behoerden" data-page-id="619917593" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Zurück zum Inhalts Menü</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-5" id="kleine-unternehmen-werden-angegriffen">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h3 class="u-text u-text-default u-text-1"> Kostenbeispiel: Office 365 vs. Open Source&nbsp;<br>
+            </h3>
+            <p class="u-text u-text-default u-text-2"> Nehmen wir an, eine Schule mit 100 Arbeitsplätzen nutzt Office 365 zu einem Preis von 12,50 € pro Lizenz und Monat. Das ergibt jährliche Lizenzkosten von 15.000 €. Im Gegensatz dazu entstehen bei der Umstellung auf LibreOffice und Nextcloud einmalige Kosten für die Einrichtung des Systems und die Schulung der Nutzer, die mit etwa 10.000 € angesetzt werden können. Nach der Umstellung fallen keine Lizenzgebühren mehr an, sondern nur noch Wartungs- und Betriebskosten von ca. 2.000 € jährlich.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-3"> Nach fünf Jahren ergibt sich folgende Bilanz:&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-4"> Office 365: 75.000 € (15.000 € pro Jahr) <br>Open Source: 20.000 € (10.000 € Einrichtung + 2.000 € pro Jahr Betrieb) <br>Das Einsparpotenzial von 55.000 € ist enorm – Geld, das in andere wichtige Bereiche wie Lehrmaterialien oder Schulgebäude fließen könnte.
+            </p>
+            <p class="u-text u-text-default u-text-5"> Langfristige Vorteile&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-6"> Neben den finanziellen Einsparungen bringt Open Source weitere Vorteile. Die Transparenz des Quellcodes erhöht die Sicherheit, da potenzielle Schwachstellen schneller entdeckt und behoben werden können. Zudem können Schulen und Verwaltungen Systeme an ihre spezifischen Bedürfnisse anpassen, ohne auf die Vorgaben eines Anbieters angewiesen zu sein.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-7"> Die Umstellung auf Open Source in Schulen und öffentlichen Einrichtungen ist nicht nur eine technische Entscheidung, sondern auch eine finanzielle und ethische. Da die Kosten immer vom Steuerzahler getragen werden, ist es wichtig, eine Lösung zu wählen, die langfristig wirtschaftlich und nachhaltig ist. Ein gut geplanter Umstieg mit einem parallelen System und umfassenden Schulungen minimiert Risiken und maximiert die Vorteile. Open Source bietet die Möglichkeit, nicht nur Kosten zu senken, sondern auch die Kontrolle über die IT zu behalten und das Geld der Steuerzahler verantwortungsvoll einzusetzen.&nbsp;<br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-6" id="newsletter-abonnieren">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-align-left u-border-4 u-border-custom-color-20 u-container-align-left u-container-align-left-lg u-container-align-left-md u-container-align-left-sm u-container-align-left-xl u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-90 u-group-1" data-animation-out="0">
+          <div class="u-container-layout u-valign-bottom-lg u-valign-bottom-md u-valign-bottom-sm u-valign-top-xl u-container-layout-1">
+            <p class="u-large-text u-text u-text-variant u-text-1">Kostenlose IT-Sicherheits-Bücher &amp; Information via Newsletter</p>
+            <p class="u-text u-text-default-lg u-text-default-md u-text-default-sm u-text-default-xl u-text-2"> Bleiben Sie informiert, wann es meine Bücher kostenlos in einer Aktion gibt: <a href="../newsletter.html" data-page-id="103346126" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1">Mit meinem Newsletter</a> erfahren Sie viermal im Jahr von Aktionen auf Amazon und anderen Plattformen, bei denen meine IT-Sicherheits-Bücher gratis erhältlich sind. Sie verpassen keine Gelegenheit und erhalten zusätzlich hilfreiche Tipps zur IT-Sicherheit. Der Newsletter ist kostenlos und unverbindlich – einfach abonnieren und profitieren!<br>
+            </p>
+            <div class="u-border-3 u-border-grey-dark-1 u-expanded-width u-line u-line-horizontal u-line-1"></div>
+            <a href="../newsletter.html" data-page-id="103346126" class="u-align-center u-btn u-button-style u-custom-color-20 u-hover-custom-color-3 u-btn-2" target="_blank" title="Zur Newsletter-Anmeldeseite von Ralf-Peter Kleinert">Zur Anmeldung</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-7" id="zurueck-zum-inhaltsmenue-it-behoerden-2">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="open-source-in-behoerden.html#inhalte-des-artikels-open-source-behoerden" data-page-id="619917593" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Zurück zum Inhalts Menü</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-8" id="nachteile-us-software">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h4 class="u-text u-text-default u-text-1"> Nachteile von US Software - <a href="https://dsgvo-gesetz.de/" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1" target="_blank" rel="nofollow">DSGVO</a>&nbsp;<br>
+            </h4>
+            <p class="u-text u-text-default u-text-2"> US-amerikanische Software ist im öffentlichen Sektor weit verbreitet, doch sie birgt erhebliche Nachteile, die insbesondere im Kontext von Datenschutz, Kosten und Abhängigkeiten schwer wiegen. Es ist essenziell, diese Probleme umfassend zu beleuchten, damit Verwaltungen, Schulen und öffentliche Einrichtungen verstehen, welche Risiken sie eingehen, wenn sie auf solche Lösungen setzen. Der Einsatz von US-Software ist kein reines IT-Thema – er betrifft den Steuerzahler, die staatliche Souveränität und die Sicherheit sensibler Daten.<br>
+            </p>
+            <p class="u-text u-text-default u-text-3"> Datenschutz: Ein Risiko für Bürger und Staat&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-4"> Einer der größten Kritikpunkte an US-Software ist die Problematik des Datenschutzes. Die Datenschutz-Grundverordnung (DSGVO) der Europäischen Union stellt strenge Anforderungen an die Verarbeitung personenbezogener Daten. US-Unternehmen unterliegen jedoch dem Cloud Act (Clarifying Lawful Overseas Use of Data Act), der es amerikanischen Behörden erlaubt, auf Daten zuzugreifen, die von US-Unternehmen auch außerhalb der Vereinigten Staaten gespeichert werden. Das bedeutet, dass Daten von europäischen Bürgern, die in der Cloud oder auf Servern von US-Anbietern gespeichert werden, theoretisch von US-Behörden eingesehen werden können – unabhängig davon, ob diese Daten in Europa gespeichert sind.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-5"> Dieser Konflikt zwischen DSGVO und US-Rechtssystemen stellt ein ernsthaftes Problem dar. Verwaltungen und Schulen speichern personenbezogene Daten von Bürgern, Lehrern und Schülern. Sollte es zu einem Datenleck oder unbefugtem Zugriff kommen, wären die Konsequenzen für die betroffenen Personen und Institutionen gravierend. Zudem drohen empfindliche Strafen bei Verstößen gegen die DSGVO, was zusätzliche Kosten und Reputationsverluste mit sich bringt.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-6"> Kosten: Ein Fass ohne Boden&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-7"> US-Softwarelösungen wie Microsoft Office 365 oder Salesforce basieren häufig auf Abomodellen. Diese sogenannten "Software as a Service" (SaaS)-Lösungen bieten zwar zunächst niedrige Einstiegskosten, entwickeln sich aber langfristig zu einer erheblichen Belastung für öffentliche Budgets. Lizenzgebühren fallen kontinuierlich an, sodass die Institutionen nie aufhören, zu zahlen.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-8"> Ein Beispiel: Eine mittelgroße Stadtverwaltung mit 1.000 Arbeitsplätzen zahlt bei Office 365 im günstigsten Business-Tarif etwa 12,50 Euro pro Nutzer und Monat. Das ergibt jährliche Kosten von 150.000 Euro – und das nur für die Basisfunktionen. Hinzu kommen Kosten für zusätzliche Features, Support oder Schulungen, die bei proprietärer Software oft nur vom Anbieter selbst bezogen werden können. Auf einen Zeitraum von zehn Jahren summieren sich diese Kosten schnell auf über 1,5 Millionen Euro, ohne dass die Stadt jemals Eigentümer der Software wird.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-9"> Open-Source-Alternativen wie LibreOffice oder Proxmox hingegen verursachen keine Lizenzkosten. Zwar sind anfängliche Investitionen für die Einführung und Schulung notwendig, doch diese amortisieren sich in der Regel nach wenigen Jahren.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-10"> Abhängigkeiten: Der goldene Käfig&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-11"> Ein weiterer Nachteil ist die Abhängigkeit von den Anbietern. Proprietäre Software bindet Institutionen an bestimmte Produkte, die oft nicht mit anderen Lösungen kompatibel sind. Diese sogenannte Vendor Lock-in-Strategie erschwert den Wechsel zu alternativen Anbietern.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-12"> Ein prominentes Beispiel sind Microsoft-Formate wie .docx oder .xlsx, die zwar offiziell offene Standards sein sollen, aber in der Praxis oft nicht vollständig von anderen Programmen unterstützt werden. Das führt dazu, dass Behörden und Schulen praktisch gezwungen sind, langfristig bei Microsoft zu bleiben, da ein Wechsel mit hohen Kosten und Kompatibilitätsproblemen verbunden wäre.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-13"> Ein weiteres Problem ist die zentrale Steuerung der Softwareupdates. Anbieter wie Microsoft können Funktionen jederzeit ändern oder entfernen, ohne dass die Nutzer ein Mitspracherecht haben. Dies kann dazu führen, dass bestehende Arbeitsabläufe gestört werden, was insbesondere in kritischen Bereichen wie der öffentlichen Verwaltung oder dem Schulbetrieb problematisch ist.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-14"> Souveränität und Kontrolle&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-15"> Der Einsatz von US-Software bedeutet, dass zentrale IT-Komponenten einer öffentlichen Institution unter der Kontrolle eines ausländischen Unternehmens stehen. In Zeiten geopolitischer Spannungen ist dies ein erheblicher Nachteil. Sollte es zu Konflikten zwischen den USA und der EU kommen, könnten US-Anbieter den Zugang zu ihrer Software einschränken oder die Preise drastisch erhöhen.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-16"> Darüber hinaus stellt sich die Frage, wie sicher es ist, kritische Daten und IT-Infrastrukturen einem Unternehmen zu überlassen, dessen wirtschaftliche Interessen nicht mit denen des europäischen Marktes übereinstimmen. In einer Welt, in der Daten als das "Öl des 21. Jahrhunderts" gelten, ist es fahrlässig, diese Ressourcen ohne Not in fremde Hände zu geben.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-17"> Alternativen: Der Weg zu mehr Unabhängigkeit&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-18"> Europa hat bereits begonnen, auf diese Herausforderungen zu reagieren. Projekte wie Gaia-X, die europäische Cloud-Initiative, oder die verstärkte Förderung von Open Source zielen darauf ab, eine unabhängige IT-Infrastruktur zu schaffen. Open-Source-Lösungen wie Nextcloud, LibreOffice oder Proxmox sind bereits heute leistungsfähige Alternativen, die keine Lizenzkosten verursachen und mehr Kontrolle über die Daten ermöglichen.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-19"> Die Umstellung auf Open Source erfordert zwar eine initiale Investition in die Infrastruktur und Schulung, bietet aber langfristig massive Vorteile. Zudem bleibt die Kontrolle über Daten und Systeme vollständig bei der Institution, was sowohl die Sicherheit als auch die Souveränität stärkt.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-20"> Der Einsatz von US-Software im öffentlichen Sektor ist mit erheblichen Nachteilen verbunden. Datenschutzprobleme, steigende Kosten, Abhängigkeiten und der Verlust von Souveränität gefährden nicht nur die Effizienz, sondern auch die Sicherheit und Unabhängigkeit öffentlicher Institutionen. Open Source bietet eine echte Alternative, die sowohl wirtschaftlich als auch technisch überzeugt.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-21"> Der Wechsel mag auf den ersten Blick komplex erscheinen, doch er ist eine Investition in die Zukunft. Behörden, Schulen und andere öffentliche Einrichtungen sollten diesen Schritt ernsthaft prüfen, um langfristig die Interessen der Bürger – und damit der Steuerzahler – zu schützen. Die Entscheidung für Open Source ist nicht nur eine technische, sondern auch eine politische und gesellschaftliche. Sie steht für Unabhängigkeit, Nachhaltigkeit und die verantwortungsvolle Nutzung öffentlicher Mittel.&nbsp;<br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-9" id="zurueck-zum-inhaltsmenue-it-behoerden-3">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="open-source-in-behoerden.html#inhalte-des-artikels-open-source-behoerden" data-page-id="619917593" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Zurück zum Inhalts Menü</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-10" id="deutsche-und-eu-anbieter">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h2 class="u-text u-text-default u-text-1"> Besser: deutsche Anbieter wie Hetzner, IONOS, STRATO&nbsp;<br>
+            </h2>
+            <p class="u-text u-text-default u-text-2"> Auf der Basis von deutschen Anbietern wie <a href="https://www.hetzner.com/" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1" target="_blank" rel="nofollow">Hetzner</a> lassen sich kostengünstig und sicher Virtualisierungssysteme wie Proxmox installieren, die sich ideal für den Einsatz in öffentlichen Einrichtungen eignen. Proxmox ermöglicht es, mehrere virtuelle Maschinen auf einer einzigen physischen Hardware zu betreiben, wodurch Ressourcen optimal genutzt werden. Diese Virtualisierungslösungen können sowohl für die Bereitstellung von Windows-basierten Arbeitsplätzen als auch für alternative Betriebssysteme wie Linux verwendet werden. Der Einsatz von Linux als Betriebssystem bietet hier nicht nur Stabilität und Sicherheit, sondern auch erhebliche Einsparungen, da keine Lizenzkosten anfallen. Gerade im öffentlichen Sektor, wo das Budget aus Steuermitteln gedeckt wird, sind solche Kostenreduktionen ein entscheidender Faktor.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-3"> Virtualisierung: Flexibilität und Effizienz&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-4"> Die Stärke von <a href="../linux-server/proxmox-server-sichern-haerten.html" data-page-id="1740016529" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-2">Virtualisierungssystemen wie Proxmox</a> liegt in ihrer Flexibilität und Möglichkeit zur Härtung. Eine Behörde oder Schule könnte beispielsweise auf einem einzigen Server sowohl die Infrastruktur für Verwaltungssoftware als auch für Unterrichtsprogramme bereitstellen. Zudem ermöglicht Proxmox die Implementierung moderner Sicherheitsmechanismen wie isolierte Netzwerke, Snapshots und Hochverfügbarkeit. Dies erhöht nicht nur die Ausfallsicherheit, sondern bietet auch Schutz vor potenziellen Angriffen.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-5"> Ein weiterer Vorteil ist die einfache Skalierbarkeit. Sollte der Bedarf an Ressourcen wachsen, können zusätzliche virtuelle Maschinen ohne große Hardware-Investitionen eingerichtet werden. Gleichzeitig lassen sich alte Systeme Schritt für Schritt migrieren, ohne den laufenden Betrieb zu gefährden.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-6"> Eigene Server: Unabhängigkeit und Kontrolle&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-7"> Während Hosting-Lösungen bei Anbietern wie Hetzner bereits ein hohes Maß an Sicherheit und Datenschutz bieten, liegt die sicherste Lösung im Betrieb eigener Server, wie <a href="../video-tutorials/proxmox-server-installation.html" data-page-id="241227437" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-3">Proxmox auf Hetzner-Systemen</a>. Durch den Aufbau einer eigenen Server-Infrastruktur behalten Behörden und Schulen die vollständige Kontrolle über ihre Daten und Systeme. Dies ist besonders relevant, wenn es um sensible Informationen geht, die nicht extern gespeichert werden sollen.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-8"> Mit eigenen Servern können Institutionen ihre IT-Infrastruktur genau auf ihre Bedürfnisse zuschneiden. Virtualisierungslösungen wie Proxmox erlauben es, verschiedene Dienste wie Dateiserver, E-Mail-Server oder Kollaborationstools zu integrieren. Darüber hinaus können verschlüsselte Backups auf externe Server oder Cloud-Dienste gespeichert werden, um die Daten vor Verlust zu schützen und die Betriebssicherheit zu gewährleisten.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-9"> Verschlüsselte Backups: Sicherheit auf höchstem Niveau&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-10"> Ein gutes Backup-Konzept ist unverzichtbar – gerade im öffentlichen Sektor, wo der Verlust von Daten weitreichende Konsequenzen haben kann. <a href="../linux-server/proxmox-verschluesselt-backup.html" data-page-id="124876659" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-4">Verschlüsselte Backups</a> stellen sicher, dass selbst bei einem Diebstahl der Speichermedien oder einem Angriff auf die Server keine sensiblen Informationen in falsche Hände geraten. Lösungen wie BorgBackup oder Restic bieten hier moderne, effiziente und kostengünstige Möglichkeiten, die Daten sowohl lokal als auch in der Cloud zu sichern.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-11"> Durch regelmäßige Backups, die automatisiert und verschlüsselt auf externe Server geladen werden, können Behörden und Schulen nicht nur Datenverlust vermeiden, sondern sich auch besser gegen Ransomware-Angriffe wappnen. Die Wiederherstellung eines verschlüsselten Backups ermöglicht es, im Ernstfall schnell wieder handlungsfähig zu sein, ohne auf die Forderungen von Cyberkriminellen eingehen zu müssen.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-12"> Linux als Schlüssel zur Kostensenkung&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-13"> Der Wechsel zu Linux als Betriebssystem für Arbeitsplätze und Server ist ein weiterer wichtiger Schritt, um die Kosten nachhaltig zu senken. <a href="../linux-server.html" data-page-id="40323297" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-5">Linux-Server</a> und Distributionen wie Ubuntu, Debian oder Fedora bieten eine hohe Stabilität und Flexibilität, ohne Lizenzgebühren zu verursachen. Im Gegensatz zu Windows, das regelmäßig kostenpflichtige Updates und neue Versionen erfordert, können Linux-Systeme oft über viele Jahre hinweg kostenlos aktualisiert und genutzt werden.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-14"> Neben den Einsparungen bietet Linux auch technische Vorteile. Es ist weniger anfällig für Malware und bietet eine größere Anpassungsfähigkeit. Dies ist besonders in Schulen von Vorteil, wo häufig individuelle Softwarelösungen für den Unterricht benötigt werden. Die Open-Source-Community stellt hier eine Vielzahl von Programmen zur Verfügung, die speziell für den Bildungssektor entwickelt wurden.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-15"> Kombination aus Open Source und lokaler Infrastruktur&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-16"> Die ideale Lösung für öffentliche Einrichtungen liegt in einer Kombination aus Open-Source-Software und lokaler Infrastruktur. Mit Proxmox können Arbeitsplätze effizient virtualisiert werden, während Linux als Betriebssystem weitere Einsparungen und Sicherheitsvorteile bringt. Die Daten bleiben auf eigenen Servern, wodurch sowohl Datenschutz als auch Unabhängigkeit gewährleistet werden.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-17"> Externe Cloud-Dienste wie Nextcloud können zudem als Ergänzung genutzt werden, um eine sichere und DSGVO-konforme Kollaborationsplattform bereitzustellen. Durch die Nutzung verschlüsselter Verbindungen und strenger Zugriffskontrollen wird ein Höchstmaß an Sicherheit erreicht.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-18"> Die Nutzung von Virtualisierungssystemen wie Proxmox in Kombination mit Linux und eigenen Servern ist nicht nur wirtschaftlich sinnvoll, sondern auch ein Schritt in Richtung mehr Unabhängigkeit und Datenschutz. Öffentliche Einrichtungen, die auf solche Lösungen setzen, können langfristig erhebliche Einsparungen erzielen und gleichzeitig die Kontrolle über ihre Daten behalten. Der Steuerzahler profitiert von einer effizienteren Mittelverwendung, und die Institutionen sichern sich gegen die Risiken ab, die mit der Nutzung von US-Software und Cloud-Diensten verbunden sind.&nbsp;<br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-11" id="zurueck-zum-inhaltsmenue-it-behoerden-4">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="open-source-in-behoerden.html#inhalte-des-artikels-open-source-behoerden" data-page-id="619917593" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Zurück zum Inhalts Menü</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-12" id="wer-entscheidet-ueber-it">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h3 class="u-text u-text-default u-text-1"> Wer entscheidet über IT Systeme?&nbsp;<br>
+            </h3>
+            <p class="u-text u-text-default u-text-2"> Aus meiner Erfahrung heraus werden Entscheidungen über IT-Systeme häufig von Personen getroffen, die nicht über das notwendige technische Hintergrundwissen verfügen. Ob im privaten Bereich, im öffentlichen Dienst oder im unternehmerischen Umfeld – die Expertise in den Bereichen IT, Datenschutz und Datensicherheit ist bei Entscheidungsträgern oft begrenzt. Dies führt leider regelmäßig dazu, dass Entscheidungen getroffen werden, die gegen eine Veränderung oder einen Wechsel hin zu datenschutzfreundlicheren und kosteneffizienteren Systemen ausfallen. Die Konsequenzen dieser Entscheidungen betreffen jedoch nicht die Entscheider selbst, sondern belasten in besonderem Maße den Steuerzahler und gefährden die Daten von Bürgern und Schülern.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-3"> Der Status quo: Widerstand gegen den Wechsel&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-4"> Es ist kein Geheimnis, dass viele Institutionen an bestehenden Systemen festhalten, auch wenn diese längst nicht mehr zeitgemäß sind. Der Hauptgrund dafür liegt oft in der Unsicherheit vor Veränderung. Ein Wechsel auf Open-Source-Software oder datenschutzfreundliche Lösungen wird als aufwändig und riskant wahrgenommen, obwohl die Vorteile auf der Hand liegen. Doch wer trifft diese Entscheidungen? In vielen Fällen sind es Personen in verantwortlichen Positionen, die die technische Tiefe und die langfristigen Konsequenzen solcher Entscheidungen nicht vollständig überblicken. Es fehlt nicht an guten Absichten, sondern schlichtweg an fachlichem Verständnis.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-5"> Das Problem hierbei ist, dass diese Entscheidungen nicht isoliert bleiben. Sie wirken sich direkt auf die Finanzen und die Sicherheit aus – und zwar nicht auf die der Entscheider, sondern auf die der Bürger, Unternehmen oder Steuerzahler.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-6"> Doppelte Standards: Datenschutz und DSGVO&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-7"> Besonders irritierend ist der Widerspruch, der sich in vielen öffentlichen Einrichtungen zeigt. Während beispielsweise ein Unternehmer hohe Strafen zahlen muss, weil seine Webseite nicht vollständig DSGVO-konform ist, werden gleichzeitig personenbezogene Daten von Bürgern und Schülern in großen US-Clouds gespeichert. Dies geschieht häufig unter dem Deckmantel von Bequemlichkeit und vermeintlicher Kosteneffizienz.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-8"> Wenn Schülerdaten, Gesundheitsinformationen oder Bürgerakten in einer Cloud von Anbietern wie Microsoft oder Amazon gespeichert werden, ist die Einhaltung der europäischen Datenschutzstandards oft fraglich. Der Cloud Act und andere US-Gesetze ermöglichen es amerikanischen Behörden, auf diese Daten zuzugreifen – eine Tatsache, die in vielen Amtsstuben entweder nicht bekannt ist oder schlichtweg ignoriert wird.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-9"> Das Dilemma des Steuerzahlers&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-10"> Was bei diesen Entscheidungen selten in den Fokus rückt, ist die Belastung für den Steuerzahler. Teure Lizenzgebühren, wiederkehrende Abonnements und langfristige Abhängigkeiten von ausländischen Anbietern kosten jedes Jahr immense Summen. Diese Mittel könnten sinnvoller in Bildung, Infrastruktur oder andere wichtige Bereiche investiert werden, fließen stattdessen aber in die Taschen großer Tech-Konzerne.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-11"> Noch problematischer ist, dass der Steuerzahler indirekt dafür zahlt, dass seine eigenen Daten in unsicheren Umgebungen verarbeitet werden. Eine absurde Situation: Der Bürger finanziert Systeme, die nicht nur seine Privatsphäre gefährden, sondern auch die europäische Souveränität untergraben.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-12"> Warum Veränderungen blockiert werden&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-13"> Die Blockadehaltung gegen Veränderungen hat viele Gründe. Einer der häufigsten ist die Angst vor dem Unbekannten. Open-Source-Systeme wie LibreOffice, Proxmox oder Nextcloud sind zwar etabliert und bieten hohe Sicherheit sowie Kosteneffizienz, doch sie sind für viele Entscheider unbekannt. Hinzu kommt, dass Anbieter proprietärer Software oft intensive Marketingstrategien verfolgen und ihre Lösungen als "einfach" und "unverzichtbar" positionieren.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-14"> Ein weiterer Faktor ist der fehlende politische und gesellschaftliche Druck. Solange Bürger und Medien das Thema nicht aktiv auf die Agenda setzen, wird sich wenig ändern. Viele Verantwortliche in Verwaltungen und Unternehmen scheuen die Auseinandersetzung mit komplexen IT-Fragen und greifen lieber zu bekannten, aber teuren und unsicheren Lösungen.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-15"> Was getan werden muss&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-16"> Es braucht dringend einen Paradigmenwechsel im Umgang mit IT-Entscheidungen. Verantwortliche müssen stärker sensibilisiert und geschult werden, um die Tragweite ihrer Entscheidungen zu verstehen. Es geht nicht nur darum, kurzfristige Probleme zu lösen, sondern auch um langfristige Konsequenzen für Datenschutz, Sicherheit und Finanzen.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-17"> Ein zentraler Schritt wäre die Förderung und Unterstützung von Open-Source-Lösungen. Diese bieten nicht nur eine kostengünstige und datenschutzfreundliche Alternative, sondern stärken auch die europäische IT-Souveränität. Gleichzeitig sollten Bürger und Unternehmen stärker eingebunden werden, um den Druck auf Entscheider zu erhöhen.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-18"> Die Verantwortung für IT-Entscheidungen in Behörden, Schulen und Unternehmen ist keine leichte Aufgabe – sie erfordert Fachwissen, Weitsicht und den Mut, sich auf Neues einzulassen. Doch solange Entscheidungen weiterhin ohne ausreichendes Hintergrundwissen getroffen werden, bleibt der Steuerzahler derjenige, der die Rechnung trägt.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-19"> Die Speicherung von Bürger- und Schülerdaten in unsicheren US-Clouds, während gleichzeitig Strafen für DSGVO-Verstöße verhängt werden, zeigt den dringenden Handlungsbedarf. Es ist Zeit, dass Verantwortliche ihre Rolle ernst nehmen und Lösungen wählen, die nicht nur heute, sondern auch morgen Sicherheit und Effizienz bieten. Veränderung ist möglich – sie braucht nur den Willen, sie umzusetzen.&nbsp;<br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-13" id="proxmox-ve-8-praxisbuch-4-auflage">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="custom-expanded data-layout-selected u-clearfix u-gutter-0 u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout" style="">
+            <div class="u-layout-row" style="">
+              <div class="u-align-center u-container-align-center u-container-style u-layout-cell u-left-cell u-opacity u-opacity-30 u-palette-2-base u-shape-rectangle u-size-30 u-size-xs-60 u-layout-cell-1" src="">
+                <div class="u-container-layout u-valign-bottom-sm u-valign-bottom-xs u-container-layout-1"><span class="u-align-center u-file-icon u-icon u-icon-1" data-animation-name="customAnimationIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction=""><img src="../images/2972169.png" alt=""></span>
+                  <h4 class="u-align-center u-text u-text-1"> Proxmox VE 8 Praxisbuch</h4>
+                  <p class="u-align-center u-text u-text-2"> Informationen, Tipps und Tricks für Proxmox-Einsteiger und Fortgeschrittene - umfassend überarbeitete Ausgabe 4 mit 450 Seiten Proxmox-Wissen</p>
+                  <a href="https://www.amazon.de/dp/B0DPM9VVC4" class="btn-ralf u-align-center u-btn u-button-style u-hover-palette-1-dark-1 u-palette-1-base u-btn-1" target="_blank">Buch auf Amazon </a>
+                  <div class="u-shape u-shape-svg u-text-custom-color-44 u-shape-1">
+                    <svg class="u-svg-link" preserveAspectRatio="none" viewBox="0 0 150 160" style=""><use xlink:href="#svg-cbc7"></use></svg>
+                    <svg class="u-svg-content" viewBox="0 0 150 160" x="0px" y="0px" id="svg-cbc7"><path d="M150,96.6c0-6.9-3.8-10.1-7.4-11.7c2.9-2.5,4.7-6.3,4.7-10.4c0-7.6-6.1-13.8-13.6-13.8H94.5l2-9.4
+	c2.7-12.5,0.9-26.8,0.3-30.9C95.4,10.8,87,0,77.8,0h-0.7c-4.4,0-11.7,2.5-11.7,19.3c0,40.9-18.2,41.4-19.1,41.4l0,0h-2.7v-5.5H0V160
+	h43.6v-5.5H120c7.5,0,13.6-6.2,13.6-13.8c0-3.2-1.1-6.2-2.9-8.5c6.3-1.2,11.1-6.8,11.1-13.6c0-3.2-1.1-6.2-2.9-8.5
+	C145.2,108.9,150,103.3,150,96.6z"></path></svg>
+                  </div>
+                  <p class="u-align-center u-text u-text-custom-color-44 u-text-3">NEU</p>
+                </div>
+              </div>
+              <div class="u-align-center u-container-align-center u-container-style u-layout-cell u-right-cell u-size-30 u-size-xs-60 u-layout-cell-2" src="">
+                <div class="u-container-layout u-valign-bottom u-container-layout-2" src="">
+                  <img class="u-expanded-width u-image lazyload u-image-1" data-image-width="500" data-image-height="800" data-href="https://www.amazon.de/dp/B0DPM9VVC4" data-target="_blank" alt="Proxmox Fachbuch von Ralf-Peter Kleinert Auflage 3" data-src="../images/WebsiteCoverProxmoxVE8Aufl4.jpg" loading="lazy">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-14" id="zurueck-zum-inhaltsmenue-it-behoerden-5">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="open-source-in-behoerden.html#inhalte-des-artikels-open-source-behoerden" data-page-id="619917593" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Zurück zum Inhalts Menü</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-15" id="grosse-it-ausfaelle-und-proxmox">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h4 class="u-text u-text-default u-text-1"> Die grossen IT Ausfälle&nbsp;<br>
+            </h4>
+            <p class="u-text u-text-default u-text-2"> Auch sind uns allen <a href="https://www.it-daily.net/it-sicherheit/cloud-security/die-5-groessten-it-ausfaelle-die-schlagzeilen-machten#:~:text=Der%20Massen%2DIT%2DAusfall%20(,angeordnet%2C%20die%20alle%20Kommunikationsprobleme%20anf%C3%BChrten." class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1" target="_blank" rel="nofollow">die großen IT-Ausfälle</a> der letzten Jahre noch gut im Gedächtnis. Von flächendeckenden Störungen bei großen Cloud-Anbietern bis hin zu regionalen Ausfällen, die ganze Verwaltungen und Unternehmen lahmlegten – solche Vorfälle zeigen, wie abhängig wir von zentralisierten IT-Infrastrukturen geworden sind. Natürlich können auch Systeme wie Proxmox von technischen Problemen betroffen sein. Aber hier liegt der entscheidende Unterschied: Als Betreiber behalten wir die Kontrolle und haben die Möglichkeit, direkt einzugreifen, statt auf die Reaktion eines externen Anbieters zu warten.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-3"> Proxmox und die Vorteile lokaler Kontrolle&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-4"> Mit Proxmox können Organisationen ihre IT-Infrastruktur eigenständig verwalten. Das bedeutet, dass bei einem Ausfall die Ursache schneller identifiziert und behoben werden kann, da die Systeme in eigener Verantwortung betrieben werden. Man ist nicht darauf angewiesen, dass ein externer Anbieter sich mit einem Problem befasst, während wertvolle Stunden oder Tage verloren gehen.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-5"> Darüber hinaus bietet Proxmox zahlreiche Werkzeuge, um die Ausfallsicherheit der IT-Systeme zu erhöhen. Eine Schlüsselkomponente ist der Aufbau eines Clusters, der mehrere physische Server miteinander verbindet. In einem solchen Cluster arbeiten die Server zusammen, um Ausfälle einzelner Komponenten abzufangen und den Betrieb aufrechtzuerhalten. Zwar gibt es auch hier keine absolute Garantie für einen reibungslosen Betrieb, doch die Wahrscheinlichkeit schwerwiegender Unterbrechungen wird erheblich reduziert.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-6"> Cluster: Sicherheit durch Redundanz&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-7"> Ein Proxmox-Cluster ermöglicht es, virtuelle Maschinen (VMs) zwischen verschiedenen Servern zu verschieben, entweder manuell oder automatisch. Fällt ein Server aus, übernimmt ein anderer Server im Cluster die Aufgaben des ausgefallenen Systems. Diese sogenannte High Availability (HA)-Funktion ist besonders für kritische Anwendungen geeignet, bei denen Ausfallzeiten minimiert werden müssen.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-8"> Beispielsweise könnte eine Verwaltung, die Proxmox einsetzt, ihre E-Mail- und Datenbankserver in einem Cluster betreiben. Sollte ein physischer Server ausfallen, würde die betroffene virtuelle Maschine automatisch auf einem anderen Server im Cluster neu gestartet. So bleibt der Betrieb weitgehend störungsfrei – eine wichtige Voraussetzung für den reibungslosen Ablauf von Verwaltungs- und Schulprozessen.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-9"> Unabhängigkeit und Flexibilität&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-10"> Ein weiterer Vorteil von Proxmox liegt in der Flexibilität. Im Gegensatz zu zentralisierten Cloud-Anbietern, bei denen die IT-Infrastruktur stark von den Vorgaben des Dienstleisters abhängt, können Proxmox-Umgebungen genau an die individuellen Bedürfnisse angepasst werden. Betreiber haben die Möglichkeit, die Hardware frei zu wählen, die Konfiguration selbst zu bestimmen und die Datenhoheit zu behalten. Diese Unabhängigkeit ist besonders wertvoll in Zeiten, in denen Datenschutz und IT-Souveränität immer mehr an Bedeutung gewinnen.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-11"> Darüber hinaus lassen sich Backup-Strategien einfacher und gezielter umsetzen. Mit Proxmox können automatisierte und verschlüsselte Backups auf externe Server oder in lokale Speichersysteme integriert werden. Diese Backups ermöglichen es, den Betrieb nach einem Ausfall oder einer Cyberattacke schnell wiederherzustellen – und das ohne auf die Dienste eines externen Anbieters angewiesen zu sein.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-12"> Vergleich mit zentralisierten Cloud-Lösungen&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-13"> Zentralisierte Cloud-Lösungen von großen US-Anbietern wie Microsoft Azure oder Amazon Web Services (AWS) bieten zwar ebenfalls Optionen für Ausfallsicherheit, doch hier liegt das Problem in der Abhängigkeit. Fällt der Anbieter aus, ist der Kunde machtlos. Dies wurde in der Vergangenheit immer wieder deutlich, wenn großflächige Ausfälle bei Cloud-Anbietern dazu führten, dass Tausende von Unternehmen und Behörden stunden- oder sogar tagelang nicht arbeitsfähig waren.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-14"> Mit einer lokal betriebenen Proxmox-Infrastruktur können solche Abhängigkeiten vermieden werden. Selbst bei einem totalen Stromausfall oder einer Netzwerkstörung vor Ort können Administratoren die Systeme gezielt herunterfahren, Daten sichern und später wieder in Betrieb nehmen. Dieses Maß an Kontrolle und Flexibilität ist mit zentralisierten Cloud-Anbietern nicht möglich.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-15"> Langfristige Vorteile&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-16"> Ein weiterer Aspekt, der oft übersehen wird, ist die langfristige Planung. Während zentrale Cloud-Lösungen häufig mit wiederkehrenden Kosten verbunden sind, die Jahr für Jahr anfallen, bietet eine selbstverwaltete Infrastruktur mit Proxmox die Möglichkeit, die Investitionen zu kontrollieren. Die Anschaffungskosten für die Hardware und die Einrichtung des Systems mögen anfangs höher sein, doch langfristig fallen keine Lizenzgebühren oder nutzungsabhängigen Kosten an. Zudem können vorhandene Ressourcen besser ausgeschöpft werden, da die Systeme exakt auf die Anforderungen der Organisation zugeschnitten sind.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-17"> Proxmox als Chance für mehr Kontrolle und Sicherheit<br>
+            </p>
+            <p class="u-text u-text-default u-text-18"> Die Entscheidung für eine lokale IT-Infrastruktur mit Proxmox bietet öffentlichen Einrichtungen, Schulen und Unternehmen die Möglichkeit, ihre IT unabhängig, sicher und kosteneffizient zu gestalten. Der Aufbau eines Clusters, die Möglichkeit zur flexiblen Anpassung und die Kontrolle über Backups und Daten sind wesentliche Vorteile, die nicht nur die Ausfallsicherheit erhöhen, sondern auch die Abhängigkeit von externen Anbietern reduzieren.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-19"> Auch wenn es keine absolute Garantie für einen störungsfreien Betrieb gibt, ermöglicht Proxmox es Betreibern, selbst aktiv zu werden, Probleme gezielt anzugehen und den Betrieb schnell wiederherzustellen. In einer Zeit, in der Datenschutz, Souveränität und Kosteneffizienz immer wichtiger werden, ist der Wechsel zu einer solchen Lösung nicht nur sinnvoll, sondern ein wichtiger Schritt in Richtung Unabhängigkeit und Zukunftssicherheit.&nbsp;<br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-16" id="zurueck-zum-inhaltsmenue-it-behoerden-6">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="open-source-in-behoerden.html#inhalte-des-artikels-open-source-behoerden" data-page-id="619917593" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Zurück zum Inhalts Menü</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-17" id="pve-pbs-pmg-proxmox-vorteile">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h5 class="u-text u-text-default u-text-1"> Zusätzliche Sicherheit: PBS (Proxmox Backup Server) und PMG (Proxmox Mail Gateway)&nbsp;<br>
+            </h5>
+            <p class="u-text u-text-default u-text-2"> In diesem Zusammenhang dürfen PBS (Proxmox Backup Server) und PMG (Proxmox Mail Gateway) nicht unerwähnt bleiben. Beide Systeme sind essenzielle Ergänzungen für eine leistungsstarke und sichere IT-Infrastruktur. Sie bieten Lösungen, die speziell für den Betrieb in öffentlichen Einrichtungen, Schulen und Unternehmen entwickelt wurden, und ermöglichen eine sichere, kosteneffiziente und datenschutzkonforme Verwaltung zentraler IT-Dienste.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-3"> Proxmox Backup Server (PBS): Effiziente und sichere Datensicherung&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-4"> Der <a href="https://www.proxmox.com/de/produkte/proxmox-backup-server/uebersicht" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1" target="_blank" rel="nofollow">Proxmox Backup Server</a> ist eine spezialisierte Lösung für die Sicherung und Wiederherstellung von Daten. In einer Umgebung, in der Proxmox Virtual Environment (PVE) betrieben wird, ist PBS die ideale Ergänzung, um Backups effizient, sicher und vollständig verschlüsselt zu speichern.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-5"> Funktionen und Vorteile von PBS&nbsp;<br>
+            </p>
+            <ol class="u-text u-text-default u-text-6">
+              <li> Deduplication<br>PBS bietet ein innovatives Deduplizierungssystem, das den Speicherbedarf drastisch reduziert. Ähnliche oder identische Daten werden nur einmal gespeichert, was bei großen Datenmengen erhebliche Einsparungen ermöglicht. Dies ist besonders in Verwaltungen und Schulen wichtig, wo oft mehrere ähnliche Systeme oder virtuelle Maschinen betrieben werden.
+              </li>
+              <li><span style="background-color: transparent; color: #ffffff; font-family: Raleway,sans-serif; font-size: 1.25rem; font-weight: 500;">Verschlüsselung und Datenschutz<br></span>Backups können vollständig verschlüsselt gespeichert werden. Das bedeutet, dass selbst bei einem Diebstahl der Backup-Medien oder einem unbefugten Zugriff keine sensiblen Daten preisgegeben werden. Dies ist ein entscheidender Vorteil im Hinblick auf die Einhaltung der Datenschutz-Grundverordnung (DSGVO).
+              </li>
+              <li><span style="color: #ffffff; font-family: Raleway,sans-serif; font-size: 1.25rem; font-weight: 500; background-color: transparent;">Automatisierung und Zeitersparnis<br></span>PBS ermöglicht die automatisierte Erstellung von Backups nach individuell festgelegten Zeitplänen. Administratoren können regelmäßige Sicherungen für virtuelle Maschinen, Container und Daten einrichten, ohne manuell eingreifen zu müssen.
+              </li>
+              <li><span style="color: #ffffff; font-family: Raleway,sans-serif; font-size: 1.25rem; font-weight: 500; background-color: transparent;">Inkrementelle Backups<br></span>Durch die Unterstützung inkrementeller Backups werden nach der ersten vollständigen Sicherung nur noch die Änderungen gespeichert. Dies spart nicht nur Speicherplatz, sondern auch Zeit und Netzwerkressourcen.
+              </li>
+              <li><span style="color: #ffffff; font-family: Raleway,sans-serif; font-size: 1.25rem; font-weight: 500; background-color: transparent;">Flexible Wiederherstellungsoptionen<br></span>Im Fall eines Ausfalls können Daten und Systeme schnell und gezielt wiederhergestellt werden. So können selbst komplexe IT-Umgebungen innerhalb kurzer Zeit wieder in Betrieb genommen werden.
+              </li>
+            </ol>
+            <p class="u-text u-text-default u-text-7"> Proxmox Mail Gateway (PMG): Schutz vor Spam und Schadsoftware&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-8"> Das <a href="https://www.proxmox.com/de/produkte/proxmox-mail-gateway/uebersicht" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-2" target="_blank" rel="nofollow">Proxmox Mail Gateway</a> ist eine leistungsstarke Lösung, die den E-Mail-Verkehr schützt und gleichzeitig eine zentrale Verwaltung ermöglicht. Es dient als erste Verteidigungslinie gegen Spam, Phishing-Angriffe und Schadsoftware – ein besonders kritisches Thema im öffentlichen Sektor, wo sensible Daten über E-Mail ausgetauscht werden.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-9"> Funktionen und Vorteile von PMG&nbsp;<br>
+            </p>
+            <ol class="u-text u-text-default u-text-10">
+              <li> Effektiver Spam- und Virenschutz<br>PMG nutzt fortschrittliche Spam- und Virenerkennungsalgorithmen, um schädliche E-Mails auszufiltern, bevor sie die internen Systeme erreichen. Dies schützt vor Datenverlust, Cyberangriffen und potenziellen Datenschutzverletzungen.
+              </li>
+              <li>DSGVO-Konformität<br>Alle E-Mails werden lokal verarbeitet, ohne dass sie externe Server durchlaufen müssen. Dies ist ein entscheidender Vorteil gegenüber Cloud-basierten Lösungen, die oft in den USA gehostet werden und somit den Anforderungen der DSGVO nicht vollständig entsprechen.
+              </li>
+              <li>Transparenz und Kontrolle<br>Administratoren haben die volle Kontrolle über den E-Mail-Verkehr. Sie können detaillierte Berichte erstellen, E-Mail-Quellen analysieren und verdächtige Aktivitäten überwachen. Dies erhöht nicht nur die Sicherheit, sondern ermöglicht auch eine bessere Einhaltung interner Richtlinien.
+              </li>
+              <li>Einfache Integration<br>PMG lässt sich nahtlos in bestehende Mailserver-Infrastrukturen integrieren. Es fungiert als vorgeschaltetes System, das den gesamten eingehenden und ausgehenden E-Mail-Verkehr filtert, bevor er die internen Systeme erreicht.
+              </li>
+              <li>Kostenersparnis<br>Im Vergleich zu proprietären Lösungen wie Microsoft Exchange Online Protection bietet PMG eine kostengünstige Alternative, ohne dabei auf Funktionen oder Sicherheit verzichten zu müssen. Insbesondere für Schulen und kleinere Verwaltungen ist dies ein unschätzbarer Vorteil.
+              </li>
+              <li>Synergie zwischen PBS, PMG und Proxmox VE<br>Die Kombination aus Proxmox VE, PBS und PMG bietet eine ganzheitliche Lösung, die sowohl Virtualisierung, Datensicherung als auch E-Mail-Sicherheit abdeckt. Diese Systeme arbeiten nahtlos zusammen und können zentral verwaltet werden. Dadurch ergibt sich eine IT-Infrastruktur, die nicht nur sicher und effizient ist, sondern auch langfristig skalierbar bleibt.
+              </li>
+            </ol>
+            <p class="u-text u-text-default u-text-11"> Ein konkretes Beispiel: Eine Schule könnte ihre virtuelle Infrastruktur mit Proxmox VE betreiben, alle Daten und Systeme regelmäßig mit PBS sichern und den gesamten E-Mail-Verkehr über PMG absichern. Die Verwaltung hätte damit eine kosteneffiziente, datenschutzkonforme und flexible Lösung, die vollständig unter ihrer Kontrolle bleibt.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-12"> PBS und PMG sind unverzichtbare Werkzeuge für jede Organisation, die ihre IT-Infrastruktur effizient und sicher gestalten möchte. Im Gegensatz zu zentralisierten Lösungen von US-Anbietern bieten diese Open-Source-Produkte maximale Kontrolle, Datenschutz und Kosteneffizienz. Gerade im öffentlichen Sektor, wo sensible Daten und knappe Budgets eine zentrale Rolle spielen, sind solche Lösungen der Schlüssel zur Unabhängigkeit.<br>
+            </p>
+            <p class="u-text u-text-default u-text-13"> Die Entscheidung für Proxmox und seine ergänzenden Systeme ist nicht nur eine technische, sondern auch eine strategische. Sie steht für mehr Sicherheit, geringere Kosten und die Möglichkeit, Daten und Prozesse vollständig unter eigener Kontrolle zu halten. In einer Zeit, in der Datenschutz und IT-Souveränität immer wichtiger werden, ist dies ein Weg, der dringend beschritten werden sollte.&nbsp;<br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-18" id="zurueck-zum-inhaltsmenue-it-behoerden-7">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="open-source-in-behoerden.html#inhalte-des-artikels-open-source-behoerden" data-page-id="619917593" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Zurück zum Inhalts Menü</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-19" id="open-source-nutzen">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h6 class="u-text u-text-default u-text-1"> Nachdenken, auf Open Source zu setzen&nbsp;<br>
+            </h6>
+            <p class="u-text u-text-default u-text-2"> Sollten Sie in Erwägung ziehen, auf Open-Source-Lösungen umzusteigen, insbesondere auf Proxmox, lade ich Sie herzlich ein, sich auf meiner Website intensiv mit diesem Thema auseinanderzusetzen. Dort finden Sie eine Vielzahl von Ressourcen, die Ihnen den Einstieg erleichtern und vertiefende Einblicke bieten.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-3"> Umfassende Informationen auf meiner Website&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-4"> Auf meiner Website biete ich detaillierte Anleitungen, praxisnahe Tipps und aktuelle Informationen rund um Proxmox und verwandte Themen. Egal, ob Sie Einsteiger sind oder bereits Erfahrung mit Virtualisierungslösungen haben – hier finden Sie wertvolle Inhalte, die Ihnen weiterhelfen. Besonders hervorheben möchte ich meine Video-Tutorials, die komplexe IT-Konzepte verständlich aufbereiten und Schritt-für-Schritt-Anleitungen bieten.&nbsp;&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-5"> Fachbücher für vertiefendes Wissen&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-6"> Um Ihr Wissen weiter zu vertiefen, habe ich mehrere Fachbücher verfasst, die sich intensiv mit Proxmox und verwandten Themen beschäftigen. Hier eine Auswahl meiner Werke:&nbsp;<br>
+            </p>
+            <ul class="u-text u-text-default u-text-7">
+              <li>
+                <a href="https://www.amazon.de/dp/B0DPJ99CRS" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1" target="_blank" rel="nofollow"> Proxmox VE 8 Praxisbuch</a>
+                <br>Dieses Buch bietet ausführliche Anleitungen zur Installation von Proxmox, sei es auf einem physischen Server oder einem Hetzner-Server. Es enthält überarbeitete Beschreibungen zur Einrichtung des Proxmox Backup Servers, zahlreiche praktische Anleitungen und ein umfassendes Kapitel zur Proxmox Firewall.
+              </li>
+              <li>
+                <a href="#" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-2" target="_blank" rel="nofollow">Proxmox VE 8 Powerbuch</a>
+                <br>In diesem Buch erfahren Sie, wie Sie mit der kostenlosen Virtualisierungsumgebung Proxmox hochverfügbare Cluster auf Ihrem eigenen PC erstellen. Jeder Schritt – von der Installation bis hin zur fertig konfigurierten Infrastruktur – wird detailliert erklärt.
+              </li>
+              <li>
+                <a href="https://www.amazon.de/dp/B0DL5QFGMB" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-3" target="_blank" rel="nofollow">Proxmox VE Firewall</a>
+                <br>In diesem Leitfaden zeige ich Ihnen detailliert, wie Sie die Firewall in Proxmox VE einrichten und gezielt nutzen, um Ihre Virtualisierungsumgebung effektiv gegen Bedrohungen abzusichern.
+              </li>
+              <li>
+                <a href="https://www.amazon.de/dp/B0DGXTLSSV" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-4" target="_blank" rel="nofollow">Proxmox VE 8 BS 3 Profibuch</a>
+                <br>Dieses Buch vermittelt Ihnen ein umfassendes Verständnis für Proxmox, Ceph und den Proxmox Backup Server. Sie lernen, wie Sie eine stabile, hochverfügbare IT-Infrastruktur aufbauen – das Fundament, auf dem Sie später mit weiterführenden Proxmox-Büchern aufbauen können.
+              </li>
+            </ul>
+            <p class="u-text u-text-default u-text-8"> Diese Bücher sind sowohl als E-Book als auch in gedruckter Form erhältlich und bieten Ihnen die Möglichkeit, sich umfassend in die Materie einzuarbeiten.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-9"> Persönliche Unterstützung und Beratung&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-10"> Neben den schriftlichen Ressourcen stehe ich Ihnen auch persönlich für Unterstützung und Beratung zur Verfügung. Über die Fernwartungssoftware pcvisit biete ich Ihnen individuelle Hilfestellung an, sei es bei der Installation, Konfiguration oder bei spezifischen Fragestellungen zu Proxmox und anderen IT-Themen. <a href="../kontakt.html" data-page-id="125601662" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-5">Kontaktformular</a>.<br>
+            </p>
+            <p class="u-text u-text-default u-text-11"> Ich freue mich darauf, Sie auf Ihrem Weg zu einer offenen, sicheren und effizienten IT-Infrastruktur zu begleiten.<br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-20" id="zurueck-zum-inhaltsmenue-it-behoerden-8">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="open-source-in-behoerden.html#inhalte-des-artikels-open-source-behoerden" data-page-id="619917593" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Zurück zum Inhalts Menü</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-21" id="ueber-mich-ueber-den-autor">
+      <div class="u-clearfix u-sheet u-valign-top-md u-valign-top-sm u-valign-top-xs u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <div class="custom-expanded data-layout-selected u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+              <div class="u-layout">
+                <div class="u-layout-row">
+                  <div class="u-container-style u-layout-cell u-size-23-lg u-size-23-xl u-size-25-md u-size-25-sm u-size-25-xs u-layout-cell-1">
+                    <div class="u-container-layout u-valign-top-xs u-container-layout-2">
+                      <img class="u-expanded-width u-image lazyload u-image-1" data-image-width="1974" data-image-height="2521" alt="Ralf-Peter Kleinert - Buchautor für IT-Sichereit, Computersicherheit und Cybersecurity" data-src="../images/Ralf-PeterKleinertIchaktuellesPortrait2024.webp" loading="lazy">
+                    </div>
+                  </div>
+                  <div class="u-container-style u-layout-cell u-size-35-md u-size-35-sm u-size-35-xs u-size-37-lg u-size-37-xl u-layout-cell-2">
+                    <div class="u-container-layout u-valign-bottom-xs u-container-layout-3">
+                      <p class="u-text u-text-default-lg u-text-default-xl u-text-1"> Über den Autor: Ralf-Peter Kleinert</p>
+                      <p class="u-text u-text-default-lg u-text-default-xl u-text-2"> Über 30 Jahre Erfahrung in der IT legen meinen Fokus auf die Computer- und IT-Sicherheit. Auf meiner Website biete ich detaillierte Informationen zu aktuellen IT-Themen. Mein Ziel ist es, komplexe Konzepte verständlich zu vermitteln und meine Leserinnen und Leser für die Herausforderungen und Lösungen in der IT-Sicherheit zu sensibilisieren.<br>
+                      </p>
+                      <p class="u-text u-text-default-lg u-text-default-xl u-text-3">
+                        <a href="../ueber-mich.html" data-page-id="38997572" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Mehr über mich, Ausbildung, Zertifizierungen</a>
+                      </p>
+                      <p class="u-text u-text-default-lg u-text-default-xl u-text-4">
+                        <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-2" href="https://www.amazon.de/stores/Ralf-Peter-Kleinert-RPK/author/B0D6FVWCTN" target="_blank"> Meine Amazon Autorenseite</a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-22" id="aktualisiert-am">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="custom-expanded u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <p class="u-small-text u-text u-text-default u-text-variant u-text-1"> Aktualisiert: Ralf-Peter Kleinert 13.01.2025</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    
+    
+    <footer class="u-align-center u-clearfix u-container-align-center u-custom-color-2 u-footer u-footer" id="footer-mit-navigation"><div class="u-clearfix u-sheet u-sheet-1">
+        <p class="u-small-text u-text u-text-variant u-text-1">
+          <a href="../datenschutzerklaerung.html" data-page-id="735813554" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1">Datenschutz</a> | <a href="../impressum.html" data-page-id="63266619" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-2">Impressum</a> | <a href="../inhaltsverzeichnis.html" data-page-id="50765561" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-3">Inhalt</a> | <a href="../nutzungsbedingungen.html" data-page-id="117449462" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-4">Nutzungsbedingungen</a> | <a href="../hinweise-haftungsausschluss.html" data-page-id="98103025" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-5">Haftung</a> | <a href="../hinweise-haftungsausschluss.html#affiliate-info-ausfuehrlich" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-6">Affiliate</a>&nbsp;|&nbsp;<a href="../kontakt.html" data-page-id="125601662" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-7">Kontakt</a> | <a href="../newsletter.html" data-page-id="103346126" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-8">Newsletter</a>&nbsp;| <a href="../preise.html" data-page-id="130192720" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-9">Preise</a>&nbsp;| <a href="../support.html" data-page-id="86002539" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-10">Support </a>|&nbsp;<a href="../ueber-mich.html" data-page-id="38997572" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-11">Über mich</a> | <a href="../downloads.html" data-page-id="70811588" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-12" title="Downloads und kostenlose Downloads">Downloads</a> |<span style="font-weight: 700;">
+            <a href="https://digital-easy.de" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-13" title="DIGITAL-easy" target="_blank">digital-easy.de</a>&nbsp;| <a href="https://blog.ralf-peter-kleinert.de" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-14" title="BLOG Ralf-Peter Kleinert" target="_blank">blog.ralf-peter-kleinert.de</a>&nbsp;| <span style="font-weight: 400;">
+              <a href="https://computerralle.de" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-15" title="#ComputerRalle" target="_blank" rel="noopener">computerralle.de</a></span> |&nbsp;<a href="../hinweise-haftungsausschluss.html#agb-allgemeine-geschaeftsbedingungen" data-page-id="98103025" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-16">AGB</a>&nbsp;| <span style="font-weight: 400;">
+              <a href="https://portal.dnb.de/opac/simpleSearch?query=ralf-peter+kleinert&amp;cqlMode=true" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-17" title="Bücher von Ralf-Peter Kleinert in der Deutschen Nationalbibliothek" target="_blank">Nationalbibliothek</a></span></span>
+        </p>
+        <p class="u-text u-text-2"> Copyright © Ralf-Peter Kleinert DIGITAL-easy #ComputerRalle<br>SSR-Entertainment seit 2005&nbsp;<br> Alle Rechte vorbehalten.
+        </p>
+        <div class="u-social-icons u-social-icons-1">
+          <a class="u-social-url" title="facebook" target="_blank" href="https://www.facebook.com/ralf.peter.kleinert.81" rel="nofollow"><span class="u-icon u-social-facebook u-social-icon u-text-custom-color-29 u-icon-1"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 112 112" style=""><use xlink:href="#svg-1c85"></use></svg><svg class="u-svg-content" viewBox="0 0 112 112" x="0" y="0" id="svg-1c85"><circle fill="currentColor" cx="56.1" cy="56.1" r="55"></circle><path fill="#FFFFFF" d="M73.5,31.6h-9.1c-1.4,0-3.6,0.8-3.6,3.9v8.5h12.6L72,58.3H60.8v40.8H43.9V58.3h-8V43.9h8v-9.2
+c0-6.7,3.1-17,17-17h12.5v13.9H73.5z"></path></svg></span>
+          </a>
+          <a class="u-social-url" target="_blank" data-type="YouTube" title="YouTube" href="https://www.youtube.com/@ComputerRalle"><span class="u-icon u-social-icon u-social-youtube u-text-custom-color-29 u-icon-2"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 112 112" style=""><use xlink:href="#svg-5bbf"></use></svg><svg class="u-svg-content" viewBox="0 0 112 112" x="0" y="0" id="svg-5bbf"><circle fill="currentColor" cx="56.1" cy="56.1" r="55"></circle><path fill="#FFFFFF" d="M74.9,33.3H37.3c-7.4,0-13.4,6-13.4,13.4v18.8c0,7.4,6,13.4,13.4,13.4h37.6c7.4,0,13.4-6,13.4-13.4V46.7 C88.3,39.3,82.3,33.3,74.9,33.3L74.9,33.3z M65.9,57l-17.6,8.4c-0.5,0.2-1-0.1-1-0.6V47.5c0-0.5,0.6-0.9,1-0.6l17.6,8.9 C66.4,56,66.4,56.8,65.9,57L65.9,57z"></path></svg></span>
+          </a>
+          <a class="u-social-url" target="_blank" data-type="LinkedIn" title="LinkedIn" href="https://www.linkedin.com/in/ralf-peter-kleinert/" rel="nofollow"><span class="u-icon u-social-icon u-social-linkedin u-text-custom-color-29 u-icon-3"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 112 112" style=""><use xlink:href="#svg-d54c"></use></svg><svg class="u-svg-content" viewBox="0 0 112 112" x="0" y="0" id="svg-d54c"><circle fill="currentColor" cx="56.1" cy="56.1" r="55"></circle><path fill="#FFFFFF" d="M41.3,83.7H27.9V43.4h13.4V83.7z M34.6,37.9L34.6,37.9c-4.6,0-7.5-3.1-7.5-7c0-4,3-7,7.6-7s7.4,3,7.5,7
+      C42.2,34.8,39.2,37.9,34.6,37.9z M89.6,83.7H76.2V62.2c0-5.4-1.9-9.1-6.8-9.1c-3.7,0-5.9,2.5-6.9,4.9c-0.4,0.9-0.4,2.1-0.4,3.3v22.5
+      H48.7c0,0,0.2-36.5,0-40.3h13.4v5.7c1.8-2.7,5-6.7,12.1-6.7c8.8,0,15.4,5.8,15.4,18.1V83.7z"></path></svg></span>
+          </a>
+          <a class="u-social-url" target="_blank" data-type="Custom" title="Mastodon" href="https://mastodon.social/@digitaleasy" rel="nofollow noopener"><span class="u-file-icon u-icon u-social-custom u-social-icon u-text-custom-color-29 u-icon-4"><img src="../images/mastodon1-4909f8ae.png" alt=""></span>
+          </a>
+          <a class="u-social-url" target="_blank" data-type="Blogspot" title="Blogspot" href="https://computerralle.blogspot.com/"><span class="u-icon u-social-blogspot u-social-icon u-text-custom-color-29 u-icon-5"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 112 112" style=""><use xlink:href="#svg-35b7"></use></svg><svg class="u-svg-content" viewBox="0 0 112 112" x="0" y="0" id="svg-35b7"><circle fill="currentColor" cx="56.1" cy="56.1" r="55"></circle><path id="Blogger" fill="#FFFFFF" d="M82.9,47.9c-4.4,0-5.4-2.3-5.4-5.4s-0.7-7.9-6.2-13.7C65.9,23.2,59.6,23,59.6,23
+	s-12.5,0-17.9,0c-5.8,0-10.2,3.2-14.2,7.9c-5,5.9-4.5,12-4.5,12s0,18.7,0,23.2s0.5,10.4,6.3,16.8c5.8,6.4,14.9,6.3,14.9,6.3H68
+	c7,0,11-2.1,15.9-6.6c5.3-4.8,5.7-13.7,5.7-13.7s0-14.7,0-17.4C89.6,48.7,87.3,47.9,82.9,47.9z M39.7,43.3c0-2,1.7-3.7,3.7-3.7h14.2
+	c2,0,3.7,1.7,3.7,3.7v0.9c0,2-1.7,3.7-3.7,3.7H43.4c-2,0-3.7-1.7-3.7-3.7V43.3z M71.7,68.6c0,2-1.7,3.7-3.7,3.7H43.4
+	c-2,0-3.7-1.7-3.7-3.7v-0.9c0-2,1.7-3.7,3.7-3.7H68c2,0,3.7,1.7,3.7,3.7V68.6z"></path></svg></span>
+          </a>
+        </div>
+        <div class="u-clearfix u-custom-html u-expanded-width u-custom-html-1">
+          <a href="javascript:UC_UI.showSecondLayer();">Cookie-Einstellungen</a>
+        </div>
+      </div></footer><span style="height: 48px; width: 48px; margin-left: 0px; margin-right: auto; margin-top: 0px; right: 0px; bottom: 15px;" class="u-back-to-top u-file-icon u-icon u-text-custom-color-20" data-href="#"><img src="../images/e77d2435.png" alt=""></span>
+  
+</body></html>

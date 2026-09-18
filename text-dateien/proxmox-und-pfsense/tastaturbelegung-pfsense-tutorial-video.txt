@@ -1,0 +1,9 @@
+Tastaturbefehle:
+
+: = Shift + Ö
+" = Shift + Ä
+< = Shift + ;
+> = Shift + :
+/ = -
+- = ?
+_ = Shift + ?

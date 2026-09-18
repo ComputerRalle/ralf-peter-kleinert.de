@@ -1,0 +1,4 @@
+Port 22
+PasswordAuthentication no
+PubkeyAuthentication yes
+PermitRootLogin prohibit-password

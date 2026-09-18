@@ -1,0 +1,199 @@
+# ============================================================
+# .htaccess - ralf-peter-kleinert.de
+# ============================================================
+
+
+# ============================================================
+# MOD_REWRITE
+# ============================================================
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # --------------------------------------------------------
+    # Kanonische Hauptdomain erzwingen
+    # --------------------------------------------------------
+    RewriteCond %{HTTP_HOST} !^ralf-peter-kleinert\.de$ [NC]
+    RewriteRule ^(.*)$ https://ralf-peter-kleinert.de%{REQUEST_URI} [R=301,L]
+
+    # --------------------------------------------------------
+    # Startseiten vereinheitlichen
+    # --------------------------------------------------------
+    RewriteRule ^index\.html$ https://ralf-peter-kleinert.de/ [R=301,L]
+    RewriteRule ^start\.html$ https://ralf-peter-kleinert.de/ [R=301,L]
+
+    # --------------------------------------------------------
+    # Alte Suche
+    # --------------------------------------------------------
+    RewriteRule ^suchen\.html$ /suchen.php [R=301,L]
+
+    # --------------------------------------------------------
+    # .html ergänzen, wenn entsprechende Datei existiert
+    # Ausnahmen: .txt und .xml
+    # --------------------------------------------------------
+    RewriteCond %{REQUEST_URI} !\.txt$ [NC]
+    RewriteCond %{REQUEST_URI} !\.xml$ [NC]
+    RewriteCond %{REQUEST_FILENAME}.html -f
+    RewriteRule ^([^/.]+)$ /$1.html [R=301,L]
+</IfModule>
+
+
+# ============================================================
+# PERMANENTE 301-WEITERLEITUNGEN
+# ============================================================
+
+<IfModule mod_alias.c>
+
+    # --------------------------------------------------------
+    # Vaultwarden -> Blog
+    # --------------------------------------------------------
+    Redirect 301 /sicherheit-in-der-it/vaultwarden-ssl-local-network.html https://blog.ralf-peter-kleinert.de/it-sicherheit-und-computersicherheit-fuer-unternehmen-und-privatpersonen/passwortmanager-hochverschluesselt-vaultwarden-im-lan-mit-verschluesselung-und-ssl/
+
+
+    # ========================================================
+    # Alte Inhalte -> old.ralf-peter-kleinert.de
+    # ========================================================
+
+    # --------------------------------------------------------
+    # Hauptbereiche
+    # --------------------------------------------------------
+    Redirect 301 /webdesign-und-websites.html https://old.ralf-peter-kleinert.de/webdesign-und-websites.html
+    Redirect 301 /social-media-manager.html https://old.ralf-peter-kleinert.de/social-media-manager.html
+    Redirect 301 /delphi-10-3-rio.html https://old.ralf-peter-kleinert.de/delphi-10-3-rio.html
+    Redirect 301 /video-produktion.html https://old.ralf-peter-kleinert.de/video-produktion.html
+    Redirect 301 /werbung.html https://old.ralf-peter-kleinert.de/werbung.html
+    Redirect 301 /dienstleister-und-partner.html https://old.ralf-peter-kleinert.de/dienstleister-und-partner.html
+    Redirect 301 /umweltschutz.html https://old.ralf-peter-kleinert.de/umweltschutz.html
+    Redirect 301 /social-media-klar.html https://old.ralf-peter-kleinert.de/social-media-klar.html
+
+
+    # --------------------------------------------------------
+    # Video
+    # --------------------------------------------------------
+    Redirect 301 /video-produktion/videobearbeitung-lernen.html https://old.ralf-peter-kleinert.de/video-produktion/videobearbeitung-lernen.html
+    Redirect 301 /video-produktion/planung-in-der-videoproduktion.html https://old.ralf-peter-kleinert.de/video-produktion/planung-in-der-videoproduktion.html
+    Redirect 301 /video-produktion/videobearbeitung-mit-magix.html https://old.ralf-peter-kleinert.de/video-produktion/videobearbeitung-mit-magix.html
+
+
+    # --------------------------------------------------------
+    # Delphi
+    # --------------------------------------------------------
+    Redirect 301 /delphi-10-3-rio/vorbereitung-der-ide.html https://old.ralf-peter-kleinert.de/delphi-10-3-rio/vorbereitung-der-ide.html
+    Redirect 301 /delphi-10-3-rio/logische-operatoren.html https://old.ralf-peter-kleinert.de/delphi-10-3-rio/logische-operatoren.html
+    Redirect 301 /delphi-10-3-rio/datentypen.html https://old.ralf-peter-kleinert.de/delphi-10-3-rio/datentypen.html
+    Redirect 301 /delphi-10-3-rio/delphi-programmier-tipps.html https://old.ralf-peter-kleinert.de/delphi-10-3-rio/delphi-programmier-tipps.html
+
+
+    # --------------------------------------------------------
+    # Social Media Manager
+    # --------------------------------------------------------
+    Redirect 301 /social-media-manager/die-aufgaben.html https://old.ralf-peter-kleinert.de/social-media-manager/die-aufgaben.html
+    Redirect 301 /social-media-manager/internetrecht.html https://old.ralf-peter-kleinert.de/social-media-manager/internetrecht.html
+    Redirect 301 /social-media-manager/die-wichtigsten-networks.html https://old.ralf-peter-kleinert.de/social-media-manager/die-wichtigsten-networks.html
+    Redirect 301 /social-media-manager/analysen.html https://old.ralf-peter-kleinert.de/social-media-manager/analysen.html
+    Redirect 301 /social-media-manager/text-und-sprache.html https://old.ralf-peter-kleinert.de/social-media-manager/text-und-sprache.html
+    Redirect 301 /social-media-manager/hashtags.html https://old.ralf-peter-kleinert.de/social-media-manager/hashtags.html
+    Redirect 301 /social-media-manager/bildbearbeitung.html https://old.ralf-peter-kleinert.de/social-media-manager/bildbearbeitung.html
+    Redirect 301 /social-media-manager/videobearbeitung.html https://old.ralf-peter-kleinert.de/social-media-manager/videobearbeitung.html
+    Redirect 301 /social-media-manager/video-marketing.html https://old.ralf-peter-kleinert.de/social-media-manager/video-marketing.html
+    Redirect 301 /social-media-manager/datensicherheit.html https://old.ralf-peter-kleinert.de/social-media-manager/datensicherheit.html
+    Redirect 301 /social-media-manager/lehrgang.html https://old.ralf-peter-kleinert.de/social-media-manager/lehrgang.html
+    Redirect 301 /social-media-manager/strategien.html https://old.ralf-peter-kleinert.de/social-media-manager/strategien.html
+    Redirect 301 /social-media-manager/strategien/konzept-entwickeln.html https://old.ralf-peter-kleinert.de/social-media-manager/strategien/konzept-entwickeln.html
+
+
+    # --------------------------------------------------------
+    # Social Media Lehrgang
+    # --------------------------------------------------------
+    Redirect 301 /social-media-manager/lehrgang/grundlagen-1.html https://old.ralf-peter-kleinert.de/social-media-manager/lehrgang/grundlagen-1.html
+    Redirect 301 /social-media-manager/lehrgang/grundlagen-2.html https://old.ralf-peter-kleinert.de/social-media-manager/lehrgang/grundlagen-2.html
+    Redirect 301 /social-media-manager/lehrgang/die-prinzipien-des-web-2-0.html https://old.ralf-peter-kleinert.de/social-media-manager/lehrgang/die-prinzipien-des-web-2-0.html
+    Redirect 301 /social-media-manager/lehrgang/social-media-charakteristika.html https://old.ralf-peter-kleinert.de/social-media-manager/lehrgang/social-media-charakteristika.html
+    Redirect 301 /social-media-manager/lehrgang/begriffe-social-media.html https://old.ralf-peter-kleinert.de/social-media-manager/lehrgang/begriffe-social-media.html
+    Redirect 301 /social-media-manager/lehrgang/aktuelle-top-infos.html https://old.ralf-peter-kleinert.de/social-media-manager/lehrgang/aktuelle-top-infos.html
+    Redirect 301 /social-media-manager/lehrgang/psychologie.html https://old.ralf-peter-kleinert.de/social-media-manager/lehrgang/psychologie.html
+    Redirect 301 /social-media-manager/lehrgang/psychologie-2.html https://old.ralf-peter-kleinert.de/social-media-manager/lehrgang/psychologie-2.html
+    Redirect 301 /social-media-manager/lehrgang/psychologie-3.html https://old.ralf-peter-kleinert.de/social-media-manager/lehrgang/psychologie-3.html
+    Redirect 301 /social-media-manager/lehrgang/fachbegriffe-social-media.html https://old.ralf-peter-kleinert.de/social-media-manager/lehrgang/fachbegriffe-social-media.html
+    Redirect 301 /social-media-manager/lehrgang/state-of-social.html https://old.ralf-peter-kleinert.de/social-media-manager/lehrgang/state-of-social.html
+    Redirect 301 /social-media-manager/lehrgang/social-media-manage-prozess.html https://old.ralf-peter-kleinert.de/social-media-manager/lehrgang/social-media-manage-prozess.html
+    Redirect 301 /social-media-manager/lehrgang/analysen.html https://old.ralf-peter-kleinert.de/social-media-manager/lehrgang/analysen.html
+
+
+    # --------------------------------------------------------
+    # Social Media Analysen
+    # --------------------------------------------------------
+    Redirect 301 /social-media-manager/lehrgang/analysen/analysen-social-media.html https://old.ralf-peter-kleinert.de/social-media-manager/lehrgang/analysen/analysen-social-media.html
+    Redirect 301 /social-media-manager/lehrgang/analysen/bestands-analyse-fuer-sm-start.html https://old.ralf-peter-kleinert.de/social-media-manager/lehrgang/analysen/bestands-analyse-fuer-sm-start.html
+    Redirect 301 /social-media-manager/lehrgang/analysen/bestands-analyse-sm-software.html https://old.ralf-peter-kleinert.de/social-media-manager/lehrgang/analysen/bestands-analyse-sm-software.html
+    Redirect 301 /social-media-manager/lehrgang/analysen/in-das-web-hineinhoeren.html https://old.ralf-peter-kleinert.de/social-media-manager/lehrgang/analysen/in-das-web-hineinhoeren.html
+
+
+    # --------------------------------------------------------
+    # Soziale Netzwerke
+    # --------------------------------------------------------
+    Redirect 301 /soziale-netzwerke/facebook.html https://old.ralf-peter-kleinert.de/soziale-netzwerke/facebook.html
+
+
+    # --------------------------------------------------------
+    # Marketing / Werbung
+    # --------------------------------------------------------
+    Redirect 301 /werbung/affiliate-marketing.html https://old.ralf-peter-kleinert.de/werbung/affiliate-marketing.html
+    Redirect 301 /werbung/affiliate-marketing/die-experten-formel.html https://old.ralf-peter-kleinert.de/werbung/affiliate-marketing/die-experten-formel.html
+    Redirect 301 /werbung/affiliate-marketing/automatisches-social-media.html https://old.ralf-peter-kleinert.de/werbung/affiliate-marketing/automatisches-social-media.html
+
+
+    # --------------------------------------------------------
+    # SEO
+    # --------------------------------------------------------
+    Redirect 301 /webdesign-und-websites/suchmaschinenoptimierung.html https://old.ralf-peter-kleinert.de/webdesign-und-websites/suchmaschinenoptimierung.html
+
+</IfModule>
+
+
+# ============================================================
+# HTTP-HEADER
+# ============================================================
+
+<IfModule mod_headers.c>
+
+    # Cache-Control
+    Header set Cache-Control "public, max-age=86400, immutable, must-revalidate"
+
+    # Schutz vor Clickjacking
+    Header always set X-Frame-Options "SAMEORIGIN"
+
+</IfModule>
+
+
+# ============================================================
+# BROWSER-CACHE
+# ============================================================
+
+<IfModule mod_expires.c>
+    ExpiresActive On
+
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/png  "access plus 1 month"
+    ExpiresByType image/gif  "access plus 1 month"
+    ExpiresByType image/webp "access plus 1 month"
+    ExpiresByType image/x-icon "access plus 1 year"
+</IfModule>
+
+
+# ============================================================
+# MIME-TYPEN
+# ============================================================
+
+<IfModule mod_mime.c>
+    AddType image/webp .webp
+    AddType image/jpeg .jpeg
+    AddType image/png .png
+</IfModule>
+
+
+# ============================================================
+# FEHLERSEITEN
+# ============================================================
+
+ErrorDocument 404 /fehlerseite.html

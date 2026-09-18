@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="de-DE"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="CompTIA Security+, Datensicherung, Cybersicherheit, Datenschutz, IT-Sicherheit, Cyberkriminalität, Cyberbedrohungen, digitale Sicherheit, Backupstrategie">
+    <meta name="description" content="Datensicherungskonzept gemäß CompTIA Security+. Sicherung und Wiederherstellung. Risikomanagement, Backup, Verschlüsselung, Überwachung.">
+    <title>Datensicherung und Backup, mit Struktur und Plan vorgehen</title>
+    <link rel="stylesheet" href="../nicepage.css" media="screen">
+<link rel="stylesheet" href="backupkonzept-backupstrategie.css" media="screen">
+    <script class="u-script" type="text/javascript" src="../jquery.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="../nicepage.js" defer=""></script>
+    <meta name="twitter:card" content="player">
+    <meta name="twitter:title" content="Paragon Backup 18 CE Installieren und Einrichten">
+    <meta name="twitter:description" content="In diesem Video zeige ich Ihnen, wie Sie Paragon Backup 18 Community Edition (CE) installieren und einrichten. Ich führe Sie durch alle wichtigen Schritte – vom Download über die Registrierung, Installation und Einrichtung bis hin zur Erstellung eines Rettungssticks.">
+    <meta name="twitter:image" content="https://img.youtube.com/vi/qTQcd-Y1yRE/maxresdefault.jpg">
+    <meta name="twitter:player" content="https://www.youtube-nocookie.com/embed/qTQcd-Y1yRE">
+    <meta name="twitter:player:width" content="1920">
+    <meta name="twitter:player:height" content="1080">
+    <meta name="twitter:site" content="@DIGITALeasy_RPK">
+    <meta name="twitter:creator" content="@DIGITALeasy_RPK">
+    <meta property="og:title" content="Datensicherung und Backup, mit Struktur und Plan vorgehen">
+    <meta property="og:description" content="Datensicherungskonzept gemäß CompTIA Security+. Sicherung und Wiederherstellung. Risikomanagement, Backup, Verschlüsselung, Überwachung.">
+    <meta property="og:image" content="https://ralf-peter-kleinert.de/images/5d02591bf584c46f195f89236cef3f199d2ad508faf4232fdd4cdceac800b7f9791eea749e3ac35016f4d4c9b84a9085771ee4eed0bfc498b9dd24_1280.jpg">
+    <meta property="og:url" content="https://ralf-peter-kleinert.de/sicherheit-in-der-it/backupkonzept-backupstrategie.html">
+    <script type="application/ld+json"> {
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "Paragon Backup 18 CE Installieren und Einrichten",
+  "description": "In diesem Video zeige ich Ihnen, wie Sie Paragon Backup 18 Community Edition (CE) installieren und einrichten. Ich führe Sie durch alle wichtigen Schritte – vom Download über die Registrierung, Installation und Einrichtung bis hin zur Erstellung eines Rettungssticks.",
+  "thumbnailUrl": "https://img.youtube.com/vi/qTQcd-Y1yRE/maxresdefault.jpg",
+  "uploadDate": "2024-12-11T00:00:00+00:00",
+  "contentUrl": "https://www.youtube-nocookie.com/embed/qTQcd-Y1yRE",
+  "embedUrl": "https://www.youtube-nocookie.com/embed/qTQcd-Y1yRE",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Ralf-Peter Kleinert",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ralf-peter-kleinert.de/images/digitaleasy_kopfbanner.png"
+    }
+  }
+} </script>
+    <link rel="icon" href="../images/favicon1.ico">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <link id="u-page-google-font" rel="stylesheet" href="../backupkonzept-backupstrategie-fonts.css">
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": "Ralf-Peter Kleinert",
+		"logo": "../images/BannerHintergrund1.png",
+		"sameAs": [
+				"https://www.facebook.com/ralf.peter.kleinert.81",
+				"https://www.youtube.com/@ComputerRalle",
+				"https://www.linkedin.com/in/ralf-peter-kleinert/",
+				"https://mastodon.social/@digitaleasy",
+				"https://computerralle.blogspot.com/"
+		]
+}</script>
+    <meta name="theme-color" content="#0cbcf5">
+    <meta property="og:type" content="website">
+  <meta name="author" content="Ralf-Peter Kleinert">
+<meta name="email" content="digitaleasy@ralf-peter-kleinert.de">
+<meta name="copyright" content="Copyright © by Ralf-Peter Kleinert">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="facebook-domain-verification" content="7cwzmpfwunyhwzz0dh72lsvrhynk3y"><link rel="preconnect" href="//app.eu.usercentrics.eu">
+<link rel="preconnect" href="//api.eu.usercentrics.eu">
+<link rel="preconnect" href="//sdp.eu.usercentrics.eu">
+<link rel="preload" href="//app.eu.usercentrics.eu/browser-ui/latest/loader.js" as="script">
+<link rel="preload" href="//sdp.eu.usercentrics.eu/latest/uc-block.bundle.js" as="script">
+<script id="usercentrics-cmp" async="" data-eu-mode="true" data-settings-id="rdKSWSBTj" src="https://app.eu.usercentrics.eu/browser-ui/latest/loader.js"></script>
+<script type="application/javascript" src="https://sdp.eu.usercentrics.eu/latest/uc-block.bundle.js"></script><meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
+  <body data-path-to-root="../" data-include-products="false" class="u-body u-clearfix u-xl-mode" data-lang="de"><header class=" u-border-no-bottom u-border-no-left u-border-no-right u-border-no-top u-clearfix u-header u-section-row-container" id="header-mit-navigation-hauptmenue" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="" style="border-style: solid;"><div class="u-section-rows" style="">
+        <div class="u-border-2 u-border-custom-color-20 u-border-no-left u-border-no-right u-border-no-top u-clearfix u-custom-color-2 u-section-row u-section-row-1" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="" id="haupt-menue">
+          <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+            <nav class="u-align-left-lg u-align-left-xl u-align-right-md u-align-right-sm u-align-right-xs u-menu u-menu-dropdown u-menu-open-right u-offcanvas u-menu-1" data-responsive-from="MD" data-position="navigation-hauptmenue" role="navigation">
+              <div class="menu-collapse u-custom-font u-font-raleway" style="font-size: 1.125rem; letter-spacing: 0px; font-weight: 500;">
+                <a class="u-button-style u-custom-active-color u-custom-border u-custom-border-color u-custom-color u-custom-color-2 u-custom-effect-duration u-custom-hover-color u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-text-active-color u-custom-text-color u-custom-text-hover-color u-custom-text-shadow u-custom-text-shadow-blur u-custom-text-shadow-color u-custom-text-shadow-transparency u-custom-text-shadow-x u-custom-text-shadow-y u-custom-top-bottom-menu-spacing u-hamburger-link u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base u-hamburger-link-1" href="#" tabindex="-1" aria-label="Open menu" aria-controls="092e">
+                  <svg class="u-svg-link" viewBox="0 0 24 24"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#menu-hamburger"></use></svg>
+                  <svg class="u-svg-content" version="1.1" id="menu-hamburger" viewBox="0 0 16 16" x="0px" y="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect>
+</g></svg><span> Menü</span>
+                </a>
+              </div>
+              <div class="u-custom-menu u-nav-container">
+                <ul class="u-custom-font u-font-raleway u-nav u-spacing-2 u-unstyled u-nav-1" role="menubar"><li role="none" class="u-nav-item"><a tabindex="-1" role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="../index.html" style="padding: 12px 22px;">Start</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="../inhaltsverzeichnis.html" style="padding: 12px 22px;">Inhalt</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="../sicherheit-in-der-it.html" style="padding: 12px 22px;">IT-Sicherheit &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-2" aria-label="IT-Sicherheit > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="uebersicht-it-cyber-security.html">Übersicht: IT-Sicherheit</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="verschluesselung-von-daten.html">Verschlüsselung &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-3" aria-label="Verschlüsselung > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="verschluesselung-von-daten/cryptomator-kostenlos.html">Cryptomator Dateien verschlüsseln</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="vaultwarden-ssl-local-network.html">Vaultwarden Passwortmanager im LAN mit SSL</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="passkeys-einrichten-und-nutzen.html">Passkeys Einrichten und Nutzen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="privatpersonen.html">Privatpersonen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="unternehmen.html">Unternehmen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="it-daten-info-sicherheit.html">IT-, Daten-, Informationssicherheit</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="backups-sind-exrem-wichtig.html">Backups wichtig für IT-Sicherheit</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="keepass-anleitung.html">KeePass-Anleitung</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="keepassxc-und-proton-drive.html">KeePassXC und Proton Drive</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="iperius-backup-kostenlos.html">Iperius Backup die kostenlose Backupsoftware</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="paragon-backup-kostenlos.html">Paragon Backup kostenlose Software</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="paragon-backup-rettungsstick.html">Paragon Backup Rettungsstick erstellen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="backupkonzept-backupstrategie.html">Datensicherungskonzept und Backupstrategie</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="wie-kann-ich-daten-schuetzen.html">Wie kann ich meine Daten vor Hackern besser schützen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="sicherheit-in-social-media.html">Sicherheit in Social-Media</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="delphi-migration.html">Delphi Software Migration</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="pcloud-pass-passwort-manager.html">Passwort Manager pCloud Pass</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="../it-und-computer-beratung.html" style="padding: 12px 22px;">Beratungen &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-4" aria-label="Beratungen > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../it-und-computer-beratung/kleine-unternehmen-startups.html">IT-Dokumentationen für Unternehmen, Praxen und Universitäten</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="../windows-os.html" style="padding: 12px 22px;">Windows &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-5" aria-label="Windows > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../windows-os/computerralle-isms-docker-win.html">ISMS von ComputerRalle</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../windows-os/fernwartungssoftware-hoptodesk.html">Remote Software HopToDesk</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="../linux-os.html" style="padding: 12px 22px;">Linux &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-6" aria-label="Linux > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-os/paperless-backup-programm.html">Paperless Backup Programm Anleitung</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-os/docker-desktop-paperless.html">Paperless auf Windows installieren WSL</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-os/linux-webdav-dateisynchro.html">Linux WebDAV Dateisynchronisation kostenlos</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-os/docker-paperless-installieren.html">Paperless Docker Installation</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server.html">Linux Server &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-7" aria-label="Linux Server > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server/proxmox-pve8-to-pve9-upgrade.html">Proxmox VE 8 zu Proxmox VE 9 Upgrade</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server/uebersicht-linux-server.html">Übersicht: Linux Server</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server/gitlab-auf-linux-installieren.html">Gitlab auf Linux Debian 11 installieren</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server/proxmox-server-sichern-haerten.html">Proxmox Server absichern und härten</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server/ssh-keys-auf-linux-erzeugen.html">Proxmox SSH-Keys auf Linux erzeugen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server/ssh-keys-auf-windows-erzeugen.html">Proxmox SSH-Key auf Windows erzeugen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server/proxmox-hochverfuegbare-vm.html">Proxmox Hochverfügbarkeits-Cluster aufbauen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server/proxmox-verschluesselt-backup.html">Proxmox verschlüsseltes Backup erstellen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server/proxmox-und-pfsense-eine-ip.html">Proxmox und pfSense Firewall</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheits-anbieter/1blu-backupserver.html">1blu Storage-Server für Proxmox-Backup-Server</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server/proxmox-netzwerk-bonding.html">Netzwerk-Bonding Ausfallschutz auf Proxmox</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server/opnsense-wireguard-vpn.html">OPNsense &amp; WireGuard-Tunnel einrichten</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server/pfsense-wireguard-vpn.html">pfSense &amp; WireGuard-Tunnel einrichten</a>
+</li></ul>
+</div>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="../meine-fachbuecher.html" style="padding: 12px 22px;">Bücher &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-8" aria-label="Bücher > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/uebersicht-meine-buecher.html">Übersicht: Bücher</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/proxmox-ve9-praxisbuch.html">Proxmox VE 9 Praxisbuch</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/proxmox-ve8-praxis-buch.html">Proxmox VE 8 Praxisbuch</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/proxmox-pve-8-pbs-3-profi-buch.html">Proxmox VE 8 Proxmox BS 3 Profibuch</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/proxmox-ve-8-powerbuch.html">Proxmox VE 8 Powerbuch</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/computer-it-sicherheits-fibel.html">Computer und IT Sicherheits-Fibel</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/schluss-mit-windows.html">Schluss mit Windows - jetzt kommt Linux</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/computer-sicherheit-fuer-kmu.html">Computer-Sicherheit für kleine und mittlere Unternehmen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/die-mutter-aller-ki-buecher.html">Die Mutter aller KI Bücher</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/proxmox-firewall-buch.html">Proxmox Firewall - Verstehen Einschalten Abschotten</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/cloud-verstehen-und-nutzen.html">Cloud verstehen und nutzen kostenloses eBook</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="../sicherheits-anbieter.html" style="padding: 12px 22px;">Sicherheits-Anbieter</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-9" aria-label="Sicherheits-Anbieter menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheits-anbieter/tuta-quantensichere-mail.html">Tuta verschlüsselte Mail und Kalender</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheits-anbieter/erecht24-anwalt-siebert.html">eRecht24</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheits-anbieter/1blu-backupserver.html">1blu Backupserver</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="ashampoo-backup-pro-26.html">Ashampoo Backup Pro</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="pcloud-pass-passwort-manager.html">pCloud Passwortmanager</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="../suchen.html" style="padding: 12px 22px;">Suchen</a>
+</li></ul>
+              </div>
+              <div class="u-custom-menu u-nav-container-collapse" id="092e" role="region" aria-label="Menu panel">
+                <div class="u-container-style u-custom-color-2 u-inner-container-layout u-sidenav u-sidenav-1">
+                  <div class="u-inner-container-layout u-sidenav-overflow">
+                    <div class="u-menu-close" tabindex="-1" aria-label="Close menu"></div>
+                    <ul class="u-align-left u-custom-font u-font-raleway u-nav u-popupmenu-items u-spacing-0 u-text-active-custom-color-5 u-text-hover-custom-color-5 u-text-white u-unstyled u-nav-10" role="menubar"><li role="none" class="u-nav-item"><a tabindex="-1" role="menuitem" class="u-button-style u-nav-link" href="../index.html">Start</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../inhaltsverzeichnis.html">Inhalt</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheit-in-der-it.html">IT-Sicherheit &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-11" aria-label="IT-Sicherheit > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="uebersicht-it-cyber-security.html">Übersicht: IT-Sicherheit</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="verschluesselung-von-daten.html">Verschlüsselung &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-12" aria-label="Verschlüsselung > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="verschluesselung-von-daten/cryptomator-kostenlos.html">Cryptomator Dateien verschlüsseln</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="vaultwarden-ssl-local-network.html">Vaultwarden Passwortmanager im LAN mit SSL</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="passkeys-einrichten-und-nutzen.html">Passkeys Einrichten und Nutzen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="privatpersonen.html">Privatpersonen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="unternehmen.html">Unternehmen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="it-daten-info-sicherheit.html">IT-, Daten-, Informationssicherheit</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="backups-sind-exrem-wichtig.html">Backups wichtig für IT-Sicherheit</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="keepass-anleitung.html">KeePass-Anleitung</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="keepassxc-und-proton-drive.html">KeePassXC und Proton Drive</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="iperius-backup-kostenlos.html">Iperius Backup die kostenlose Backupsoftware</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="paragon-backup-kostenlos.html">Paragon Backup kostenlose Software</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="paragon-backup-rettungsstick.html">Paragon Backup Rettungsstick erstellen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="backupkonzept-backupstrategie.html">Datensicherungskonzept und Backupstrategie</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="wie-kann-ich-daten-schuetzen.html">Wie kann ich meine Daten vor Hackern besser schützen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="sicherheit-in-social-media.html">Sicherheit in Social-Media</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="delphi-migration.html">Delphi Software Migration</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="pcloud-pass-passwort-manager.html">Passwort Manager pCloud Pass</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../it-und-computer-beratung.html">Beratungen &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-13" aria-label="Beratungen > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../it-und-computer-beratung/kleine-unternehmen-startups.html">IT-Dokumentationen für Unternehmen, Praxen und Universitäten</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../windows-os.html">Windows &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-14" aria-label="Windows > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../windows-os/computerralle-isms-docker-win.html">ISMS von ComputerRalle</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../windows-os/fernwartungssoftware-hoptodesk.html">Remote Software HopToDesk</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-os.html">Linux &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-15" aria-label="Linux > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-os/paperless-backup-programm.html">Paperless Backup Programm Anleitung</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-os/docker-desktop-paperless.html">Paperless auf Windows installieren WSL</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-os/linux-webdav-dateisynchro.html">Linux WebDAV Dateisynchronisation kostenlos</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-os/docker-paperless-installieren.html">Paperless Docker Installation</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server.html">Linux Server &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-16" aria-label="Linux Server > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server/proxmox-pve8-to-pve9-upgrade.html">Proxmox VE 8 zu Proxmox VE 9 Upgrade</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server/uebersicht-linux-server.html">Übersicht: Linux Server</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server/gitlab-auf-linux-installieren.html">Gitlab auf Linux Debian 11 installieren</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server/proxmox-server-sichern-haerten.html">Proxmox Server absichern und härten</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server/ssh-keys-auf-linux-erzeugen.html">Proxmox SSH-Keys auf Linux erzeugen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server/ssh-keys-auf-windows-erzeugen.html">Proxmox SSH-Key auf Windows erzeugen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server/proxmox-hochverfuegbare-vm.html">Proxmox Hochverfügbarkeits-Cluster aufbauen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server/proxmox-verschluesselt-backup.html">Proxmox verschlüsseltes Backup erstellen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server/proxmox-und-pfsense-eine-ip.html">Proxmox und pfSense Firewall</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheits-anbieter/1blu-backupserver.html">1blu Storage-Server für Proxmox-Backup-Server</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server/proxmox-netzwerk-bonding.html">Netzwerk-Bonding Ausfallschutz auf Proxmox</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server/opnsense-wireguard-vpn.html">OPNsense &amp; WireGuard-Tunnel einrichten</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server/pfsense-wireguard-vpn.html">pfSense &amp; WireGuard-Tunnel einrichten</a>
+</li></ul>
+</div>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher.html">Bücher &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-17" aria-label="Bücher > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/uebersicht-meine-buecher.html">Übersicht: Bücher</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/proxmox-ve9-praxisbuch.html">Proxmox VE 9 Praxisbuch</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/proxmox-ve8-praxis-buch.html">Proxmox VE 8 Praxisbuch</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/proxmox-pve-8-pbs-3-profi-buch.html">Proxmox VE 8 Proxmox BS 3 Profibuch</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/proxmox-ve-8-powerbuch.html">Proxmox VE 8 Powerbuch</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/computer-it-sicherheits-fibel.html">Computer und IT Sicherheits-Fibel</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/schluss-mit-windows.html">Schluss mit Windows - jetzt kommt Linux</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/computer-sicherheit-fuer-kmu.html">Computer-Sicherheit für kleine und mittlere Unternehmen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/die-mutter-aller-ki-buecher.html">Die Mutter aller KI Bücher</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/proxmox-firewall-buch.html">Proxmox Firewall - Verstehen Einschalten Abschotten</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/cloud-verstehen-und-nutzen.html">Cloud verstehen und nutzen kostenloses eBook</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheits-anbieter.html">Sicherheits-Anbieter</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-18" aria-label="Sicherheits-Anbieter menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheits-anbieter/tuta-quantensichere-mail.html">Tuta verschlüsselte Mail und Kalender</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheits-anbieter/erecht24-anwalt-siebert.html">eRecht24</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheits-anbieter/1blu-backupserver.html">1blu Backupserver</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="ashampoo-backup-pro-26.html">Ashampoo Backup Pro</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="pcloud-pass-passwort-manager.html">pCloud Passwortmanager</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../suchen.html">Suchen</a>
+</li></ul>
+                  </div>
+                </div>
+                <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+              </div>
+              <style class="menu-style">@media (max-width: 1198px) {
+                    [data-responsive-from="MD"] .u-nav-container {
+                        display: none;
+                    }
+                    [data-responsive-from="MD"] .menu-collapse {
+                        display: block;
+                    }
+                }</style>
+            </nav>
+          </div>
+          
+          
+          
+          
+          
+        </div>
+        <div class="u-clearfix u-container-align-left u-section-row" id="DIGITAL-easy-Logo">
+          <div class="u-clearfix u-sheet u-sheet-2">
+            <a href="#" class="u-image u-logo u-image-1" data-image-width="2040" data-image-height="400">
+              <img src="../images/BannerHintergrund1.png" class="u-logo-image u-logo-image-1" alt="DIGITAL-easy Logo">
+            </a>
+          </div>
+          
+          
+          
+          
+          
+        </div>
+      </div></header>
+    <section class="u-clearfix u-section-1" id="artikelbild-backup-strategien">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <img class="u-expanded-width-xs u-image lazyload u-image-1" data-image-width="880" data-image-height="350" alt="Bild mit aufschrift: Backup Strategien und Datensicherhung" data-src="../images/it-sicherheit-backup-strategien-und-datensicherung-comptia.webp" loading="lazy">
+      </div>
+    </section>
+    <section class="u-clearfix u-section-2" id="backup-datensicherungs-strategie-optimal">
+      <div class="custom-expanded u-container-style u-custom-color-19 u-group u-opacity u-opacity-55 u-group-1">
+        <div class="u-container-layout u-container-layout-1">
+          <h1 class="u-text u-text-default u-text-1">Datensicherungs-Konzept und Backupstrategie - wie man seine Daten richtig gut sichern kann </h1>
+          <p class="u-text u-text-default u-text-2"> Für Nutzer und Nutzerinnen von Computern und in der IT im Allgemeinen
+ existieren viele Gefahren, welche die Daten auf den Geräten bedrohen. 
+Das gilt für alle Geräte, die Daten verarbeiten. Das Thema ist riesig, 
+und auch ich habe mir Gedanken gemacht und mich gefragt: 'Wo soll ich 
+nur anfangen, wenn ich meinen Lesern etwas über IT- und 
+Computersicherheit erzählen will?'</p>
+          <p class="u-text u-text-default u-text-3"> Nachdem ich überlegt habe, wo die wichtigsten Daten verarbeitet 
+werden, bin ich ganz klar beim klassischen PC und beim Laptop 
+angekommen. Es stimmt, dass das mobile Internet immer weiter wächst, 
+doch es ist immer noch so, dass Uni-Arbeiten am Laptop, Briefe und 
+Korrespondenzen in der Textverarbeitung am PC und Bilder und Videos vom 
+Handy auf dem Rechner gespeichert werden.</p>
+          <p class="u-text u-text-default u-text-4"> Für mich ist klar: Im Jahr 2024 werden bei Privatpersonen und in 
+Unternehmen die meisten und wichtigsten Daten noch immer auf dem PC, 
+also dem Personal Computer, bearbeitet und gespeichert. Daher benötigen 
+diese Geräte erhöhte Aufmerksamkeit. Denn es gibt fast nichts Schlimmeres, als den oft über viele Jahre angewachsenen Datenbestand aus welchem Grund auch immer zu verlieren.</p>
+          <p class="u-text u-text-default u-text-5"> Eine gute Datensicherung ist im Desasterfall die Rettung in der Not - für das sogenannte <a href="https://www.datis.de/loesungen/disaster-recovery/" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1" target="_blank" rel="nofollow">Desaster-Recovery</a>,
+ die Katastrophen-Wiederherstellung. Vielmehr ist die Datensicherung, 
+die mittels einer guten Backupstrategie und anhand eines guten 
+Datensicherungskonzepts erstellt wurde. Hier erkläre ich Schritt für 
+Schritt, wie ein Datensicherungskonzept aussehen kann oder sollte. Die 
+Grundlage meines Wissens bildet <a href="https://de.wikipedia.org/wiki/CompTIA" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-2" target="_blank" rel="nofollow">CompTIA Security+ SYO-601</a>.
+ Es ist am Ende jeder Nutzerin oder jedem Nutzer selbst überlassen, ob 
+sie die allgemein geschulten Strategien anpasst oder einfach übernimmt. 
+Ich präsentiere hier in der IT-Sicherheit allgemein gebräuchliche 
+Lösungsansätze und mit diesen lassen sich&nbsp;Datensicherung und Backup nach
+ CompTIA Security+ realisieren. So erhöhen sie die Sicherheit Ihrer 
+Daten enorm.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-3" id="inhalts-menue-datensicherungskonzept">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-10 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <p class="u-large-text u-text u-text-default-lg u-text-default-md u-text-default-sm u-text-default-xl u-text-variant u-text-1"> Inhalte des Artikels</p>
+            <ol class="u-align-left u-spacing-12 u-text u-text-default-lg u-text-default-md u-text-default-sm u-text-default-xl u-text-2">
+              <li>
+                <a href="backupkonzept-backupstrategie.html#inhalts-menue-7-w-fragen" data-page-id="117879748" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> 7 W Fragen für Datensicherungs-Strategie</a>
+              </li>
+              <li>
+                <a href="backupkonzept-backupstrategie.html#backup-arten" data-page-id="117879748" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-2">Die verschiedenen Arten der Datensicherung</a>
+              </li>
+              <li>
+                <a href="backupkonzept-backupstrategie.html#kostenlose-datensicherungs-software-donwload" data-page-id="117879748" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-3">Download: die besten kostenlosen Backupprogramme</a>
+              </li>
+              <li>
+                <a href="backupkonzept-backupstrategie.html#die-3-2-1-backup-regeln" data-page-id="117879748" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-4">die 3-2-1 Backup-Regel</a>
+              </li>
+              <li>
+                <a href="backupkonzept-backupstrategie.html#datensicherungs-konzept-10-punkte" data-page-id="117879748" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-5">10 Punkte zu Backups</a>
+              </li>
+              <li>
+                <a href="backupkonzept-backupstrategie.html#paragon-backup-youtube-video-tutorial" data-page-id="117879748" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-6">Paragon Backup Video Tutorial</a>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-4" id="inhalts-menue-7-w-fragen">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h2 class="u-text u-text-default-lg u-text-default-md u-text-default-sm u-text-default-xl u-text-1"> Schritt 1 Datensicherung, die sieben W Fragen</h2>
+            <p class="u-text u-text-default u-text-2"> Im Bereich der professionellen Datensicherung hat sich der Ansatz der
+ sogenannten sieben W Fragen durchgesetzt, die man bei der Aufstellung 
+eines Backupkonzepts beantworten sollte.</p>
+            <ol class="u-text u-text-default u-text-3">
+              <li>
+                <a href="backupkonzept-backupstrategie.html#was-sieben-w-frage" data-page-id="117879748" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Was?</a>
+              </li>
+              <li>
+                <a href="backupkonzept-backupstrategie.html#wann-das-backup-machen" data-page-id="117879748" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-2">Wann? </a>
+              </li>
+              <li>
+                <a href="backupkonzept-backupstrategie.html#wie-oft-backup-machen" data-page-id="117879748" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-3">Wie oft? </a>
+              </li>
+              <li>
+                <a href="backupkonzept-backupstrategie.html#wie-viele-backups-machen" data-page-id="117879748" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-4">Wie viel? </a>
+              </li>
+              <li>
+                <a href="backupkonzept-backupstrategie.html#wer-hat-verantwortung-fuer-backups" data-page-id="117879748" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-5">Wer? </a>
+              </li>
+              <li>
+                <a href="backupkonzept-backupstrategie.html#backup-wie-machen" data-page-id="117879748" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-6">Wie? </a>
+              </li>
+              <li>
+                <a href="backupkonzept-backupstrategie.html#backup-wo-speichern" data-page-id="117879748" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-7">Wo? </a>
+              </li>
+              <li>
+                <a href="backupkonzept-backupstrategie.html#fazit-7-w-backup-fragen" data-page-id="117879748" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-8">Fazit zu W Fragen</a>
+              </li>
+            </ol>
+            <p class="u-text u-text-default u-text-4"> Diese sieben W-Fragen werden wir jetzt nach 
+und nach durchgehen. Wenn hier die Antworten feststehen, haben Sie eine 
+sehr solide Grundlage für eine Backupstrategie. Gleich ob im privaten 
+oder geschäftlichen Bereich. Das Wichtigste, was ich mit diesem Artikel 
+aber erreichen will, ist, dass Sie ein Verständnis entwickeln und 
+erkennen, wie wichtig dieses Thema ist. Und wenn man das Thema 
+Datensicherung so aufbereitet vor sich sieht, dann erkennt man viel 
+leichter, warum es so wichtig ist. </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-5" id="newsletter-abonnieren">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-align-left u-border-4 u-border-custom-color-20 u-container-align-left u-container-align-left-lg u-container-align-left-md u-container-align-left-sm u-container-align-left-xl u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-90 u-group-1" data-animation-out="0">
+          <div class="u-container-layout u-valign-bottom-lg u-valign-bottom-md u-valign-bottom-sm u-valign-top-xl u-container-layout-1">
+            <p class="u-large-text u-text u-text-variant u-text-1">Kostenlose IT-Sicherheits-Bücher &amp; Information via Newsletter</p>
+            <p class="u-text u-text-default-lg u-text-default-md u-text-default-sm u-text-default-xl u-text-2"> Bleiben Sie informiert, wann es meine Bücher kostenlos in einer Aktion gibt: <a href="../newsletter.html" data-page-id="103346126" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1">Mit meinem Newsletter</a> erfahren Sie viermal im Jahr von Aktionen auf Amazon und anderen Plattformen, bei denen meine IT-Sicherheits-Bücher gratis erhältlich sind. Sie verpassen keine Gelegenheit und erhalten zusätzlich hilfreiche Tipps zur IT-Sicherheit. Der Newsletter ist kostenlos und unverbindlich – einfach abonnieren und profitieren!<br>
+            </p>
+            <div class="u-border-3 u-border-grey-dark-1 u-expanded-width u-line u-line-horizontal u-line-1"></div>
+            <a href="../newsletter.html" data-page-id="103346126" class="u-align-center u-btn u-button-style u-custom-color-20 u-hover-custom-color-3 u-btn-2" target="_blank" title="Zur Newsletter-Anmeldeseite von Ralf-Peter Kleinert">Zur Anmeldung</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-6" id="was-sieben-w-frage">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h3 class="u-text u-text-default-lg u-text-default-md u-text-default-sm u-text-default-xl u-text-1"><i>Was? - erste der sieben W-Fragen.</i>
+            </h3>
+            <p class="u-text u-text-default u-text-2"> Was soll gesichert werden? Welche Daten sollen in das Backup aufgenommen werden?</p>
+            <p class="u-text u-text-default u-text-3"> Die Frage kann auch anders formuliert werden: Welche Daten soll ich 
+sichern? Oder: Welche Daten müssen in ein Backup? Bilder, Dokumente, 
+Texte oder Datenbanken? E-Mails oder das gesamte System? Einzelne Ordner
+ oder ganze Festplatten? Webseiten, Videos und Systemeinstellungen? Sie 
+sehen, auch hier kann man sich wieder Gedanken machen, welche Daten sind
+ wichtig, welche Daten sind sogar extrem wichtig, wie zum Beispiel 
+Versicherungsverträge oder Kontoauszüge.</p>
+            <p class="u-text u-text-default u-text-4"> Es ist wichtig, darüber Bescheid zu wissen, welche Daten unbedingt 
+gesichert werden müssen. Daher ist es ratsam, sich zuerst darüber 
+Gedanken zu machen. Bei einem privaten PC ist das in der Regel noch gut 
+überschaubar.</p>
+            <p class="u-text u-text-default u-text-5"> Aber sobald man im geschäftlichen Bereich darüber nachdenkt, wo 
+vielleicht 3, 4 oder sogar 20 oder noch mehr Computer genutzt werden, 
+kommt man um eine schriftliche Bestandsanalyse nicht mehr herum. Eine 
+Daten-Inventur, wenn man so will. Es muss klar sein, welche Daten 
+gesichert werden müssen.</p>
+            <p class="u-text u-text-default u-text-6"> Als Beispiel kann man anführen: Wenn sie auf ihrem Rechner 
+verschiedene Programme installiert haben, wie Videoschnittprogramme, 
+Grafikbearbeitungssoftware, E-Mail-Software mit eingebundenen Konten, 
+lizenzierte Programme, und das Wiederaufsetzen des Systems länger dauern
+ würde als eine Rücksicherung - empfiehlt sich hier ein Image-Backup der
+ Systemfestplatte. Es kann sehr viel Zeit in Anspruch nehmen, alle 
+Programme zusammenzusuchen, und dann noch die entsprechenden Serien- und
+ Lizenznummern. Dann die Konfiguration der Programme. Hier kann das 
+Programm <a href="https://www.paragon-software.com/de/free/br-free/#" target="_blank" title="Paragon Backupsoftware Download - kostenlose Version" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1" rel="nofollow">Paragon Backup 17 CE</a> gute Dienste leisten.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-7" id="zurueck-zu-inhalts-und-w-fragen-menues-1">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle-xs u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="backupkonzept-backupstrategie.html#inhalts-menue-datensicherungskonzept" data-page-id="117879748" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Zurück zum Inhalts Menü</a>
+            </p>
+            <p class="u-text u-text-default u-text-2">
+              <a href="backupkonzept-backupstrategie.html#inhalts-menue-7-w-fragen" data-page-id="117879748" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-2"> Zurück zu W Fragen</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-8" id="wann-das-backup-machen">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h4 class="u-text u-text-default u-text-1"><i>Wann? - zweite der sieben W-Fragen</i>
+            </h4>
+            <p class="u-text u-text-default u-text-2"> Wann sollen die Daten gesichert werden?</p>
+            <p class="u-text u-text-default u-text-3"> Wenn der Computer so eingerichtet ist, dass er zu einer Zeit, an der 
+Sie in der Regel mit dem Gerät arbeiten, ein Voll-Backup ausstößt, kann 
+und wird sich das natürlich auf die Leistung des PCs auswirken. Wenn 
+über das Netzwerk auf einen Server oder NAS (<a href="https://de.wikipedia.org/wiki/Network_Attached_Storage" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1" target="_blank" rel="nofollow">Network Attached Storage</a>, Netzwerkspeicher) gesichert wird, dann wird sich das auch auf die Netzwerkleistung auswirken.
+            </p>
+            <p class="u-text u-text-default u-text-4"> Sollten Sie also ein zeitlich und automatisch gesteuertes Backup 
+wünschen, sollten Sie sich auch Gedanken darüber machen, zu welcher Zeit
+ die Datensicherung gestartet werden soll. </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-9" id="kostenlose-datensicherungs-software-donwload">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-10 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <p class="u-large-text u-text u-text-default-lg u-text-default-md u-text-default-sm u-text-default-xl u-text-variant u-text-1"> Download von Iperius und Paragon Backupsoftware</p>
+            <p class="u-text u-text-2"><i>Beide Programme können kostenlos heruntergeladen und genutzt 
+werden. Nach der Installation sind beide Programme sehr einfach zu bedienen, für die Einrichtung werden sie gut durch die Programme 
+geführt und alles ist gut erklärt.</i>
+            </p>
+            <p class="u-text u-text-3">
+              <a href="https://www.paragon-software.com/de/free/br-free/#" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1" target="_blank" rel="nofollow"> Download: Paragon Backup und Recovery Datensicherungsprogramm</a>
+            </p>
+            <p class="u-text u-text-4">
+              <a href="https://www.iperiusbackup.de/download-software-backup.aspx" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-2" target="_blank" rel="nofollow"> Download: Iperius Backup Datensicherungsprogramm</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-10" id="zurueck-zu-inhalts-und-w-fragen-menues-2">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle-xs u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="backupkonzept-backupstrategie.html#inhalts-menue-datensicherungskonzept" data-page-id="117879748" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Zurück zum Inhalts Menü</a>
+            </p>
+            <p class="u-text u-text-default u-text-2">
+              <a href="backupkonzept-backupstrategie.html#inhalts-menue-7-w-fragen" data-page-id="117879748" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-2"> Zurück zu W Fragen</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-11" id="wie-oft-backup-machen">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h2 class="u-text u-text-default u-text-1"><i>Wie oft? - dritte der sieben W-Fragen</i>
+            </h2>
+            <p class="u-text u-text-default u-text-2"> Wie oft sollen oder müssen die Daten gesichert werden?</p>
+            <p class="u-text u-text-default u-text-3"> Auch diese Frage müssen Sie sich beantworten. Wenn Sie z.B. viele 
+Dokumente am PC bearbeiten und in einer Stunde auf 20 Briefe antworten 
+oder Bilder bearbeiten und in einer Stunde 30 Bilder einer Farbkorrektur
+ unterziehen, macht es durchaus Sinn, eine höhere Sicherungsfrequenz für
+ diese Datei-Ordner anzusetzen. Stellen Sie sich auch die Frage: Wie 
+viele Daten, Dateien oder Arbeitsschritte gehen Ihnen im Fehlerfall 
+eines Laufwerks verloren? Wie viel Verlust von Daten können Sie 
+verkraften? Haben Sie Daten, die permanent geändert werden, wie 
+Datenbanken? Wenn Sie wissen, wie oft sich die Daten in Ihrem System 
+verändern, wissen Sie auch, wie oft Sie die Daten sichern sollten.</p>
+            <p class="u-text u-text-default u-text-4"> Beispiel: Wenn Sie einmal am Tag um 16 Uhr eine Sicherung ihrer Daten
+ machen und die Festplatte geht um 15 Uhr kaputt, dann verlieren Sie 23 
+Stunden zurückliegende Daten - eben bis 16 Uhr am Vortag. Sie müssen 
+selbst wissen, ob Sie damit leben können. Im Privatbereich kann man 
+einfach sagen: Kann ich. Im Geschäftsbereich gibt der Gesetzgeber vor, 
+wie lange Sie, welche Daten speichern müssen.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-12" id="zurueck-zu-inhalts-und-w-fragen-menues-3">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle-xs u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="backupkonzept-backupstrategie.html#inhalts-menue-datensicherungskonzept" data-page-id="117879748" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Zurück zum Inhalts Menü</a>
+            </p>
+            <p class="u-text u-text-default u-text-2">
+              <a href="backupkonzept-backupstrategie.html#inhalts-menue-7-w-fragen" data-page-id="117879748" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-2"> Zurück zu W Fragen</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-13" id="wie-viele-backups-machen">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h3 class="u-text u-text-default u-text-1"><i>Wie viel? - vierte der sieben W-Fragen</i>
+            </h3>
+            <p class="u-text u-text-default u-text-2"> Wie viele Daten sollten gesichert werden?</p>
+            <p class="u-text u-text-default u-text-3"> Als Ausgangspunkt ist hier der verfügbare Speicherplatz zu nennen. 
+Wenn Sie wissen, wie viel Speicher Sie zur Datensicherung zur Verfügung 
+haben, können Sie auf dieser Basis entscheiden, wie viele Daten 
+gesichert werden. Haben Sie ein Sicherungslaufwerk von 4 TB Größe und 
+einen PC mit einer 1 TB Festplatte, können Sie nicht sagen: Ich will 30 
+Tage rückwirkend Vollbackup für den Notfall haben. Das ginge nur mit 
+einem mindestens 30 TB Sicherungslaufwerk.</p>
+            <p class="u-text u-text-default u-text-4"> Am Ende entscheidet der verfügbare Speicherplatz über die Art der Sicherung (<a href="https://www.computerweekly.com/de/definition/Voll-Backup-Vollsicherung-Full-Backup" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1" target="_blank" rel="nofollow">Vollbackup</a>, <a href="https://www.computerweekly.com/de/definition/Inkrementelles-Backup" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-2" target="_blank" rel="nofollow">inkrementelles Backup</a> oder <a href="https://www.computerweekly.com/de/definition/Differentielles-Backup" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-3" target="_blank" rel="nofollow">differenzielles Backup</a>),
+ die Menge an Sicherungspunkten (Tage / Wochen / Monate / Jahre 
+rückwirkend) und die Häufigkeit der Sicherung (stündlich / täglich / 
+wöchentlich). Sicherungsstrategien, die über die Kapazität der 
+Speichereinheit hinausgehen, funktionieren natürlich nicht.<br> Für <b>Privatpersonen</b> stellt sich die Frage, wie lange man auf einen zurückliegenden Datenstand zurückgreifen können möchte.
+            </p>
+            <p class="u-text u-text-default u-text-5"> In einem <b>Unternehmen</b> ist es einmal eine Frage des sogenannten 
+Datenhaltungskonzeptes, zum anderen wie viele Mitarbeitende im 
+Unternehmen sind, wie viele PCs vorhanden sind, also wie hoch die 
+Fehler-Quellen-Quote ist. Ein Unternehmen sollte zumindest eine Regel 
+aufstellen, wie weit man zurückgehen können muss, wenn es noch an einem 
+Datenhaltungskonzept fehlt.
+            </p>
+            <p class="u-text u-text-default u-text-6"> Beispiel 1: Frau Müller löscht eine E-Mail und ein Dokument, stellt 
+aber erst 4 Tage später fest, dass dies ein Fehler war. Oder es wird 
+erst in 4 Wochen bemerkt.</p>
+            <p class="u-text u-text-default u-text-7"> Beispiel 2: Der Onlineshop, der permanent Bestellungen 
+entgegennimmt, wird nicht richtig gesichert, und es liegt plötzlich ein 
+Fehler vor. In einem solchen Fall bietet sich eine Sicherung pro Stunde 
+an oder eine noch höhere Sicherungsfrequenz. Solche Daten zu verlieren, 
+kann großen Schaden anrichten. </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-14" id="zurueck-zu-inhalts-und-w-fragen-menues-4">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle-xs u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="backupkonzept-backupstrategie.html#inhalts-menue-datensicherungskonzept" data-page-id="117879748" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Zurück zum Inhalts Menü</a>
+            </p>
+            <p class="u-text u-text-default u-text-2">
+              <a href="backupkonzept-backupstrategie.html#inhalts-menue-7-w-fragen" data-page-id="117879748" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-2"> Zurück zu W Fragen</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-15" id="wer-hat-verantwortung-fuer-backups">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h4 class="u-text u-text-default u-text-1"><i>Wer? - fünfte der sieben W-Fragen</i>
+            </h4>
+            <p class="u-text u-text-default u-text-2"> Wer ist für Backups und Sicherungen, deren Verwaltung und im Fehlerfall für die Wiederherstellung verantwortlich?</p>
+            <p class="u-text u-text-default u-text-3"> Im <b>privaten Bereich</b> ist eigentlich immer klar, wer 
+verantwortlich ist. Sie richten als Privatperson das Backup ein, wissen,
+ wo es gespeichert ist, und Sie wissen auch, wann die Notwendigkeit 
+besteht, ein Backup wiederherzustellen.&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            </p>
+            <p class="u-text u-text-default u-text-4"> Im <b>unternehmerischen Bereich</b> wird es dann schon etwas 
+komplizierter. Hier müssen die Zuständigkeiten ganz klar definiert sein.
+ Das Unternehmen muss jederzeit wissen, wer verantwortlich ist und wer 
+Zugriff auf die Datensicherungen hat. Die zuständigen Personen müssen 
+jederzeit benannt werden können. Bei Ausscheiden des jeweiligen 
+Mitarbeiters müssen diese Berechtigungen auch wieder entzogen werden, 
+und auch Zugänge zu den Backups müssen dann entzogen werden. Hier muss 
+ein Unternehmen ganz genaue Richtlinien aufstellen - denn die Backups 
+enthalten unternehmenskritische Daten und natürlich auch Kundendaten 
+(Stichwort Datenschutz und DSGVO). Die Verantwortlichkeiten müssen klar 
+definiert, geschützt und geprüft werden. Das Unternehmen muss jederzeit 
+umfänglich im Bilde sein, wer Datensicherungen macht, wer diese auf 
+Vollständigkeit und Funktion prüft, wer sie löschen darf, wer Zugang 
+hat.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-16" id="zurueck-zu-inhalts-und-w-fragen-menues-5">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle-xs u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="backupkonzept-backupstrategie.html#inhalts-menue-datensicherungskonzept" data-page-id="117879748" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Zurück zum Inhalts Menü</a>
+            </p>
+            <p class="u-text u-text-default u-text-2">
+              <a href="backupkonzept-backupstrategie.html#inhalts-menue-7-w-fragen" data-page-id="117879748" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-2"> Zurück zu W Fragen</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-17" id="backup-wie-machen">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h5 class="u-text u-text-default u-text-1"><i>Wie? - sechste der sieben W-Fragen</i>
+            </h5>
+            <p class="u-text u-text-default u-text-2"> Wie sollen die Daten gesichert werden? Diese Frage lässt sich nur 
+richtig beantworten, wenn man vorher weiß, wie viele Daten gesichert 
+werden müssen, wie groß diese Daten sind, wie lange die Daten aufbewahrt
+ werden müssen, und wie schnell der Sicherungsvorgang vonstattengehen 
+muss. 1 TB Daten auf DVD zu brennen wird eher nicht als optimale Lösung 
+angesehen. 6 TB Daten über USB auf eine externe Festplatte zu sichern, 
+nimmt auch sehr viel Zeit in Anspruch. Hierzu folgende Punkte:</p>
+            <ul class="u-text u-text-default u-text-3">
+              <li> Datenmenge, Größe und Medienkapazität</li>
+              <li> Aufbewahrungszeiten für die Datensicherungen</li>
+              <li> zeitlicher Aufwand für die Datensicherung</li>
+            </ul>
+            <p class="u-text u-text-default u-text-4"> Ein weiterer Punkt unter Wie? ist auch, wie die Datensicherung durchgeführt wird. Soll hierfür <a href="iperius-backup-kostenlos.html" data-page-id="1551920514" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1">eine spezielle Backup-Software, wie Iperius Backup</a>&nbsp; verwendet werden? Soll eine spezielle Betriebssystemumgebung als 
+Backupserver verwendet werden? Sollen die Sicherungen eventuell manuell 
+durch Kopieren durchgeführt werden? Hier ist auch der Bedarf an einer 
+Automatisierung nach Zeitplänen zu berücksichtigen.
+            </p>
+            <p class="u-text u-text-default u-text-5"> Wie soll verfahren werden, wenn ein Sicherungslaufwerk in die Knie 
+geht, eine Sicherung nicht fertiggestellt werden kann? Wie wird geprüft 
+und nach welchen Kriterien, ob Sicherungen vollständig und funktional 
+sind? Die Wie-Fragen helfen, die richtige Strategie und Software zu 
+ermitteln.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-18" id="zurueck-zu-inhalts-und-w-fragen-menues-6">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle-xs u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="backupkonzept-backupstrategie.html#inhalts-menue-datensicherungskonzept" data-page-id="117879748" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Zurück zum Inhalts Menü</a>
+            </p>
+            <p class="u-text u-text-default u-text-2">
+              <a href="backupkonzept-backupstrategie.html#inhalts-menue-7-w-fragen" data-page-id="117879748" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-2"> Zurück zu W Fragen</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-19" id="backup-wo-speichern">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h6 class="u-text u-text-default u-text-1"><i>Wo? - siebte der sieben W-Fragen</i>
+            </h6>
+            <p class="u-text u-text-default u-text-2"> Wo werden Backups am besten gespeichert?</p>
+            <p class="u-text u-text-default u-text-3"> Das ist eine entscheidende Frage. Hier müssen die Sicherheit, die 
+Datensicherheit, die Verfügbarkeit der Backups und der Datenschutz 
+streng beachtet werden.</p>
+            <p class="u-text u-text-default u-text-4"> Backups auf einen eigens dafür eingerichteten Backupserver sind eine 
+tolle Sache, wenn der Server an einem sicheren Standort steht. Es sollte
+ auf Feuerschutz, Wasserschadenschutz, Diebstahl- und Einbruchschutz 
+geachtet werden. Der Server darf nur von autorisierten Personen 
+erreichbar sein, physisch und über Anbindung. Es sollte auch nicht über 
+Ordnerfreigaben gesichert werden, sondern eine Backupsoftware mit 
+Netzwerk-Konto Zugriff, oder über FTP Konto oder Ähnliches gesichert 
+werden. Malware oder ein Virus darf vom Ausgangs-PC keine Netzwerkordner
+ des Backup-Servers erreichen.</p>
+            <p class="u-text u-text-default u-text-5"> Soll auf externe Festplatten gesichert werden, müssen diese sicher 
+weggeschlossen werden können, und auf diesen Schrank, besser Tresor, 
+dürfen nur autorisierte Personen Zugriff haben.</p>
+            <p class="u-text u-text-default u-text-6"> Werden Sicherungen ausgelagert, z.B. in einen Cloud-Dienst, dann müssen 
+hier natürlich weitere Maßnahmen zur Sicherung des Cloud-Dienstes selbst
+ ins Auge gefasst werden. Ich empfehle, eine eigene Cloud-Struktur 
+aufzubauen und die Daten nicht an ein großes Mainstream-Unternehmen wie 
+Amazon oder Microsoft zu übertragen.&nbsp;<br>
+              <br>Die Frage <b>Wo?</b> ist sehr wichtig. Es hilft nicht, wenn ein Backup benötigt wird und keiner weiß, wo es gespeichert ist.&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-20" id="zurueck-zu-inhalts-und-w-fragen-menues-7">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle-xs u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="backupkonzept-backupstrategie.html#inhalts-menue-datensicherungskonzept" data-page-id="117879748" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Zurück zum Inhalts Menü</a>
+            </p>
+            <p class="u-text u-text-default u-text-2">
+              <a href="backupkonzept-backupstrategie.html#inhalts-menue-7-w-fragen" data-page-id="117879748" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-2"> Zurück zu W Fragen</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-21" id="fazit-7-w-backup-fragen">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h6 class="u-text u-text-default u-text-1"> Fazit zu den sieben W Fragen</h6>
+            <p class="u-text u-text-default u-text-2"> Sie sehen anhand der 7 W-Fragen, dass Datensicherung und Backup ein 
+komplexes Thema ist. Wenn Sie diese sieben W-Fragen beantworten und dann
+ zu den Antworten Regeln aufstellen, diese Regeln Frage für Frage 
+schriftlich ausformulieren und fertig sind, können Sie dieses Regelwerk 
+ausdrucken. Dann benötigen Sie nur noch ein Deckblatt, auf dem steht: Datensicherungs-Konzept.</p>
+            <p class="u-text u-text-default u-text-3"> Wenn Sie Ihr Datensicherungskonzept ausgearbeitet haben, bedenken 
+Sie, dieses immer wieder zu prüfen, zu erweitern und anzupassen. 
+Versuchen Sie, die Fragen so zu beantworten, das Konzept so zu 
+formulieren, dass, wenn Sie es einem neuen IT-Techniker in die Hand 
+geben, er ohne weitere Erläuterung in der Lage ist, Backups zu 
+erstellen, zurückzuspielen oder zu wissen, wie in Ihrem Unternehmen 
+verfahren wird.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-22" id="empfohlene-artikel-backups">
+      <div class="u-clearfix u-sheet u-valign-middle-lg u-valign-middle-md u-valign-middle-sm u-valign-middle-xl u-sheet-1">
+        <div class="u-border-2 u-border-grey-10 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <p class="u-large-text u-text u-text-default-lg u-text-default-md u-text-default-sm u-text-default-xl u-text-variant u-text-1"> Tiefergehende Informationen: Backupprogramme</p>
+            <p class="u-text u-text-2"><i>Bitte lesen sie auch meine Artikel zu den beiden vorgestellten 
+Backupprogrammen Iperius und Paragon. Backups sind ihre Versicherung, 
+wenn es einen digitalen Schadenfall gibt - es ist einfach und 
+unkompliziert - aber extrem wichtig.</i>
+            </p>
+            <p class="u-text u-text-3">
+              <a href="iperius-backup-kostenlos.html" data-page-id="1551920514" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Artikel: Iperius-Backup - kostenlos und zuverlässig</a>
+            </p>
+            <p class="u-text u-text-4">
+              <a href="paragon-backup-kostenlos.html" data-page-id="181249904" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-2"> Artikel: Paragon Backup - die Rettung in der IT-Not</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-23" id="zurueck-zu-inhalts-und-w-fragen-menues-8">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle-xs u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="backupkonzept-backupstrategie.html#inhalts-menue-datensicherungskonzept" data-page-id="117879748" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Zurück zum Inhalts Menü</a>
+            </p>
+            <p class="u-text u-text-default u-text-2">
+              <a href="backupkonzept-backupstrategie.html#inhalts-menue-7-w-fragen" data-page-id="117879748" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-2"> Zurück zu W Fragen</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-24" id="backup-arten">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h2 class="u-text u-text-default u-text-1"> Die verschiedenen Arten der Datensicherung </h2>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-25" id="artikelbild-2-backuip-methoden">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <img class="u-expanded-width-xs u-image lazyload u-image-1" data-image-width="880" data-image-height="350" alt="Bild mit der Aufschrift: Backup Methoden 4 Hauptarten" data-src="../images/die-4-methoden-und-arten-der-datensicherung.webp" loading="lazy">
+      </div>
+    </section>
+    <section class="u-clearfix u-section-26" id="datensicherungs-arten-inhalts-menue">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <p class="u-text u-text-default u-text-1"> Es gibt 4 klassische Backupverfahren, welche von Backupprogrammen 
+angewendet werden können. Diese 4 Verfahren sind die geläufigsten.&nbsp;</p>
+            <ol class="u-text u-text-default u-text-2">
+              <li>
+                <a href="backupkonzept-backupstrategie.html#datensicherungs-art-vollbackup" data-page-id="117879748" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Vollbackup</a>
+              </li>
+              <li>
+                <a href="backupkonzept-backupstrategie.html#datensicherungs-art-inkrementelles-backup" data-page-id="117879748" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-2">inkrementelles Backup </a>
+              </li>
+              <li>
+                <a href="backupkonzept-backupstrategie.html#datensicherungs-art-differentielles-backup" data-page-id="117879748" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-3">differenzielles Backup </a>
+              </li>
+              <li>
+                <a href="backupkonzept-backupstrategie.html#datensicherungs-art-snapshot" data-page-id="117879748" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-4">Snapshot</a>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-27" id="datensicherungs-art-vollbackup">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h3 class="u-text u-text-default u-text-1"> Vollbackup - alle Dateien in der Datensicherung</h3>
+            <p class="u-text u-text-default u-text-2"> Die Sicherung von Daten ist ein entscheidender Aspekt der 
+Informationstechnologie, um Geschäftskontinuität und Datenintegrität zu 
+gewährleisten. Ein Vollbackup ist eine der grundlegenden Methoden der 
+Datensicherung und spielt eine Schlüsselrolle in dieser Strategie.</p>
+            <p class="u-text u-text-default u-text-3"> Was ist ein Vollbackup? </p>
+            <p class="u-text u-text-default u-text-4"> Ein Vollbackup bezeichnet die Sicherung aller ausgewählten Daten und 
+Dateien auf einem Speichermedium. Anders als inkrementelle oder 
+differentielle Backups, die nur geänderte oder hinzugefügte Daten 
+speichern, um Zeit und Speicherplatz zu sparen, erfasst ein Vollbackup 
+die gesamte Datenmenge. Dies umfasst Betriebssystemdateien, Anwendungen,
+ Benutzerdaten und alle anderen relevanten Informationen.</p>
+            <p class="u-text u-text-default u-text-5"><b>Warum ist ein Vollbackup wichtig?</b>
+            </p>
+            <p class="u-text u-text-default u-text-6"> 1. Umfassende Sicherung: Ein Vollbackup stellt sicher, dass sämtliche 
+Daten gesichert werden. Dies ist besonders wichtig bei der 
+Wiederherstellung nach einem vollständigen Datenverlust, sei es aufgrund
+ von Hardwarefehlern, Cyberangriffen oder menschlichem Versagen.</p>
+            <p class="u-text u-text-default u-text-7"> 2. Unabhängigkeit von anderen Backups: Vollbackups dienen oft als Basis
+ für andere Backup-Methoden. Inkrementelle oder differentielle Backups 
+können auf einem vorherigen Vollbackup aufbauen, was die 
+Wiederherstellungsprozesse effizienter macht.</p>
+            <p class="u-text u-text-default u-text-8"> 3. Schnelle Wiederherstellung: Im Falle eines Datenverlusts kann ein 
+Vollbackup die Wiederherstellungszeit verkürzen. Es eliminiert die 
+Notwendigkeit, mehrere inkrementelle oder differentielle Backups 
+sequenziell wiederherzustellen, da alle Daten in einem einzigen Backup 
+vorhanden sind.</p>
+            <p class="u-text u-text-default u-text-9"><b>Best Practices, (Empfohlene Vorgehensweise) für Vollbackups</b>
+            </p>
+            <p class="u-text u-text-default u-text-10"> 1. Regelmäßige Durchführung: Vollbackups sollten regelmäßig gemäß den 
+Geschäftsanforderungen durchgeführt werden, um sicherzustellen, dass 
+alle aktuellen Daten gesichert sind.</p>
+            <p class="u-text u-text-default u-text-11"> 2. Sicherer Speicherort: Die Backup-Daten sollten an einem sicheren Ort
+ aufbewahrt werden, vorzugsweise außerhalb des primären Standorts, um 
+gegen Katastrophen geschützt zu sein.</p>
+            <p class="u-text u-text-default u-text-12"> 3. Verschlüsselung: Es ist entscheidend, die Sicherheit der gesicherten
+ Daten zu gewährleisten. Verschlüsselung sollte angewendet werden, 
+insbesondere wenn Backups auf externen Medien oder in der Cloud 
+gespeichert werden.</p>
+            <p class="u-text u-text-default u-text-13"> Ein Vollbackup bildet das Rückgrat einer umfassenden 
+Datensicherungsstrategie. Es schafft die Grundlage für den Schutz vor 
+Datenverlusten und stellt sicher, dass Organisationen im Falle 
+unvorhergesehener Ereignisse schnell wieder betriebsbereit sind. Die 
+Integration von Vollbackups in eine ganzheitliche Sicherheitsstrategie 
+ist unerlässlich, um die Integrität und Verfügbarkeit von Daten zu 
+gewährleisten.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-28" id="zurueck-zu-inhalts-menues-1">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="backupkonzept-backupstrategie.html#inhalts-menue-datensicherungskonzept" data-page-id="117879748" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Zurück zum Inhalts Menü</a>
+            </p>
+            <p class="u-text u-text-default u-text-2">
+              <a href="backupkonzept-backupstrategie.html#datensicherungs-arten-inhalts-menue" data-page-id="117879748" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-2"> Zurück zu Arten der Datensicherung</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-29" id="datensicherungs-art-inkrementelles-backup">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h4 class="u-text u-text-default u-text-1"> Inkrementelles Backup - Effiziente Datensicherung </h4>
+            <p class="u-text u-text-default u-text-2"> Das inkrementelle Backup ist eine gute Backupart, um effizient zu 
+sichern und Speicherplatz optimal zu nutzen. Lassen Sie uns einen Blick 
+darauf werfen, was ein inkrementelles Backup ist und warum es in der 
+Welt der IT-Sicherheit von großer Bedeutung ist.</p>
+            <p class="u-text u-text-default u-text-3"> Was ist ein inkrementelles Backup?</p>
+            <p class="u-text u-text-default u-text-4"> Ein inkrementelles Backup ist eine Methode der Datensicherung, die 
+sich auf die Sicherung nur der seit dem letzten Backup geänderten oder 
+hinzugefügten Daten konzentriert. Im Gegensatz zum Vollbackup, das alle 
+ausgewählten Daten sichert, identifiziert das inkrementelle Backup nur 
+die Veränderungen seit dem letzten Backup.</p>
+            <p class="u-text u-text-default u-text-5"><b>Warum ist ein inkrementelles Backup wichtig?</b>
+            </p>
+            <p class="u-text u-text-default u-text-6"> 1. Speicherplatzoptimierung: Durch die Sicherung nur geänderter Daten 
+spart das inkrementelle Backup erheblich Speicherplatz im Vergleich zu 
+Vollbackups. Dies ermöglicht eine effiziente Nutzung von Ressourcen.</p>
+            <p class="u-text u-text-default u-text-7"> 2. Zeitersparnis: Da nur die neuesten Änderungen gesichert werden, ist 
+die Durchführung eines inkrementellen Backups in der Regel schneller als
+ ein Vollbackup. Dies minimiert die Ausfallzeit während des 
+Sicherungsvorgangs.</p>
+            <p class="u-text u-text-default u-text-8"> 3. Ressourcenschonung: Die geringere Menge an zu sichernden Daten 
+bedeutet auch weniger Ressourcenbelastung für die Backup-Infrastruktur, 
+was insbesondere in großen Umgebungen von Vorteil ist.</p>
+            <p class="u-text u-text-default u-text-9"><b>Best Practices, (Empfohlene Vorgehensweise) für inkrementelle Backups</b>
+            </p>
+            <p class="u-text u-text-default u-text-10"> 1. Regelmäßige Durchführung: Inkrementelle Backups sollten regelmäßig 
+durchgeführt werden, abhängig von den geschäftlichen Anforderungen und 
+der Häufigkeit von Änderungen an den Daten.</p>
+            <p class="u-text u-text-default u-text-11"> 2. Vollbackup als Basis: Ein inkrementelles Backup baut oft auf einem 
+vorangegangenen Vollbackup auf. Es ist wichtig, sicherzustellen, dass 
+regelmäßig Vollbackups durchgeführt werden, um eine konsistente 
+Sicherungsbasis zu haben.</p>
+            <p class="u-text u-text-default u-text-12"> 3. Überwachung und Prüfung: Überwachen Sie den Status und die 
+Integrität der inkrementellen Backups sorgfältig. Regelmäßige Prüfungen 
+stellen sicher, dass im Bedarfsfall eine reibungslose Wiederherstellung 
+möglich ist.</p>
+            <p class="u-text u-text-default u-text-13"> Inkrementelle Backups bieten eine schlanke und effiziente Methode zur
+ Datensicherung, wodurch sowohl Speicherplatz als auch Zeit gespart 
+werden. Die Integration von inkrementellen Backups in eine umfassende 
+Sicherungsstrategie ist entscheidend, um den stetig wachsenden 
+Anforderungen an Datenintegrität und Verfügbarkeit gerecht zu werden.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-30" id="zurueck-zu-inhalts-menues-2">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="backupkonzept-backupstrategie.html#inhalts-menue-datensicherungskonzept" data-page-id="117879748" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Zurück zum Inhalts Menü</a>
+            </p>
+            <p class="u-text u-text-default u-text-2">
+              <a href="backupkonzept-backupstrategie.html#datensicherungs-arten-inhalts-menue" data-page-id="117879748" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-2"> Zurück zu Arten der Datensicherung</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-31" id="datensicherungs-art-differentielles-backup">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h5 class="u-text u-text-default u-text-1"> Differenzielles Backup - für Wiederherstellungs-Geschwindigkeit </h5>
+            <p class="u-text u-text-default-lg u-text-default-md u-text-default-sm u-text-default-xl u-text-2"> In der Welt der Datensicherung spielt das differentielle Backup eine 
+bedeutende Rolle, um eine ausgewogene Balance zwischen Effizienz und, 
+oft sehr wichtig, der Wiederherstellungsgeschwindigkeit zu schaffen. 
+Werfen wir einen detaillierten Blick darauf, was ein differentielles 
+Backup ist und warum es eine wichtige Rolle in der IT-Sicherheit spielt.</p>
+            <p class="u-text u-text-default u-text-3"> Warum ist ein differentielles Backup wichtig?</p>
+            <p class="u-text u-text-default u-text-4"> 1. Effiziente Datensicherung: Durch die Sicherung aller seit dem 
+letzten Vollbackup durchgeführten Änderungen ermöglicht das 
+differentielle Backup eine effiziente und vollständige Datensicherung.</p>
+            <p class="u-text u-text-default u-text-5"> 2. Schnelle Wiederherstellung: Im Falle eines Datenverlusts minimiert 
+das differentielle Backup die Wiederherstellungszeit, da nur das letzte 
+Vollbackup und das letzte differentielle Backup benötigt werden, um alle
+ Änderungen seit dem Vollbackup wiederherzustellen.</p>
+            <p class="u-text u-text-default u-text-6"> 3. Optimale Ressourcennutzung: Da das differentielle Backup im 
+Vergleich zu Vollbackups weniger Daten sichert, spart es Speicherplatz 
+und Ressourcen. Dies ist besonders wichtig in Umgebungen mit begrenztem 
+Speicher und Bandbreite.</p>
+            <p class="u-text u-text-default u-text-7"><b>Best Practices, (Empfohlene Vorgehensweise) für differentielle Backups</b>
+            </p>
+            <p class="u-text u-text-default u-text-8"> 1. Regelmäßige Durchführung: Differentielle Backups sollten regelmäßig 
+entsprechend den geschäftlichen Anforderungen durchgeführt werden, um 
+aktuelle Daten zu sichern.</p>
+            <p class="u-text u-text-default u-text-9"> 2. Vollbackup als Basis: Differentielle Backups bauen oft auf einem 
+vorangegangenen Vollbackup auf. Regelmäßige Vollbackups stellen sicher, 
+dass die differentiellen Backups auf einer konsistenten Sicherungsbasis 
+aufbauen.</p>
+            <p class="u-text u-text-default u-text-10"> 3. Überwachung und Prüfung: Überwachen Sie sorgfältig den Status und 
+die Integrität der differentiellen Backups. Regelmäßige Prüfungen 
+gewährleisten, dass im Bedarfsfall eine reibungslose Wiederherstellung 
+möglich ist.</p>
+            <p class="u-text u-text-default u-text-11"> Differentielle Backups bieten eine ausgewogene Lösung für effiziente 
+Datensicherung und schnelle Wiederherstellung. Durch die Integration von
+ differentiellen Backups in eine umfassende Sicherungsstrategie können 
+Organisationen die Herausforderungen der Datenverwaltung erfolgreich 
+bewältigen.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-32" id="zurueck-zu-inhalts-menues-3">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="backupkonzept-backupstrategie.html#inhalts-menue-datensicherungskonzept" data-page-id="117879748" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Zurück zum Inhalts Menü</a>
+            </p>
+            <p class="u-text u-text-default u-text-2">
+              <a href="backupkonzept-backupstrategie.html#datensicherungs-arten-inhalts-menue" data-page-id="117879748" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-2"> Zurück zu Arten der Datensicherung</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-33" id="datensicherungs-art-snapshot">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h6 class="u-text u-text-default u-text-1"> Snapshot, Schnappschuss der Daten, schnelle Wiederherstellung </h6>
+            <p class="u-text u-text-default u-text-2"> Der Snapshot spielt inzwischen eine entscheidende Rolle, um die 
+Integrität und Verfügbarkeit von Daten zu gewährleisten. Ich erkläre 
+ihnen, was ein Snapshot ist und warum er eine wichtige Rolle in der 
+IT-Sicherheit spielt.</p>
+            <p class="u-text u-text-default u-text-3"><b>Warum ist ein Snapshot wichtig?</b>
+            </p>
+            <p class="u-text u-text-default u-text-4"> Konsistente Sicherung: Durch die Erfassung des Datenzustands zu 
+einem bestimmten Zeitpunkt ermöglicht der Snapshot eine konsistente 
+Sicherung, selbst wenn Daten gerade aktiv verwendet werden.</p>
+            <p class="u-text u-text-default u-text-5"> Schnelle Wiederherstellung: Im Falle eines Datenverlusts ermöglicht 
+der Snapshot eine schnelle Wiederherstellung, da er den genauen Zustand 
+der Daten vor dem Verlust festhält.</p>
+            <p class="u-text u-text-default u-text-6"> Minimierung von Ausfallzeiten: Da der Snapshot schnell erstellt 
+werden kann, minimiert er die Ausfallzeit während des 
+Sicherungsvorgangs, was besonders in geschäftskritischen Umgebungen 
+entscheidend ist.</p>
+            <p class="u-text u-text-default u-text-7"><b>Best Practices (Empfohlene Vorgehensweise) für Snapshots:</b>
+            </p>
+            <p class="u-text u-text-default u-text-8"> Regelmäßige Erstellung: Erstellen Sie Snapshots regelmäßig, um 
+sicherzustellen, dass Sie im Falle eines Datenverlusts auf eine aktuelle
+ und konsistente Sicherung zurückgreifen können.</p>
+            <p class="u-text u-text-default u-text-9"> Planung und Zeitpunkt: Planen Sie die Erstellung von Snapshots zu 
+Zeiten geringer Aktivität, um die Auswirkungen auf die Systemleistung zu
+ minimieren.</p>
+            <p class="u-text u-text-default u-text-10"> Speicherplatzmanagement: Überwachen und verwalten Sie den 
+Speicherplatz für Snapshots sorgfältig, um Ressourcen effizient zu 
+nutzen und unerwartete Probleme zu vermeiden.</p>
+            <p class="u-text u-text-default u-text-11"> Snapshots bieten eine flexible und effiziente Methode zur 
+Datensicherung. Durch ihre Fähigkeit, den genauen Zustand der Daten zu 
+einem bestimmten Zeitpunkt festzuhalten, tragen sie dazu bei, die 
+Datenintegrität und die Wiederherstellungsfähigkeit von Systemen zu 
+stärken. Die Integration von Snapshots in eine umfassende 
+Sicherungsstrategie ist entscheidend für Organisationen, die auf 
+Zuverlässigkeit und schnelle Wiederherstellung angewiesen sind.</p>
+            <p class="u-text u-text-default u-text-12"> Der wesentliche Unterschied zwischen einem Snapshot und einer 
+herkömmlichen Datenkopie liegt darin, dass ein Snapshot virtueller Natur
+ ist, während eine Datenkopie physisch vorhanden ist. Ein Snapshot 
+repräsentiert eine Momentaufnahme der Metadaten einer spezifischen 
+Datei. Man kann sich einen Snapshot als eine Art Bauanleitung 
+vorstellen, die detailliert beschreibt, wie die Datei X zu einem 
+bestimmten Zeitpunkt Y aussieht.</p>
+            <p class="u-text u-text-default u-text-13"> Bei der Verwendung von Snapshots erfolgt keine erneute Kopie und 
+Speicherung der Originaldatei. Sie bleibt genau an ihrem ursprünglichen 
+Speicherort. Im Falle einer Wiederherstellung ist daher keine erneute 
+Kopie erforderlich. Dies stellt den größten Vorteil im Vergleich zu den 
+anderen drei herkömmlichen Backup-Typen dar. Das Kopieren großer Dateien
+ beansprucht viel Zeit. Da Snapshots die Daten lediglich "verstecken", 
+müssen sie dem Nutzer nur wieder angezeigt werden, wenn eine vorherige 
+Version wiederhergestellt werden soll. Dieser Prozess dauert nur wenige 
+Sekunden!</p>
+            <p class="u-text u-text-default u-text-14"> Welche Einschränkung gibt es? Aufgrund der Tatsache, dass bei 
+Snapshots keine zusätzliche vollständige Kopie einer Datei erstellt 
+wird, verbleiben die Daten weiterhin vollständig auf demselben 
+Datenträger. Gemäß der <a href="backupkonzept-backupstrategie.html#die-3-2-1-backup-regeln" data-page-id="117879748" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1">3-2-1-Regel</a> wissen wir jedoch, dass es nicht ratsam ist, ausschließlich einen 
+Datenträger zu verwenden. Bedeutet dies, dass Snapshots nicht so 
+effektiv sind, wie wir dachten? Das ist nicht der Fall, jedoch ist es 
+entscheidend, Snapshots stets mit einer Sicherung auf einem zweiten 
+Datenträger zu kombinieren.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-34" id="zurueck-zu-inhalts-menues-4">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="backupkonzept-backupstrategie.html#inhalts-menue-datensicherungskonzept" data-page-id="117879748" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Zurück zum Inhalts Menü</a>
+            </p>
+            <p class="u-text u-text-default u-text-2">
+              <a href="backupkonzept-backupstrategie.html#datensicherungs-arten-inhalts-menue" data-page-id="117879748" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-2"> Zurück zu Arten der Datensicherung</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-35" id="kostenlose-downloads-backup-software">
+      <div class="u-clearfix u-sheet u-valign-middle-lg u-valign-middle-md u-valign-middle-sm u-valign-middle-xl u-sheet-1">
+        <div class="u-border-2 u-border-grey-10 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <p class="u-large-text u-text u-text-default-lg u-text-default-md u-text-default-sm u-text-default-xl u-text-variant u-text-1"> Download Iperius-Backup und Paragon-Backup</p>
+            <p class="u-text u-text-2"><i></i><i>Beide Programme können kostenlos heruntergeladen und genutzt 
+werden. Nach der Installation sind beide Programme sehr einfach zu 
+bedienen, für die Einrichtung werden sie gut durch die Programme 
+geführt und alles ist gut erklärt.</i>
+            </p>
+            <p class="u-text u-text-3">
+              <a href="https://www.paragon-software.com/de/free/br-free/#" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1" target="_blank" rel="nofollow"> Download: Paragon Backup und Recovery Datensicherungsprogramm</a>
+            </p>
+            <p class="u-text u-text-4">
+              <a href="https://www.iperiusbackup.de/download-software-backup.aspx" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-2" target="_blank" rel="nofollow"> Download: Iperius Backup Datensicherungsprogramm</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-36" id="die-3-2-1-backup-regeln">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h2 class="u-text u-text-default u-text-1"> Die 3-2-1 Backup-Regel</h2>
+            <p class="u-text u-text-default u-text-2"> Für eine effektive Backup-Strategie wird die Anwendung der 
+3-2-1-Regel empfohlen. Nach dieser Regel sollte ein Anwender drei Kopien
+ seiner Daten erstellen. Diese Kopien sollten auf zwei verschiedenen 
+Systemen gespeichert werden, wobei mindestens eine Kopie an einem 
+externen Standort aufbewahrt wird.</p>
+            <p class="u-text u-text-default u-text-3"> 1. Drei Datenkopien sind empfohlen. Zusätzlich zur Datei, an der 
+derzeit gearbeitet wird, sollten zwei weitere Kopien Ihrer Daten 
+erstellt werden. Im Falle eines Verlusts des Originals stehen dann noch 
+zwei zusätzliche Kopien zur Verfügung, um eine Wiederherstellung 
+durchzuführen.</p>
+            <p class="u-text u-text-default u-text-4"> 2. Nutzen Sie mindestens zwei separate Datenträger. In den meisten 
+Situationen bedingt dies auch die Verwendung unterschiedlicher 
+Speichermedien, was als "Medienbruch" bekannt ist. Durch die Nutzung 
+verschiedener Speichermedien wird das Risiko von Datenverlust aufgrund 
+systembedingter Fehler minimiert.</p>
+            <p class="u-text u-text-default u-text-5"> 3. Für eine umfassende Absicherung gegen äußere Einflüsse ist 
+entscheidend: Die Effektivität einer Backup-Strategie hängt maßgeblich 
+von einem Offsite-Backup ab. Wenn alle Daten am selben physischen Ort 
+gespeichert sind, besteht die Gefahr, dass externe Einflüsse wie Brand, 
+Diebstahl oder Hochwasser lokale Backups gefährden. Daher ist es ratsam,
+ eine zusätzliche Kopie Ihrer Daten an einem externen Standort zu 
+speichern.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-37" id="zurueck-zum-inhalts-menue-1">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="backupkonzept-backupstrategie.html#inhalts-menue-datensicherungskonzept" data-page-id="117879748" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Zurück zum Inhalts Menü</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-38" id="datensicherungs-konzept-10-punkte">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h3 class="u-text u-text-default u-text-1">10 Punkte Datensicherungskonzept nach CompTia Security+</h3>
+            <ol class="u-text u-text-default u-text-2">
+              <li> Datensicherungsstrategie: Entwickeln Sie eine umfassende Strategie, die definiert, welche Daten gesichert werden sollen, wie oft Sicherungen durchgeführt werden und wie lange die Daten aufbewahrt werden.</li>
+              <li>Backup-Typen: Nutzen Sie verschiedene Arten von Backups wie vollständige, inkrementelle und differenzielle Backups, um eine effiziente und umfassende Datensicherung zu gewährleisten.</li>
+              <li>Backup-Medien: Wählen Sie geeignete Backup-Medien aus, wie z. B. externe Festplatten, Netzwerk-Attached Storage (NAS), Tape-Laufwerke oder Cloud-Speicher, basierend auf Ihren Anforderungen an Geschwindigkeit, Kapazität und Kosten.</li>
+              <li>Offsite-Backups: Bewahren Sie Kopien Ihrer Backups an einem sicheren, externen Standort auf, um Datenverlust durch physische Schäden wie Feuer oder Überschwemmungen zu verhindern.</li>
+              <li>Automatisierung: Implementieren Sie automatisierte Backup-Prozesse, um sicherzustellen, dass Backups regelmäßig und ohne manuelle Eingriffe durchgeführt werden.</li>
+              <li>Backup-Verschlüsselung: Verschlüsseln Sie Ihre Backups sowohl während der Übertragung als auch im Ruhezustand, um die Vertraulichkeit und Sicherheit der gesicherten Daten zu gewährleisten.</li>
+              <li>Wiederherstellungstests: Führen Sie regelmäßige Tests der Backup-Wiederherstellung durch, um sicherzustellen, dass die Daten im Ernstfall schnell und zuverlässig wiederhergestellt werden können.</li>
+              <li>Dokumentation: Dokumentieren Sie Ihr Datensicherungskonzept, einschließlich der Backup-Strategie, der verwendeten Technologien und der Verantwortlichkeiten der beteiligten Personen.</li>
+              <li>Zugriffsrechte: Begrenzen Sie den Zugriff auf Backup-Systeme und -Daten auf autorisierte Personen, um unbefugten Zugriff und potenziellen Datenmissbrauch zu verhindern.</li>
+              <li>Compliance und Regularien: Stellen Sie sicher, dass Ihr Datensicherungskonzept den relevanten gesetzlichen und regulatorischen Anforderungen entspricht, wie z. B. GDPR, HIPAA oder andere branchenspezifische Vorgaben.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-39" id="zurueck-zum-inhalts-menue-2">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="backupkonzept-backupstrategie.html#inhalts-menue-datensicherungskonzept" data-page-id="117879748" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Zurück zum Inhalts Menü</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-40" id="paragon-backup-youtube-video-tutorial">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="custom-expanded u-container-style u-custom-color-19 u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h4 class="u-text u-text-default u-text-1"> Paragon Backup &amp; Recovery 18 CE YouTube Video Tutorial</h4>
+            <p class="u-text u-text-default u-text-2"> In einem YouTube-Tutorial habe ich Schritt für Schritt erklärt, wie Sie Paragon Backup &amp; Recovery installieren, einrichten, einen Rettungsstick erstellen, ein Image-Backup anlegen und ein Backup wiederherstellen. Mit diesem Video möchte ich Ihnen den Einstieg so einfach wie möglich machen, damit Sie sicher und problemlos loslegen können.<br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-41" id="paragon-backup-video">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-container-style u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <div class="u-clearfix u-custom-html u-expanded-width u-custom-html-1">
+              <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; background: #000;">
+                <iframe src="https://www.youtube-nocookie.com/embed/qTQcd-Y1yRE?rel=0" title="YouTube Video" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" loading="lazy"></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-42" id="zurueck-zum-inhalts-menue-3">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="backupkonzept-backupstrategie.html#inhalts-menue-datensicherungskonzept" data-page-id="117879748" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Zurück zum Inhalts Menü</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-43" id="ueber-den-autor-ueber-mich">
+      <div class="u-clearfix u-sheet u-valign-top-md u-valign-top-sm u-valign-top-xs u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <div class="custom-expanded data-layout-selected u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+              <div class="u-layout">
+                <div class="u-layout-row">
+                  <div class="u-container-style u-layout-cell u-size-23-lg u-size-23-xl u-size-25-md u-size-25-sm u-size-25-xs u-layout-cell-1">
+                    <div class="u-container-layout u-valign-top-xs u-container-layout-2">
+                      <img class="u-expanded-width u-image lazyload u-image-1" data-image-width="1974" data-image-height="2521" alt="Ralf-Peter Kleinert - Buchautor für IT-Sichereit, Computersicherheit und Cybersecurity" data-src="../images/Ralf-PeterKleinertIchaktuellesPortrait2024.webp" loading="lazy">
+                    </div>
+                  </div>
+                  <div class="u-container-style u-layout-cell u-size-35-md u-size-35-sm u-size-35-xs u-size-37-lg u-size-37-xl u-layout-cell-2">
+                    <div class="u-container-layout u-valign-bottom-xs u-container-layout-3">
+                      <p class="u-text u-text-default-lg u-text-default-xl u-text-1"> Über den Autor: Ralf-Peter Kleinert</p>
+                      <p class="u-text u-text-default-lg u-text-default-xl u-text-2"> Über 30 Jahre Erfahrung in der IT legen meinen Fokus auf die Computer- und IT-Sicherheit. Auf meiner Website biete ich detaillierte Informationen zu aktuellen IT-Themen. Mein Ziel ist es, komplexe Konzepte verständlich zu vermitteln und meine Leserinnen und Leser für die Herausforderungen und Lösungen in der IT-Sicherheit zu sensibilisieren.<br>
+                      </p>
+                      <p class="u-text u-text-default-lg u-text-default-xl u-text-3">
+                        <a href="../ueber-mich.html" data-page-id="38997572" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Mehr über mich, Ausbildung, Zertifizierungen</a>
+                      </p>
+                      <p class="u-text u-text-default-lg u-text-default-xl u-text-4">
+                        <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-2" href="https://www.amazon.de/stores/Ralf-Peter-Kleinert-RPK/author/B0D6FVWCTN" target="_blank"> Meine Amazon Autorenseite</a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-44" id="aktualisiert-am">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <p class="u-small-text u-text u-text-default u-text-variant u-text-1">Aktualisiert:&nbsp;Ralf-Peter Kleinert 16.12.2024</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    
+    
+    <footer class="u-align-center u-clearfix u-container-align-center u-custom-color-2 u-footer u-footer" id="footer-mit-navigation"><div class="u-clearfix u-sheet u-sheet-1">
+        <p class="u-small-text u-text u-text-variant u-text-1">
+          <a href="../datenschutzerklaerung.html" data-page-id="735813554" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1">Datenschutz</a> | <a href="../impressum.html" data-page-id="63266619" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-2">Impressum</a> | <a href="../inhaltsverzeichnis.html" data-page-id="50765561" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-3">Inhalt</a> | <a href="../nutzungsbedingungen.html" data-page-id="117449462" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-4">Nutzungsbedingungen</a> | <a href="../hinweise-haftungsausschluss.html" data-page-id="98103025" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-5">Haftung</a> | <a href="../hinweise-haftungsausschluss.html#affiliate-info-ausfuehrlich" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-6">Affiliate</a>&nbsp;|&nbsp;<a href="../kontakt.html" data-page-id="125601662" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-7">Kontakt</a> | <a href="../newsletter.html" data-page-id="103346126" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-8">Newsletter</a>&nbsp;| <a href="../preise.html" data-page-id="130192720" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-9">Preise</a>&nbsp;| <a href="../support.html" data-page-id="86002539" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-10">Support </a>|&nbsp;<a href="../ueber-mich.html" data-page-id="38997572" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-11">Über mich</a> | <a href="../downloads.html" data-page-id="70811588" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-12" title="Downloads und kostenlose Downloads">Downloads</a> |<span style="font-weight: 700;">
+            <a href="https://digital-easy.de" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-13" title="DIGITAL-easy" target="_blank">digital-easy.de</a>&nbsp;| <a href="https://blog.ralf-peter-kleinert.de" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-14" title="BLOG Ralf-Peter Kleinert" target="_blank">blog.ralf-peter-kleinert.de</a>&nbsp;| <span style="font-weight: 400;">
+              <a href="https://computerralle.de" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-15" title="#ComputerRalle" target="_blank" rel="noopener">computerralle.de</a></span> |&nbsp;<a href="../hinweise-haftungsausschluss.html#agb-allgemeine-geschaeftsbedingungen" data-page-id="98103025" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-16">AGB</a>&nbsp;| <span style="font-weight: 400;">
+              <a href="https://portal.dnb.de/opac/simpleSearch?query=ralf-peter+kleinert&amp;cqlMode=true" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-17" title="Bücher von Ralf-Peter Kleinert in der Deutschen Nationalbibliothek" target="_blank">Nationalbibliothek</a></span></span>
+        </p>
+        <p class="u-text u-text-2"> Copyright © Ralf-Peter Kleinert DIGITAL-easy #ComputerRalle<br>SSR-Entertainment seit 2005&nbsp;<br> Alle Rechte vorbehalten.
+        </p>
+        <div class="u-social-icons u-social-icons-1">
+          <a class="u-social-url" title="facebook" target="_blank" href="https://www.facebook.com/ralf.peter.kleinert.81" rel="nofollow"><span class="u-icon u-social-facebook u-social-icon u-text-custom-color-29 u-icon-1"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 112 112" style=""><use xlink:href="#svg-1c85"></use></svg><svg class="u-svg-content" viewBox="0 0 112 112" x="0" y="0" id="svg-1c85"><circle fill="currentColor" cx="56.1" cy="56.1" r="55"></circle><path fill="#FFFFFF" d="M73.5,31.6h-9.1c-1.4,0-3.6,0.8-3.6,3.9v8.5h12.6L72,58.3H60.8v40.8H43.9V58.3h-8V43.9h8v-9.2
+c0-6.7,3.1-17,17-17h12.5v13.9H73.5z"></path></svg></span>
+          </a>
+          <a class="u-social-url" target="_blank" data-type="YouTube" title="YouTube" href="https://www.youtube.com/@ComputerRalle"><span class="u-icon u-social-icon u-social-youtube u-text-custom-color-29 u-icon-2"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 112 112" style=""><use xlink:href="#svg-5bbf"></use></svg><svg class="u-svg-content" viewBox="0 0 112 112" x="0" y="0" id="svg-5bbf"><circle fill="currentColor" cx="56.1" cy="56.1" r="55"></circle><path fill="#FFFFFF" d="M74.9,33.3H37.3c-7.4,0-13.4,6-13.4,13.4v18.8c0,7.4,6,13.4,13.4,13.4h37.6c7.4,0,13.4-6,13.4-13.4V46.7 C88.3,39.3,82.3,33.3,74.9,33.3L74.9,33.3z M65.9,57l-17.6,8.4c-0.5,0.2-1-0.1-1-0.6V47.5c0-0.5,0.6-0.9,1-0.6l17.6,8.9 C66.4,56,66.4,56.8,65.9,57L65.9,57z"></path></svg></span>
+          </a>
+          <a class="u-social-url" target="_blank" data-type="LinkedIn" title="LinkedIn" href="https://www.linkedin.com/in/ralf-peter-kleinert/" rel="nofollow"><span class="u-icon u-social-icon u-social-linkedin u-text-custom-color-29 u-icon-3"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 112 112" style=""><use xlink:href="#svg-d54c"></use></svg><svg class="u-svg-content" viewBox="0 0 112 112" x="0" y="0" id="svg-d54c"><circle fill="currentColor" cx="56.1" cy="56.1" r="55"></circle><path fill="#FFFFFF" d="M41.3,83.7H27.9V43.4h13.4V83.7z M34.6,37.9L34.6,37.9c-4.6,0-7.5-3.1-7.5-7c0-4,3-7,7.6-7s7.4,3,7.5,7
+      C42.2,34.8,39.2,37.9,34.6,37.9z M89.6,83.7H76.2V62.2c0-5.4-1.9-9.1-6.8-9.1c-3.7,0-5.9,2.5-6.9,4.9c-0.4,0.9-0.4,2.1-0.4,3.3v22.5
+      H48.7c0,0,0.2-36.5,0-40.3h13.4v5.7c1.8-2.7,5-6.7,12.1-6.7c8.8,0,15.4,5.8,15.4,18.1V83.7z"></path></svg></span>
+          </a>
+          <a class="u-social-url" target="_blank" data-type="Custom" title="Mastodon" href="https://mastodon.social/@digitaleasy" rel="nofollow noopener"><span class="u-file-icon u-icon u-social-custom u-social-icon u-text-custom-color-29 u-icon-4"><img src="../images/mastodon1-4909f8ae.png" alt=""></span>
+          </a>
+          <a class="u-social-url" target="_blank" data-type="Blogspot" title="Blogspot" href="https://computerralle.blogspot.com/"><span class="u-icon u-social-blogspot u-social-icon u-text-custom-color-29 u-icon-5"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 112 112" style=""><use xlink:href="#svg-35b7"></use></svg><svg class="u-svg-content" viewBox="0 0 112 112" x="0" y="0" id="svg-35b7"><circle fill="currentColor" cx="56.1" cy="56.1" r="55"></circle><path id="Blogger" fill="#FFFFFF" d="M82.9,47.9c-4.4,0-5.4-2.3-5.4-5.4s-0.7-7.9-6.2-13.7C65.9,23.2,59.6,23,59.6,23
+	s-12.5,0-17.9,0c-5.8,0-10.2,3.2-14.2,7.9c-5,5.9-4.5,12-4.5,12s0,18.7,0,23.2s0.5,10.4,6.3,16.8c5.8,6.4,14.9,6.3,14.9,6.3H68
+	c7,0,11-2.1,15.9-6.6c5.3-4.8,5.7-13.7,5.7-13.7s0-14.7,0-17.4C89.6,48.7,87.3,47.9,82.9,47.9z M39.7,43.3c0-2,1.7-3.7,3.7-3.7h14.2
+	c2,0,3.7,1.7,3.7,3.7v0.9c0,2-1.7,3.7-3.7,3.7H43.4c-2,0-3.7-1.7-3.7-3.7V43.3z M71.7,68.6c0,2-1.7,3.7-3.7,3.7H43.4
+	c-2,0-3.7-1.7-3.7-3.7v-0.9c0-2,1.7-3.7,3.7-3.7H68c2,0,3.7,1.7,3.7,3.7V68.6z"></path></svg></span>
+          </a>
+        </div>
+        <div class="u-clearfix u-custom-html u-expanded-width u-custom-html-1">
+          <a href="javascript:UC_UI.showSecondLayer();">Cookie-Einstellungen</a>
+        </div>
+      </div></footer><span style="height: 48px; width: 48px; margin-left: 0px; margin-right: auto; margin-top: 0px; right: 0px; bottom: 15px;" class="u-back-to-top u-file-icon u-icon u-text-custom-color-20" data-href="#"><img src="../images/e77d2435.png" alt=""></span>
+  
+</body></html>

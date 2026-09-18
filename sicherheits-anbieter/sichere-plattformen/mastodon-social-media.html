@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="de-DE"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Mastodon, Mastodon Netzwerk, Mastodon Anleitung">
+    <meta name="description" content="Mastodon erklärt: Wie das dezentrale Netzwerk funktioniert, warum es datenschutzfreundlich ist und welche Vorteile es gegenüber Twitter und Co. bietet.">
+    <meta property="og:title" content="Mastodon, datenschutzfreundliches Netzwerk für Kommunikation">
+    <meta property="og:description" content="Mastodon erklärt: Wie das dezentrale Netzwerk funktioniert, warum es datenschutzfreundlich ist und welche Vorteile es gegenüber Twitter und Co. bietet.">
+    <meta property="og:image" content="https://ralf-peter-kleinert.de/images/mastodon-network.jpg">
+    <meta property="og:url" content="https://ralf-peter-kleinert.de/sicherheits-anbieter/sichere-plattformen/mastodon-social-media.html">
+    <title>Mastodon, datenschutzfreundliches Netzwerk für Kommunikation</title>
+    <link rel="stylesheet" href="../../nicepage.css" media="screen">
+<link rel="stylesheet" href="mastodon-social-media.css" media="screen">
+    <script class="u-script" type="text/javascript" src="../../jquery.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="../../nicepage.js" defer=""></script>
+    <link rel="icon" href="../../images/favicon1.ico">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <link id="u-page-google-font" rel="stylesheet" href="../../mastodon-social-media-fonts.css">
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": "Ralf-Peter Kleinert",
+		"logo": "../../images/BannerHintergrund1.png",
+		"sameAs": [
+				"https://www.facebook.com/ralf.peter.kleinert.81",
+				"https://www.youtube.com/@ComputerRalle",
+				"https://www.linkedin.com/in/ralf-peter-kleinert/",
+				"https://mastodon.social/@digitaleasy",
+				"https://computerralle.blogspot.com/"
+		]
+}</script>
+    <meta name="theme-color" content="#0cbcf5">
+    <meta property="og:type" content="website">
+  <meta name="author" content="Ralf-Peter Kleinert">
+<meta name="email" content="digitaleasy@ralf-peter-kleinert.de">
+<meta name="copyright" content="Copyright © by Ralf-Peter Kleinert">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="facebook-domain-verification" content="7cwzmpfwunyhwzz0dh72lsvrhynk3y"><link rel="preconnect" href="//app.eu.usercentrics.eu">
+<link rel="preconnect" href="//api.eu.usercentrics.eu">
+<link rel="preconnect" href="//sdp.eu.usercentrics.eu">
+<link rel="preload" href="//app.eu.usercentrics.eu/browser-ui/latest/loader.js" as="script">
+<link rel="preload" href="//sdp.eu.usercentrics.eu/latest/uc-block.bundle.js" as="script">
+<script id="usercentrics-cmp" async="" data-eu-mode="true" data-settings-id="rdKSWSBTj" src="https://app.eu.usercentrics.eu/browser-ui/latest/loader.js"></script>
+<script type="application/javascript" src="https://sdp.eu.usercentrics.eu/latest/uc-block.bundle.js"></script><meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
+  <body data-path-to-root="../../" data-include-products="false" class="u-body u-clearfix u-xl-mode" data-lang="de" style="background-position: 50% 50%;"><header class=" u-border-no-bottom u-border-no-left u-border-no-right u-border-no-top u-clearfix u-header u-section-row-container" id="header-mit-navigation-hauptmenue" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="" style="border-style: solid;"><div class="u-section-rows" style="">
+        <div class="u-border-2 u-border-custom-color-20 u-border-no-left u-border-no-right u-border-no-top u-clearfix u-custom-color-2 u-section-row u-section-row-1" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="" id="haupt-menue">
+          <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+            <nav class="u-align-left-lg u-align-left-xl u-align-right-md u-align-right-sm u-align-right-xs u-menu u-menu-dropdown u-menu-open-right u-offcanvas u-menu-1" data-responsive-from="MD" data-position="navigation-hauptmenue" role="navigation">
+              <div class="menu-collapse u-custom-font u-font-raleway" style="font-size: 1.125rem; letter-spacing: 0px; font-weight: 500;">
+                <a class="u-button-style u-custom-active-color u-custom-border u-custom-border-color u-custom-color u-custom-color-2 u-custom-effect-duration u-custom-hover-color u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-text-active-color u-custom-text-color u-custom-text-hover-color u-custom-text-shadow u-custom-text-shadow-blur u-custom-text-shadow-color u-custom-text-shadow-transparency u-custom-text-shadow-x u-custom-text-shadow-y u-custom-top-bottom-menu-spacing u-hamburger-link u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base u-hamburger-link-1" href="#" tabindex="-1" aria-label="Open menu" aria-controls="092e">
+                  <svg class="u-svg-link" viewBox="0 0 24 24"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#menu-hamburger"></use></svg>
+                  <svg class="u-svg-content" version="1.1" id="menu-hamburger" viewBox="0 0 16 16" x="0px" y="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect>
+</g></svg><span> Menü</span>
+                </a>
+              </div>
+              <div class="u-custom-menu u-nav-container">
+                <ul class="u-custom-font u-font-raleway u-nav u-spacing-2 u-unstyled u-nav-1" role="menubar"><li role="none" class="u-nav-item"><a tabindex="-1" role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="../../index.html" style="padding: 12px 22px;">Start</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="../../inhaltsverzeichnis.html" style="padding: 12px 22px;">Inhalt</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="../../sicherheit-in-der-it.html" style="padding: 12px 22px;">IT-Sicherheit &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-2" aria-label="IT-Sicherheit > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../../sicherheit-in-der-it/uebersicht-it-cyber-security.html">Übersicht: IT-Sicherheit</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../../sicherheit-in-der-it/verschluesselung-von-daten.html">Verschlüsselung &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-3" aria-label="Verschlüsselung > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../../sicherheit-in-der-it/verschluesselung-von-daten/cryptomator-kostenlos.html">Cryptomator Dateien verschlüsseln</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../../sicherheit-in-der-it/vaultwarden-ssl-local-network.html">Vaultwarden Passwortmanager im LAN mit SSL</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../../sicherheit-in-der-it/passkeys-einrichten-und-nutzen.html">Passkeys Einrichten und Nutzen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../../sicherheit-in-der-it/privatpersonen.html">Privatpersonen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../../sicherheit-in-der-it/unternehmen.html">Unternehmen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../../sicherheit-in-der-it/it-daten-info-sicherheit.html">IT-, Daten-, Informationssicherheit</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../../sicherheit-in-der-it/backups-sind-exrem-wichtig.html">Backups wichtig für IT-Sicherheit</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../../sicherheit-in-der-it/keepass-anleitung.html">KeePass-Anleitung</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../../sicherheit-in-der-it/keepassxc-und-proton-drive.html">KeePassXC und Proton Drive</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../../sicherheit-in-der-it/iperius-backup-kostenlos.html">Iperius Backup die kostenlose Backupsoftware</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../../sicherheit-in-der-it/paragon-backup-kostenlos.html">Paragon Backup kostenlose Software</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../../sicherheit-in-der-it/paragon-backup-rettungsstick.html">Paragon Backup Rettungsstick erstellen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../../sicherheit-in-der-it/backupkonzept-backupstrategie.html">Datensicherungskonzept und Backupstrategie</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../../sicherheit-in-der-it/wie-kann-ich-daten-schuetzen.html">Wie kann ich meine Daten vor Hackern besser schützen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../../sicherheit-in-der-it/sicherheit-in-social-media.html">Sicherheit in Social-Media</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../../sicherheit-in-der-it/delphi-migration.html">Delphi Software Migration</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../../sicherheit-in-der-it/pcloud-pass-passwort-manager.html">Passwort Manager pCloud Pass</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="../../it-und-computer-beratung.html" style="padding: 12px 22px;">Beratungen &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-4" aria-label="Beratungen > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../../it-und-computer-beratung/kleine-unternehmen-startups.html">IT-Dokumentationen für Unternehmen, Praxen und Universitäten</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="../../windows-os.html" style="padding: 12px 22px;">Windows &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-5" aria-label="Windows > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../../windows-os/computerralle-isms-docker-win.html">ISMS von ComputerRalle</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../../windows-os/fernwartungssoftware-hoptodesk.html">Remote Software HopToDesk</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="../../linux-os.html" style="padding: 12px 22px;">Linux &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-6" aria-label="Linux > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../../linux-os/paperless-backup-programm.html">Paperless Backup Programm Anleitung</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../../linux-os/docker-desktop-paperless.html">Paperless auf Windows installieren WSL</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../../linux-os/linux-webdav-dateisynchro.html">Linux WebDAV Dateisynchronisation kostenlos</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../../linux-os/docker-paperless-installieren.html">Paperless Docker Installation</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../../linux-server.html">Linux Server &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-7" aria-label="Linux Server > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../../linux-server/proxmox-pve8-to-pve9-upgrade.html">Proxmox VE 8 zu Proxmox VE 9 Upgrade</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../../linux-server/uebersicht-linux-server.html">Übersicht: Linux Server</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../../linux-server/gitlab-auf-linux-installieren.html">Gitlab auf Linux Debian 11 installieren</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../../linux-server/proxmox-server-sichern-haerten.html">Proxmox Server absichern und härten</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../../linux-server/ssh-keys-auf-linux-erzeugen.html">Proxmox SSH-Keys auf Linux erzeugen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../../linux-server/ssh-keys-auf-windows-erzeugen.html">Proxmox SSH-Key auf Windows erzeugen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../../linux-server/proxmox-hochverfuegbare-vm.html">Proxmox Hochverfügbarkeits-Cluster aufbauen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../../linux-server/proxmox-verschluesselt-backup.html">Proxmox verschlüsseltes Backup erstellen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../../linux-server/proxmox-und-pfsense-eine-ip.html">Proxmox und pfSense Firewall</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../1blu-backupserver.html">1blu Storage-Server für Proxmox-Backup-Server</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../../linux-server/proxmox-netzwerk-bonding.html">Netzwerk-Bonding Ausfallschutz auf Proxmox</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../../linux-server/opnsense-wireguard-vpn.html">OPNsense &amp; WireGuard-Tunnel einrichten</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../../linux-server/pfsense-wireguard-vpn.html">pfSense &amp; WireGuard-Tunnel einrichten</a>
+</li></ul>
+</div>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="../../meine-fachbuecher.html" style="padding: 12px 22px;">Bücher &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-8" aria-label="Bücher > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../../meine-fachbuecher/uebersicht-meine-buecher.html">Übersicht: Bücher</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../../meine-fachbuecher/proxmox-ve9-praxisbuch.html">Proxmox VE 9 Praxisbuch</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../../meine-fachbuecher/proxmox-ve8-praxis-buch.html">Proxmox VE 8 Praxisbuch</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../../meine-fachbuecher/proxmox-pve-8-pbs-3-profi-buch.html">Proxmox VE 8 Proxmox BS 3 Profibuch</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../../meine-fachbuecher/proxmox-ve-8-powerbuch.html">Proxmox VE 8 Powerbuch</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../../meine-fachbuecher/computer-it-sicherheits-fibel.html">Computer und IT Sicherheits-Fibel</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../../meine-fachbuecher/schluss-mit-windows.html">Schluss mit Windows - jetzt kommt Linux</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../../meine-fachbuecher/computer-sicherheit-fuer-kmu.html">Computer-Sicherheit für kleine und mittlere Unternehmen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../../meine-fachbuecher/die-mutter-aller-ki-buecher.html">Die Mutter aller KI Bücher</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../../meine-fachbuecher/proxmox-firewall-buch.html">Proxmox Firewall - Verstehen Einschalten Abschotten</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../../meine-fachbuecher/cloud-verstehen-und-nutzen.html">Cloud verstehen und nutzen kostenloses eBook</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="../../sicherheits-anbieter.html" style="padding: 12px 22px;">Sicherheits-Anbieter</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-9" aria-label="Sicherheits-Anbieter menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../tuta-quantensichere-mail.html">Tuta verschlüsselte Mail und Kalender</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../erecht24-anwalt-siebert.html">eRecht24</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../1blu-backupserver.html">1blu Backupserver</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../../sicherheit-in-der-it/ashampoo-backup-pro-26.html">Ashampoo Backup Pro</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../../sicherheit-in-der-it/pcloud-pass-passwort-manager.html">pCloud Passwortmanager</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="../../suchen.html" style="padding: 12px 22px;">Suchen</a>
+</li></ul>
+              </div>
+              <div class="u-custom-menu u-nav-container-collapse" id="092e" role="region" aria-label="Menu panel">
+                <div class="u-container-style u-custom-color-2 u-inner-container-layout u-sidenav u-sidenav-1">
+                  <div class="u-inner-container-layout u-sidenav-overflow">
+                    <div class="u-menu-close" tabindex="-1" aria-label="Close menu"></div>
+                    <ul class="u-align-left u-custom-font u-font-raleway u-nav u-popupmenu-items u-spacing-0 u-text-active-custom-color-5 u-text-hover-custom-color-5 u-text-white u-unstyled u-nav-10" role="menubar"><li role="none" class="u-nav-item"><a tabindex="-1" role="menuitem" class="u-button-style u-nav-link" href="../../index.html">Start</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../../inhaltsverzeichnis.html">Inhalt</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../../sicherheit-in-der-it.html">IT-Sicherheit &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-11" aria-label="IT-Sicherheit > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../../sicherheit-in-der-it/uebersicht-it-cyber-security.html">Übersicht: IT-Sicherheit</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../../sicherheit-in-der-it/verschluesselung-von-daten.html">Verschlüsselung &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-12" aria-label="Verschlüsselung > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../../sicherheit-in-der-it/verschluesselung-von-daten/cryptomator-kostenlos.html">Cryptomator Dateien verschlüsseln</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../../sicherheit-in-der-it/vaultwarden-ssl-local-network.html">Vaultwarden Passwortmanager im LAN mit SSL</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../../sicherheit-in-der-it/passkeys-einrichten-und-nutzen.html">Passkeys Einrichten und Nutzen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../../sicherheit-in-der-it/privatpersonen.html">Privatpersonen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../../sicherheit-in-der-it/unternehmen.html">Unternehmen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../../sicherheit-in-der-it/it-daten-info-sicherheit.html">IT-, Daten-, Informationssicherheit</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../../sicherheit-in-der-it/backups-sind-exrem-wichtig.html">Backups wichtig für IT-Sicherheit</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../../sicherheit-in-der-it/keepass-anleitung.html">KeePass-Anleitung</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../../sicherheit-in-der-it/keepassxc-und-proton-drive.html">KeePassXC und Proton Drive</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../../sicherheit-in-der-it/iperius-backup-kostenlos.html">Iperius Backup die kostenlose Backupsoftware</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../../sicherheit-in-der-it/paragon-backup-kostenlos.html">Paragon Backup kostenlose Software</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../../sicherheit-in-der-it/paragon-backup-rettungsstick.html">Paragon Backup Rettungsstick erstellen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../../sicherheit-in-der-it/backupkonzept-backupstrategie.html">Datensicherungskonzept und Backupstrategie</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../../sicherheit-in-der-it/wie-kann-ich-daten-schuetzen.html">Wie kann ich meine Daten vor Hackern besser schützen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../../sicherheit-in-der-it/sicherheit-in-social-media.html">Sicherheit in Social-Media</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../../sicherheit-in-der-it/delphi-migration.html">Delphi Software Migration</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../../sicherheit-in-der-it/pcloud-pass-passwort-manager.html">Passwort Manager pCloud Pass</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../../it-und-computer-beratung.html">Beratungen &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-13" aria-label="Beratungen > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../../it-und-computer-beratung/kleine-unternehmen-startups.html">IT-Dokumentationen für Unternehmen, Praxen und Universitäten</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../../windows-os.html">Windows &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-14" aria-label="Windows > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../../windows-os/computerralle-isms-docker-win.html">ISMS von ComputerRalle</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../../windows-os/fernwartungssoftware-hoptodesk.html">Remote Software HopToDesk</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../../linux-os.html">Linux &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-15" aria-label="Linux > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../../linux-os/paperless-backup-programm.html">Paperless Backup Programm Anleitung</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../../linux-os/docker-desktop-paperless.html">Paperless auf Windows installieren WSL</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../../linux-os/linux-webdav-dateisynchro.html">Linux WebDAV Dateisynchronisation kostenlos</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../../linux-os/docker-paperless-installieren.html">Paperless Docker Installation</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../../linux-server.html">Linux Server &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-16" aria-label="Linux Server > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../../linux-server/proxmox-pve8-to-pve9-upgrade.html">Proxmox VE 8 zu Proxmox VE 9 Upgrade</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../../linux-server/uebersicht-linux-server.html">Übersicht: Linux Server</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../../linux-server/gitlab-auf-linux-installieren.html">Gitlab auf Linux Debian 11 installieren</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../../linux-server/proxmox-server-sichern-haerten.html">Proxmox Server absichern und härten</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../../linux-server/ssh-keys-auf-linux-erzeugen.html">Proxmox SSH-Keys auf Linux erzeugen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../../linux-server/ssh-keys-auf-windows-erzeugen.html">Proxmox SSH-Key auf Windows erzeugen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../../linux-server/proxmox-hochverfuegbare-vm.html">Proxmox Hochverfügbarkeits-Cluster aufbauen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../../linux-server/proxmox-verschluesselt-backup.html">Proxmox verschlüsseltes Backup erstellen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../../linux-server/proxmox-und-pfsense-eine-ip.html">Proxmox und pfSense Firewall</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../1blu-backupserver.html">1blu Storage-Server für Proxmox-Backup-Server</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../../linux-server/proxmox-netzwerk-bonding.html">Netzwerk-Bonding Ausfallschutz auf Proxmox</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../../linux-server/opnsense-wireguard-vpn.html">OPNsense &amp; WireGuard-Tunnel einrichten</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../../linux-server/pfsense-wireguard-vpn.html">pfSense &amp; WireGuard-Tunnel einrichten</a>
+</li></ul>
+</div>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../../meine-fachbuecher.html">Bücher &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-17" aria-label="Bücher > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../../meine-fachbuecher/uebersicht-meine-buecher.html">Übersicht: Bücher</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../../meine-fachbuecher/proxmox-ve9-praxisbuch.html">Proxmox VE 9 Praxisbuch</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../../meine-fachbuecher/proxmox-ve8-praxis-buch.html">Proxmox VE 8 Praxisbuch</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../../meine-fachbuecher/proxmox-pve-8-pbs-3-profi-buch.html">Proxmox VE 8 Proxmox BS 3 Profibuch</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../../meine-fachbuecher/proxmox-ve-8-powerbuch.html">Proxmox VE 8 Powerbuch</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../../meine-fachbuecher/computer-it-sicherheits-fibel.html">Computer und IT Sicherheits-Fibel</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../../meine-fachbuecher/schluss-mit-windows.html">Schluss mit Windows - jetzt kommt Linux</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../../meine-fachbuecher/computer-sicherheit-fuer-kmu.html">Computer-Sicherheit für kleine und mittlere Unternehmen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../../meine-fachbuecher/die-mutter-aller-ki-buecher.html">Die Mutter aller KI Bücher</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../../meine-fachbuecher/proxmox-firewall-buch.html">Proxmox Firewall - Verstehen Einschalten Abschotten</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../../meine-fachbuecher/cloud-verstehen-und-nutzen.html">Cloud verstehen und nutzen kostenloses eBook</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../../sicherheits-anbieter.html">Sicherheits-Anbieter</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-18" aria-label="Sicherheits-Anbieter menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../tuta-quantensichere-mail.html">Tuta verschlüsselte Mail und Kalender</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../erecht24-anwalt-siebert.html">eRecht24</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../1blu-backupserver.html">1blu Backupserver</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../../sicherheit-in-der-it/ashampoo-backup-pro-26.html">Ashampoo Backup Pro</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../../sicherheit-in-der-it/pcloud-pass-passwort-manager.html">pCloud Passwortmanager</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../../suchen.html">Suchen</a>
+</li></ul>
+                  </div>
+                </div>
+                <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+              </div>
+              <style class="menu-style">@media (max-width: 1198px) {
+                    [data-responsive-from="MD"] .u-nav-container {
+                        display: none;
+                    }
+                    [data-responsive-from="MD"] .menu-collapse {
+                        display: block;
+                    }
+                }</style>
+            </nav>
+          </div>
+          
+          
+          
+          
+          
+        </div>
+        <div class="u-clearfix u-container-align-left u-section-row" id="DIGITAL-easy-Logo">
+          <div class="u-clearfix u-sheet u-sheet-2">
+            <a href="#" class="u-image u-logo u-image-1" data-image-width="2040" data-image-height="400">
+              <img src="../../images/BannerHintergrund1.png" class="u-logo-image u-logo-image-1" alt="DIGITAL-easy Logo">
+            </a>
+          </div>
+          
+          
+          
+          
+          
+        </div>
+      </div></header>
+    <section class="u-clearfix u-section-1" id="beitragsbild-it-sicherheitsanbieter">
+      <div class="u-clearfix u-sheet u-valign-top u-sheet-1">
+        <img class="custom-expanded u-expanded-width-xs u-image lazyload u-image-1" data-image-width="880" data-image-height="350" alt="Mastodon freies Social Network" data-src="../../images/mastodon-network.jpg?rand=afb3" loading="lazy">
+      </div>
+    </section>
+    <section class="u-clearfix u-section-2" id="kommunikation-sicherer-gestalten">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="custom-expanded u-container-style u-custom-color-19 u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h1 class="u-text u-text-default u-text-1">Mastodon das Soziale Netzwerk in dem der Mensch im Mittelpunkt steht</h1>
+            <p class="u-text u-text-default u-text-2"> Mastodon ist ein soziales Netzwerk, das ähnlich wie Twitter funktioniert, aber ganz anders aufgebaut ist. Es basiert auf einer offenen, dezentralen Struktur – das bedeutet: Es gibt nicht "die eine" zentrale Plattform wie bei Facebook oder X (ehemals Twitter), sondern viele einzelne Server, sogenannte Instanzen, die miteinander verbunden sind. Diese föderierte Struktur sorgt dafür, dass keine zentrale Stelle die Kontrolle über alles hat. </p>
+            <p class="u-text u-text-default u-text-3"> In diesem Artikel gehe ich einmal ausführlich auf das Netzwerk ein, zeige, wie Mastodon funktioniert, worauf man achten sollte und warum es für viele Menschen eine echte Alternative zu den großen sozialen Netzwerken geworden ist.<br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-3" id="artikelmenue-mastodon">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-10 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <p class="u-large-text u-text u-text-default-lg u-text-default-md u-text-default-sm u-text-default-xl u-text-variant u-text-1"> Inhalte des Artikels Mastodon</p>
+            <ol class="u-align-left u-spacing-12 u-text u-text-default-lg u-text-default-md u-text-default-sm u-text-default-xl u-text-2">
+              <li>
+                <a href="mastodon-social-media.html#was-ist-mastodon" data-page-id="749730369" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Was ist Mastodon?</a>
+              </li>
+              <li>
+                <a href="mastodon-social-media.html#woher-stammt-mastodon" data-page-id="749730369" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-2"> Woher kommt Mastodon?</a>
+              </li>
+              <li>
+                <a href="mastodon-social-media.html#wer-hat-mastodon-erfunden" data-page-id="749730369" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-3"> Wer hat’s erfunden?</a>
+              </li>
+              <li>
+                <a href="mastodon-social-media.html#welche-vorteile-hat-mastodon" data-page-id="749730369" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-4"> Welche Vorteile sind aktuell zu beobachten?</a>
+              </li>
+              <li>
+                <a href="mastodon-social-media.html#ist-der-datenschutz-von-mastodon-gut" data-page-id="749730369" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-5"> Wie steht es um den Datenschutz?</a>
+              </li>
+              <li>
+                <a href="mastodon-social-media.html#was-kostet-mastodon" data-page-id="749730369" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-6"> Kostet Mastodon Geld?</a>
+              </li>
+              <li>
+                <a href="mastodon-social-media.html#wie-funktioniert-mastodon" data-page-id="749730369" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-7"> Wie funktioniert Mastodon technisch?</a>
+              </li>
+              <li>
+                <a href="mastodon-social-media.html#die-zukunft-mastodons" data-page-id="749730369" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-8"> Wie wird die Zukunft des Netzwerks eingeschätzt?</a>
+              </li>
+              <li>
+                <a href="mastodon-social-media.html#mastodon-selbst-starten" data-page-id="749730369" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-9"> Kann ich eine Mastodon-Instanz starten?</a>
+              </li>
+              <li>
+                <a href="mastodon-social-media.html#faq-mastodon-haeufige-fragen" data-page-id="749730369" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-10">Weitere häufig gestellte Fragen zum Thema Mastodon FAQ<br>
+                </a>
+              </li>
+              <li>
+                <a href="mastodon-social-media.html#mein-kommentar-zum-schluss" data-page-id="749730369" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-11">Zum Schluss mein Kommentar</a>
+                <br>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-4" id="newsletter-abonnieren">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-align-left u-border-4 u-border-custom-color-20 u-container-align-left u-container-align-left-lg u-container-align-left-md u-container-align-left-sm u-container-align-left-xl u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-90 u-group-1" data-animation-out="0">
+          <div class="u-container-layout u-valign-bottom-lg u-valign-bottom-md u-valign-bottom-sm u-valign-top-xl u-container-layout-1">
+            <p class="u-large-text u-text u-text-variant u-text-1">Kostenlose IT-Sicherheits-Bücher &amp; Information via Newsletter</p>
+            <p class="u-text u-text-default-lg u-text-default-md u-text-default-sm u-text-default-xl u-text-2"> Bleiben Sie informiert, wann es meine Bücher kostenlos in einer Aktion gibt: <a href="../../newsletter.html" data-page-id="103346126" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1">Mit meinem Newsletter</a> erfahren Sie viermal im Jahr von Aktionen auf Amazon und anderen Plattformen, bei denen meine IT-Sicherheits-Bücher gratis erhältlich sind. Sie verpassen keine Gelegenheit und erhalten zusätzlich hilfreiche Tipps zur IT-Sicherheit. Der Newsletter ist kostenlos und unverbindlich – einfach abonnieren und profitieren!<br>
+            </p>
+            <div class="u-border-3 u-border-grey-dark-1 u-expanded-width u-line u-line-horizontal u-line-1"></div>
+            <a href="../../newsletter.html" data-page-id="103346126" class="u-align-center u-btn u-button-style u-custom-color-20 u-hover-custom-color-3 u-btn-2" target="_blank" title="Zur Newsletter-Anmeldeseite von Ralf-Peter Kleinert">Zur Anmeldung</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-5" id="was-ist-mastodon">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="custom-expanded u-container-style u-custom-color-19 u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h2 class="u-text u-text-default u-text-1"> Was ist Mastodon?</h2>
+            <p class="u-text u-text-default u-text-2"> Mastodon ist ein soziales Netzwerk – aber eben nicht irgendeins. Es funktioniert auf den ersten Blick wie Twitter: Man kann kurze Nachrichten posten, sogenannten "Toots", anderen Nutzern folgen, Beiträge teilen oder markieren und sich mit anderen austauschen. Doch unter der Haube läuft Mastodon komplett anders. </p>
+            <p class="u-text u-text-default u-text-3"> Mastodon gehört nicht einer einzelnen Firma. Es ist ein dezentrales Netzwerk, das auf dem sogenannten Fediverse basiert – einem Zusammenschluss vieler verschiedener Server, die miteinander kommunizieren. Jeder dieser Server wird von einer Organisation, einem Verein oder auch einer Privatperson betrieben. Man meldet sich also nicht bei mastodon.com an, sondern bei einer Instanz wie mastodon.social, chaos.social oder digitalcourage.social. </p>
+            <p class="u-text u-text-default u-text-4"> Diese Instanzen sind miteinander vernetzt. Wenn Sie sich bei einer Instanz anmelden, können Sie trotzdem mit Nutzern anderer Instanzen kommunizieren. Es ist ein bisschen so, als würden Sie eine E-Mail-Adresse bei einem kleinen Anbieter haben – und trotzdem können Sie mit jemandem schreiben, der bei Gmail ist. Technisch funktioniert das über das offene Protokoll ActivityPub, das dafür sorgt, dass Inhalte zwischen den Instanzen ausgetauscht werden können. </p>
+            <p class="u-text u-text-default u-text-5"> Mastodon legt großen Wert auf Transparenz, Datenschutz und Community-Kontrolle. Es gibt keine Werbung, keinen zentralen Algorithmus, der bestimmt, was Sie sehen sollen, und keine Datensammelei wie bei den großen sozialen Netzwerken. Stattdessen bestimmen Sie selbst, wem Sie folgen und was Sie in Ihrer Timeline sehen. <br>
+            </p>
+            <p class="u-text u-text-default u-text-6"> Wenn Sie also auf der Suche nach einem sozialen Netzwerk sind, das sich wieder auf den eigentlichen Kern des Internets besinnt – nämlich offene Kommunikation ohne Überwachung – dann lohnt sich ein Blick auf Mastodon.<br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-6" id="zurueck-zum-inhaltsmenue-a">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="mastodon-social-media.html#artikelmenue-mastodon" data-page-id="749730369" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Zurück zum Inhalts Menü Mastodon</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-7" id="woher-stammt-mastodon">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="custom-expanded u-container-style u-custom-color-19 u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h3 class="u-text u-text-default u-text-1"> Woher kommt Mastodon?</h3>
+            <p class="u-text u-text-default u-text-2"> Mastodon wurde in Deutschland entwickelt – genauer gesagt in Jena. Der Ursprung des Netzwerks geht auf das Jahr 2016 zurück. Damals war der Frust über zentrale Plattformen wie Twitter und Facebook bei vielen Internetnutzern groß. Datenschutzprobleme, algorithmische Manipulation von Inhalten und aggressive Werbung sorgten dafür, dass immer mehr Menschen nach Alternativen suchten. </p>
+            <p class="u-text u-text-default u-text-3"> Genau in dieser Zeit begann der deutsche Entwickler Eugen Rochko, an Mastodon zu arbeiten. Er wollte ein Netzwerk schaffen, das frei von Konzerninteressen ist – ein soziales Netzwerk, das den Nutzern gehört. Die Idee war, etwas zu bauen, das wie Twitter funktioniert, aber dezentral läuft und unter freier Lizenz steht. </p>
+            <p class="u-text u-text-default u-text-4">
+              <a href="https://de.wikipedia.org/wiki/Mastodon_(Soziales_Netzwerk)" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1" title="Mastodon Wikipedia Beitrag" target="_blank" rel="nofollow noopener">Mastodon ist Open Source</a>, das bedeutet: Der Quellcode ist öffentlich und jeder kann ihn einsehen, verändern und eigene Instanzen betreiben. Die Plattform gewann anfangs nur langsam an Fahrt. Erst durch bestimmte Ereignisse – etwa als Elon Musk Twitter übernahm – wurde Mastodon plötzlich für viele Menschen interessant. 
+            </p>
+            <p class="u-text u-text-default u-text-5"> Heute ist Mastodon ein wichtiger Bestandteil des sogenannten Fediverse – einem Netzwerk aus vielen Diensten, die auf offenen Standards beruhen. Dazu gehören neben Mastodon auch andere Plattformen wie Pixelfed (für Bilder, ähnlich wie Instagram), PeerTube (für Videos, ähnlich wie YouTube) oder Lemmy (Diskussionsforen, ähnlich wie Reddit). <br>
+            </p>
+            <p class="u-text u-text-default u-text-6"> Der Ursprung von Mastodon liegt also nicht in einem Silicon-Valley-Großraumbüro, sondern in einem bescheidenen Projekt eines deutschen Entwicklers, der das Internet wieder freier und fairer machen wollte.<br>
+              <br>
+              <a href="https://www.ard-zdf-medienakademie.de/mak/homepage/trends/wie-funktioniert-mastodon-und-sollten-medienhaeuser-es-nutzen.html" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-2" title="ARD und ZDF Mastodon Artikel" target="_blank" rel="nofollow noopener">Mastodon Beitrag von ARD ZDF</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-8" id="zurueck-zum-inhaltsmenue-b">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="mastodon-social-media.html#artikelmenue-mastodon" data-page-id="749730369" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Zurück zum Inhalts Menü Mastodon</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-9" id="wer-hat-mastodon-erfunden">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="custom-expanded u-container-style u-custom-color-19 u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h4 class="u-text u-text-default u-text-1"> Wer hat’s erfunden?</h4>
+            <p class="u-text u-text-default u-text-2"> Mastodon wurde von Eugen Rochko entwickelt – einem deutschen Programmierer, der 1993 in Russland geboren wurde und später in Jena aufgewachsen ist. Rochko studierte Informatik an der Universität Jena und war schon früh frustriert von den Entwicklungen auf zentralisierten Plattformen wie Twitter. Ihm gefiel nicht, dass eine einzelne Firma die Kontrolle über Inhalte, Nutzerverhalten und Daten hat. </p>
+            <p class="u-text u-text-default u-text-3"> 2016 begann er damit, die erste Version von Mastodon zu schreiben. Die Grundidee war einfach, aber radikal: Ein soziales Netzwerk, das dezentral läuft, keine Werbung zeigt, datenschutzfreundlich ist und von der Community selbst verwaltet werden kann. Er veröffentlichte das Projekt unter einer freien Lizenz auf GitHub, sodass jeder den Code weiterverwenden und eigene Server aufsetzen konnte. </p>
+            <p class="u-text u-text-default u-text-4"> Mit der Zeit kamen immer mehr Unterstützer dazu. Die Plattform wurde technisch weiterentwickelt, neue Funktionen kamen hinzu, und erste Organisationen wie Digitalcourage, der Chaos Computer Club oder auch Journalisten entdeckten Mastodon für sich. Rochko gründete später eine gemeinnützige Organisation namens Mastodon gGmbH, um das Projekt auf professionelle Beine zu stellen – ohne den ursprünglichen Open-Source-Gedanken aufzugeben. </p>
+            <p class="u-text u-text-default u-text-5"> Was Eugen Rochko geschaffen hat, ist keine Alternative zu Twitter im Sinne eines neuen Konzerns, sondern ein alternatives Konzept. Es geht um Kontrolle, um Transparenz und darum, dass digitale Kommunikation nicht von wenigen Konzernen gelenkt werden muss. Damit ist Mastodon mehr als nur ein Projekt – es ist ein klares Statement gegen die Monopolisierung des Internets.<br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-10" id="zurueck-zum-inhaltsmenue-c">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="mastodon-social-media.html#artikelmenue-mastodon" data-page-id="749730369" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Zurück zum Inhalts Menü Mastodon</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-11" id="welche-vorteile-hat-mastodon">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="custom-expanded u-container-style u-custom-color-19 u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h5 class="u-text u-text-default u-text-1"> Welche Vorteile sind aktuell zu beobachten?</h5>
+            <p class="u-text u-text-default u-text-2"> Mastodon bringt eine Reihe von Vorteilen mit sich, die im aktuellen Internetumfeld immer wichtiger werden. Ein besonders großer Pluspunkt ist die Unabhängigkeit. Es gibt keinen zentralen Anbieter, der Ihre Daten analysiert, Werbung schaltet oder die Regeln diktiert. Stattdessen wählen Sie eine Instanz, der Sie vertrauen, oder betreiben selbst eine. Diese Dezentralität macht Mastodon widerstandsfähig gegen Zensur, Überwachung und die Willkür großer Konzerne. </p>
+            <p class="u-text u-text-default u-text-3"> Ein weiterer Vorteil ist die chronologische Timeline. Bei Mastodon gibt es keinen Algorithmus, der Ihnen vorschreibt, was Sie sehen sollen. Beiträge erscheinen in der Reihenfolge, in der sie veröffentlicht wurden. Das sorgt für mehr Klarheit und weniger Manipulation. Sie bestimmen selbst, wem Sie folgen – ohne dass Ihnen ständig "ähnliche" Inhalte untergeschoben werden. </p>
+            <p class="u-text u-text-default u-text-4"> Auch der Datenschutz ist ein großer Pluspunkt. Es werden keine Profile erstellt, keine Nutzerinteressen ausgewertet, keine Bewegungen getrackt. Viele Instanzen haben klare Regeln, was mit Daten geschieht – und viele Betreiber sind engagierte Leute, die nicht auf Profit aus sind, sondern auf digitale Selbstbestimmung. </p>
+            <p class="u-text u-text-default u-text-5"> Die Community ist ebenfalls ein Punkt, der immer wieder positiv hervorgehoben wird. Viele berichten, dass die Stimmung auf Mastodon ruhiger, respektvoller und sachlicher ist als auf den großen Plattformen. Es geht weniger um Reichweite und Klicks, sondern mehr um Austausch. Trolle, Hetze und Fake-News lassen sich durch aktive Moderation und klare Hausregeln oft besser eindämmen. <br>
+            </p>
+            <p class="u-text u-text-default u-text-6"> Und zuletzt: Mastodon wächst. Immer mehr Organisationen, Medienhäuser, Journalisten, Entwickler und Kreative nutzen das Netzwerk. Das führt zu mehr Vielfalt, spannenderen Inhalten – und langfristig zu einem echten Gegengewicht zu den bekannten Giganten des Silicon Valley.<br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-12" id="zurueck-zum-inhaltsmenue-d">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="mastodon-social-media.html#artikelmenue-mastodon" data-page-id="749730369" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Zurück zum Inhalts Menü Mastodon</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-13" id="ist-der-datenschutz-von-mastodon-gut">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="custom-expanded u-container-style u-custom-color-19 u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h6 class="u-text u-text-default u-text-1"> Wie steht es um den Datenschutz?</h6>
+            <p class="u-text u-text-default u-text-2"> Beim Thema Datenschutz spielt Mastodon seine Stärken voll aus. Anders als bei großen sozialen Netzwerken werden bei Mastodon keine Nutzerdaten gesammelt, verkauft oder zu Werbezwecken ausgewertet. Es gibt keine personalisierte Werbung, keine unsichtbaren Tracker und keine geheimen Datenweitergaben an Dritte. Das ist kein Zufall, sondern Teil des Konzepts. </p>
+            <p class="u-text u-text-default u-text-3"> Jede Instanz, also jeder einzelne Mastodon-Server, wird von einer eigenen Organisation oder Person betrieben. Diese legt auch die Datenschutzrichtlinien fest. Viele Instanzen sitzen in Europa und unterliegen damit der DSGVO – das sorgt für ein vergleichsweise hohes Datenschutzniveau. Oft reicht ein Blick ins Impressum oder in die Datenschutzerklärung der gewählten Instanz, um genau zu sehen, wie mit den Daten umgegangen wird. </p>
+            <p class="u-text u-text-default u-text-4"> Wichtig ist: Sie müssen der Instanz, bei der Sie sich anmelden, vertrauen. Denn technisch gesehen hat der Betreiber dieser Instanz Zugriff auf Ihre Beiträge, Ihre IP-Adresse und Ihre Metadaten – ähnlich wie ein E-Mail-Anbieter. Die gute Nachricht: Viele Instanzen werden von engagierten Leuten betrieben, die bewusst auf Datenschutz und Transparenz setzen. </p>
+            <p class="u-text u-text-default u-text-5"> Ein weiterer Vorteil: Mastodon verschlüsselt die Kommunikation zwischen Ihrem Gerät und dem Server per HTTPS. Private Nachrichten (sogenannte "Direct Messages") sind allerdings technisch nicht Ende-zu-Ende-verschlüsselt, wie man es vielleicht von Signal oder Threema kennt. Das heißt, sie sind nicht völlig privat – auch wenn sie im normalen Betrieb nicht öffentlich einsehbar sind. <br>
+            </p>
+            <p class="u-text u-text-default u-text-6"> Insgesamt bietet Mastodon also deutlich bessere Datenschutzbedingungen als kommerzielle Netzwerke. Es kommt aber wie immer darauf an, wie bewusst Sie mit Ihren Daten umgehen und welche Instanz Sie wählen. Wer besonders sensibel ist, kann sogar einen eigenen Server betreiben – dann haben Sie die volle Kontrolle.<br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-14" id="zurueck-zum-inhaltsmenue-e">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="mastodon-social-media.html#artikelmenue-mastodon" data-page-id="749730369" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Zurück zum Inhalts Menü Mastodon</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-15" id="was-kostet-mastodon">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="custom-expanded u-container-style u-custom-color-19 u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h2 class="u-text u-text-default u-text-1"> Kostet Mastodon Geld?</h2>
+            <p class="u-text u-text-default u-text-2"> Die Nutzung von Mastodon ist grundsätzlich kostenlos. Sie können sich auf einer öffentlichen Instanz anmelden, ein Profil erstellen, anderen folgen und selbst Beiträge schreiben – ganz ohne Gebühren. Es gibt keine versteckten Kosten, keine Premium-Abos und keine Werbung, die finanziert werden muss. Das liegt daran, dass Mastodon nicht von einem gewinnorientierten Unternehmen betrieben wird, sondern von einer Community aus Freiwilligen, Organisationen und gemeinnützigen Betreibern. </p>
+            <p class="u-text u-text-default u-text-3"> Allerdings kostet der Betrieb einer Instanz natürlich Geld – Server müssen bezahlt, gewartet und moderiert werden. Viele Instanzen setzen deshalb auf freiwillige Spenden oder Plattformen wie Patreon oder LiberaPay. Wenn Sie eine Instanz regelmäßig nutzen und den Betrieb unterstützen möchten, können Sie also mit einer kleinen Spende helfen, das Netzwerk am Laufen zu halten. </p>
+            <p class="u-text u-text-default u-text-4"> Wer selbst eine Instanz betreiben will, muss mit Kosten für Hosting, Domain, Wartung und Sicherheit rechnen. Je nach Größe kann das zwischen wenigen Euro im Monat und mehreren hundert Euro liegen, etwa wenn viele Nutzer und viel Datenverkehr zusammenkommen. </p>
+            <p class="u-text u-text-default u-text-5">Für Nutzer ist Mastodon kostenlos. Für Betreiber kann es Geld kosten – aber niemand wird zur Kasse gebeten. Das ganze System basiert auf Freiwilligkeit und dem Wunsch, ein freies, werbefreies und unabhängiges Netzwerk am Leben zu erhalten.<br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-16" id="zurueck-zum-inhaltsmenue-f">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="mastodon-social-media.html#artikelmenue-mastodon" data-page-id="749730369" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Zurück zum Inhalts Menü Mastodon</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-17" id="wie-funktioniert-mastodon">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="custom-expanded u-container-style u-custom-color-19 u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h3 class="u-text u-text-default u-text-1"> Wie funktioniert Mastodon technisch?</h3>
+            <p class="u-text u-text-default u-text-2"> Mastodon basiert auf dem offenen Protokoll ActivityPub, das von vielen anderen Diensten im sogenannten Fediverse verwendet wird. Dieses Protokoll sorgt dafür, dass verschiedene Server miteinander kommunizieren können – auch wenn sie von unterschiedlichen Leuten betrieben werden. </p>
+            <p class="u-text u-text-default u-text-3"> Jede Mastodon-Instanz ist ein eigener Server mit einer eigenen Datenbank und einer eigenen Benutzerverwaltung. Wenn Sie sich auf einer Instanz anmelden, sind Ihre Daten zunächst nur dort gespeichert. Sobald Sie aber einem Nutzer auf einer anderen Instanz folgen oder einen Beitrag teilen, findet ein Datenaustausch statt. Die Instanzen tauschen diese Informationen über ActivityPub aus, sodass Inhalte über die Grenzen hinweg sichtbar und interaktiv bleiben. </p>
+            <p class="u-text u-text-default u-text-4"> Die Beiträge – also Toots – werden wie kleine Nachrichten durch das Netzwerk geschickt. Das funktioniert ähnlich wie bei E-Mails: Wenn jemand etwas postet, wird das an die Instanzen der Follower verteilt. Diese Instanzen speichern den Beitrag lokal zwischen, damit ihre eigenen Nutzer ihn sehen können. Es entsteht also eine Art verteilte Timeline, die nicht zentral, sondern über viele Server hinweg organisiert ist. </p>
+            <p class="u-text u-text-default u-text-5"> Die Software von Mastodon läuft typischerweise auf einem Linux-Server mit PostgreSQL als Datenbank, Redis für die Nachrichtenverarbeitung und einer Webserver-Umgebung mit Nginx. Die Weboberfläche selbst ist in Ruby on Rails programmiert, und viele technische Prozesse im Hintergrund laufen über Sidekiq und andere Hintergrunddienste. <br>
+            </p>
+            <p class="u-text u-text-default u-text-6"> Durch diese Technik ist Mastodon skalierbar. Eine kleine Instanz kann nur ein paar Dutzend Leute beherbergen, während große Instanzen wie mastodon.social Millionen Nutzer verwalten. Jede Instanz kann ihre eigenen Regeln, Moderationsrichtlinien und technische Einstellungen definieren – und trotzdem bleibt das Netzwerk miteinander verbunden. </p>
+            <p class="u-text u-text-default u-text-7"> Was am Ende zählt: Mastodon ist nicht ein großes System, sondern viele kleine Systeme, die kooperieren. Und genau das macht es so besonders.<br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-18" id="zurueck-zum-inhaltsmenue-g">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="mastodon-social-media.html#artikelmenue-mastodon" data-page-id="749730369" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Zurück zum Inhalts Menü Mastodon</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-19" id="die-zukunft-mastodons">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="custom-expanded u-container-style u-custom-color-19 u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h4 class="u-text u-text-default u-text-1"> Wie wird die Zukunft des Netzwerks eingeschätzt?</h4>
+            <p class="u-text u-text-default u-text-2"> Die Zukunft von Mastodon wird von vielen Experten, Entwicklern und Medienbeobachtern als vielversprechend eingeschätzt – allerdings mit einer Einschränkung: Mastodon wird wohl nie "das neue Twitter" im Sinne eines Massenphänomens werden. Und das ist auch gut so. Denn Mastodon will nicht Milliarden Nutzer auf einer zentralen Plattform versammeln, sondern ein alternatives Modell zum aktuellen Internet bieten – dezentral, offen und gemeinschaftlich. </p>
+            <p class="u-text u-text-default u-text-3"> Die zunehmende Unzufriedenheit mit den großen Plattformen spielt Mastodon in die Karten. Wenn Plattformen wie X, Facebook oder Instagram immer mehr Werbung einblenden, Inhalte algorithmisch sortieren und Datenschutz mit Füßen treten, suchen viele nach Alternativen. Mastodon ist dabei eines der ersten Netzwerke, das eine funktionierende Infrastruktur bietet – und das ohne Geschäftsmodell, das auf Datenverkauf basiert. </p>
+            <p class="u-text u-text-default u-text-4"> Ein weiterer Zukunftstrend ist die wachsende Integration in das sogenannte Fediverse. Immer mehr Dienste nutzen ActivityPub, also das gleiche Protokoll wie Mastodon. Das bedeutet: Mastodon wächst nicht nur durch eigene Nutzer, sondern wird Teil eines größeren Ganzen. Nutzer von Pixelfed, Lemmy oder PeerTube können miteinander interagieren – plattformübergreifend und ohne Zwang zur Mitgliedschaft bei einem einzigen Dienst. </p>
+            <p class="u-text u-text-default u-text-5"> Technisch wird Mastodon ständig weiterentwickelt. Neue Funktionen wie Gruppen, bessere Suche, barrierefreie Funktionen oder verbesserte Moderationstools sind in Arbeit oder bereits eingeführt worden. Auch große Organisationen – von Universitäten bis zu Medienhäusern – betreiben inzwischen eigene Instanzen und stärken damit das Netzwerk. <br>
+            </p>
+            <p class="u-text u-text-default u-text-6"> Die größte Herausforderung bleibt die Benutzerfreundlichkeit. Viele Einsteiger fühlen sich anfangs überfordert: Welcher Server ist der richtige? Wie finde ich andere Nutzer? Wo sind die Inhalte, die mich interessieren? Hier wird noch viel passieren müssen, damit Mastodon auch für weniger technikaffine Menschen leichter zugänglich wird. </p>
+            <p class="u-text u-text-default u-text-7">Mastodon ist gekommen, um zu bleiben. Nicht als Konkurrenz zu den großen Plattformen – sondern als bewusste Entscheidung für ein anderes, besseres Internet.<br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-20" id="zurueck-zum-inhaltsmenue-h">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="mastodon-social-media.html#artikelmenue-mastodon" data-page-id="749730369" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Zurück zum Inhalts Menü Mastodon</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-21" id="mastodon-selbst-starten">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="custom-expanded u-container-style u-custom-color-19 u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h5 class="u-text u-text-default u-text-1"> Kann ich eine Mastodon-Instanz starten?</h5>
+            <p class="u-text u-text-default u-text-2"> Ja, Sie können jederzeit eine eigene Mastodon-Instanz starten – vorausgesetzt, Sie haben die nötige technische Erfahrung oder die Bereitschaft, sich einzuarbeiten. Denn im Gegensatz zu einem normalen Nutzerkonto sind beim Betrieb einer eigenen Instanz deutlich mehr Schritte nötig: Server einrichten, Domain konfigurieren, Software installieren, Wartung übernehmen und Sicherheitsupdates regelmäßig einspielen. </p>
+            <p class="u-text u-text-default u-text-3"> Technisch gesehen brauchen Sie dafür einen Linux-Server (zum Beispiel mit Ubuntu oder Debian), eine eigene Domain, HTTPS-Zertifikate, ein Mail-System für Benachrichtigungen und genug Speicherplatz. Die offizielle Mastodon-Dokumentation führt Schritt für Schritt durch die Installation. Es gibt auch vorgefertigte Skripte und Anleitungen, die den Einstieg erleichtern. </p>
+            <p class="u-text u-text-default u-text-4"> Wichtig: Sobald Sie eine eigene Instanz betreiben, sind Sie auch für alles verantwortlich, was dort passiert – inklusive Moderation, Datenschutz, Backups und Ausfallzeiten. Viele kleine Instanzen werden von Einzelpersonen oder kleinen Gruppen betrieben, die genau das wollen: die Kontrolle über ihre Daten und ihre Community behalten. Manchmal starten auch Organisationen oder Vereine eine eigene Instanz, um eine sichere Umgebung für ihre Mitglieder zu schaffen. </p>
+            <p class="u-text u-text-default u-text-5"> Wenn Ihnen das zu aufwendig ist, gibt es übrigens auch Hosting-Angebote: Einige Anbieter haben sich darauf spezialisiert, Mastodon-Instanzen als Service bereitzustellen. Sie klicken sich dort Ihre eigene Instanz zusammen, zahlen einen monatlichen Betrag – und müssen sich nicht selbst um Technik und Wartung kümmern. <br>
+            </p>
+            <p class="u-text u-text-default u-text-6">Also. Ja, Sie können eine eigene Mastodon-Instanz betreiben – aber es ist kein Ein-Klick-Projekt. Wer es ernst meint, bekommt mit Mastodon aber ein mächtiges Werkzeug in die Hand, um wirklich unabhängig und datenschutzfreundlich zu kommunizieren.<br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-22" id="zurueck-zum-inhaltsmenue-i">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="mastodon-social-media.html#artikelmenue-mastodon" data-page-id="749730369" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Zurück zum Inhalts Menü Mastodon</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-align-center u-clearfix u-container-align-center u-container-align-center-lg u-container-align-center-md u-container-align-center-sm u-container-align-center-xl u-section-23" id="faq-mastodon-haeufige-fragen">
+      <div class="u-clearfix u-sheet u-valign-middle-xl u-valign-middle-xs u-sheet-1">
+        <h3 class="u-align-left u-text u-text-1">Häufig gestellte Fragen zum Thema Mastodon FAQ</h3>
+        <p class="u-align-left u-text u-text-white u-text-2"> In diesem Beitrag beantworte ich die aus meiner Sicht wichtigsten Fragen zu Mastodon, damit Sie ein klares Bild davon bekommen, wie dieses alternative soziale Netzwerk funktioniert. Mastodon steht für eine neue Form der digitalen Kommunikation – dezentral, datenschutzfreundlich und unabhängig von Konzernen. Es setzt auf offene Standards, gibt den Nutzern die Kontrolle zurück und schützt aktiv vor Überwachung und Datenmissbrauch.<br>
+        </p>
+        <div class="u-border-9 u-border-palette-1-base u-line u-line-horizontal u-line-1"></div>
+        <div class="custom-expanded u-accordion u-expanded-width-xs u-faq u-spacing-10 u-accordion-1" role="tablist">
+          <div class="u-accordion-item">
+            <a class="active u-accordion-link u-active-palette-2-base u-button-style u-hover-custom-color-22 u-palette-5-dark-2 u-text-active-white u-text-grey-10 u-text-hover-grey-10 u-accordion-link-1" id="link-accordion-ae6a" aria-controls="accordion-ae6a" aria-selected="true" role="tab"><span class="u-accordion-link-text"> Wie finde ich die richtige Mastodon-Instanz für mich?</span><span class="u-accordion-link-icon u-icon u-icon-circle u-text-palette-1-base u-icon-1"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 16 16" style=""><use xlink:href="#svg-bf29"></use></svg><svg class="u-svg-content" viewBox="0 0 16 16" x="0px" y="0px" id="svg-bf29" style=""><path d="M8,10.7L1.6,5.3c-0.4-0.4-1-0.4-1.3,0c-0.4,0.4-0.4,0.9,0,1.3l7.2,6.1c0.1,0.1,0.4,0.2,0.6,0.2s0.4-0.1,0.6-0.2l7.1-6
+	c0.4-0.4,0.4-0.9,0-1.3c-0.4-0.4-1-0.4-1.3,0L8,10.7z"></path></svg></span>
+            </a>
+            <div class="u-accordion-active u-accordion-pane u-border-2 u-border-grey-75 u-container-style u-custom-color-3 u-accordion-pane-1" id="accordion-ae6a" aria-labelledby="link-accordion-ae6a" aria-expanded="true" role="tabpanel">
+              <div class="u-container-layout u-container-layout-1">
+                <div class="fr-view u-clearfix u-rich-text u-text">
+                  <p id="isPasted" class="skrollable">Das ist wahrscheinlich die erste große Hürde für Einsteiger – denn anders als bei Twitter oder Facebook gibt es bei Mastodon keine zentrale Seite, bei der man sich einfach anmeldet. Stattdessen muss man sich eine sogenannte Instanz aussuchen. Das ist im Grunde ein Server mit eigener Adresse, eigenem Regelwerk und eigener Community.</p>
+                  <p id="isPasted" class="skrollable">Die gute Nachricht: Egal, wo Sie sich anmelden – Sie können mit allen anderen Nutzern im Mastodon-Netzwerk kommunizieren. Die Instanz bestimmt also nicht, mit wem Sie sprechen können, sondern eher, wie die Atmosphäre vor Ort ist. Manche Instanzen haben ein klares Thema, zum Beispiel IT-Sicherheit, Datenschutz, Journalismus, Kunst oder Politik. Andere sind themenoffen, setzen aber auf bestimmte Werte wie Inklusion oder Diskussionskultur.</p>
+                  <p>Es gibt Plattformen wie <a id="isPasted" rel="noopener" target="_new" class="skrollable">joinmastodon.org</a>, die eine Auswahl bieten. Dort können Sie nach Sprache, Thema oder Moderationsstil filtern. Wenn Sie sich nicht entscheiden können, ist eine größere, gut gepflegte Instanz wie mastodon.social oder chaos.social ein sicherer Einstieg. Später können Sie bei Bedarf mitnehmen, was Sie gelernt haben, und in eine kleinere, besser passende Instanz wechseln – inklusive Follower und Profilinformationen.
+                  </p>
+                  <p>Am wichtigsten ist: Lesen Sie sich vorher die Regeln der Instanz durch. Denn dort steht, wie moderiert wird, was erlaubt ist und wie mit problematischen Inhalten umgegangen wird. Wer sich wohlfühlt, bleibt – und genau so soll es sein.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="u-accordion-item">
+            <a class="u-accordion-link u-active-palette-2-base u-button-style u-hover-custom-color-22 u-palette-5-dark-2 u-text-active-white u-text-grey-10 u-text-hover-grey-10 u-accordion-link-2" id="link-accordion-8339" aria-controls="accordion-8339" aria-selected="false" role="tab"><span class="u-accordion-link-text"> Wie melde ich mich bei Mastodon an und wie sieht die Benutzeroberfläche aus?<br></span><span class="u-accordion-link-icon u-icon u-icon-circle u-text-palette-1-base u-icon-2"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 16 16" style=""><use xlink:href="#svg-aba5"></use></svg><svg class="u-svg-content" viewBox="0 0 16 16" x="0px" y="0px" id="svg-aba5" style=""><path d="M8,10.7L1.6,5.3c-0.4-0.4-1-0.4-1.3,0c-0.4,0.4-0.4,0.9,0,1.3l7.2,6.1c0.1,0.1,0.4,0.2,0.6,0.2s0.4-0.1,0.6-0.2l7.1-6
+	c0.4-0.4,0.4-0.9,0-1.3c-0.4-0.4-1-0.4-1.3,0L8,10.7z"></path></svg></span>
+            </a>
+            <div class="u-accordion-pane u-border-2 u-border-grey-75 u-container-style u-custom-color-3 u-accordion-pane-2" id="accordion-8339" aria-labelledby="link-accordion-8339" aria-expanded="true" role="tabpanel">
+              <div class="u-container-layout u-container-layout-2">
+                <div class="fr-view u-clearfix u-rich-text u-text">
+                  <p id="isPasted" class="skrollable">Die Anmeldung bei Mastodon funktioniert ähnlich wie bei anderen sozialen Netzwerken – mit dem Unterschied, dass Sie sich zunächst für eine Instanz entscheiden müssen. Sobald Sie eine passende Instanz gefunden haben, klicken Sie dort auf "Registrieren" oder "Sign up". Dann geben Sie Ihre E-Mail-Adresse ein, wählen einen Benutzernamen und ein sicheres Passwort. Nach der Bestätigung per E-Mail können Sie direkt loslegen.</p>
+                  <p class="skrollable">Die Benutzeroberfläche ist auf den ersten Blick etwas ungewohnt, erinnert aber in ihrer Grundstruktur an Twitter – nur ohne Werbung und mit mehr Übersicht. In der Regel sehen Sie vier Spalten:</p>
+                  <p class="skrollable">In der ersten Spalte links befinden sich Navigationselemente wie Startseite, Mitteilungen, Erstellen eines neuen Beitrags und die Suche.</p>
+                  <p class="skrollable">Die zweite Spalte zeigt Ihre eigene Timeline – also die Beiträge von Leuten, denen Sie folgen.</p>
+                  <p class="skrollable">Die dritte Spalte ist oft mit der "lokalen Timeline" belegt – hier sehen Sie alle öffentlichen Beiträge von Nutzern derselben Instanz.</p>
+                  <p class="skrollable">Die vierte Spalte kann individuell belegt werden – zum Beispiel mit der föderierten Timeline, in der Beiträge aus dem gesamten Fediverse auftauchen.</p>
+                  <p class="skrollable">Ob Sie das klassische Spaltenlayout (ähnlich wie TweetDeck) nutzen oder eine kompaktere Einzelspalten-Ansicht bevorzugen, hängt von der Instanz und den gewählten Einstellungen ab. Auf dem Smartphone sieht die Oberfläche etwas anders aus – je nachdem, welche App Sie verwenden.</p>
+                  <p class="skrollable">Wichtig ist: Mastodon ist übersichtlich, aber nicht überladen. Sie können Beiträge schreiben, Hashtags setzen, Inhalte teilen ("boosten"), liken ("favorisieren") und in Ihrer eigenen Geschwindigkeit neue Leute entdecken. Ganz ohne algorithmischen Druck.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="u-accordion-item">
+            <a class="u-accordion-link u-active-palette-2-base u-button-style u-hover-custom-color-22 u-palette-5-dark-2 u-text-active-white u-text-grey-10 u-text-hover-grey-10 u-accordion-link-3" id="link-accordion-1c17" aria-controls="accordion-1c17" aria-selected="false" role="tab"><span class="u-accordion-link-text"> Was ist der Unterschied zwischen lokaler, föderierter und eigener Timeline?<br></span><span class="u-accordion-link-icon u-icon u-icon-circle u-text-palette-1-base u-icon-3"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 16 16" style=""><use xlink:href="#svg-5bcf"></use></svg><svg class="u-svg-content" viewBox="0 0 16 16" x="0px" y="0px" id="svg-5bcf" style=""><path d="M8,10.7L1.6,5.3c-0.4-0.4-1-0.4-1.3,0c-0.4,0.4-0.4,0.9,0,1.3l7.2,6.1c0.1,0.1,0.4,0.2,0.6,0.2s0.4-0.1,0.6-0.2l7.1-6
+	c0.4-0.4,0.4-0.9,0-1.3c-0.4-0.4-1-0.4-1.3,0L8,10.7z"></path></svg></span>
+            </a>
+            <div class="u-accordion-pane u-border-2 u-border-grey-75 u-container-style u-custom-color-3 u-accordion-pane-3" id="accordion-1c17" aria-labelledby="link-accordion-1c17" aria-expanded="true" role="tabpanel">
+              <div class="u-container-layout u-container-layout-3">
+                <div class="fr-view u-clearfix u-rich-text u-text">
+                  <p id="isPasted" class="skrollable">Bei Mastodon gibt es nicht nur eine zentrale Timeline wie bei Twitter, sondern gleich drei verschiedene. Das kann anfangs verwirrend sein, ist aber ein großer Vorteil – denn Sie haben mehr Kontrolle darüber, was Sie sehen.</p>
+                  <p class="skrollable">Die <strong class="skrollable">eigene Timeline</strong> zeigt Beiträge von den Leuten, denen Sie direkt folgen. Das ist Ihre persönliche Übersicht, vergleichbar mit dem Twitter-Feed. Alles, was dort erscheint, haben Sie durch Ihre Follows selbst bestimmt. Die Beiträge erscheinen in chronologischer Reihenfolge – kein Algorithmus mischt sich ein.
+                  </p>
+                  <p class="skrollable">Die <strong class="skrollable">lokale Timeline</strong> zeigt alle öffentlichen Beiträge, die auf Ihrer Instanz geschrieben wurden – unabhängig davon, ob Sie diesen Personen folgen oder nicht. Wenn Sie zum Beispiel auf einer Instanz für IT-Interessierte sind, sehen Sie hier, was andere Technikfans gerade posten. Das kann inspirierend sein – oder helfen, neue Leute aus Ihrer Community zu entdecken.
+                  </p>
+                  <p class="skrollable">Die <strong class="skrollable">föderierte Timeline</strong> geht noch einen Schritt weiter: Hier sehen Sie alle öffentlichen Beiträge von anderen Instanzen, mit denen Ihre Instanz in Kontakt steht. Das heißt, wenn jemand auf Ihrer Instanz einem Nutzer auf einer anderen Instanz folgt, werden dessen Beiträge unter Umständen auch hier sichtbar. Dadurch entsteht ein riesiges, offenes Netzwerk – das sogenannte Fediverse.
+                  </p>
+                  <p class="skrollable">Mit diesen drei Timelines haben Sie die Wahl: Wollen Sie nur sehen, was Ihre Kontakte posten? Oder auch, was in Ihrer Instanz passiert? Oder sogar, was in der weiten Mastodon-Welt los ist? Es liegt bei Ihnen.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="u-accordion-item u-expanded-width">
+            <a class="u-accordion-link u-active-palette-2-base u-button-style u-hover-custom-color-22 u-palette-5-dark-2 u-text-active-white u-text-grey-10 u-text-hover-grey-10 u-accordion-link-4" id="link-accordion-ae6a" aria-controls="accordion-ae6a" aria-selected="false" role="tab"><span class="u-accordion-link-text"> Wie finde ich interessante Leute oder Themen auf Mastodon?</span><span class="u-accordion-link-icon u-icon u-icon-circle u-text-palette-1-base u-icon-4"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 16 16" style=""><use xlink:href="#svg-6b20"></use></svg><svg class="u-svg-content" viewBox="0 0 16 16" x="0px" y="0px" id="svg-6b20" style=""><path d="M8,10.7L1.6,5.3c-0.4-0.4-1-0.4-1.3,0c-0.4,0.4-0.4,0.9,0,1.3l7.2,6.1c0.1,0.1,0.4,0.2,0.6,0.2s0.4-0.1,0.6-0.2l7.1-6
+	c0.4-0.4,0.4-0.9,0-1.3c-0.4-0.4-1-0.4-1.3,0L8,10.7z"></path></svg></span>
+            </a>
+            <div class="u-accordion-pane u-border-2 u-border-grey-75 u-container-style u-custom-color-3 u-accordion-pane-4" id="accordion-ae6a" aria-labelledby="link-accordion-ae6a" aria-expanded="true" role="tabpanel">
+              <div class="u-container-layout u-container-layout-4">
+                <div class="fr-view u-clearfix u-rich-text u-text">
+                  <p id="isPasted" class="skrollable">Am Anfang wirkt Mastodon oft leer – vor allem, wenn man von Twitter oder Instagram kommt, wo einem sofort Inhalte vorgeschlagen werden. Mastodon macht das bewusst nicht. Es gibt keinen Algorithmus, der entscheidet, was Sie sehen. Stattdessen müssen Sie selbst aktiv werden – und genau das macht den Unterschied.</p>
+                  <p class="skrollable">Ein guter erster Schritt ist die <strong class="skrollable">lokale Timeline</strong> Ihrer Instanz. Dort sehen Sie, was andere auf Ihrer Instanz öffentlich posten. Wenn Sie dort jemanden interessant finden, können Sie direkt folgen. Noch spannender wird es mit der <strong class="skrollable">föderierten Timeline</strong>, in der Inhalte aus dem gesamten Fediverse auftauchen – da entdecken Sie oft Menschen, denen Sie sonst nie begegnet wären.
+                  </p>
+                  <p class="skrollable">Auch <strong class="skrollable">Hashtags</strong> spielen eine große Rolle. Wenn Sie in der Suche zum Beispiel nach #Linux, #Fotografie oder #Digitalisierung suchen, bekommen Sie alle öffentlichen Beiträge mit diesem Hashtag – egal, auf welcher Instanz sie geschrieben wurden. So finden Sie schnell Themen, die Sie interessieren, und die dazugehörigen Personen.
+                  </p>
+                  <p class="skrollable">Ein weiterer Tipp: Viele Nutzer stellen sich in sogenannten <strong class="skrollable">"Follow-Friday"-Posts</strong> gegenseitig vor. Das sind Beiträge, in denen interessante Accounts empfohlen werden – meist mit Hashtags wie #FF oder #FollowFriday. So wächst die Vernetzung nach und nach.
+                  </p>
+                  <p class="skrollable">Es gibt auch externe Dienste wie <a href="https://fedi.directory/" rel="noopener" target="_new" class="skrollable">fedi.directory</a> oder <a href="https://fediverse.info/" rel="noopener" target="_new" class="skrollable">fediverse.info</a>, die Listen mit spannenden Profilen aus verschiedenen Bereichen anbieten. Darüber hinaus helfen auch Blogartikel, Foren oder Mastodon-spezifische Communities dabei, einen guten Einstieg zu finden.
+                  </p>
+                  <p class="skrollable">Fazit: Wer ein bisschen Eigeninitiative mitbringt, wird bei Mastodon nicht nur fündig – sondern entdeckt oft Inhalte und Menschen, die in anderen Netzwerken untergehen würden.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="u-accordion-item">
+            <a class="u-accordion-link u-active-palette-2-base u-button-style u-hover-custom-color-22 u-palette-5-dark-2 u-text-active-white u-text-grey-10 u-text-hover-grey-10 u-accordion-link-5" id="link-3bba" aria-controls="3bba" aria-selected="false" role="tab"><span class="u-accordion-link-text"> Was ist der Unterschied zu Twitter in der Praxis?</span><span class="u-accordion-link-icon u-icon u-icon-circle u-text-palette-1-base u-icon-5"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 16 16" style=""><use xlink:href="#svg-9944"></use></svg><svg class="u-svg-content" viewBox="0 0 16 16" x="0px" y="0px" id="svg-9944"><path d="M8,10.7L1.6,5.3c-0.4-0.4-1-0.4-1.3,0c-0.4,0.4-0.4,0.9,0,1.3l7.2,6.1c0.1,0.1,0.4,0.2,0.6,0.2s0.4-0.1,0.6-0.2l7.1-6
+	c0.4-0.4,0.4-0.9,0-1.3c-0.4-0.4-1-0.4-1.3,0L8,10.7z"></path></svg></span>
+            </a>
+            <div class="u-accordion-pane u-border-2 u-border-grey-75 u-container-style u-custom-color-3 u-accordion-pane-5" id="3bba" aria-labelledby="link-3bba" aria-expanded="true" role="tabpanel">
+              <div class="u-container-layout u-container-layout-5">
+                <div class="fr-view u-clearfix u-rich-text u-text">
+                  <p id="isPasted" class="skrollable">Oberflächlich betrachtet sieht Mastodon Twitter ziemlich ähnlich: kurze Texte, Antworten, Favoriten, geteilte Beiträge, Hashtags. Aber sobald man es benutzt, merkt man schnell – hier läuft einiges ganz anders.</p>
+                  <p class="skrollable">Der wichtigste Unterschied: <strong class="skrollable">Es gibt keinen zentralen Algorithmus</strong>. Was Sie sehen, bestimmen allein Sie – chronologisch, ungefiltert. Bei Twitter bekommen Sie immer öfter Inhalte, die »für Sie relevant« sein sollen. Das führt zu Bubble-Effekten, Wut-Posts, gezielter Empörung. Mastodon zeigt einfach, was gepostet wurde – Punkt.
+                  </p>
+                  <p class="skrollable">Zweitens: <strong class="skrollable">Es gibt keine Werbung.</strong> Niemand bezahlt dafür, dass seine Inhalte bevorzugt angezeigt werden. Niemand trackt Ihre Klicks, analysiert Ihre Likes oder baut ein Profil von Ihnen. Mastodon funktioniert, weil viele Instanzen von Privatpersonen, Vereinen oder Initiativen betrieben werden, oft spendenfinanziert.
+                  </p>
+                  <p class="skrollable">Drittens: <strong class="skrollable">Mastodon ist dezentral.</strong> Das ist mehr als nur ein technischer Unterschied – es ist ein kultureller. Jede Instanz hat ihre eigenen Regeln. Manche Instanzen blockieren problematische Server aktiv. Das führt zu einer etwas ruhigeren, weniger toxischen Umgebung. Trolle, Hetzer oder Spammer haben es schwerer – weil sie schneller und entschlossener blockiert werden.
+                  </p>
+                  <p class="skrollable">Viertens: <strong class="skrollable">Begrenzte Zeichen, aber mehr Freiheit.</strong> Mastodon erlaubt standardmäßig 500 Zeichen pro Beitrag (manche Instanzen sogar mehr). Das lädt zu mehr Tiefe ein – ohne gleich einen Roman zu schreiben. Außerdem können Sie Content-Warnungen setzen, um Beiträge zu sensiblen Themen einzuleiten.
+                  </p>
+                  <p class="skrollable">Kurz gesagt: Twitter ist laut, schnell, algorithmisch gesteuert und auf Wachstum getrimmt. Mastodon ist langsamer, bewusster, kleiner – aber dafür oft ehrlicher, ruhiger und menschlicher. Wer keinen Wert auf Followerzahlen und Likes legt, sondern auf echten Austausch, fühlt sich bei Mastodon schnell zu Hause.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="u-accordion-item">
+            <a class="u-accordion-link u-active-palette-2-base u-button-style u-hover-custom-color-22 u-palette-5-dark-2 u-text-active-white u-text-grey-10 u-text-hover-grey-10 u-accordion-link-6" id="link-8e64" aria-controls="8e64" aria-selected="false" role="tab"><span class="u-accordion-link-text"> Gibt es Mastodon-Apps für Handy und Desktop?</span><span class="u-accordion-link-icon u-icon u-icon-circle u-text-palette-1-base u-icon-6"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 16 16" style=""><use xlink:href="#svg-a14d"></use></svg><svg class="u-svg-content" viewBox="0 0 16 16" x="0px" y="0px" id="svg-a14d"><path d="M8,10.7L1.6,5.3c-0.4-0.4-1-0.4-1.3,0c-0.4,0.4-0.4,0.9,0,1.3l7.2,6.1c0.1,0.1,0.4,0.2,0.6,0.2s0.4-0.1,0.6-0.2l7.1-6
+	c0.4-0.4,0.4-0.9,0-1.3c-0.4-0.4-1-0.4-1.3,0L8,10.7z"></path></svg></span>
+            </a>
+            <div class="u-accordion-pane u-border-2 u-border-grey-75 u-container-style u-custom-color-3 u-accordion-pane-6" id="8e64" aria-labelledby="link-8e64" aria-expanded="true" role="tabpanel">
+              <div class="u-container-layout u-container-layout-6">
+                <div class="fr-view u-clearfix u-rich-text u-text">
+                  <p id="isPasted" class="skrollable">Ja, es gibt eine ganze Reihe von Apps für Mastodon – sowohl offiziell als auch von Drittanbietern. Anders als bei zentralisierten Netzwerken gibt es nicht "die eine" Mastodon-App, sondern mehrere Möglichkeiten, je nachdem, wie Sie unterwegs sind oder wie viel Komfort Sie möchten.</p>
+                  <p class="skrollable">Für <strong class="skrollable">Android</strong> gibt es die offizielle App Mastodon, die direkt von den Entwicklern bereitgestellt wird. Sie ist übersichtlich, bietet die wichtigsten Funktionen und eignet sich gut für Einsteiger. Alternativen wie Tusky oder Megalodon bieten zusätzliche Einstellungen, teilweise ein anderes Design oder mehr Anpassungsmöglichkeiten.
+                  </p>
+                  <p class="skrollable">Für <strong class="skrollable">iOS</strong> (iPhone und iPad) gibt es ebenfalls die offizielle Mastodon-App, dazu Alternativen wie Toot!, Mona oder Ice Cubes. Diese Drittanbieter-Apps sind oft besonders liebevoll gestaltet und bieten Komfortfunktionen, die bei der offiziellen App noch fehlen – zum Beispiel erweiterte Filter, Multi-Account-Support oder ein individuell einstellbares Layout.
+                  </p>
+                  <p class="skrollable">Auf dem <strong class="skrollable">Desktop</strong> können Sie Mastodon ganz einfach über den Browser nutzen – dort gibt es die klassische Spaltenansicht, ähnlich wie bei TweetDeck. Wer lieber eine native App möchte, kann Clients wie Tootle (Linux), Whalebird (Windows/macOS/Linux) oder Sengi ausprobieren. Auch die App Pinafore bietet eine minimalistische Web-Oberfläche, die sich besonders leicht bedienen lässt.
+                  </p>
+                  <p class="skrollable">Die Auswahl ist groß – und das ist auch Absicht. Da Mastodon offen ist, kann jeder Entwickler eine App schreiben, die das Netzwerk nutzt. Genau das ist die Stärke: Vielfalt statt Einheitsbrei. Egal ob Sie schnell mal mobil reinschauen oder am großen Bildschirm in Ruhe stöbern – Sie finden eine App, die zu Ihnen passt.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="u-accordion-item">
+            <a class="u-accordion-link u-active-palette-2-base u-button-style u-hover-custom-color-22 u-palette-5-dark-2 u-text-active-white u-text-grey-10 u-text-hover-grey-10 u-accordion-link-7" id="link-fc88" aria-controls="fc88" aria-selected="false" role="tab"><span class="u-accordion-link-text"> Wie gehe ich mit Moderation und blockierten Instanzen um?</span><span class="u-accordion-link-icon u-icon u-icon-circle u-text-palette-1-base u-icon-7"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 16 16" style=""><use xlink:href="#svg-c97f"></use></svg><svg class="u-svg-content" viewBox="0 0 16 16" x="0px" y="0px" id="svg-c97f"><path d="M8,10.7L1.6,5.3c-0.4-0.4-1-0.4-1.3,0c-0.4,0.4-0.4,0.9,0,1.3l7.2,6.1c0.1,0.1,0.4,0.2,0.6,0.2s0.4-0.1,0.6-0.2l7.1-6
+	c0.4-0.4,0.4-0.9,0-1.3c-0.4-0.4-1-0.4-1.3,0L8,10.7z"></path></svg></span>
+            </a>
+            <div class="u-accordion-pane u-border-2 u-border-grey-75 u-container-style u-custom-color-3 u-accordion-pane-7" id="fc88" aria-labelledby="link-fc88" aria-expanded="true" role="tabpanel">
+              <div class="u-container-layout u-container-layout-7">
+                <div class="fr-view u-clearfix u-rich-text u-text">
+                  <p id="isPasted" class="skrollable">Da Mastodon dezentral funktioniert, wird auch die Moderation nicht zentral geregelt. Jede Instanz hat ihre eigenen Regeln, Moderationsteams und Hausordnungen. Das bedeutet: Es gibt keine globalen Sperren wie bei Twitter, aber jede Instanz kann selbst entscheiden, mit wem sie interagieren will – oder eben nicht.</p>
+                  <p class="skrollable">Wenn eine Instanz bekannt dafür ist, problematische Inhalte zu verbreiten – etwa Hassrede, Desinformation oder Spam –, können andere Instanzen sie blockieren. Das nennt man <strong class="skrollable">"Defederation"</strong>. Inhalte dieser Instanz tauchen dann nicht mehr in Ihrer Timeline auf, auch wenn jemand auf Ihrer Instanz dort einen Beitrag teilt. Das schützt die eigene Community, ohne gleich das gesamte Netzwerk zu beeinflussen.
+                  </p>
+                  <p class="skrollable">Als Nutzer haben Sie zusätzlich individuelle Möglichkeiten. Sie können einzelne Accounts <strong class="skrollable">stumm schalten</strong>, <strong class="skrollable">blockieren</strong> oder Inhalte <strong class="skrollable">melden</strong>, wenn sie gegen die Regeln Ihrer Instanz verstoßen. Die Admins sehen sich solche Meldungen an und greifen, wenn nötig, ein – entweder mit einer Verwarnung, einem temporären Bann oder dem Ausschluss von der Instanz.
+                  </p>
+                  <p class="skrollable">Gut zu wissen: Die meisten Instanzen sind sehr aktiv, was Moderation angeht. Problematische Inhalte haben es oft schwer, weil viele Communities klare Regeln aufstellen – und diese auch durchsetzen. Es geht nicht darum, alles zu kontrollieren, sondern dafür zu sorgen, dass sich Menschen sicher und respektiert fühlen.</p>
+                  <p class="skrollable">Wenn Ihnen die Moderationspraxis Ihrer aktuellen Instanz nicht zusagt, steht es Ihnen übrigens frei, zu einer anderen Instanz zu wechseln – oder sogar eine eigene zu betreiben. Die Kontrolle liegt bei der Community, nicht bei einem Konzern. Genau das macht Mastodon so besonders.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="u-accordion-item">
+            <a class="u-accordion-link u-active-palette-2-base u-button-style u-hover-custom-color-22 u-palette-5-dark-2 u-text-active-white u-text-grey-10 u-text-hover-grey-10 u-accordion-link-8" id="link-f9da" aria-controls="f9da" aria-selected="false" role="tab"><span class="u-accordion-link-text"> Wie funktioniert das mit Hashtags und Content-Warnungen?</span><span class="u-accordion-link-icon u-icon u-icon-circle u-text-palette-1-base u-icon-8"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 16 16" style=""><use xlink:href="#svg-eb93"></use></svg><svg class="u-svg-content" viewBox="0 0 16 16" x="0px" y="0px" id="svg-eb93"><path d="M8,10.7L1.6,5.3c-0.4-0.4-1-0.4-1.3,0c-0.4,0.4-0.4,0.9,0,1.3l7.2,6.1c0.1,0.1,0.4,0.2,0.6,0.2s0.4-0.1,0.6-0.2l7.1-6
+	c0.4-0.4,0.4-0.9,0-1.3c-0.4-0.4-1-0.4-1.3,0L8,10.7z"></path></svg></span>
+            </a>
+            <div class="u-accordion-pane u-border-2 u-border-grey-75 u-container-style u-custom-color-3 u-accordion-pane-8" id="f9da" aria-labelledby="link-f9da" aria-expanded="true" role="tabpanel">
+              <div class="u-container-layout u-container-layout-8">
+                <div class="fr-view u-clearfix u-rich-text u-text">
+                  <p id="isPasted" class="skrollable">
+                    <strong class="skrollable">Hashtags</strong> spielen auf Mastodon eine zentrale Rolle – ähnlich wie auf Twitter. Wenn Sie einen Hashtag in Ihren Beitrag einfügen, wird dieser automatisch verlinkt. Andere Nutzer können ihn anklicken oder danach suchen und sehen dann alle öffentlichen Beiträge, die diesen Hashtag enthalten. Das ist besonders nützlich, um Themen zu bündeln, etwa #Linux, #Fotografie, #Barrierefreiheit oder #Datenschutz.
+                  </p>
+                  <p class="skrollable">Da es keinen zentralen Algorithmus gibt, sind Hashtags der wichtigste Weg, um Inhalte zu entdecken – auch über Instanzgrenzen hinweg. Wichtig: Es gibt keine „Trending Topics“ wie bei Twitter, das sorgt für weniger Aufregung und Clickbait. Stattdessen entsteht eine ruhigere, themenbezogene Kommunikation.</p>
+                  <p class="skrollable">
+                    <strong class="skrollable">Content-Warnungen (CW)</strong> sind ein besonderes Feature von Mastodon, das es so bei anderen Netzwerken kaum gibt. Sie ermöglichen es, sensible Inhalte hinter einer Überschrift zu verbergen. Wenn Sie zum Beispiel über psychische Gesundheit, Gewalt, Politik oder Spoiler schreiben, können Sie eine Content-Warnung setzen. Der Beitrag erscheint dann zunächst nur mit einem Hinweis – die Leserinnen und Leser entscheiden selbst, ob sie ihn ausklappen wollen.
+                  </p>
+                  <p class="skrollable">Das schafft Respekt und Rücksicht. Gerade in Communities, die auf Achtsamkeit achten, werden CWs häufig verwendet. Sie sind aber nicht vorgeschrieben – jeder entscheidet selbst, ob und wann er sie einsetzt. Auch Bilder können mit einer Sichtbarkeitswarnung versehen werden – etwa bei medizinischen Themen oder künstlerischer Nacktheit.</p>
+                  <p class="skrollable">Fazit: Hashtags helfen, Inhalte zu finden. Content-Warnungen helfen, Inhalte achtsam zu zeigen. Mastodon setzt hier stark auf Eigenverantwortung – und das funktioniert erstaunlich gut.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="u-accordion-item">
+            <a class="u-accordion-link u-active-palette-2-base u-button-style u-hover-custom-color-22 u-palette-5-dark-2 u-text-active-white u-text-grey-10 u-text-hover-grey-10 u-accordion-link-9" id="link-a67b" aria-controls="a67b" aria-selected="false" role="tab"><span class="u-accordion-link-text"> Wie bleiben Inhalte sichtbar, wenn meine Instanz offline ist?</span><span class="u-accordion-link-icon u-icon u-icon-circle u-text-palette-1-base u-icon-9"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 16 16" style=""><use xlink:href="#svg-2b6a"></use></svg><svg class="u-svg-content" viewBox="0 0 16 16" x="0px" y="0px" id="svg-2b6a"><path d="M8,10.7L1.6,5.3c-0.4-0.4-1-0.4-1.3,0c-0.4,0.4-0.4,0.9,0,1.3l7.2,6.1c0.1,0.1,0.4,0.2,0.6,0.2s0.4-0.1,0.6-0.2l7.1-6
+	c0.4-0.4,0.4-0.9,0-1.3c-0.4-0.4-1-0.4-1.3,0L8,10.7z"></path></svg></span>
+            </a>
+            <div class="u-accordion-pane u-border-2 u-border-grey-75 u-container-style u-custom-color-3 u-accordion-pane-9" id="a67b" aria-labelledby="link-a67b" aria-expanded="true" role="tabpanel">
+              <div class="u-container-layout u-container-layout-9">
+                <div class="fr-view u-clearfix u-rich-text u-text">
+                  <p id="isPasted" class="skrollable">Wenn Ihre Instanz einmal offline geht – sei es durch Wartung, technische Probleme oder weil der Betreiber sie abschaltet –, dann sind Ihre eigenen Beiträge und Ihr Profil erstmal nicht mehr erreichbar. Das liegt daran, dass Ihre Inhalte auf dem Server gespeichert sind, bei dem Sie registriert sind.</p>
+                  <p class="skrollable">Aber: Mastodon hat einen cleveren Mechanismus. Sobald Sie Beiträge veröffentlichen, werden diese an alle Instanzen verteilt, deren Nutzer Ihnen folgen oder mit Ihnen interagieren. Das heißt: Andere Server speichern automatisch Kopien Ihrer öffentlichen Beiträge – in einem sogenannten "Cache". Dadurch bleiben diese Inhalte für viele andere Nutzer weiterhin sichtbar, auch wenn Ihre Instanz gerade nicht erreichbar ist.</p>
+                  <p class="skrollable">Private Nachrichten sind davon allerdings ausgenommen – sie bleiben auf Ihrer Instanz und sind nicht über andere Server abrufbar. Auch Ihre Einstellungen, Benachrichtigungen und Follower-Liste sind instanzgebunden. Wenn Ihre Instanz dauerhaft verschwindet, sind diese Daten verloren – es sei denn, Sie haben vorher ein Backup gemacht oder sind rechtzeitig umgezogen.</p>
+                  <p class="skrollable">Das Fediverse ist also robust, aber nicht unzerstörbar. Der beste Schutz: Wählen Sie eine zuverlässige Instanz mit klarer Kommunikation und regelmäßigen Backups. Und wenn Sie merken, dass Ihre Instanz wackelt – überlegen Sie frühzeitig, ob Sie zu einer anderen umziehen möchten. Mastodon bietet dafür eine eingebaute Umzugsfunktion, bei der Sie Ihre Follower mitnehmen können.</p>
+                  <p class="skrollable">Kurz gesagt: Inhalte verbreiten sich über das Netzwerk und bleiben teilweise sichtbar – aber für echte Sicherheit brauchen Sie eine stabile Instanz oder einen eigenen Server.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="u-accordion-item">
+            <a class="u-accordion-link u-active-palette-2-base u-button-style u-hover-custom-color-22 u-palette-5-dark-2 u-text-active-white u-text-grey-10 u-text-hover-grey-10 u-accordion-link-10" id="link-48f1" aria-controls="48f1" aria-selected="false" role="tab"><span class="u-accordion-link-text"> Was ist das Fediverse genau – und welche Dienste gehören dazu?</span><span class="u-accordion-link-icon u-icon u-icon-circle u-text-palette-1-base u-icon-10"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 16 16" style=""><use xlink:href="#svg-42c5"></use></svg><svg class="u-svg-content" viewBox="0 0 16 16" x="0px" y="0px" id="svg-42c5"><path d="M8,10.7L1.6,5.3c-0.4-0.4-1-0.4-1.3,0c-0.4,0.4-0.4,0.9,0,1.3l7.2,6.1c0.1,0.1,0.4,0.2,0.6,0.2s0.4-0.1,0.6-0.2l7.1-6
+	c0.4-0.4,0.4-0.9,0-1.3c-0.4-0.4-1-0.4-1.3,0L8,10.7z"></path></svg></span>
+            </a>
+            <div class="u-accordion-pane u-border-2 u-border-grey-75 u-container-style u-custom-color-3 u-accordion-pane-10" id="48f1" aria-labelledby="link-48f1" aria-expanded="true" role="tabpanel">
+              <div class="u-container-layout u-container-layout-10">
+                <div class="fr-view u-clearfix u-rich-text u-text">
+                  <p id="isPasted" class="skrollable">Das <strong class="skrollable">Fediverse</strong> ist eine Zusammensetzung aus den Worten "federated" (also föderiert, verteilt) und "universe" (Universum). Es beschreibt ein Netzwerk aus vielen verschiedenen Plattformen, die alle miteinander kommunizieren können – auch wenn sie völlig unterschiedlich aussehen und andere Schwerpunkte haben.
+                  </p>
+                  <p class="skrollable">Was sie verbindet, ist das <strong class="skrollable">Protokoll ActivityPub</strong>. Das ist ein offener technischer Standard, mit dem Beiträge, Likes, Follows und andere Aktivitäten zwischen Servern ausgetauscht werden. Wenn Sie also zum Beispiel auf Mastodon jemandem folgen, der auf einer ganz anderen Plattform unterwegs ist – etwa bei einem Videoanbieter oder einem Fotodienst – klappt das trotzdem.
+                  </p>
+                  <p class="skrollable">Mastodon ist nur ein Teil dieses Netzwerks. Zum Fediverse gehören noch viele weitere Dienste:</p>
+                  <p class="skrollable">
+                    <strong class="skrollable">Pixelfed</strong>: Ein dezentraler Fotodienst, ähnlich wie Instagram. Sie können dort Bilder posten, Hashtags nutzen und mit anderen interagieren – auch mit Mastodon-Nutzern.
+                  </p>
+                  <p class="skrollable">
+                    <strong class="skrollable">PeerTube</strong>: Eine dezentrale Video-Plattform, als Alternative zu YouTube. Keine Werbung, keine zentrale Kontrolle – dafür Server, die gemeinsam Videos austauschen.
+                  </p>
+                  <p class="skrollable">
+                    <strong class="skrollable">Funkwhale</strong>: Eine Plattform für Musik-Streaming, bei der Künstler ihre Musik hochladen können. Auch sie ist föderiert und offen.
+                  </p>
+                  <p class="skrollable">
+                    <strong class="skrollable">Lemmy</strong>: Eine Reddit-ähnliche Diskussionsplattform mit Foren, Kommentaren und Abstimmungen.
+                  </p>
+                  <p class="skrollable">
+                    <strong class="skrollable">Kbin</strong>: Ebenfalls eine Plattform für Foren-ähnliche Diskussionen, die sich gerade in der Entwicklung stark verbreitet.
+                  </p>
+                  <p class="skrollable">
+                    <strong class="skrollable">Friendica</strong> und <strong class="skrollable">Misskey</strong>: Weitere soziale Netzwerke mit jeweils eigenem Charakter, die ebenfalls über ActivityPub mit dem Fediverse verbunden sind.
+                  </p>
+                  <p class="skrollable">Das Besondere: Egal, auf welcher Plattform Sie sind – Sie können miteinander kommunizieren, Beiträge teilen und interagieren. Das ist, als könnten Sie von Ihrer E-Mail-Adresse aus auch mit WhatsApp, SMS und Slack schreiben – nur eben technisch sauber gelöst.</p>
+                  <p class="skrollable">Das Fediverse steht für ein freies, offenes Internet. Ohne zentrale Konzerne, ohne Datenmissbrauch, ohne Zwang, sich an ein System zu binden. Wer einmal drin ist, merkt schnell: Hier geht es wieder um das, was das Internet einmal war – und wieder sein könnte.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="u-accordion-item">
+            <a class="u-accordion-link u-active-palette-2-base u-button-style u-hover-custom-color-22 u-palette-5-dark-2 u-text-active-white u-text-grey-10 u-text-hover-grey-10 u-accordion-link-11" id="link-a25d" aria-controls="a25d" aria-selected="false" role="tab"><span class="u-accordion-link-text"> Kann ich mein Profil zu einer anderen Instanz umziehen?</span><span class="u-accordion-link-icon u-icon u-icon-circle u-text-palette-1-base u-icon-11"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 16 16" style=""><use xlink:href="#svg-9c56"></use></svg><svg class="u-svg-content" viewBox="0 0 16 16" x="0px" y="0px" id="svg-9c56"><path d="M8,10.7L1.6,5.3c-0.4-0.4-1-0.4-1.3,0c-0.4,0.4-0.4,0.9,0,1.3l7.2,6.1c0.1,0.1,0.4,0.2,0.6,0.2s0.4-0.1,0.6-0.2l7.1-6
+	c0.4-0.4,0.4-0.9,0-1.3c-0.4-0.4-1-0.4-1.3,0L8,10.7z"></path></svg></span>
+            </a>
+            <div class="u-accordion-pane u-border-2 u-border-grey-75 u-container-style u-custom-color-3 u-accordion-pane-11" id="a25d" aria-labelledby="link-a25d" aria-expanded="true" role="tabpanel">
+              <div class="u-container-layout u-container-layout-11">
+                <div class="fr-view u-clearfix u-rich-text u-text">
+                  <p id="isPasted" class="skrollable">Ja, das ist bei Mastodon möglich – und sogar recht elegant gelöst. Wenn Sie merken, dass Ihre aktuelle Instanz nicht mehr aktiv gepflegt wird, die Moderation nachlässt oder Sie einfach in eine besser passende Community wechseln wollen, können Sie Ihr Profil zu einer anderen Instanz mitnehmen. Wichtig: Ihre Beiträge ziehen dabei nicht automatisch mit um, aber Ihre <strong class="skrollable">Follower</strong> und Ihre <strong class="skrollable">Identität</strong> schon.
+                  </p>
+                  <p class="skrollable">Der Umzug funktioniert in zwei Schritten:</p>
+                  <ol class="skrollable">
+                    <li class="skrollable">
+                      <p class="skrollable">
+                        <strong class="skrollable">Neues Konto anlegen:</strong> Sie registrieren sich auf der neuen Instanz und richten dort ein neues Profil ein.
+                      </p>
+                    </li>
+                    <li class="skrollable">
+                      <p class="skrollable">
+                        <strong class="skrollable">Altes Konto umleiten:</strong> In den Einstellungen Ihrer alten Instanz können Sie einen Weiterleitungs-Link setzen. Dort geben Sie an, wo Ihr neues Profil jetzt zu finden ist. Gleichzeitig können Sie auf der neuen Instanz das alte Konto als Umzugsquelle angeben.
+                      </p>
+                    </li>
+                  </ol>
+                  <p class="skrollable">Sobald der Umzug abgeschlossen ist, sehen Ihre Follower einen Hinweis, dass Sie „umgezogen“ sind – und werden (wenn die Funktion korrekt genutzt wird) automatisch dem neuen Profil folgen. Das ist besonders hilfreich, wenn Sie bereits viele Kontakte aufgebaut haben und nicht bei null anfangen möchten.</p>
+                  <p class="skrollable">Wichtig zu wissen: Ihre alten Beiträge und Medien bleiben nur auf der alten Instanz erhalten – außer Sie sichern diese vorher manuell oder über ein Export-Tool. Mastodon arbeitet daran, auch den Export von Inhalten irgendwann besser zu lösen, aber aktuell ist das nicht automatisiert.</p>
+                  <p class="skrollable">Der Umzug ist also nicht wie ein 1:1-Kopiervorgang, sondern eher ein Wechsel mit Follower-Weiterleitung. Dennoch ist es ein großer Pluspunkt: Bei zentralen Netzwerken ist so etwas schlicht nicht vorgesehen. Mastodon dagegen behandelt Ihre Identität wie etwas, das Ihnen gehört – nicht dem Anbieter.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="u-accordion-item">
+            <a class="u-accordion-link u-active-palette-2-base u-button-style u-hover-custom-color-22 u-palette-5-dark-2 u-text-active-white u-text-grey-10 u-text-hover-grey-10 u-accordion-link-12" id="link-2516" aria-controls="2516" aria-selected="false" role="tab"><span class="u-accordion-link-text"> Wie sicher ist Mastodon bei Cyberangriffen oder technischen Ausfällen?</span><span class="u-accordion-link-icon u-icon u-icon-circle u-text-palette-1-base u-icon-12"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 16 16" style=""><use xlink:href="#svg-fb7a"></use></svg><svg class="u-svg-content" viewBox="0 0 16 16" x="0px" y="0px" id="svg-fb7a"><path d="M8,10.7L1.6,5.3c-0.4-0.4-1-0.4-1.3,0c-0.4,0.4-0.4,0.9,0,1.3l7.2,6.1c0.1,0.1,0.4,0.2,0.6,0.2s0.4-0.1,0.6-0.2l7.1-6
+	c0.4-0.4,0.4-0.9,0-1.3c-0.4-0.4-1-0.4-1.3,0L8,10.7z"></path></svg></span>
+            </a>
+            <div class="u-accordion-pane u-border-2 u-border-grey-75 u-container-style u-custom-color-3 u-accordion-pane-12" id="2516" aria-labelledby="link-2516" aria-expanded="true" role="tabpanel">
+              <div class="u-container-layout u-container-layout-12">
+                <div class="fr-view u-clearfix u-rich-text u-text">
+                  <p id="isPasted" class="skrollable">Mastodon selbst ist eine technisch gut abgesicherte Plattform, aber die Sicherheit hängt stark von der Instanz ab, bei der Sie sich registrieren. Jede Instanz wird von einer eigenen Organisation oder Person betrieben, und der Betreiber ist dafür verantwortlich, die Server abzusichern und vor möglichen Angriffen zu schützen.</p>
+                  <p class="skrollable">Einige wichtige Sicherheitsaspekte, die zu beachten sind:</p>
+                  <ol class="skrollable">
+                    <li class="skrollable">
+                      <p class="skrollable">
+                        <strong class="skrollable">Verschlüsselung:</strong> Mastodon verwendet HTTPS für die Kommunikation zwischen Ihrem Gerät und der Instanz. Das schützt die Daten vor dem Abfangen durch Dritte, besonders wenn Sie öffentliche Netzwerke wie WLAN nutzen.
+                      </p>
+                    </li>
+                    <li class="skrollable">
+                      <p class="skrollable">
+                        <strong class="skrollable">Datensicherheit und Backups:</strong> Die meisten Instanzen sichern regelmäßig ihre Daten und haben Strategien für den Umgang mit Ausfällen. Einige größere Instanzen bieten auch einen klaren Plan für Notfälle und Ausfälle. Kleinere Instanzen sind aber manchmal weniger stabil und könnten durch technische Probleme oder finanzielle Engpässe in Schwierigkeiten geraten.
+                      </p>
+                    </li>
+                    <li class="skrollable">
+                      <p class="skrollable">
+                        <strong class="skrollable">Moderation und Missbrauch:</strong> Die Instanzen können individuell dafür sorgen, dass Missbrauch wie Spam, Phishing oder andere Angriffe schneller erkannt und blockiert werden. Instanzen, die nicht aktiv moderiert werden, könnten eher Ziel von Spam und anderen Sicherheitsrisiken werden.
+                      </p>
+                    </li>
+                    <li class="skrollable">
+                      <p class="skrollable">
+                        <strong class="skrollable">Sicherheitslücken:</strong> Mastodon wird kontinuierlich von einer aktiven Community und Sicherheitsexperten überwacht. Es werden regelmäßig Updates veröffentlicht, um bekannte Sicherheitslücken zu schließen. Die Betreiber sind verpflichtet, diese Updates schnell einzuspielen, aber kleinere Instanzen könnten hier mehr Zeit benötigen. Es ist also ratsam, eine Instanz zu wählen, die regelmäßig aktualisiert wird.
+                      </p>
+                    </li>
+                    <li class="skrollable">
+                      <p class="skrollable">
+                        <strong class="skrollable">Dezentrale Struktur:</strong> Der größte Vorteil von Mastodon in Bezug auf Cyberangriffe ist die dezentrale Struktur. Wenn eine Instanz gehackt wird oder ausfällt, sind nicht alle Daten des Netzwerks gefährdet. Ihre Inhalte bleiben auf dem Server Ihrer Instanz, und die Kommunikation innerhalb des Netzwerks funktioniert weiterhin. Eine Instanz, die ausfällt, kann keine weite Reichweite haben, weil die Interaktionen lokal auf einer bestimmten Instanz begrenzt bleiben.
+                      </p>
+                    </li>
+                  </ol>
+                  <p class="skrollable">Insgesamt bietet Mastodon eine relativ hohe Sicherheit, insbesondere wenn Sie sich für eine gut gepflegte und regelmäßig aktualisierte Instanz entscheiden. Dennoch sollten Sie sich bewusst sein, dass jede Instanz ihre eigene Sicherheitsinfrastruktur und -praktiken hat. Wenn Sie besonders auf Ihre Daten achten müssen, ist es eine gute Idee, auf Instanzen mit transparenten Sicherheits- und Datenschutzrichtlinien zu setzen oder sogar Ihre eigene Instanz zu betreiben.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="u-accordion-item">
+            <a class="u-accordion-link u-active-palette-2-base u-button-style u-hover-custom-color-22 u-palette-5-dark-2 u-text-active-white u-text-grey-10 u-text-hover-grey-10 u-accordion-link-13" id="link-147e" aria-controls="147e" aria-selected="false" role="tab"><span class="u-accordion-link-text"> Wie kann ich mich aktiv einbringen – technisch, finanziell oder organisatorisch?</span><span class="u-accordion-link-icon u-icon u-icon-circle u-text-palette-1-base u-icon-13"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 16 16" style=""><use xlink:href="#svg-4f28"></use></svg><svg class="u-svg-content" viewBox="0 0 16 16" x="0px" y="0px" id="svg-4f28"><path d="M8,10.7L1.6,5.3c-0.4-0.4-1-0.4-1.3,0c-0.4,0.4-0.4,0.9,0,1.3l7.2,6.1c0.1,0.1,0.4,0.2,0.6,0.2s0.4-0.1,0.6-0.2l7.1-6
+	c0.4-0.4,0.4-0.9,0-1.3c-0.4-0.4-1-0.4-1.3,0L8,10.7z"></path></svg></span>
+            </a>
+            <div class="u-accordion-pane u-border-2 u-border-grey-75 u-container-style u-custom-color-3 u-accordion-pane-13" id="147e" aria-labelledby="link-147e" aria-expanded="true" role="tabpanel">
+              <div class="u-container-layout u-container-layout-13">
+                <div class="fr-view u-clearfix u-rich-text u-text">
+                  <p id="isPasted" class="skrollable">Mastodon lebt davon, dass Menschen nicht nur mitlesen, sondern sich aktiv einbringen. Und das geht auf vielen Ebenen – ganz ohne Programmierkenntnisse, wenn Sie möchten.</p>
+                  <p class="skrollable">Wenn Sie <strong class="skrollable">technisch versiert</strong> sind, können Sie bei der Weiterentwicklung der Software helfen. Mastodon ist Open Source – das heißt: Der Quellcode ist öffentlich zugänglich, und jede Verbesserung zählt. Ob Fehler melden, Funktionen programmieren oder Übersetzungen beisteuern – all das ist willkommen. Auch das Einreichen von Themes oder die Entwicklung von Apps zählt zur aktiven Beteiligung.
+                  </p>
+                  <p class="skrollable">Sie können auch <strong class="skrollable">finanziell unterstützen</strong>, wenn Sie eine Instanz regelmäßig nutzen. Viele Betreiber bieten Spendenmöglichkeiten über Plattformen wie Patreon, LiberaPay oder direkte Banküberweisung an. Selbst kleine Beträge helfen, den Serverbetrieb, Wartung und Moderation aufrechtzuerhalten. Wenn Sie selbst eine Instanz betreiben möchten, können Sie die laufenden Kosten durch Fördermitglieder oder Ihre Community tragen lassen.
+                  </p>
+                  <p class="skrollable">
+                    <strong class="skrollable">Organisatorisch</strong> gibt es ebenfalls viel zu tun. Sie können zum Beispiel Menschen beim Einstieg helfen, Anleitungen schreiben, Schulungen geben oder einfach in Foren und Gruppen Fragen beantworten. Auch das Moderieren von Inhalten auf Ihrer Instanz oder das Übersetzen von Texten und Regeln in andere Sprachen ist ein wertvoller Beitrag.
+                  </p>
+                  <p class="skrollable">Und nicht zuletzt: Sie helfen schon, indem Sie <strong class="skrollable">aktiv dabei sind</strong>, Inhalte posten, andere Nutzer unterstützen und das Netzwerk mit Leben füllen. Mastodon funktioniert, weil echte Menschen sich freiwillig kümmern – nicht, weil ein Konzern dahinter steht.
+                  </p>
+                  <p class="skrollable">Kurz gesagt: Es ist wie in einem Verein oder einem Dorf. Es braucht Technik, Geld und Herzblut. Und wenn Sie wollen, können Sie genau an der Stelle einsteigen, die Ihnen liegt.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="u-accordion-item">
+            <a class="u-accordion-link u-active-palette-2-base u-button-style u-hover-custom-color-22 u-palette-5-dark-2 u-text-active-white u-text-grey-10 u-text-hover-grey-10 u-accordion-link-14" id="link-6131" aria-controls="6131" aria-selected="false" role="tab"><span class="u-accordion-link-text"> Habe ich ein Mastodon-Profil? Ralf-Peter Kleinert ...&nbsp;</span><span class="u-accordion-link-icon u-icon u-icon-circle u-text-palette-1-base u-icon-14"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 16 16" style=""><use xlink:href="#svg-1112"></use></svg><svg class="u-svg-content" viewBox="0 0 16 16" x="0px" y="0px" id="svg-1112"><path d="M8,10.7L1.6,5.3c-0.4-0.4-1-0.4-1.3,0c-0.4,0.4-0.4,0.9,0,1.3l7.2,6.1c0.1,0.1,0.4,0.2,0.6,0.2s0.4-0.1,0.6-0.2l7.1-6
+	c0.4-0.4,0.4-0.9,0-1.3c-0.4-0.4-1-0.4-1.3,0L8,10.7z"></path></svg></span>
+            </a>
+            <div class="u-accordion-pane u-border-2 u-border-grey-75 u-container-style u-custom-color-3 u-accordion-pane-14" id="6131" aria-labelledby="link-6131" aria-expanded="true" role="tabpanel">
+              <div class="u-container-layout u-container-layout-14">
+                <div class="fr-view u-clearfix u-rich-text u-text">
+                  <p id="isPasted" class="skrollable">Ja, ich habe selbst ein Profil bei Mastodon: <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1" href="https://mastodon.social/@digitaleasy" rel="noopener" target="_blank">@digitaleasy@mastodon.social</a>. Die Adresse setzt sich aus meinem Nutzernamen und der Instanz zusammen – in meinem Fall ist das mastodon.social, die größte und bekannteste Instanz weltweit. Sie wird direkt von den Entwicklern der Mastodon-Software betrieben und dient vielen als zentraler Einstiegspunkt ins Netzwerk.
+                  </p>
+                  <p class="skrollable">Ich nutze mein Profil, um über Themen wie IT-Sicherheit, digitale Selbstbestimmung und Techniktrends zu schreiben – also genau das, was mich auch auf meinen anderen Plattformen beschäftigt. Wenn Sie möchten, können Sie mir dort folgen, Beiträge lesen oder selbst in den Austausch gehen.</p>
+                  <p class="skrollable">Und falls Sie noch kein eigenes Mastodon-Profil haben: Schauen Sie sich ruhig erst einmal um. Vielleicht entdecken Sie, dass es genau die Art von sozialem Netzwerk ist, die Ihnen bisher gefehlt hat – ohne Algorithmen, ohne Werbung, aber mit vielen spannenden Menschen.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-24" id="zurueck-zum-inhaltsmenue-j">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="mastodon-social-media.html#artikelmenue-mastodon" data-page-id="749730369" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Zurück zum Inhalts Menü Mastodon</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-25" id="mein-kommentar-zum-schluss">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="custom-expanded u-container-style u-custom-color-19 u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h2 class="u-text u-text-default u-text-1">Zum Schluss mein Kommentar</h2>
+            <p class="u-text u-text-default u-text-2"> Also. Ich habe jetzt wirklich eine ganze Menge zu Mastodon geschrieben und versucht, Ihnen das Thema ohne weitere offene Fragen nahe zu bringen.&nbsp;Auch ich will, dass wir wieder selbstbestimmt im Netz unterwegs sein können – ohne von Algorithmen, Konzernen oder Werbung gesteuert zu werden.</p>
+            <p class="u-text u-text-default u-text-3"> Mastodon ist sicher nicht perfekt. Es braucht etwas Eingewöhnung, und man muss bereit sein, sich selbst zu orientieren. Aber gerade das macht es stark: Es ist ein Netzwerk von Menschen, nicht von Maschinen. Sie finden mich dort unter @<a class="skrollable u-active-none u-border-none u-btn u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1" rel="noopener">digitaleasy@mastodon.social</a>.
+            </p>
+            <p class="u-text u-text-default u-text-4"> Ich will an dieser Stelle aber auch ganz klar sagen: Ich verteufle die großen sozialen Netzwerke und die bekannten Plattformen nicht. Man muss nicht alles bis aufs Blut zerreißen. Oft genügt es schon, wenn wir als Nutzerinnen und Nutzer bewusster mit unseren Daten umgehen. Die Verantwortung beginnt bei uns selbst. </p>
+            <p class="u-text u-text-default u-text-5"> Unternehmen wie Facebook, Instagram, X (ehemals Twitter) oder auch Google haben unsere Art zu kommunizieren, zu suchen und zu teilen grundlegend verändert. Und ja – das hatte auch viele Vorteile. Wir haben neue Menschen kennengelernt, Wissen blitzschnell gefunden und weltweite Gemeinschaft erlebt. <br>
+            </p>
+            <p class="u-text u-text-default u-text-6"> Es wird viel über Google berichtet, oft auch kritisch – und das ist gut so. Denn Google verdient eine Menge Geld mit unseren Daten, das steht außer Frage. Aber man sollte auch nicht vergessen, was wir im Gegenzug bekommen: eine leistungsstarke Suchmaschine, Übersetzungen, Karten, Speicher, Videos, E-Mail. Dinge, die für viele von uns selbstverständlich geworden sind. <br>
+            </p>
+            <p class="u-text u-text-default u-text-7"> Google wird oft kritisiert – wegen Datenspeicherung, Tracking, gezielter Werbung. Diese Kritik ist berechtigt und wichtig. Doch bei aller berechtigten Sorge darf man nicht vergessen, was Google tatsächlich leistet. Der Konzern hat das Internet in vielerlei Hinsicht revolutioniert und bietet uns heute Werkzeuge, auf die wir im Alltag kaum noch verzichten möchten. </p>
+            <p class="u-text u-text-default u-text-8"> Die Google-Suche ist nach wie vor die schnellste, präziseste und zuverlässigste Möglichkeit, um Informationen zu finden – egal ob für Schule, Arbeit oder persönliche Interessen. Der Google-Algorithmus analysiert in Sekundenbruchteilen Milliarden von Webseiten und liefert meist genau das, was wir brauchen. Das ist keine Selbstverständlichkeit – das ist technologische Meisterleistung. </p>
+            <p class="u-text u-text-default u-text-9"> Google Maps hat die Art verändert, wie wir uns orientieren. Ob zu Fuß, mit dem Auto oder im Ausland – Routenplanung, Navigation, Öffnungszeiten oder Orte in der Nähe: alles auf einen Blick. Der Dienst ist für viele Menschen inzwischen genauso unverzichtbar wie das Smartphone selbst. </p>
+            <p class="u-text u-text-default u-text-10"> Auch Gmail, Google Translate, Google Drive oder Google Fotos gehören zu den zuverlässigsten und leistungsfähigsten Tools, die der digitale Alltag zu bieten hat. Sie funktionieren weltweit, reibungslos und kostenlos. All das sind Gründe, warum so viele Nutzer diesen Diensten vertrauen – trotz der bekannten datenschutzrechtlichen Herausforderungen. </p>
+            <p class="u-text u-text-default u-text-11"> Kurz gesagt: Google sammelt Daten, ja – aber Google liefert auch echten Mehrwert. Ohne die Technologien dieses Unternehmens wäre das heutige Internet nicht das, was es ist. Wer bewusst mit den Diensten umgeht, kann sie mit großem Nutzen einsetzen. Und genau deshalb ist es wichtig, sie differenziert zu betrachten – nicht schwarz-weiß, sondern mit klarem Blick auf ihre Stärken.<br>
+            </p>
+            <h3 class="u-text u-text-default u-text-12">Warum hebe ich Google hier so hervor?</h3>
+            <p class="u-text u-text-default u-text-13"> Ganz einfach, meine Lieben: Ich bin mir nach all den Jahren wirklich nicht mehr sicher, ob Plattformen wie Facebook, X (ehemals Twitter), Instagram oder TikTok einen echten Mehrwert für die Menschen bieten. Einen Unterhaltungsmehrwert – ja, den liefern sie zweifellos. Aber auf welchem Fundament? Hetze, Mobbing, endlose Challenges ohne Sinn, manipulierte Reichweiten, gezielte Desinformation – all das gehört dort inzwischen zum Alltag.</p>
+            <p class="u-text u-text-default u-text-14"> Bei Google sehe ich das anders. Google hilft mir im Alltag. Wenn ich wissen will, wie ich irgendwo hinkomme – Google Maps. Wenn ich eine bestimmte Webseite suche – Google-Suche. Wenn ich einen Begriff nicht verstehe – Google Translate. Und was man auch nicht vergessen darf: Google investiert Jahr für Jahr Milliarden, um schädliche, betrügerische oder gefährliche Inhalte aktiv herauszufiltern. Die Algorithmen werden ständig verbessert, nicht nur, um Werbung besser zu platzieren, sondern auch, um unser digitales Umfeld sicherer zu machen. </p>
+            <p class="u-text u-text-default u-text-15"> Deshalb nimmt Google für mich eine klare Sonderstellung ein. Natürlich verdient auch Google Geld mit unseren Daten – das müssen wir uns bewusst machen. Aber es ist ein Geben und Nehmen. Die Gegenleistung ist ein stabil funktionierendes, leistungsfähiges, globales Netz aus Diensten, die wirklich helfen. Und ohne Google würde das Internet, so wie wir es heute kennen, schlicht nicht funktionieren. Ohne Facebook? Ja, das ginge. </p>
+            <p class="u-text u-text-default u-text-16"> Google ist nicht perfekt – aber Google bemüht sich. Und das ist mehr, als ich von manch anderem Anbieter behaupten kann.<br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-26" id="zurueck-zum-inhaltsmenue-k">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="mastodon-social-media.html#artikelmenue-mastodon" data-page-id="749730369" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Zurück zum Inhalts Menü Mastodon</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-27" id="ueber-mich-ueber-den-autor">
+      <div class="u-clearfix u-sheet u-valign-top-md u-valign-top-sm u-valign-top-xs u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <div class="custom-expanded data-layout-selected u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+              <div class="u-layout">
+                <div class="u-layout-row">
+                  <div class="u-container-style u-layout-cell u-size-23-lg u-size-23-xl u-size-25-md u-size-25-sm u-size-25-xs u-layout-cell-1">
+                    <div class="u-container-layout u-valign-top-xs u-container-layout-2">
+                      <img class="u-expanded-width u-image lazyload u-image-1" data-image-width="1974" data-image-height="2521" alt="Ralf-Peter Kleinert - Buchautor für IT-Sichereit, Computersicherheit und Cybersecurity" data-src="../../images/Ralf-PeterKleinertIchaktuellesPortrait2024.webp" loading="lazy">
+                    </div>
+                  </div>
+                  <div class="u-container-style u-layout-cell u-size-35-md u-size-35-sm u-size-35-xs u-size-37-lg u-size-37-xl u-layout-cell-2">
+                    <div class="u-container-layout u-valign-bottom-xs u-container-layout-3">
+                      <p class="u-text u-text-default-lg u-text-default-xl u-text-1"> Über den Autor: Ralf-Peter Kleinert</p>
+                      <p class="u-text u-text-default-lg u-text-default-xl u-text-2"> Über 30 Jahre Erfahrung in der IT legen meinen Fokus auf die Computer- und IT-Sicherheit. Auf meiner Website biete ich detaillierte Informationen zu aktuellen IT-Themen. Mein Ziel ist es, komplexe Konzepte verständlich zu vermitteln und meine Leserinnen und Leser für die Herausforderungen und Lösungen in der IT-Sicherheit zu sensibilisieren.<br>
+                      </p>
+                      <p class="u-text u-text-default-lg u-text-default-xl u-text-3">
+                        <a href="../../ueber-mich.html" data-page-id="38997572" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Mehr über mich, Ausbildung, Zertifizierungen</a>
+                      </p>
+                      <p class="u-text u-text-default-lg u-text-default-xl u-text-4">
+                        <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-2" href="https://www.amazon.de/stores/Ralf-Peter-Kleinert-RPK/author/B0D6FVWCTN" target="_blank"> Meine Amazon Autorenseite</a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-28" id="aktualisiert-am">
+      <div class="u-clearfix u-sheet u-valign-middle-xl u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <p class="u-small-text u-text u-text-default u-text-variant u-text-1">Aktualisiert:&nbsp;Ralf-Peter Kleinert 17.04.2025</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    
+    
+    <footer class="u-align-center u-clearfix u-container-align-center u-custom-color-2 u-footer u-footer" id="footer-mit-navigation"><div class="u-clearfix u-sheet u-sheet-1">
+        <p class="u-small-text u-text u-text-variant u-text-1">
+          <a href="../../datenschutzerklaerung.html" data-page-id="735813554" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1">Datenschutz</a> | <a href="../../impressum.html" data-page-id="63266619" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-2">Impressum</a> | <a href="../../inhaltsverzeichnis.html" data-page-id="50765561" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-3">Inhalt</a> | <a href="../../nutzungsbedingungen.html" data-page-id="117449462" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-4">Nutzungsbedingungen</a> | <a href="../../hinweise-haftungsausschluss.html" data-page-id="98103025" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-5">Haftung</a> | <a href="../../hinweise-haftungsausschluss.html#affiliate-info-ausfuehrlich" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-6">Affiliate</a>&nbsp;|&nbsp;<a href="../../kontakt.html" data-page-id="125601662" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-7">Kontakt</a> | <a href="../../newsletter.html" data-page-id="103346126" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-8">Newsletter</a>&nbsp;| <a href="../../preise.html" data-page-id="130192720" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-9">Preise</a>&nbsp;| <a href="../../support.html" data-page-id="86002539" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-10">Support </a>|&nbsp;<a href="../../ueber-mich.html" data-page-id="38997572" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-11">Über mich</a> | <a href="../../downloads.html" data-page-id="70811588" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-12" title="Downloads und kostenlose Downloads">Downloads</a> |<span style="font-weight: 700;">
+            <a href="https://digital-easy.de" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-13" title="DIGITAL-easy" target="_blank">digital-easy.de</a>&nbsp;| <a href="https://blog.ralf-peter-kleinert.de" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-14" title="BLOG Ralf-Peter Kleinert" target="_blank">blog.ralf-peter-kleinert.de</a>&nbsp;| <span style="font-weight: 400;">
+              <a href="https://computerralle.de" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-15" title="#ComputerRalle" target="_blank" rel="noopener">computerralle.de</a></span> |&nbsp;<a href="../../hinweise-haftungsausschluss.html#agb-allgemeine-geschaeftsbedingungen" data-page-id="98103025" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-16">AGB</a>&nbsp;| <span style="font-weight: 400;">
+              <a href="https://portal.dnb.de/opac/simpleSearch?query=ralf-peter+kleinert&amp;cqlMode=true" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-17" title="Bücher von Ralf-Peter Kleinert in der Deutschen Nationalbibliothek" target="_blank">Nationalbibliothek</a></span></span>
+        </p>
+        <p class="u-text u-text-2"> Copyright © Ralf-Peter Kleinert DIGITAL-easy #ComputerRalle<br>SSR-Entertainment seit 2005&nbsp;<br> Alle Rechte vorbehalten.
+        </p>
+        <div class="u-social-icons u-social-icons-1">
+          <a class="u-social-url" title="facebook" target="_blank" href="https://www.facebook.com/ralf.peter.kleinert.81" rel="nofollow"><span class="u-icon u-social-facebook u-social-icon u-text-custom-color-29 u-icon-1"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 112 112" style=""><use xlink:href="#svg-1c85"></use></svg><svg class="u-svg-content" viewBox="0 0 112 112" x="0" y="0" id="svg-1c85"><circle fill="currentColor" cx="56.1" cy="56.1" r="55"></circle><path fill="#FFFFFF" d="M73.5,31.6h-9.1c-1.4,0-3.6,0.8-3.6,3.9v8.5h12.6L72,58.3H60.8v40.8H43.9V58.3h-8V43.9h8v-9.2
+c0-6.7,3.1-17,17-17h12.5v13.9H73.5z"></path></svg></span>
+          </a>
+          <a class="u-social-url" target="_blank" data-type="YouTube" title="YouTube" href="https://www.youtube.com/@ComputerRalle"><span class="u-icon u-social-icon u-social-youtube u-text-custom-color-29 u-icon-2"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 112 112" style=""><use xlink:href="#svg-5bbf"></use></svg><svg class="u-svg-content" viewBox="0 0 112 112" x="0" y="0" id="svg-5bbf"><circle fill="currentColor" cx="56.1" cy="56.1" r="55"></circle><path fill="#FFFFFF" d="M74.9,33.3H37.3c-7.4,0-13.4,6-13.4,13.4v18.8c0,7.4,6,13.4,13.4,13.4h37.6c7.4,0,13.4-6,13.4-13.4V46.7 C88.3,39.3,82.3,33.3,74.9,33.3L74.9,33.3z M65.9,57l-17.6,8.4c-0.5,0.2-1-0.1-1-0.6V47.5c0-0.5,0.6-0.9,1-0.6l17.6,8.9 C66.4,56,66.4,56.8,65.9,57L65.9,57z"></path></svg></span>
+          </a>
+          <a class="u-social-url" target="_blank" data-type="LinkedIn" title="LinkedIn" href="https://www.linkedin.com/in/ralf-peter-kleinert/" rel="nofollow"><span class="u-icon u-social-icon u-social-linkedin u-text-custom-color-29 u-icon-3"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 112 112" style=""><use xlink:href="#svg-d54c"></use></svg><svg class="u-svg-content" viewBox="0 0 112 112" x="0" y="0" id="svg-d54c"><circle fill="currentColor" cx="56.1" cy="56.1" r="55"></circle><path fill="#FFFFFF" d="M41.3,83.7H27.9V43.4h13.4V83.7z M34.6,37.9L34.6,37.9c-4.6,0-7.5-3.1-7.5-7c0-4,3-7,7.6-7s7.4,3,7.5,7
+      C42.2,34.8,39.2,37.9,34.6,37.9z M89.6,83.7H76.2V62.2c0-5.4-1.9-9.1-6.8-9.1c-3.7,0-5.9,2.5-6.9,4.9c-0.4,0.9-0.4,2.1-0.4,3.3v22.5
+      H48.7c0,0,0.2-36.5,0-40.3h13.4v5.7c1.8-2.7,5-6.7,12.1-6.7c8.8,0,15.4,5.8,15.4,18.1V83.7z"></path></svg></span>
+          </a>
+          <a class="u-social-url" target="_blank" data-type="Custom" title="Mastodon" href="https://mastodon.social/@digitaleasy" rel="nofollow noopener"><span class="u-file-icon u-icon u-social-custom u-social-icon u-text-custom-color-29 u-icon-4"><img src="../../images/mastodon1-4909f8ae.png" alt=""></span>
+          </a>
+          <a class="u-social-url" target="_blank" data-type="Blogspot" title="Blogspot" href="https://computerralle.blogspot.com/"><span class="u-icon u-social-blogspot u-social-icon u-text-custom-color-29 u-icon-5"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 112 112" style=""><use xlink:href="#svg-35b7"></use></svg><svg class="u-svg-content" viewBox="0 0 112 112" x="0" y="0" id="svg-35b7"><circle fill="currentColor" cx="56.1" cy="56.1" r="55"></circle><path id="Blogger" fill="#FFFFFF" d="M82.9,47.9c-4.4,0-5.4-2.3-5.4-5.4s-0.7-7.9-6.2-13.7C65.9,23.2,59.6,23,59.6,23
+	s-12.5,0-17.9,0c-5.8,0-10.2,3.2-14.2,7.9c-5,5.9-4.5,12-4.5,12s0,18.7,0,23.2s0.5,10.4,6.3,16.8c5.8,6.4,14.9,6.3,14.9,6.3H68
+	c7,0,11-2.1,15.9-6.6c5.3-4.8,5.7-13.7,5.7-13.7s0-14.7,0-17.4C89.6,48.7,87.3,47.9,82.9,47.9z M39.7,43.3c0-2,1.7-3.7,3.7-3.7h14.2
+	c2,0,3.7,1.7,3.7,3.7v0.9c0,2-1.7,3.7-3.7,3.7H43.4c-2,0-3.7-1.7-3.7-3.7V43.3z M71.7,68.6c0,2-1.7,3.7-3.7,3.7H43.4
+	c-2,0-3.7-1.7-3.7-3.7v-0.9c0-2,1.7-3.7,3.7-3.7H68c2,0,3.7,1.7,3.7,3.7V68.6z"></path></svg></span>
+          </a>
+        </div>
+        <div class="u-clearfix u-custom-html u-expanded-width u-custom-html-1">
+          <a href="javascript:UC_UI.showSecondLayer();">Cookie-Einstellungen</a>
+        </div>
+      </div></footer><span style="height: 48px; width: 48px; margin-left: 0px; margin-right: auto; margin-top: 0px; right: 0px; bottom: 15px;" class="u-back-to-top u-file-icon u-icon u-text-custom-color-20" data-href="#"><img src="../../images/e77d2435.png" alt=""></span>
+  
+</body></html>

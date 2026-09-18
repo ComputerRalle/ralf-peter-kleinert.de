@@ -1,0 +1,30 @@
+#docker-compse Datei von Ralf-Peter Kleinert
+#ComputerRalle / DIGITALeasy 
+services:
+  vaultwarden:
+    image: vaultwarden/server:latest
+    container_name: vaultwarden
+    restart: unless-stopped
+    environment:
+      WEBSOCKET_ENABLED: "true"
+      SIGNUPS_ALLOWED: "true"
+      # Diese Domaine wird in die Windows hosts Datei eingetragen
+      DOMAIN: "https://vw-debian-13-001:8443"
+      # Dieser Token muss geändert werden
+      ADMIN_TOKEN: "DeinSuperSicheresToken123!"
+    volumes:
+      - ./vw-data:/data
+    ports:
+      # Vaultwarden intern erreichbar
+      - "8081:80"
+
+  caddy:
+    image: caddy:latest
+    container_name: caddy
+    restart: unless-stopped
+    # vermeidet NAT/Proxy-Probleme
+    network_mode: host
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - ./caddy-data:/data
+      - ./caddy-config:/config

@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="de-DE"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="WireGuard, Linux, Absichern, Schützen, VPN">
+    <meta name="description" content="Erfahren Sie, wie Sie WireGuard auf OPNsense einrichten – schnell, sicher und einfach erklärt! Mit Youtube-Tutorial.">
+    <title>opnsense-wireguard-vpn</title>
+    <link rel="stylesheet" href="../nicepage.css" media="screen">
+<link rel="stylesheet" href="opnsense-wireguard-vpn.css" media="screen">
+    <script class="u-script" type="text/javascript" src="../jquery.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="../nicepage.js" defer=""></script>
+    <meta name="twitter:card" content="player">
+    <meta name="twitter:title" content="Proxmox VE 8.3.4 - Teil 16 - OPNsense installieren und mit WireGuard einen VPN Tunnel einrichten">
+    <meta name="twitter:description" content="In diesem Video zeige ich Schritt für Schritt, wie Sie eine OPNsense Firewall auf Proxmox installieren, konfigurieren und mit VPN Tunnel absichern">
+    <meta name="twitter:image" content="https://img.youtube.com/vi/CkbaZGfn0tM/maxresdefault.jpg">
+    <meta name="twitter:player" content="https://www.youtube-nocookie.com/embed/CkbaZGfn0tM">
+    <meta name="twitter:player:width" content="1920">
+    <meta name="twitter:player:height" content="1080">
+    <meta name="twitter:site" content="@DIGITALeasy_RPK">
+    <meta name="twitter:creator" content="@DIGITALeasy_RPK">
+    <meta property="og:title" content="Wie erstelle ich einen WireGuard-VPN-Tunnel?">
+    <meta property="og:description" content="Erfahren Sie, wie Sie WireGuard auf OPNsense einrichten – schnell, sicher und einfach erklärt! Mit Youtube-Tutorial.">
+    <meta property="og:image" content="https://ralf-peter-kleinert.de/images/wireguard-opnsense-vpn-tunnel.jpg">
+    <meta property="og:url" content="https://ralf-peter-kleinert.de/linux-server/opnsense-wireguard-vpn.html">
+    <script type="application/ld+json"> {
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "Proxmox VE 8.3.4 - Teil 16 - OPNsense installieren und mit WireGuard einen VPN Tunnel einrichten",
+  "description": "In diesem Video zeige ich Schritt für Schritt, wie Sie eine OPNsense Firewall auf Proxmox installieren, konfigurieren und mit VPN Tunnel absichern",
+  "thumbnailUrl": "https://img.youtube.com/vi/CkbaZGfn0tM/maxresdefault.jpg",
+  "uploadDate": "2025-03-02T00:00:00+00:00",
+  "contentUrl": "https://www.youtube-nocookie.com/embed/CkbaZGfn0tM",
+  "embedUrl": "https://www.youtube-nocookie.com/embed/CkbaZGfn0tM",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Ralf-Peter Kleinert DIGITALeasy",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ralf-peter-kleinert.de/images/digitaleasy_kopfbanner.png"
+    }
+  }
+} </script>
+    <link rel="icon" href="../images/favicon1.ico">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <link id="u-page-google-font" rel="stylesheet" href="../opnsense-wireguard-vpn-fonts.css">
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": "Ralf-Peter Kleinert",
+		"logo": "../images/BannerHintergrund1.png",
+		"sameAs": [
+				"https://www.facebook.com/ralf.peter.kleinert.81",
+				"https://www.youtube.com/@ComputerRalle",
+				"https://www.linkedin.com/in/ralf-peter-kleinert/",
+				"https://mastodon.social/@digitaleasy",
+				"https://computerralle.blogspot.com/"
+		]
+}</script>
+    <meta name="theme-color" content="#0cbcf5">
+    <meta property="og:type" content="website">
+  <meta name="author" content="Ralf-Peter Kleinert">
+<meta name="email" content="digitaleasy@ralf-peter-kleinert.de">
+<meta name="copyright" content="Copyright © by Ralf-Peter Kleinert">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="facebook-domain-verification" content="7cwzmpfwunyhwzz0dh72lsvrhynk3y"><link rel="preconnect" href="//app.eu.usercentrics.eu">
+<link rel="preconnect" href="//api.eu.usercentrics.eu">
+<link rel="preconnect" href="//sdp.eu.usercentrics.eu">
+<link rel="preload" href="//app.eu.usercentrics.eu/browser-ui/latest/loader.js" as="script">
+<link rel="preload" href="//sdp.eu.usercentrics.eu/latest/uc-block.bundle.js" as="script">
+<script id="usercentrics-cmp" async="" data-eu-mode="true" data-settings-id="rdKSWSBTj" src="https://app.eu.usercentrics.eu/browser-ui/latest/loader.js"></script>
+<script type="application/javascript" src="https://sdp.eu.usercentrics.eu/latest/uc-block.bundle.js"></script><meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
+  <body data-path-to-root="../" data-include-products="false" class="u-body u-clearfix u-xl-mode" data-lang="de"><header class=" u-border-no-bottom u-border-no-left u-border-no-right u-border-no-top u-clearfix u-header u-section-row-container" id="header-mit-navigation-hauptmenue" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="" style="border-style: solid;"><div class="u-section-rows" style="">
+        <div class="u-border-2 u-border-custom-color-20 u-border-no-left u-border-no-right u-border-no-top u-clearfix u-custom-color-2 u-section-row u-section-row-1" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="" id="haupt-menue">
+          <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+            <nav class="u-align-left-lg u-align-left-xl u-align-right-md u-align-right-sm u-align-right-xs u-menu u-menu-dropdown u-menu-open-right u-offcanvas u-menu-1" data-responsive-from="MD" data-position="navigation-hauptmenue" role="navigation">
+              <div class="menu-collapse u-custom-font u-font-raleway" style="font-size: 1.125rem; letter-spacing: 0px; font-weight: 500;">
+                <a class="u-button-style u-custom-active-color u-custom-border u-custom-border-color u-custom-color u-custom-color-2 u-custom-effect-duration u-custom-hover-color u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-text-active-color u-custom-text-color u-custom-text-hover-color u-custom-text-shadow u-custom-text-shadow-blur u-custom-text-shadow-color u-custom-text-shadow-transparency u-custom-text-shadow-x u-custom-text-shadow-y u-custom-top-bottom-menu-spacing u-hamburger-link u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base u-hamburger-link-1" href="#" tabindex="-1" aria-label="Open menu" aria-controls="092e">
+                  <svg class="u-svg-link" viewBox="0 0 24 24"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#menu-hamburger"></use></svg>
+                  <svg class="u-svg-content" version="1.1" id="menu-hamburger" viewBox="0 0 16 16" x="0px" y="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect>
+</g></svg><span> Menü</span>
+                </a>
+              </div>
+              <div class="u-custom-menu u-nav-container">
+                <ul class="u-custom-font u-font-raleway u-nav u-spacing-2 u-unstyled u-nav-1" role="menubar"><li role="none" class="u-nav-item"><a tabindex="-1" role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="../index.html" style="padding: 12px 22px;">Start</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="../inhaltsverzeichnis.html" style="padding: 12px 22px;">Inhalt</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="../sicherheit-in-der-it.html" style="padding: 12px 22px;">IT-Sicherheit &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-2" aria-label="IT-Sicherheit > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheit-in-der-it/uebersicht-it-cyber-security.html">Übersicht: IT-Sicherheit</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheit-in-der-it/verschluesselung-von-daten.html">Verschlüsselung &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-3" aria-label="Verschlüsselung > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheit-in-der-it/verschluesselung-von-daten/cryptomator-kostenlos.html">Cryptomator Dateien verschlüsseln</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheit-in-der-it/vaultwarden-ssl-local-network.html">Vaultwarden Passwortmanager im LAN mit SSL</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheit-in-der-it/passkeys-einrichten-und-nutzen.html">Passkeys Einrichten und Nutzen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheit-in-der-it/privatpersonen.html">Privatpersonen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheit-in-der-it/unternehmen.html">Unternehmen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheit-in-der-it/it-daten-info-sicherheit.html">IT-, Daten-, Informationssicherheit</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheit-in-der-it/backups-sind-exrem-wichtig.html">Backups wichtig für IT-Sicherheit</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheit-in-der-it/keepass-anleitung.html">KeePass-Anleitung</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheit-in-der-it/keepassxc-und-proton-drive.html">KeePassXC und Proton Drive</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheit-in-der-it/iperius-backup-kostenlos.html">Iperius Backup die kostenlose Backupsoftware</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheit-in-der-it/paragon-backup-kostenlos.html">Paragon Backup kostenlose Software</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheit-in-der-it/paragon-backup-rettungsstick.html">Paragon Backup Rettungsstick erstellen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheit-in-der-it/backupkonzept-backupstrategie.html">Datensicherungskonzept und Backupstrategie</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheit-in-der-it/wie-kann-ich-daten-schuetzen.html">Wie kann ich meine Daten vor Hackern besser schützen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheit-in-der-it/sicherheit-in-social-media.html">Sicherheit in Social-Media</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheit-in-der-it/delphi-migration.html">Delphi Software Migration</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheit-in-der-it/pcloud-pass-passwort-manager.html">Passwort Manager pCloud Pass</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="../it-und-computer-beratung.html" style="padding: 12px 22px;">Beratungen &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-4" aria-label="Beratungen > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../it-und-computer-beratung/kleine-unternehmen-startups.html">IT-Dokumentationen für Unternehmen, Praxen und Universitäten</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="../windows-os.html" style="padding: 12px 22px;">Windows &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-5" aria-label="Windows > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../windows-os/computerralle-isms-docker-win.html">ISMS von ComputerRalle</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../windows-os/fernwartungssoftware-hoptodesk.html">Remote Software HopToDesk</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="../linux-os.html" style="padding: 12px 22px;">Linux &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-6" aria-label="Linux > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-os/paperless-backup-programm.html">Paperless Backup Programm Anleitung</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-os/docker-desktop-paperless.html">Paperless auf Windows installieren WSL</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-os/linux-webdav-dateisynchro.html">Linux WebDAV Dateisynchronisation kostenlos</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-os/docker-paperless-installieren.html">Paperless Docker Installation</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../linux-server.html">Linux Server &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-7" aria-label="Linux Server > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="proxmox-pve8-to-pve9-upgrade.html">Proxmox VE 8 zu Proxmox VE 9 Upgrade</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="uebersicht-linux-server.html">Übersicht: Linux Server</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="gitlab-auf-linux-installieren.html">Gitlab auf Linux Debian 11 installieren</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="proxmox-server-sichern-haerten.html">Proxmox Server absichern und härten</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="ssh-keys-auf-linux-erzeugen.html">Proxmox SSH-Keys auf Linux erzeugen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="ssh-keys-auf-windows-erzeugen.html">Proxmox SSH-Key auf Windows erzeugen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="proxmox-hochverfuegbare-vm.html">Proxmox Hochverfügbarkeits-Cluster aufbauen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="proxmox-verschluesselt-backup.html">Proxmox verschlüsseltes Backup erstellen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="proxmox-und-pfsense-eine-ip.html">Proxmox und pfSense Firewall</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheits-anbieter/1blu-backupserver.html">1blu Storage-Server für Proxmox-Backup-Server</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="proxmox-netzwerk-bonding.html">Netzwerk-Bonding Ausfallschutz auf Proxmox</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="opnsense-wireguard-vpn.html">OPNsense &amp; WireGuard-Tunnel einrichten</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="pfsense-wireguard-vpn.html">pfSense &amp; WireGuard-Tunnel einrichten</a>
+</li></ul>
+</div>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="../meine-fachbuecher.html" style="padding: 12px 22px;">Bücher &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-8" aria-label="Bücher > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/uebersicht-meine-buecher.html">Übersicht: Bücher</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/proxmox-ve9-praxisbuch.html">Proxmox VE 9 Praxisbuch</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/proxmox-ve8-praxis-buch.html">Proxmox VE 8 Praxisbuch</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/proxmox-pve-8-pbs-3-profi-buch.html">Proxmox VE 8 Proxmox BS 3 Profibuch</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/proxmox-ve-8-powerbuch.html">Proxmox VE 8 Powerbuch</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/computer-it-sicherheits-fibel.html">Computer und IT Sicherheits-Fibel</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/schluss-mit-windows.html">Schluss mit Windows - jetzt kommt Linux</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/computer-sicherheit-fuer-kmu.html">Computer-Sicherheit für kleine und mittlere Unternehmen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/die-mutter-aller-ki-buecher.html">Die Mutter aller KI Bücher</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/proxmox-firewall-buch.html">Proxmox Firewall - Verstehen Einschalten Abschotten</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../meine-fachbuecher/cloud-verstehen-und-nutzen.html">Cloud verstehen und nutzen kostenloses eBook</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="../sicherheits-anbieter.html" style="padding: 12px 22px;">Sicherheits-Anbieter</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-9" aria-label="Sicherheits-Anbieter menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheits-anbieter/tuta-quantensichere-mail.html">Tuta verschlüsselte Mail und Kalender</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheits-anbieter/erecht24-anwalt-siebert.html">eRecht24</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheits-anbieter/1blu-backupserver.html">1blu Backupserver</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheit-in-der-it/ashampoo-backup-pro-26.html">Ashampoo Backup Pro</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="../sicherheit-in-der-it/pcloud-pass-passwort-manager.html">pCloud Passwortmanager</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="../suchen.html" style="padding: 12px 22px;">Suchen</a>
+</li></ul>
+              </div>
+              <div class="u-custom-menu u-nav-container-collapse" id="092e" role="region" aria-label="Menu panel">
+                <div class="u-container-style u-custom-color-2 u-inner-container-layout u-sidenav u-sidenav-1">
+                  <div class="u-inner-container-layout u-sidenav-overflow">
+                    <div class="u-menu-close" tabindex="-1" aria-label="Close menu"></div>
+                    <ul class="u-align-left u-custom-font u-font-raleway u-nav u-popupmenu-items u-spacing-0 u-text-active-custom-color-5 u-text-hover-custom-color-5 u-text-white u-unstyled u-nav-10" role="menubar"><li role="none" class="u-nav-item"><a tabindex="-1" role="menuitem" class="u-button-style u-nav-link" href="../index.html">Start</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../inhaltsverzeichnis.html">Inhalt</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheit-in-der-it.html">IT-Sicherheit &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-11" aria-label="IT-Sicherheit > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheit-in-der-it/uebersicht-it-cyber-security.html">Übersicht: IT-Sicherheit</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheit-in-der-it/verschluesselung-von-daten.html">Verschlüsselung &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-12" aria-label="Verschlüsselung > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheit-in-der-it/verschluesselung-von-daten/cryptomator-kostenlos.html">Cryptomator Dateien verschlüsseln</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheit-in-der-it/vaultwarden-ssl-local-network.html">Vaultwarden Passwortmanager im LAN mit SSL</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheit-in-der-it/passkeys-einrichten-und-nutzen.html">Passkeys Einrichten und Nutzen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheit-in-der-it/privatpersonen.html">Privatpersonen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheit-in-der-it/unternehmen.html">Unternehmen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheit-in-der-it/it-daten-info-sicherheit.html">IT-, Daten-, Informationssicherheit</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheit-in-der-it/backups-sind-exrem-wichtig.html">Backups wichtig für IT-Sicherheit</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheit-in-der-it/keepass-anleitung.html">KeePass-Anleitung</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheit-in-der-it/keepassxc-und-proton-drive.html">KeePassXC und Proton Drive</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheit-in-der-it/iperius-backup-kostenlos.html">Iperius Backup die kostenlose Backupsoftware</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheit-in-der-it/paragon-backup-kostenlos.html">Paragon Backup kostenlose Software</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheit-in-der-it/paragon-backup-rettungsstick.html">Paragon Backup Rettungsstick erstellen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheit-in-der-it/backupkonzept-backupstrategie.html">Datensicherungskonzept und Backupstrategie</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheit-in-der-it/wie-kann-ich-daten-schuetzen.html">Wie kann ich meine Daten vor Hackern besser schützen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheit-in-der-it/sicherheit-in-social-media.html">Sicherheit in Social-Media</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheit-in-der-it/delphi-migration.html">Delphi Software Migration</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheit-in-der-it/pcloud-pass-passwort-manager.html">Passwort Manager pCloud Pass</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../it-und-computer-beratung.html">Beratungen &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-13" aria-label="Beratungen > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../it-und-computer-beratung/kleine-unternehmen-startups.html">IT-Dokumentationen für Unternehmen, Praxen und Universitäten</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../windows-os.html">Windows &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-14" aria-label="Windows > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../windows-os/computerralle-isms-docker-win.html">ISMS von ComputerRalle</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../windows-os/fernwartungssoftware-hoptodesk.html">Remote Software HopToDesk</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-os.html">Linux &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-15" aria-label="Linux > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-os/paperless-backup-programm.html">Paperless Backup Programm Anleitung</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-os/docker-desktop-paperless.html">Paperless auf Windows installieren WSL</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-os/linux-webdav-dateisynchro.html">Linux WebDAV Dateisynchronisation kostenlos</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-os/docker-paperless-installieren.html">Paperless Docker Installation</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../linux-server.html">Linux Server &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-16" aria-label="Linux Server > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="proxmox-pve8-to-pve9-upgrade.html">Proxmox VE 8 zu Proxmox VE 9 Upgrade</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="uebersicht-linux-server.html">Übersicht: Linux Server</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="gitlab-auf-linux-installieren.html">Gitlab auf Linux Debian 11 installieren</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="proxmox-server-sichern-haerten.html">Proxmox Server absichern und härten</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="ssh-keys-auf-linux-erzeugen.html">Proxmox SSH-Keys auf Linux erzeugen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="ssh-keys-auf-windows-erzeugen.html">Proxmox SSH-Key auf Windows erzeugen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="proxmox-hochverfuegbare-vm.html">Proxmox Hochverfügbarkeits-Cluster aufbauen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="proxmox-verschluesselt-backup.html">Proxmox verschlüsseltes Backup erstellen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="proxmox-und-pfsense-eine-ip.html">Proxmox und pfSense Firewall</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheits-anbieter/1blu-backupserver.html">1blu Storage-Server für Proxmox-Backup-Server</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="proxmox-netzwerk-bonding.html">Netzwerk-Bonding Ausfallschutz auf Proxmox</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="opnsense-wireguard-vpn.html">OPNsense &amp; WireGuard-Tunnel einrichten</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="pfsense-wireguard-vpn.html">pfSense &amp; WireGuard-Tunnel einrichten</a>
+</li></ul>
+</div>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher.html">Bücher &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-17" aria-label="Bücher > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/uebersicht-meine-buecher.html">Übersicht: Bücher</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/proxmox-ve9-praxisbuch.html">Proxmox VE 9 Praxisbuch</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/proxmox-ve8-praxis-buch.html">Proxmox VE 8 Praxisbuch</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/proxmox-pve-8-pbs-3-profi-buch.html">Proxmox VE 8 Proxmox BS 3 Profibuch</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/proxmox-ve-8-powerbuch.html">Proxmox VE 8 Powerbuch</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/computer-it-sicherheits-fibel.html">Computer und IT Sicherheits-Fibel</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/schluss-mit-windows.html">Schluss mit Windows - jetzt kommt Linux</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/computer-sicherheit-fuer-kmu.html">Computer-Sicherheit für kleine und mittlere Unternehmen</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/die-mutter-aller-ki-buecher.html">Die Mutter aller KI Bücher</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/proxmox-firewall-buch.html">Proxmox Firewall - Verstehen Einschalten Abschotten</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../meine-fachbuecher/cloud-verstehen-und-nutzen.html">Cloud verstehen und nutzen kostenloses eBook</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheits-anbieter.html">Sicherheits-Anbieter</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-18" aria-label="Sicherheits-Anbieter menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheits-anbieter/tuta-quantensichere-mail.html">Tuta verschlüsselte Mail und Kalender</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheits-anbieter/erecht24-anwalt-siebert.html">eRecht24</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheits-anbieter/1blu-backupserver.html">1blu Backupserver</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheit-in-der-it/ashampoo-backup-pro-26.html">Ashampoo Backup Pro</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../sicherheit-in-der-it/pcloud-pass-passwort-manager.html">pCloud Passwortmanager</a>
+</li></ul>
+</div>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="../suchen.html">Suchen</a>
+</li></ul>
+                  </div>
+                </div>
+                <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+              </div>
+              <style class="menu-style">@media (max-width: 1198px) {
+                    [data-responsive-from="MD"] .u-nav-container {
+                        display: none;
+                    }
+                    [data-responsive-from="MD"] .menu-collapse {
+                        display: block;
+                    }
+                }</style>
+            </nav>
+          </div>
+          
+          
+          
+          
+          
+        </div>
+        <div class="u-clearfix u-container-align-left u-section-row" id="DIGITAL-easy-Logo">
+          <div class="u-clearfix u-sheet u-sheet-2">
+            <a href="#" class="u-image u-logo u-image-1" data-image-width="2040" data-image-height="400">
+              <img src="../images/BannerHintergrund1.png" class="u-logo-image u-logo-image-1" alt="DIGITAL-easy Logo">
+            </a>
+          </div>
+          
+          
+          
+          
+          
+        </div>
+      </div></header>
+    <section class="u-clearfix u-section-1" id="artikelbild-wireguard-vpn-tunnel">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <img class="custom-expanded u-expanded-width-xs u-image u-image-default lazyload u-image-1" alt="Bild mit dem Schriftzug: WireGuard VPN Tunnel OPNsense" data-image-width="880" data-image-height="350" data-src="../images/wireguard-opnsense-vpn-tunnel.jpg?rand=d681" loading="lazy">
+      </div>
+    </section>
+    <section class="u-clearfix u-section-2" id="wireguard-vpn-opnsense-artikeleinleitung">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h1 class="u-text u-text-1"> WireGuard auf OPNsense: Das schlanke, schnelle und sichere VPN für Ihr Netzwerk</h1>
+            <p class="u-text u-text-2"> VPNs gehören zur Grundausstattung, wenn es um sichere Kommunikation über das Internet geht. Ob für den Fernzugriff auf ein internes Netzwerk, den Schutz der Privatsphäre oder die sichere Verbindung zwischen Standorten – eine gut konfigurierte VPN-Lösung ist essenziell. OPNsense bietet von Hause aus IPsec und OpenVPN an, doch beide Protokolle haben ihre Eigenheiten. Während IPsec durch seine Komplexität und Firewall-Probleme oft frustrierend ist, kann OpenVPN durch Performance-Einbußen und aufwendige Konfiguration ebenfalls Kopfschmerzen bereiten.<br>
+            </p>
+            <p class="u-text u-text-3"> Hier kommt WireGuard ins Spiel. Die VPN-Technologie wurde entwickelt, um einfacher, sicherer und schneller zu sein. Weniger Code, weniger Fehlerquellen, weniger Aufwand – genau das macht WireGuard so interessant. Seit der neuesten OPNsense-Version ist WireGuard sogar standardmäßig integriert, sodass keine zusätzliche Installation mehr notwendig ist.</p>
+            <p class="u-text u-text-4"> In meinem Artikel schauen wir uns an, warum WireGuard eine bessere Wahl als IPsec und OpenVPN ist, wie es sich auf OPNsense konfigurieren lässt und welche Vorteile es in Sachen Performance und Usability bietet. Am Ende wartet ein ausführliches YouTube-Video, das die gesamte Einrichtung Schritt für Schritt zeigt. Wer es lieber direkt in Aktion sehen will, kann also einfach reinschauen und WireGuard in wenigen Minuten auf OPNsense ans Laufen bringen.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="skrollable u-clearfix u-section-3" id="Meine-Dienstleistungen-DIGITAL-easy" data-image-width="2000" data-image-height="1333">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-4 u-border-custom-color-27 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-95 u-group-1" data-animation-name="jello" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">
+          <div class="u-container-layout u-container-layout-1">
+            <p class="u-large-text u-text u-text-default-lg u-text-default-md u-text-default-sm u-text-default-xl u-text-variant u-text-1"> DIGITAL-easy Dienstleistungen zu Proxmox VE - PBS - Cluster - Ceph</p>
+            <p class="u-text u-text-default u-text-2"> Meine Proxmox-Serverdienstleistungen habe ich auf einer separaten Website veröffentlicht, da diese Seite hier in erster Linie als Tutorial- und Anleitungsplattform gedacht ist. Dort finden Sie alle Informationen zu meinen Angeboten rund um Proxmox VE, Clusterlösungen, Migrationen und Support. Bitte besuchen Sie: <a href="https://digital-easy.de/dienstleistungen.html" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1" title="ComputerRalle und DIGITAL-easy Dienstleistungen" target="_blank" rel="noopener">digital-easy.de/dienstleistungen.html</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-4" id="inhaltsmenue-wireguard-vpn">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-10 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <p class="u-large-text u-text u-text-default u-text-variant u-text-1"> Inhalte des Artikels WireGuard VPN auf OPNsense</p>
+            <ol class="u-align-left u-spacing-12 u-text u-text-default-lg u-text-default-md u-text-default-sm u-text-default-xl u-text-2">
+              <li>
+                <a href="opnsense-wireguard-vpn.html#vpn-fuer-ihre-it-sicherheit" data-page-id="257915669" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> WireGuard auf OPNsense: Sichere VPN-Verbindungen für Ihr Netzwerk</a>
+              </li>
+              <li>
+                <a href="opnsense-wireguard-vpn.html#aeltere-vpn-protokolle" data-page-id="257915669" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-2"> OPNsense und ältere VPN-Protokolle</a>
+              </li>
+              <li>
+                <a href="opnsense-wireguard-vpn.html#ipsec-vpn-protokoll" data-page-id="257915669" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-3"> IPsec: Ein altes, aber weit verbreitetes VPN-Protokoll</a>
+              </li>
+              <li>
+                <a href="opnsense-wireguard-vpn.html#openvpn-vpn-protokoll" data-page-id="257915669" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-4"> OpenVPN: Der alte Platzhirsch</a>
+              </li>
+              <li>
+                <a href="opnsense-wireguard-vpn.html#wireguard-auf-opnsense-einrichten" data-page-id="257915669" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-5"> WireGuard auf OPNsense einrichten</a>
+              </li>
+              <li>
+                <a href="opnsense-wireguard-vpn.html#youtube-video-beschreibung-wireguard-vpn" data-page-id="257915669" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-6">Video Tutorial: OPNsense installieren und WireGuard VPN-Tunnel einrichten</a>
+              </li>
+              <li>
+                <a href="opnsense-wireguard-vpn.html#achtung" data-page-id="257915669" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-7">Warnung, Achtung und Obacht&nbsp;</a>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-5" id="achtung-wireguard-vpn">
+      <div class="u-clearfix u-sheet u-valign-middle-lg u-valign-middle-md u-valign-middle-sm u-valign-middle-xl u-sheet-1">
+        <div class="u-border-2 u-border-grey-10 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <p class="u-large-text u-text u-text-default-lg u-text-default-md u-text-default-sm u-text-default-xl u-text-variant u-text-1"><b>Achtung</b>
+            </p>
+            <p class="u-text u-text-2"><i>Achtung. Keine Garantie auf Vollständigkeit. Eingriffe an 
+Linux-Servern, können bei Unachtsamkeit oder Fehlern zu einem 
+Datenverlust führen. Auch kann man sich aussperren, wenn man die 
+Firewall, Ports, Netzwerke oder Konfigurationen falsch einstellt. Wenn 
+Sie keine Erfahrung mit Linux haben, sollten Sie am besten zunächst die 
+Finger davon lassen und sich erst mal an Linux rantasten. Die unten 
+stehenden Anleitungen sind getestet und Funktionieren. Wenn Sie allerdings etwas nicht richtig machen, dann sperren Sie sich womöglich im
+ Bereich SSH oder Firewall aus!</i>
+              <br>
+            </p>
+            <p class="u-text u-text-3"> Linux Befehle nicht einfach blind in die Konsole eingeben. Es ist immer zu Prüfen, welche Linux- und Proxmox-Version verwendet werden. Auch ist die Netzwerk-, IP-, Server- und Umgebungskonfiguration ausschlaggebend, ob und wie die hier angegebenen Tipps angewendet werden können. Es sollte sich auch mit jedem Punkt einzeln und intensiv befasst werden. Man kann nicht einfach alles "abarbeiten" und dann läuft es. Proxmox abzusichern braucht Zeit und muss mit äußerster Vorsicht vonstatten gehen. Außerdem ist die Sicherheit von Servern ein dauernder Prozess. Alles einrichten und die Kellertür zuknallen, ist nicht.&nbsp;</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-6" id="vpn-fuer-ihre-it-sicherheit">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-top-lg u-valign-top-xs u-container-layout-1">
+            <h2 class="u-text u-text-default u-text-1"> WireGuard auf OPNsense: Sichere VPN-Verbindungen für Ihr Netzwerk&nbsp;<br>
+            </h2>
+            <p class="u-text u-text-default u-text-2"> Wenn es um sichere und performante VPN-Verbindungen geht, kommt man an WireGuard nicht mehr vorbei. Die Technik ist schlank, schnell und vor allem einfach zu konfigurieren. Aber was steckt dahinter? Und warum ist WireGuard auf einer Firewall wie OPNsense eine besonders gute Wahl? Werfen wir einen genaueren Blick darauf.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-3"> Was ist WireGuard?&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-4"> WireGuard wurde ursprünglich von Jason A. Donenfeld entwickelt und 2016 der Öffentlichkeit vorgestellt. Das Ziel war eine VPN-Technologie, die einfacher und sicherer ist als traditionelle Protokolle wie OpenVPN oder IPsec. Statt überladener Konfigurationen setzt WireGuard auf Minimalismus. Der gesamte Code umfasst nur ein paar tausend Zeilen, verglichen mit den Hunderttausenden in anderen VPN-Implementierungen. Das macht das System leichter zu auditieren und verringert Angriffsflächen.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-5"> Von der technischen Seite her nutzt WireGuard moderne Kryptografie, darunter Curve25519 für Schlüsselaustausch, ChaCha20 für Verschlüsselung und Poly1305 für Authentifizierung. Das Besondere: Es gibt keine klassische Client-Server-Architektur, sondern jeder Teilnehmer in einem WireGuard-Netzwerk ist gleichwertig – vergleichbar mit einem Peer-to-Peer-System. Das sorgt für hohe Flexibilität und Effizienz.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-6"> Warum braucht man WireGuard?&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-7"> VPNs sind mittlerweile unverzichtbar, wenn es um sichere Verbindungen über unsichere Netze wie das Internet geht. Klassische Einsatzszenarien sind:&nbsp;<br>
+            </p>
+            <ul class="u-text u-text-default u-text-8">
+              <li> Zugriff auf ein internes Firmennetzwerk von unterwegs </li>
+              <li>Sichere Kommunikation zwischen mehreren Standorten </li>
+              <li>Umgehen von geografischen Beschränkungen </li>
+              <li>Schutz der Privatsphäre im Internet</li>
+            </ul>
+            <p class="u-text u-text-default u-text-9"> Während OpenVPN oder IPsec oft als Standard gelten, haben sie auch ihre Tücken. OpenVPN kann beispielsweise auf Mobilgeräten umständlich sein, weil es zusätzliche Software erfordert und je nach Konfiguration nicht so performant ist. IPsec hingegen ist oft komplex und schwer zu konfigurieren. WireGuard löst genau diese Probleme: schnelle Verbindung, einfaches Setup und hohe Sicherheit.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-10"> Warum ist WireGuard sicherer als RDP ohne VPN?&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-11"> Remote-Desktop-Protokoll (RDP) ist eine praktische Lösung, um von außen auf einen Windows-Computer oder Server zuzugreifen. Das Problem: Wenn RDP ohne zusätzliche Sicherheitsmaßnahmen direkt aus dem Internet erreichbar ist, wird es schnell zum Einfallstor für Angreifer. Botnetze scannen pausenlos das Internet nach offenen RDP-Ports und versuchen, sich mit Brute-Force-Angriffen oder Exploits Zugang zu verschaffen.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-12"> Einige setzen auf Lösungen wie RDP mit Passwort oder sogar Zwei-Faktor-Authentifizierung, aber das schützt nur bedingt. WireGuard bietet eine bessere Lösung: Statt RDP direkt freizugeben, wird zuerst eine VPN-Verbindung aufgebaut. Der RDP-Zugang ist dann nur über das VPN möglich, nicht direkt aus dem Internet. Dadurch verschwindet die Angriffsmöglichkeit komplett, weil RDP aus externer Sicht nicht mehr existiert.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-13"> Sicherheit durch Kryptografie&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-14"> WireGuard setzt auf moderne Kryptografie, die deutlich effizienter und sicherer ist als ältere VPN-Technologien. Im Gegensatz zu IPsec, das oft auf veralteten Algorithmen basiert, oder OpenVPN, das je nach Konfiguration unterschiedliche Verschlüsselungsmodi nutzt, gibt es bei WireGuard keine Konfigurationsoptionen, die potenziell unsicher sein könnten. Die Verschlüsselung ist fest eingebaut und basiert auf den modernsten Algorithmen, die derzeit als sicher gelten.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-default u-text-15"> Zusätzlich nutzt WireGuard ein sogenanntes "Silent-by-Default"-Prinzip. Während OpenVPN oder IPsec ihre Präsenz im Netzwerk durch regelmäßige Handshakes oder Keep-Alive-Pakete verraten, bleibt WireGuard unsichtbar, wenn es nicht aktiv genutzt wird. Das erhöht die Sicherheit weiter.&nbsp;<br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-7" id="zurueck-zum-inhaltsmenue-a">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="opnsense-wireguard-vpn.html#inhaltsmenue-wireguard-vpn" data-page-id="257915669" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Zurück zum Inhalts Menü</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-8" id="newsletter-abonnieren">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-align-left u-border-4 u-border-custom-color-20 u-container-align-left u-container-align-left-lg u-container-align-left-md u-container-align-left-sm u-container-align-left-xl u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-90 u-group-1" data-animation-out="0">
+          <div class="u-container-layout u-valign-bottom-lg u-valign-bottom-md u-valign-bottom-sm u-valign-top-xl u-container-layout-1">
+            <p class="u-large-text u-text u-text-variant u-text-1">Kostenlose IT-Sicherheits-Bücher &amp; Information via Newsletter</p>
+            <p class="u-text u-text-default-lg u-text-default-md u-text-default-sm u-text-default-xl u-text-2"> Bleiben Sie informiert, wann es meine Bücher kostenlos in einer Aktion gibt: <a href="../newsletter.html" data-page-id="103346126" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1">Mit meinem Newsletter</a> erfahren Sie viermal im Jahr von Aktionen auf Amazon und anderen Plattformen, bei denen meine IT-Sicherheits-Bücher gratis erhältlich sind. Sie verpassen keine Gelegenheit und erhalten zusätzlich hilfreiche Tipps zur IT-Sicherheit. Der Newsletter ist kostenlos und unverbindlich – einfach abonnieren und profitieren!<br>
+            </p>
+            <div class="u-border-3 u-border-grey-dark-1 u-expanded-width u-line u-line-horizontal u-line-1"></div>
+            <a href="../newsletter.html" data-page-id="103346126" class="u-align-center u-btn u-button-style u-custom-color-20 u-hover-custom-color-3 u-btn-2" target="_blank" title="Zur Newsletter-Anmeldeseite von Ralf-Peter Kleinert">Zur Anmeldung</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-9" id="aeltere-vpn-protokolle">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h2 class="u-text u-text-1"> OPNsense und ältere VPN-Protokolle&nbsp;<br>
+            </h2>
+            <p class="u-text u-text-2"> OPNsense bietet von Hause aus IPsec oder OpenVPN zur Nutzung an. Allerdings hat gerade IPsec seine Eigenheiten, die es nicht immer zur besten Wahl machen. Wer sich mit VPN-Technologien beschäftigt, stößt unweigerlich auf IPsec – ein Protokoll, das schon seit Jahrzehnten im Einsatz ist. Aber warum wird es oft als kompliziert und fehleranfällig angesehen? Und wieso sollte man stattdessen lieber WireGuard nutzen?&nbsp;<br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-10" id="zurueck-zum-inhaltsmenue-b">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="opnsense-wireguard-vpn.html#inhaltsmenue-wireguard-vpn" data-page-id="257915669" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Zurück zum Inhalts Menü</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-11" id="ipsec-vpn-protokoll">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h3 class="u-text u-text-1"> IPsec: Ein altes, aber weit verbreitetes VPN-Protokoll&nbsp;<br>
+            </h3>
+            <p class="u-text u-text-2"> IPsec (Internet Protocol Security) wurde in den 1990er-Jahren entwickelt und ist in vielen Unternehmensnetzwerken noch immer der Standard für VPN-Verbindungen. Der große Vorteil von IPsec ist, dass es direkt auf der Netzwerkebene (Layer 3) arbeitet und somit ganze Netzwerke sicher verbinden kann. Es ist in vielen Geräten und Betriebssystemen integriert, ohne dass zusätzliche Software benötigt wird.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-3"> Aber genau hier fangen die Probleme an: IPsec ist ein Monstrum an Komplexität. Die Konfiguration ist aufwendig und fehleranfällig, weil viele Parameter exakt übereinstimmen müssen. Es gibt verschiedene Betriebsmodi wie den Transport- und Tunnelmodus, dazu kommen Authentifizierungsmethoden wie Pre-Shared Keys (PSK), Zertifikate oder EAP. Außerdem gibt es diverse Verschlüsselungsalgorithmen, von denen nicht alle gleich sicher sind. Das alles macht IPsec anfällig für Fehlkonfigurationen.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-4"> Ein weiteres Problem ist die Firewall-Kompatibilität. IPsec verwendet oft das Protokoll ESP (Encapsulating Security Payload), das nicht so einfach durch NAT-Router geleitet werden kann. Um das zu umgehen, gibt es NAT-Traversal (NAT-T), aber das macht die Sache nur noch komplizierter. Hinzu kommt, dass IPsec je nach Implementierung und Netzwerkumgebung Verbindungsabbrüche haben kann – ein Albtraum für Admins.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-5"> Sicherheitsprobleme mit IPsec<span style="font-weight: 700;"></span>&nbsp;<br>
+            </p>
+            <p class="u-text u-text-6"> Obwohl IPsec als sicher gilt, hat es eine bewegte Vergangenheit. Immer wieder gab es Berichte, dass staatliche Geheimdienste wie die NSA gezielt Schwachstellen in bestimmten Implementierungen ausgenutzt haben. Zudem ist die Protokollvielfalt ein Problem: Je nach Einstellung kann eine IPsec-Verbindung schwache Verschlüsselung nutzen, weil alte Algorithmen wie 3DES oder SHA-1 immer noch in manchen Systemen vorhanden sind.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-7"> IPsec ist auch ressourcenintensiver als moderne Alternativen. Der Verbindungsaufbau dauert länger, und die CPU-Belastung ist oft höher als bei neueren VPN-Protokollen. Gerade auf schwächeren Geräten wie kleinen Firewalls oder Embedded-Systemen kann das zu Performance-Problemen führen.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-8"> Warum WireGuard besser ist&nbsp;<br>
+            </p>
+            <p class="u-text u-text-9"> Im Gegensatz zu IPsec ist WireGuard von Grund auf modern konzipiert. Es verzichtet auf die überflüssige Komplexität und setzt nur auf aktuelle, sichere Algorithmen. Statt zig Konfigurationsmöglichkeiten gibt es genau eine Art der Verschlüsselung – und die ist sicher. Der Quellcode von WireGuard ist um ein Vielfaches kleiner als der von IPsec, was die Sicherheit erhöht, weil weniger Fehlerquellen existieren.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-10"> Auch in Sachen Performance schlägt WireGuard IPsec locker. Der Verbindungsaufbau erfolgt fast ohne Verzögerung, während IPsec je nach Konfiguration erst mehrere Handshakes benötigt. Das macht sich besonders bei mobilen Geräten bemerkbar: Während eine IPsec-Verbindung nach einem Wechsel zwischen WLAN und Mobilfunk oft abbricht oder neu aufgebaut werden muss, bleibt WireGuard durch sein cleveres Key-Management nahtlos verbunden.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-11"> Dazu kommt die einfache Konfiguration. Während eine IPsec-Verbindung oft eine lange Liste von Parametern erfordert, besteht eine WireGuard-Konfiguration im Wesentlichen nur aus einer Handvoll Zeilen. Kein Vergleich zum IPsec-Dschungel.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-12"> Was meine ich zu IPsec, OpenVPN und WireGuard?&nbsp;<br>
+            </p>
+            <p class="u-text u-text-13"> Da ich mich rund um die Uhr mit IT-Sicherheit beschäftige und versuche, den Menschen die einfachste, schlankeste und möglichst sicherste Lösung anzubieten, kommt es nicht nur auf die reine Verschlüsselungsstärke oder die Anzahl der Features an. Sicherheit ist mehr als nur "irgendwas mit Kryptografie". Unter Sicherheit zählt für mich auch die Usability. Denn was nützt ein hammerhartes VPN, wenn es am Ende niemand vernünftig nutzen kann?&nbsp;<br>
+            </p>
+            <p class="u-text u-text-14"> Genau hier liegt das Problem vieler klassischer VPN-Lösungen. IPsec ist sicher, keine Frage – wenn man es richtig konfiguriert. Aber genau da scheitert es oft. Ein VPN, das erst nach stundenlanger Fummelei läuft, bei dem Schlüssel austauschen eine Doktorarbeit ist und das im schlimmsten Fall alle paar Tage Verbindungsabbrüche hat, ist kein Gewinn. Viele Admins kennen das: Eine IPsec-Verbindung ist eingerichtet, läuft ein paar Wochen stabil, dann wechselt ein Mitarbeiter sein Gerät oder das Firmen-WLAN bekommt eine neue Firewall-Regel, und plötzlich geht nichts mehr. Der Support-Aufwand steigt, Verbindungen brechen ohne erkennbaren Grund ab, und irgendwann bleibt nur noch ein frustrierendes Fazit: "IPsec läuft gut, bis es das nicht mehr tut."&nbsp;<br>
+            </p>
+            <p class="u-text u-text-15"> Dazu kommt die Frage, ob ein VPN überhaupt regelmäßig genutzt wird. Wenn sich ein Admin durch eine kryptische Konfigurationsdatei kämpfen muss oder ein Nutzer vor einer komplizierten Einrichtung sitzt, sinkt die Wahrscheinlichkeit, dass das VPN auch wirklich konsequent verwendet wird. Ein VPN, das auf dem Papier sicher ist, aber in der Praxis nicht genutzt wird, ist am Ende wertlos. Das ist wie ein Hochsicherheitstresor, dessen Schlüssel so gut versteckt ist, dass niemand ihn findet.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-16"> WireGuard geht einen völlig anderen Weg. Keine überladenen Menüs mit 50 Optionen, keine Protokoll-Dinosaurier aus den 90ern, keine unerklärlichen "VPN funktioniert nicht"-Fehlermeldungen. Stattdessen ein simples Konzept: ein paar Zeilen Konfiguration, ein schneller Verbindungsaufbau und ein VPN, das sich anfühlt, als wäre es gar nicht da. Genau das ist der Punkt – gute Sicherheit ist unsichtbar. Ein sicheres VPN sollte einfach funktionieren, ohne dass sich jemand Gedanken darüber machen muss, warum es gerade mal wieder nicht geht.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-17"> Deshalb setze ich auf Lösungen, die nicht nur theoretisch sicher sind, sondern sich auch in der Praxis bewähren. WireGuard ist so ein Beispiel: minimale Angriffsfläche, hohe Performance und – was genauso wichtig ist – eine Usability, die es Admins und Nutzern leicht macht. Denn was nützt ein 256-Bit-verschlüsseltes, doppelt abgesichertes, ultra-gehärtetes VPN, wenn am Ende keiner es nutzt, weil es zu umständlich ist?&nbsp;<br>
+            </p>
+            <p class="u-text u-text-18"> Da OPNsense drei Protokolle von Hause aus anbietet, möchte ich OpenVPN natürlich nicht unterschlagen. Schließlich ist OpenVPN seit Jahren der Standard, wenn es um sichere und flexible VPN-Verbindungen geht. Wer sich mit VPNs beschäftigt, kommt an OpenVPN nicht vorbei. Aber wie gut ist es im Vergleich zu WireGuard? Und wo liegen die Schwächen?&nbsp;<br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-12" id="zurueck-zum-inhaltsmenue-c">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="opnsense-wireguard-vpn.html#inhaltsmenue-wireguard-vpn" data-page-id="257915669" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Zurück zum Inhalts Menü</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-13" id="openvpn-vpn-protokoll">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h3 class="u-text u-text-1"> OpenVPN: Der alte Platzhirsch&nbsp;<br>
+            </h3>
+            <p class="u-text u-text-2"> OpenVPN wurde im Jahr 2001 von James Yonan entwickelt und ist bis heute eine der am weitesten verbreiteten VPN-Lösungen. Es ist Open Source, flexibel einsetzbar und läuft auf nahezu jeder Plattform. Egal ob Windows, macOS, Linux, iOS oder Android – überall gibt es OpenVPN-Clients. Das ist auch einer der großen Vorteile: OpenVPN ist etabliert und wird von fast jedem VPN-Dienstanbieter unterstützt.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-3"> Anders als IPsec setzt OpenVPN nicht auf ein einziges Standardprotokoll, sondern nutzt TLS (Transport Layer Security), um verschlüsselte Tunnel aufzubauen. Das macht es flexibler, weil es über verschiedene Transportprotokolle laufen kann, insbesondere über TCP und UDP. Die meisten nutzen OpenVPN mit UDP, weil es schneller und weniger anfällig für Verbindungsprobleme ist. TCP ist dagegen zuverlässiger, aber langsamer – es kann nützlich sein, wenn VPNs über Firewalls oder restriktive Netzwerke funktionieren müssen.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-4"> Ein weiteres großes Plus von OpenVPN ist, dass es durch Port 443 getunnelt werden kann, also denselben Port nutzt wie HTTPS-Webseiten. Das bedeutet, dass OpenVPN-Verkehr in vielen Netzwerken nicht einfach blockiert werden kann, weil es wie normaler Internetverkehr aussieht.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-5"> Warum OpenVPN nicht perfekt ist&nbsp;<br>
+            </p>
+            <p class="u-text u-text-6"> So weit, so gut. Aber OpenVPN hat auch seine Schwächen. Die erste Hürde ist die Komplexität der Einrichtung. Während IPsec schon nicht gerade ein Musterbeispiel für Einfachheit ist, bringt OpenVPN eine Menge Konfigurationsmöglichkeiten mit sich, die es für Einsteiger schwierig machen. Zertifikate müssen erstellt und verteilt werden, Schlüssel müssen verwaltet werden, und ohne eine saubere Konfiguration kann es passieren, dass die Verbindung nicht so sicher ist, wie sie sein sollte.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-7"> Dazu kommt die Performance. OpenVPN ist im Vergleich zu WireGuard deutlich langsamer. Das liegt daran, dass es auf ältere Kryptografie setzt und durch die Art, wie die Pakete verarbeitet werden, mehr CPU-Leistung benötigt. Während WireGuard effizient mit modernen Algorithmen arbeitet, kann OpenVPN je nach Hardware ins Schwitzen kommen, vor allem wenn viele gleichzeitige Verbindungen aufgebaut werden.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-8"> Ein weiteres Problem ist die Reaktionszeit bei Verbindungsabbrüchen. Wenn eine OpenVPN-Verbindung unterbrochen wird, dauert es oft mehrere Sekunden, bis sie sich wieder aufbaut. Bei mobilen Verbindungen, wenn zum Beispiel zwischen WLAN und Mobilfunk gewechselt wird, kann das nervig sein. WireGuard ist hier wesentlich schneller, weil es den Verbindungsaufbau cleverer handhabt und automatisch ohne Verzögerung weitermacht.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-9"> OpenVPN vs. WireGuard: Wo liegen die Unterschiede?&nbsp;<br>
+            </p>
+            <p class="u-text u-text-10"> Letztendlich ist OpenVPN immer noch eine solide Wahl, besonders wenn man Wert auf eine breite Unterstützung und ausgereifte Features legt. Es funktioniert zuverlässig und hat sich über Jahrzehnte bewährt. Aber es ist nicht mehr die beste Lösung, wenn es um Effizienz und Benutzerfreundlichkeit geht. WireGuard ist nicht nur schlanker und schneller, sondern auch wesentlich einfacher zu konfigurieren.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-11"> Während OpenVPN immer noch auf lange Konfigurationsdateien, verschiedene Verschlüsselungsmethoden und eine etwas träge Architektur setzt, kommt WireGuard mit einem minimalen Codeumfang aus und nutzt nur die modernsten und sichersten Kryptografie-Algorithmen. Das macht nicht nur die Sicherheit einfacher überprüfbar, sondern auch die Performance um ein Vielfaches besser.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-12"> Kurz gesagt: OpenVPN ist gut, aber WireGuard ist besser – schneller, sicherer und einfacher zu bedienen. Wer heute ein VPN auf OPNsense einrichtet, sollte sich gut überlegen, ob OpenVPN wirklich noch die beste Wahl ist oder ob es an der Zeit ist, auf WireGuard umzusteigen.&nbsp;<br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-14" id="zurueck-zum-inhaltsmenue-d">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="opnsense-wireguard-vpn.html#inhaltsmenue-wireguard-vpn" data-page-id="257915669" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Zurück zum Inhalts Menü</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-15" id="proxmox-fachbuch-auflage-4">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="custom-expanded data-layout-selected u-clearfix u-gutter-0 u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout" style="">
+            <div class="u-layout-row" style="">
+              <div class="u-align-center u-container-align-center u-container-style u-layout-cell u-left-cell u-opacity u-opacity-30 u-palette-2-base u-shape-rectangle u-size-30 u-size-xs-60 u-layout-cell-1" src="">
+                <div class="u-container-layout u-valign-bottom-sm u-valign-bottom-xs u-container-layout-1"><span class="u-align-center u-file-icon u-icon u-icon-1" data-animation-name="customAnimationIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction=""><img src="../images/2972169.png" alt=""></span>
+                  <p class="u-align-center u-large-text u-text u-text-variant u-text-1"> Proxmox VE 8 Praxisbuch</p>
+                  <p class="u-align-center u-text u-text-2"> Informationen, Tipps und Tricks für Proxmox-Einsteiger und Fortgeschrittene - umfassend überarbeitete Ausgabe 4 mit 450 Seiten Proxmox-Wissen</p>
+                  <a href="https://www.amazon.de/dp/B0DPJ99CRS" class="btn-ralf u-align-center u-btn u-button-style u-hover-palette-1-dark-1 u-palette-1-base u-btn-1" target="_blank">Buch auf Amazon </a>
+                  <div class="u-shape u-shape-svg u-text-custom-color-44 u-shape-1">
+                    <svg class="u-svg-link" preserveAspectRatio="none" viewBox="0 0 150 160" style=""><use xlink:href="#svg-cbc7"></use></svg>
+                    <svg class="u-svg-content" viewBox="0 0 150 160" x="0px" y="0px" id="svg-cbc7"><path d="M150,96.6c0-6.9-3.8-10.1-7.4-11.7c2.9-2.5,4.7-6.3,4.7-10.4c0-7.6-6.1-13.8-13.6-13.8H94.5l2-9.4
+	c2.7-12.5,0.9-26.8,0.3-30.9C95.4,10.8,87,0,77.8,0h-0.7c-4.4,0-11.7,2.5-11.7,19.3c0,40.9-18.2,41.4-19.1,41.4l0,0h-2.7v-5.5H0V160
+	h43.6v-5.5H120c7.5,0,13.6-6.2,13.6-13.8c0-3.2-1.1-6.2-2.9-8.5c6.3-1.2,11.1-6.8,11.1-13.6c0-3.2-1.1-6.2-2.9-8.5
+	C145.2,108.9,150,103.3,150,96.6z"></path></svg>
+                  </div>
+                  <p class="u-align-center u-text u-text-custom-color-44 u-text-3">NEU</p>
+                </div>
+              </div>
+              <div class="u-align-center u-container-align-center u-container-style u-layout-cell u-right-cell u-size-30 u-size-xs-60 u-layout-cell-2" src="">
+                <div class="u-container-layout u-valign-bottom u-container-layout-2" src="">
+                  <img class="u-expanded-width u-image lazyload u-image-1" data-image-width="500" data-image-height="800" data-href="https://www.amazon.de/dp/B0DPJ99CRS" data-target="_blank" alt="Proxmox Fachbuch von Ralf-Peter Kleinert Auflage 3" data-src="../images/WebsiteCoverProxmoxVE8Aufl4.jpg" loading="lazy">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-16" id="wireguard-auf-opnsense-einrichten">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h3 class="u-text u-text-1"> WireGuard auf OPNsense einrichten&nbsp;<br>
+            </h3>
+            <p class="u-text u-text-2"> WireGuard auf OPNsense einzurichten, ist einfacher als man denkt. Die Firewall bringt zwar von Hause aus IPsec und OpenVPN mit, aber WireGuard muss zuerst als Plugin installiert werden (in der neuesten Version ist WireGuard aber fest enthalten). Danach erfolgt die Konfiguration der Schnittstellen, der Peers und der Firewall-Regeln. Am Ende steht eine funktionierende VPN-Verbindung, die sich stabil und performant nutzen lässt.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-3"> Als erstes muss das Plugin installiert werden (bei älteren Versionen). Dazu in OPNsense einloggen und unter System auf den Menüpunkt Plugins gehen. Dort nach WireGuard suchen und das Paket os-wireguard installieren. Nach der Installation taucht in der linken Navigation der Punkt WireGuard auf.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-4"> Nun zur eigentlichen Konfiguration. Zuerst eine Schnittstelle für WireGuard anlegen. Unter VPN den Punkt WireGuard öffnen und auf den Tab Einstellungen wechseln. Dort auf Instanz hinzufügen klicken. Als Name kann zum Beispiel WireGuardVPN eingetragen werden. Der Modus bleibt auf Standard, weil OPNsense als VPN-Server laufen soll. Dann eine private Schlüsseldatei generieren, falls noch keine vorhanden ist. Dazu einfach auf Schlüssel generieren klicken. Der öffentliche Schlüssel wird automatisch aus dem privaten Schlüssel berechnet.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-5"> Danach eine WireGuard-Schnittstelle anlegen. Dazu in die OPNsense-Schnittstellenverwaltung wechseln und eine neue Schnittstelle hinzufügen. Diese mit der vorher erstellten WireGuard-Instanz verbinden. Eine statische IP-Adresse für das interne VPN-Netzwerk vergeben, zum Beispiel 10.10.10.1 mit der Subnetzmaske 255.255.255.0.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-6"> Nun müssen die Peers angelegt werden, also die Geräte, die sich mit dem WireGuard-Server verbinden sollen. Dafür in den WireGuard-Einstellungen auf den Tab Peers wechseln und einen neuen Peer hinzufügen. Dem Peer einen Namen geben, zum Beispiel Laptop oder Smartphone. Danach den öffentlichen Schlüssel des Peers eintragen, den man vorher auf dem jeweiligen Gerät generiert hat. Als erlaubte IP-Adressen das Subnetz der VPN-Verbindung eintragen, also 10.10.10.2/32 für ein einzelnes Gerät oder eine größere Range für mehrere Geräte. Falls der Peer auch mit dem Internet über das VPN surfen soll, zusätzlich 0.0.0.0/0 als erlaubte IP hinzufügen.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-7"> Jetzt fehlen noch die Firewall-Regeln, damit der Traffic durchgelassen wird. Unter Firewall auf Regeln gehen und für die WireGuard-Schnittstelle eine neue Regel erstellen. Die Regel muss eingehenden VPN-Traffic erlauben. Als Protokoll UDP wählen und als Zielport den Port, der in der WireGuard-Instanz konfiguriert wurde, standardmäßig 51820. Dann eine zweite Regel hinzufügen, die den gesamten Verkehr innerhalb des VPNs erlaubt, damit sich die Peers untereinander erreichen können.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-8"> Zum Schluss noch eine NAT-Regel erstellen, falls der VPN-Traffic ins Internet geroutet werden soll. Dazu unter Firewall auf NAT gehen und eine neue ausgehende Regel hinzufügen. Den Modus auf Hybrid stellen und eine Regel anlegen, die den Verkehr von der WireGuard-Schnittstelle über das WAN-Interface ausleitet.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-9"> Nach diesen Schritten sollte die WireGuard-Verbindung stehen. Jetzt noch das entsprechende Client-Gerät einrichten. Dazu die WireGuard-App auf dem jeweiligen Gerät installieren und ein neues Profil erstellen. Den öffentlichen Schlüssel von OPNsense als Peer hinzufügen, die Endpoint-IP der Firewall eintragen und den richtigen Port angeben. Als erlaubte IPs entweder nur das interne VPN-Netzwerk eintragen oder 0.0.0.0/0, falls der gesamte Internetverkehr durch das VPN geleitet werden soll.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-10"> Sobald alles eingerichtet ist, kann die Verbindung getestet werden. Auf dem Client die Verbindung aktivieren und prüfen, ob eine IP-Adresse aus dem WireGuard-Netzwerk zugewiesen wird. Falls alles korrekt konfiguriert wurde, sollte jetzt eine stabile, schnelle und sichere VPN-Verbindung über WireGuard laufen.&nbsp;<br>
+            </p>
+            <p class="u-text u-text-11"> Damit wäre die grundlegende Einrichtung von WireGuard auf OPNsense abgeschlossen. Falls noch spezielle Anwendungsfälle berücksichtigt werden müssen, wie mehrere Standorte oder Routing in ein anderes Netz, kann das entsprechend über zusätzliche Peers und Firewall-Regeln erweitert werden.&nbsp;<br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-17" id="zurueck-zum-inhaltsmenue-e">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="opnsense-wireguard-vpn.html#inhaltsmenue-wireguard-vpn" data-page-id="257915669" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Zurück zum Inhalts Menü</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-18" id="youtube-video-beschreibung-wireguard-vpn">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-top-xs u-container-layout-1">
+            <h2 class="u-text u-text-default u-text-1"> Proxmox VE 8.3.4 - Teil 16 - OPNsense installieren und mit WireGuard einen VPN Tunnel einrichten</h2>
+            <p class="u-text u-text-default u-text-2"> In diesem Video zeige ich Schritt für Schritt, wie Sie eine OPNsense Firewall auf Proxmox installieren, konfigurieren und sichern. Wir gehen gemeinsam durch die Einrichtung und richten eine sichere Umgebung mit VPN ein, die Ihren Netzwerkverkehr schützt.&nbsp;</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-19" id="youtube-video-wireguard-vpn-auf-opnsense">
+      <div class="u-clearfix u-sheet u-valign-middle-md u-valign-middle-sm u-valign-middle-xs u-sheet-1">
+        <div class="u-container-style u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <div class="custom-expanded u-video u-video-1">
+              <div class="embed-responsive embed-responsive-1">
+                <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item lazyload" frameborder="0" allowfullscreen="" data-src="https://www.youtube.com/embed/CkbaZGfn0tM?mute=0&amp;showinfo=1&amp;controls=1&amp;start=0" loading="lazy"></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-20" id="zurueck-zum-inhaltsmenue-f">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="opnsense-wireguard-vpn.html#inhaltsmenue-wireguard-vpn" data-page-id="257915669" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Zurück zum Inhalts Menü</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-21" id="achtung">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-top-xs u-container-layout-1">
+            <h2 class="u-text u-text-default u-text-1">Warnung, Achtung und Obacht</h2>
+            <blockquote class="u-text u-text-default u-text-2"> Beachten Sie, dass solche Systeme eine kontinuierliche Überwachung, Wartung und Aktualisierung erfordern. Die Vorgehensweisen, die ich Ihnen hier zeige, dienen als Anhaltspunkte und vermitteln die Grundlagen einer Einrichtung. Sie sollten sich jedoch stets weiterbilden und zusätzliche Informationen aus verlässlichen Quellen beschaffen.</blockquote>
+            <blockquote class="u-text u-text-default u-text-3"> IT-Sicherheit ist kein einmaliges Projekt, sondern ein fortlaufender Prozess. Sicherheitslücken entstehen nicht nur durch fehlerhafte Konfigurationen, sondern auch durch sich ständig weiterentwickelnde Bedrohungen und neue Angriffsmethoden. Ein System, das heute sicher erscheint, kann morgen bereits veraltet oder anfällig sein. </blockquote>
+            <blockquote class="u-text u-text-default u-text-4"> Daher ist es essenziell, dass Sie regelmäßig Updates durchführen, neue Sicherheitskonzepte prüfen und auf sich ändernde Bedingungen reagieren. Automatisierte Updates und Monitoring-Tools können helfen, aber ersetzen niemals eine aufmerksame Administration. </blockquote>
+            <blockquote class="u-text u-text-default u-text-5"> Lassen Sie ein solches System niemals unbeaufsichtigt laufen. Überwachen Sie Log-Dateien, prüfen Sie Verbindungsprotokolle und setzen Sie Benachrichtigungen für ungewöhnliche Aktivitäten ein. Sollten Sie Unregelmäßigkeiten bemerken, zögern Sie nicht, tiefgehende Analysen durchzuführen und gegebenenfalls Gegenmaßnahmen einzuleiten. </blockquote>
+            <blockquote class="u-text u-text-default u-text-6"> Die IT-Landschaft befindet sich in einem ständigen Wandel. Neue Technologien, bessere Verschlüsselungsmethoden und aktualisierte Protokolle können bestehende Lösungen verbessern – oder veralten lassen. Bleiben Sie wachsam und investieren Sie Zeit in die Pflege und Optimierung Ihrer Infrastruktur. IT-Sicherheit ist keine einmalige Aufgabe, sondern eine dauerhafte Verpflichtung.<br>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-22" id="sec-6360">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <p class="u-text u-text-default u-text-1">
+              <a href="opnsense-wireguard-vpn.html#inhaltsmenue-wireguard-vpn" data-page-id="257915669" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Zurück zum Inhalts Menü</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-23" id="ueber-mich-ueber-den-autor">
+      <div class="u-clearfix u-sheet u-valign-top-md u-valign-top-sm u-valign-top-xs u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <div class="custom-expanded data-layout-selected u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+              <div class="u-layout">
+                <div class="u-layout-row">
+                  <div class="u-container-style u-layout-cell u-size-23-lg u-size-23-xl u-size-25-md u-size-25-sm u-size-25-xs u-layout-cell-1">
+                    <div class="u-container-layout u-valign-top-xs u-container-layout-2">
+                      <img class="u-expanded-width u-image lazyload u-image-1" data-image-width="1974" data-image-height="2521" alt="Ralf-Peter Kleinert - Buchautor für IT-Sichereit, Computersicherheit und Cybersecurity" data-src="../images/Ralf-PeterKleinertIchaktuellesPortrait2024.webp" loading="lazy">
+                    </div>
+                  </div>
+                  <div class="u-container-style u-layout-cell u-size-35-md u-size-35-sm u-size-35-xs u-size-37-lg u-size-37-xl u-layout-cell-2">
+                    <div class="u-container-layout u-valign-bottom-xs u-container-layout-3">
+                      <p class="u-text u-text-default-lg u-text-default-xl u-text-1"> Über den Autor: Ralf-Peter Kleinert</p>
+                      <p class="u-text u-text-default-lg u-text-default-xl u-text-2"> Über 30 Jahre Erfahrung in der IT legen meinen Fokus auf die Computer- und IT-Sicherheit. Auf meiner Website biete ich detaillierte Informationen zu aktuellen IT-Themen. Mein Ziel ist es, komplexe Konzepte verständlich zu vermitteln und meine Leserinnen und Leser für die Herausforderungen und Lösungen in der IT-Sicherheit zu sensibilisieren.<br>
+                      </p>
+                      <p class="u-text u-text-default-lg u-text-default-xl u-text-3">
+                        <a href="../ueber-mich.html" data-page-id="38997572" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1"> Mehr über mich, Ausbildung, Zertifizierungen</a>
+                      </p>
+                      <p class="u-text u-text-default-lg u-text-default-xl u-text-4">
+                        <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-2" href="https://www.amazon.de/stores/Ralf-Peter-Kleinert-RPK/author/B0D6FVWCTN" target="_blank"> Meine Amazon Autorenseite</a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-24" id="aktualisiert-am">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <p class="u-small-text u-text u-text-default u-text-variant u-text-1"> Aktualisiert:&nbsp;Ralf-Peter Kleinert 11.03.2025</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    
+    
+    <footer class="u-align-center u-clearfix u-container-align-center u-custom-color-2 u-footer u-footer" id="footer-mit-navigation"><div class="u-clearfix u-sheet u-sheet-1">
+        <p class="u-small-text u-text u-text-variant u-text-1">
+          <a href="../datenschutzerklaerung.html" data-page-id="735813554" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1">Datenschutz</a> | <a href="../impressum.html" data-page-id="63266619" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-2">Impressum</a> | <a href="../inhaltsverzeichnis.html" data-page-id="50765561" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-3">Inhalt</a> | <a href="../nutzungsbedingungen.html" data-page-id="117449462" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-4">Nutzungsbedingungen</a> | <a href="../hinweise-haftungsausschluss.html" data-page-id="98103025" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-5">Haftung</a> | <a href="../hinweise-haftungsausschluss.html#affiliate-info-ausfuehrlich" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-6">Affiliate</a>&nbsp;|&nbsp;<a href="../kontakt.html" data-page-id="125601662" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-7">Kontakt</a> | <a href="../newsletter.html" data-page-id="103346126" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-8">Newsletter</a>&nbsp;| <a href="../preise.html" data-page-id="130192720" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-9">Preise</a>&nbsp;| <a href="../support.html" data-page-id="86002539" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-10">Support </a>|&nbsp;<a href="../ueber-mich.html" data-page-id="38997572" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-11">Über mich</a> | <a href="../downloads.html" data-page-id="70811588" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-12" title="Downloads und kostenlose Downloads">Downloads</a> |<span style="font-weight: 700;">
+            <a href="https://digital-easy.de" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-13" title="DIGITAL-easy" target="_blank">digital-easy.de</a>&nbsp;| <a href="https://blog.ralf-peter-kleinert.de" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-14" title="BLOG Ralf-Peter Kleinert" target="_blank">blog.ralf-peter-kleinert.de</a>&nbsp;| <span style="font-weight: 400;">
+              <a href="https://computerralle.de" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-15" title="#ComputerRalle" target="_blank" rel="noopener">computerralle.de</a></span> |&nbsp;<a href="../hinweise-haftungsausschluss.html#agb-allgemeine-geschaeftsbedingungen" data-page-id="98103025" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-16">AGB</a>&nbsp;| <span style="font-weight: 400;">
+              <a href="https://portal.dnb.de/opac/simpleSearch?query=ralf-peter+kleinert&amp;cqlMode=true" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-17" title="Bücher von Ralf-Peter Kleinert in der Deutschen Nationalbibliothek" target="_blank">Nationalbibliothek</a></span></span>
+        </p>
+        <p class="u-text u-text-2"> Copyright © Ralf-Peter Kleinert DIGITAL-easy #ComputerRalle<br>SSR-Entertainment seit 2005&nbsp;<br> Alle Rechte vorbehalten.
+        </p>
+        <div class="u-social-icons u-social-icons-1">
+          <a class="u-social-url" title="facebook" target="_blank" href="https://www.facebook.com/ralf.peter.kleinert.81" rel="nofollow"><span class="u-icon u-social-facebook u-social-icon u-text-custom-color-29 u-icon-1"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 112 112" style=""><use xlink:href="#svg-1c85"></use></svg><svg class="u-svg-content" viewBox="0 0 112 112" x="0" y="0" id="svg-1c85"><circle fill="currentColor" cx="56.1" cy="56.1" r="55"></circle><path fill="#FFFFFF" d="M73.5,31.6h-9.1c-1.4,0-3.6,0.8-3.6,3.9v8.5h12.6L72,58.3H60.8v40.8H43.9V58.3h-8V43.9h8v-9.2
+c0-6.7,3.1-17,17-17h12.5v13.9H73.5z"></path></svg></span>
+          </a>
+          <a class="u-social-url" target="_blank" data-type="YouTube" title="YouTube" href="https://www.youtube.com/@ComputerRalle"><span class="u-icon u-social-icon u-social-youtube u-text-custom-color-29 u-icon-2"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 112 112" style=""><use xlink:href="#svg-5bbf"></use></svg><svg class="u-svg-content" viewBox="0 0 112 112" x="0" y="0" id="svg-5bbf"><circle fill="currentColor" cx="56.1" cy="56.1" r="55"></circle><path fill="#FFFFFF" d="M74.9,33.3H37.3c-7.4,0-13.4,6-13.4,13.4v18.8c0,7.4,6,13.4,13.4,13.4h37.6c7.4,0,13.4-6,13.4-13.4V46.7 C88.3,39.3,82.3,33.3,74.9,33.3L74.9,33.3z M65.9,57l-17.6,8.4c-0.5,0.2-1-0.1-1-0.6V47.5c0-0.5,0.6-0.9,1-0.6l17.6,8.9 C66.4,56,66.4,56.8,65.9,57L65.9,57z"></path></svg></span>
+          </a>
+          <a class="u-social-url" target="_blank" data-type="LinkedIn" title="LinkedIn" href="https://www.linkedin.com/in/ralf-peter-kleinert/" rel="nofollow"><span class="u-icon u-social-icon u-social-linkedin u-text-custom-color-29 u-icon-3"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 112 112" style=""><use xlink:href="#svg-d54c"></use></svg><svg class="u-svg-content" viewBox="0 0 112 112" x="0" y="0" id="svg-d54c"><circle fill="currentColor" cx="56.1" cy="56.1" r="55"></circle><path fill="#FFFFFF" d="M41.3,83.7H27.9V43.4h13.4V83.7z M34.6,37.9L34.6,37.9c-4.6,0-7.5-3.1-7.5-7c0-4,3-7,7.6-7s7.4,3,7.5,7
+      C42.2,34.8,39.2,37.9,34.6,37.9z M89.6,83.7H76.2V62.2c0-5.4-1.9-9.1-6.8-9.1c-3.7,0-5.9,2.5-6.9,4.9c-0.4,0.9-0.4,2.1-0.4,3.3v22.5
+      H48.7c0,0,0.2-36.5,0-40.3h13.4v5.7c1.8-2.7,5-6.7,12.1-6.7c8.8,0,15.4,5.8,15.4,18.1V83.7z"></path></svg></span>
+          </a>
+          <a class="u-social-url" target="_blank" data-type="Custom" title="Mastodon" href="https://mastodon.social/@digitaleasy" rel="nofollow noopener"><span class="u-file-icon u-icon u-social-custom u-social-icon u-text-custom-color-29 u-icon-4"><img src="../images/mastodon1-4909f8ae.png" alt=""></span>
+          </a>
+          <a class="u-social-url" target="_blank" data-type="Blogspot" title="Blogspot" href="https://computerralle.blogspot.com/"><span class="u-icon u-social-blogspot u-social-icon u-text-custom-color-29 u-icon-5"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 112 112" style=""><use xlink:href="#svg-35b7"></use></svg><svg class="u-svg-content" viewBox="0 0 112 112" x="0" y="0" id="svg-35b7"><circle fill="currentColor" cx="56.1" cy="56.1" r="55"></circle><path id="Blogger" fill="#FFFFFF" d="M82.9,47.9c-4.4,0-5.4-2.3-5.4-5.4s-0.7-7.9-6.2-13.7C65.9,23.2,59.6,23,59.6,23
+	s-12.5,0-17.9,0c-5.8,0-10.2,3.2-14.2,7.9c-5,5.9-4.5,12-4.5,12s0,18.7,0,23.2s0.5,10.4,6.3,16.8c5.8,6.4,14.9,6.3,14.9,6.3H68
+	c7,0,11-2.1,15.9-6.6c5.3-4.8,5.7-13.7,5.7-13.7s0-14.7,0-17.4C89.6,48.7,87.3,47.9,82.9,47.9z M39.7,43.3c0-2,1.7-3.7,3.7-3.7h14.2
+	c2,0,3.7,1.7,3.7,3.7v0.9c0,2-1.7,3.7-3.7,3.7H43.4c-2,0-3.7-1.7-3.7-3.7V43.3z M71.7,68.6c0,2-1.7,3.7-3.7,3.7H43.4
+	c-2,0-3.7-1.7-3.7-3.7v-0.9c0-2,1.7-3.7,3.7-3.7H68c2,0,3.7,1.7,3.7,3.7V68.6z"></path></svg></span>
+          </a>
+        </div>
+        <div class="u-clearfix u-custom-html u-expanded-width u-custom-html-1">
+          <a href="javascript:UC_UI.showSecondLayer();">Cookie-Einstellungen</a>
+        </div>
+      </div></footer><span style="height: 48px; width: 48px; margin-left: 0px; margin-right: auto; margin-top: 0px; right: 0px; bottom: 15px;" class="u-back-to-top u-file-icon u-icon u-text-custom-color-20" data-href="#"><img src="../images/e77d2435.png" alt=""></span>
+  
+</body></html>

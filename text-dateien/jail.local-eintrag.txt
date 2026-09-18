@@ -1,0 +1,2 @@
+[DEFAULT]
+maxretry = 3 #Maximale Fehlversuche

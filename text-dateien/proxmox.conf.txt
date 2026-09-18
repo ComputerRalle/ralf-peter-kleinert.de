@@ -1,0 +1,4 @@
+[Definition]
+failregex = ^.*pam_unix\(proxmox-ve-auth:auth\): authentication failure; .* rhost=<HOST> .*$
+            ^.*pvedaemon\[.*\]: authentication failure; rhost=<HOST> .*$
+ignoreregex =

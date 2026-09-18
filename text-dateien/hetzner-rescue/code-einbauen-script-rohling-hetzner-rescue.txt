@@ -1,0 +1,129 @@
+
+<pre id="code-block-1" class="code-style"></pre>
+
+<script>
+    fetch('/text-dateien/hetzner-rescue/lsblk.txt')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("code-block-1").textContent = data;
+        })
+        .catch(error => console.error('Fehler beim Laden der Datei:', error));
+</script>
+
+##############################################################################
+
+<pre id="code-block-2" class="code-style"></pre>
+
+<script>
+    fetch('/text-dateien/hetzner-rescue/mount-dev-md3-mnt.txt')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("code-block-2").textContent = data;
+        })
+        .catch(error => console.error('Fehler beim Laden der Datei:', error));
+</script>
+
+##############################################################################
+
+<pre id="code-block-3" class="code-style"></pre>
+
+<script>
+    fetch('/text-dateien/hetzner-rescue/mount-dev-md2-mnt-boot.txt')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("code-block-3").textContent = data;
+        })
+        .catch(error => console.error('Fehler beim Laden der Datei:', error));
+</script>
+
+##############################################################################
+
+<pre id="code-block-4" class="code-style"></pre>
+
+<script>
+    fetch('/text-dateien/hetzner-rescue/for-dir-in-proc-sys-dev.txt')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("code-block-4").textContent = data;
+        })
+        .catch(error => console.error('Fehler beim Laden der Datei:', error));
+</script>
+
+##############################################################################
+
+<pre id="code-block-5" class="code-style"></pre>
+
+<script>
+    fetch('/text-dateien/hetzner-rescue/chroot-mnt.txt')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("code-block-5").textContent = data;
+        })
+        .catch(error => console.error('Fehler beim Laden der Datei:', error));
+</script>
+
+##############################################################################
+<pre id="code-block-6" class="code-style"></pre>
+
+<script>
+    fetch('/text-dateien/hetzner-rescue/nano-etc-hosts.txt')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("code-block-6").textContent = data;
+        })
+        .catch(error => console.error('Fehler beim Laden der Datei:', error));
+</script>
+
+##############################################################################
+
+<pre id="code-block-7" class="code-style"></pre>
+
+<script>
+    fetch('/text-dateien/hetzner-rescue/nano-etc-network-interfaces.txt')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("code-block-7").textContent = data;
+        })
+        .catch(error => console.error('Fehler beim Laden der Datei:', error));
+</script>
+
+##############################################################################
+
+<pre id="code-block-8" class="code-style"></pre>
+
+<script>
+    fetch('/text-dateien/hetzner-rescue/exit.txt')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("code-block-8").textContent = data;
+        })
+        .catch(error => console.error('Fehler beim Laden der Datei:', error));
+</script>
+
+##############################################################################
+
+<pre id="code-block-9" class="code-style"></pre>
+
+<script>
+    fetch('/text-dateien/hetzner-rescue/umount-R-mnt.txt')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("code-block-9").textContent = data;
+        })
+        .catch(error => console.error('Fehler beim Laden der Datei:', error));
+</script>
+
+##############################################################################
+
+<pre id="code-block-10" class="code-style"></pre>
+
+<script>
+    fetch('/text-dateien/hetzner-rescue/reboot.txt')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("code-block-10").textContent = data;
+        })
+        .catch(error => console.error('Fehler beim Laden der Datei:', error));
+</script>
+
+##############################################################################

@@ -1,0 +1,2 @@
+chmod 600 .ssh/proxmox
+chmod 700 .ssh

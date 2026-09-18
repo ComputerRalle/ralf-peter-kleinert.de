@@ -1,0 +1,1 @@
+gocryptfs -init /mnt/storagebox-crypted

@@ -1,0 +1,1 @@
+mount /dev/md2 /mnt/boot

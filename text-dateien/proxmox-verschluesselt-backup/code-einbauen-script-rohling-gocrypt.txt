@@ -1,0 +1,129 @@
+
+<pre id="code-block-18" class="code-style"></pre>
+
+<script>
+    fetch('/text-dateien/proxmox-verschluesselt-backup/nano-root-backup-pve-configs.txt')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("code-block-18").textContent = data;
+        })
+        .catch(error => console.error('Fehler beim Laden der Datei:', error));
+</script>
+
+##############################################################################
+
+<pre id="code-block-19" class="code-style"></pre>
+
+<script>
+    fetch('/text-dateien/proxmox-verschluesselt-backup/backup-pve-configs-sh-skript.txt')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("code-block-19").textContent = data;
+        })
+        .catch(error => console.error('Fehler beim Laden der Datei:', error));
+</script>
+
+##############################################################################
+
+<pre id="code-block-20" class="code-style"></pre>
+
+<script>
+    fetch('/text-dateien/proxmox-verschluesselt-backup/ausfuehrbar-machen-chmod-x-root-backup-pve-configs.txt')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("code-block-20").textContent = data;
+        })
+        .catch(error => console.error('Fehler beim Laden der Datei:', error));
+</script>
+
+##############################################################################
+
+<pre id="code-block-21" class="code-style"></pre>
+
+<script>
+    fetch('/text-dateien/proxmox-verschluesselt-backup/skript-start-root-backup-pve-configs.txt')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("code-block-21").textContent = data;
+        })
+        .catch(error => console.error('Fehler beim Laden der Datei:', error));
+</script>
+
+##############################################################################
+
+<pre id="code-block-22" class="code-style"></pre>
+
+<script>
+    fetch('/text-dateien/proxmox-verschluesselt-backupe/chroot-mnt.txt')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("code-block-22").textContent = data;
+        })
+        .catch(error => console.error('Fehler beim Laden der Datei:', error));
+</script>
+
+##############################################################################
+<pre id="code-block-23" class="code-style"></pre>
+
+<script>
+    fetch('/text-dateien/proxmox-verschluesselt-backup/nano-etc-hosts.txt')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("code-block-23").textContent = data;
+        })
+        .catch(error => console.error('Fehler beim Laden der Datei:', error));
+</script>
+
+##############################################################################
+
+<pre id="code-block-24" class="code-style"></pre>
+
+<script>
+    fetch('/text-dateien/proxmox-verschluesselt-backup/nano-etc-network-interfaces.txt')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("code-block-24").textContent = data;
+        })
+        .catch(error => console.error('Fehler beim Laden der Datei:', error));
+</script>
+
+##############################################################################
+
+<pre id="code-block-25" class="code-style"></pre>
+
+<script>
+    fetch('/text-dateien/proxmox-verschluesselt-backup/exit.txt')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("code-block-25").textContent = data;
+        })
+        .catch(error => console.error('Fehler beim Laden der Datei:', error));
+</script>
+
+##############################################################################
+
+<pre id="code-block-26" class="code-style"></pre>
+
+<script>
+    fetch('/text-dateien/proxmox-verschluesselt-backup/umount-R-mnt.txt')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("code-block-26").textContent = data;
+        })
+        .catch(error => console.error('Fehler beim Laden der Datei:', error));
+</script>
+
+##############################################################################
+
+<pre id="code-block-27" class="code-style"></pre>
+
+<script>
+    fetch('/text-dateien/proxmox-verschluesselt-backup/reboot.txt')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("code-block-27").textContent = data;
+        })
+        .catch(error => console.error('Fehler beim Laden der Datei:', error));
+</script>
+
+##############################################################################

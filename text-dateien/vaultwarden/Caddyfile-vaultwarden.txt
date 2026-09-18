@@ -1,0 +1,4 @@
+https://vw-debian-13-001:8443, https://192.168.2.130:8443 {
+    tls internal
+    reverse_proxy 127.0.0.1:8081
+}

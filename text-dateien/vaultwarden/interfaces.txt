@@ -1,0 +1,6 @@
+auto lo
+iface lo inet loopbackauto ens18
+iface ens18 inet static
+    address 192.168.2.130/24
+    gateway 192.168.2.1
+    dns-nameservers 1.1.1.1.1 8.8.8.8 192.168.2.1

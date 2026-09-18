@@ -1,0 +1,1 @@
+apt update && apt install fail2ban -y

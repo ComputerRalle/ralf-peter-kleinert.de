@@ -1,0 +1,1 @@
+//uxxxxxx.your-storagebox.de/backup /mnt/storagebox-crypted cifs credentials=/root/.smblogin,iocharset=utf8,rw,_netdev,uid=0,gid=0,file_mode=0660,dir_mode=0770  0 0

@@ -1,0 +1,1 @@
+nano /root/backup-pve-configs.sh

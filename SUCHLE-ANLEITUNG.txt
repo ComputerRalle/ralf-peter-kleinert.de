@@ -1,0 +1,15 @@
+Suchle – Upload und Aktualisierung
+
+Diese Dateien mit unveränderter Ordnerstruktur hochladen:
+images/Suchle-1.png
+search-index.js
+search.js
+suchen.html
+suchle.css
+
+Nach Änderungen an HTML-Inhalten im Projektordner ausführen:
+python build-search-index.py
+
+Anschließend search-index.js sowie die geänderten HTML-Seiten hochladen.
+Das Python-Skript läuft nur lokal; GitHub Pages benötigt kein Python oder PHP.
+Mehrere Wörter: UND; Anführungszeichen: genaue Phrase; oder / OR: Alternativen.

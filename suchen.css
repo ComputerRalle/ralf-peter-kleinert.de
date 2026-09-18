@@ -1,0 +1,138 @@
+.u-section-1 .u-sheet-1 {
+  min-height: 421px;
+}
+
+.u-section-1 .u-image-1 {
+  min-height: 381px;
+  height: auto;
+  width: 910px;
+  margin: 10px auto 0 0;
+}
+
+.u-section-1 .u-container-layout-1 {
+  padding: 20px;
+}
+
+.u-section-1 .u-custom-php-1 {
+  min-height: 0;
+  height: auto;
+  width: 0;
+  margin: 0 0 30px;
+}
+
+@media (max-width: 1199px) {
+  .u-section-1 .u-image-1 {
+    height: auto;
+  }
+
+  .u-section-1 .u-container-layout-1 {
+    padding-top: 30px;
+    padding-bottom: 29px;
+  }
+}
+
+@media (max-width: 991px) {
+  .u-section-1 .u-image-1 {
+    width: 720px;
+  }
+}
+
+@media (max-width: 767px) {
+  .u-section-1 .u-image-1 {
+    width: 540px;
+  }
+
+  .u-section-1 .u-container-layout-1 {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+@media (max-width: 575px) {
+  .u-section-1 .u-image-1 {
+    margin-right: initial;
+    margin-left: initial;
+    width: auto;
+  }
+}.u-section-2 .u-sheet-1 {
+  min-height: 225px;
+}
+
+.u-section-2 .u-group-1 {
+  min-height: 205px;
+  height: auto;
+  width: 910px;
+  margin: 10px auto 60px 0;
+}
+
+.u-section-2 .u-container-layout-1 {
+  padding: 20px;
+}
+
+.u-section-2 .u-custom-php-1 {
+  width: 435px;
+  min-height: 174px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1199px) {
+  .u-section-2 .u-group-1 {
+    height: auto;
+  }
+
+  .u-section-2 .u-container-layout-1 {
+    padding-top: 30px;
+    padding-bottom: 29px;
+  }
+}
+
+@media (max-width: 991px) {
+  .u-section-2 .u-group-1 {
+    width: 720px;
+  }
+}
+
+@media (max-width: 767px) {
+  .u-section-2 .u-group-1 {
+    width: 540px;
+  }
+
+  .u-section-2 .u-container-layout-1 {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+@media (max-width: 575px) {
+  .u-section-2 .u-group-1 {
+    margin-right: initial;
+    margin-left: initial;
+    width: auto;
+  }
+
+  .u-section-2 .u-container-layout-1 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .u-section-2 .u-custom-php-1 {
+    width: 320px;
+  }
+}#output a {
+    color: #f28d5b;
+    font-weight: bold;
+}
+#output a:hover {
+    color: #dd4c05;
+	font-weight: bold;
+}
+#output ol li {
+    margin-bottom: 20px;
+	margin-top: 20px;
+}
+button,
+input {
+  color: black;
+  font: inherit;
+  margin: 0;
+}

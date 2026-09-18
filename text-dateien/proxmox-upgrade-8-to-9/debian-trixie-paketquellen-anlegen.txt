@@ -1,0 +1,5 @@
+sed -i 's/bookworm/trixie/g' /etc/apt/sources.list
+
+Wenn Sie Enterprise verwenden:
+
+sed -i 's/bookworm/trixie/g' /etc/apt/sources.list.d/pve-enterprise.list

@@ -1,0 +1,1 @@
+puttygen .ssh/proxmox -o .ssh/proxmox.ppk

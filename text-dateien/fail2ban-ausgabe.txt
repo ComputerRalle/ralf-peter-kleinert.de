@@ -1,0 +1,45 @@
+Ausgabe nach systemctl status fail2ban:
+
+systemctl status fail2ban
+? fail2ban.service - Fail2Ban Service
+     Loaded: loaded (/lib/systemd/system/fail2ban.service; enabled; preset: enabled)
+     Active: active (running) since Thu 2024-12-10 11:10:14 CET; 6s ago
+       Docs: man:fail2ban(1)
+   Main PID: 2xx4 (fail2ban-server)
+      Tasks: 7 (limit: 3xx9)
+     Memory: 27.9M
+        CPU: 212ms
+     CGroup: /system.slice/fail2ban.service
+             +-2134 /usr/bin/python3 /usr/bin/fail2ban-server -xf start
+
+
+Ausgabe nach fail2ban-client status:
+
+Status
+|- Number of jail:      2
+`- Jail list:   proxmox, sshd
+
+Ausgabe nach fail2ban-client status sshd:
+
+Status for the jail: sshd
+|- Filter
+|  |- Currently failed: 0
+|  |- Total failed:     0
+|  `- Journal matches:  _SYSTEMD_UNIT=sshd.service + _COMM=sshd
+`- Actions
+   |- Currently banned: 0
+   |- Total banned:     0
+   `- Banned IP list:
+
+
+Ausgabe nach fail2ban-client status proxmox:
+
+Status for the jail: proxmox
+|- Filter
+|  |- Currently failed: 0
+|  |- Total failed:     0
+|  `- Journal matches:
+`- Actions
+   |- Currently banned: 0
+   |- Total banned:     0
+   `- Banned IP list:

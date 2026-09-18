@@ -1,0 +1,252 @@
+##### Neue Befehle für Debian 13  ###############################
+
+Da das letzte Paperless Update massive Probleme macht, habe ich in dieser compose die Versionen der Einzelsysteme auf eine gesichert funktionierende Version festgesetzt!
+
+Lokale Installation im LAN
+
+Paperless Installation
+
+1. Debian 12 downloaden und als VM installieren
+
+https://www.debian.org/download
+
+Netinst für 64-Bit-PC (AMD64) debian-13.1.0-amd64-netinst.iso. 
+
+Wenn Debian installiert und gestartet ist mit root Rechten weitermachen, also mit root einloggen:
+
+2. docker, docker-compose und curl installieren:
+
+apt update && apt upgrade -y
+
+apt install -y docker.io docker-compose curl
+
+3. Docker aktivieren:
+
+systemctl enable --now docker
+
+4. Paperless Ordner anlegen
+
+​mkdir -p /opt/paperless
+
+5. Paperless Ordner betreten
+
+​cd /opt/paperless 
+
+6. docker-compose.yml Datei erzeugen
+
+​nano /opt/paperless/docker-compose.yml
+
+7. diese Daten in die compose Datei einfügen
+
+#compose Datei von ComputerRalle ############################################################
+# ralf-peter-kleinert.de
+#Name des Containers, wird vor die Volumes gesetzt
+name: paperless-ngx
+
+services:
+  broker:
+    image: redis:7
+    restart: always
+
+  db:
+    image: postgres:17
+    restart: always
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: paperless
+      POSTGRES_USER: paperless
+      POSTGRES_PASSWORD: paperless
+
+  gotenberg:
+    image: gotenberg/gotenberg:8
+    restart: always
+    environment:
+      DISABLE_GOOGLE_CHROME: "1"
+
+  tika:
+    image: apache/tika:latest
+    restart: always
+
+  paperless:
+    image: ghcr.io/paperless-ngx/paperless-ngx:2.19.3
+    depends_on:
+      - db
+      - broker
+      - gotenberg
+      - tika
+    ports:
+      - "8000:8000"
+    restart: always
+    volumes:
+      - data:/usr/src/paperless/data
+      - media:/usr/src/paperless/media
+      - export:/usr/src/paperless/export
+      # Windows Pfad auskommentiert, weil das fuer die installation auf Windows gilt
+      #- C:\Users\konta\Desktop\Paperless-Input:/usr/src/paperless/consume
+      - ./consume:/usr/src/paperless/consume
+    # diese Datei wird vom PaperlessBackupProgramm angelegt.  
+    env_file:
+      - ./email-versand.env
+    environment:
+      PAPERLESS_REDIS: redis://broker:6379
+      PAPERLESS_DBHOST: db
+      PAPERLESS_DBNAME: paperless
+      PAPERLESS_DBUSER: paperless
+      PAPERLESS_DBPASS: paperless
+      PAPERLESS_TIME_ZONE: Europe/Berlin
+      PAPERLESS_SECRET_KEY: aksjdfhs87H/(&986jlkhgiu87659zol
+      PAPERLESS_CONSUMPTION_DIR: /usr/src/paperless/consume
+      PAPERLESS_MEDIA_ROOT: /usr/src/paperless/media
+      PAPERLESS_EXPORT_DIR: /usr/src/paperless/export
+      PAPERLESS_TIKA_ENABLED: "1"
+      PAPERLESS_TIKA_GOTENBERG_ENDPOINT: http://gotenberg:3000
+      PAPERLESS_TIKA_ENDPOINT: http://tika:9998
+      PAPERLESS_CONSUMER_POLLING: "30"
+      PAPERLESS_CONSUMER_POLLING_DELAY: "30"
+      PAPERLESS_CONSUMER_POLLING_RETRY_COUNT: "3"
+      PAPERLESS_CONSUMER_DELETE_DUPLICATES: "true"
+      PAPERLESS_CONSUMER_RECURSIVE: "true"
+      PAPERLESS_EMPTY_TRASH_DELAY: "365"
+      PAPERLESS_OCR_LANGUAGE: deu+eng
+volumes:
+  data:
+  media:
+  export:
+  db_data:
+
+#compose Datei von ComputerRalle ENDE #######################################################
+  
+8. email-versand.env Datei erzeugen
+
+​nano /opt/paperless/email-versand.env  
+
+9. diese Daten in die email-versand.env Datei einfügen
+
+PAPERLESS_EMAIL_HOST=
+PAPERLESS_EMAIL_PORT=
+PAPERLESS_EMAIL_HOST_USER=
+PAPERLESS_EMAIL_HOST_PASSWORD=
+PAPERLESS_EMAIL_FROM=
+PAPERLESS_EMAIL_USE_TLS= #YES or No
+PAPERLESS_EMAIL_USE_SSL= #YES or No
+
+9. docker-compose ausführen:
+
+cd /opt/paperless
+
+​docker-compose up -d
+
+10. Paperless aufrufen:
+
+ihreserver IP:8000
+
+ip addr show -> IP Adresse anzeigen
+
+11. Samba für consume Ordner Freigabe installien:
+
+apt install samba -y
+
+12. Sambaconfig öffnen:
+
+nano /etc/samba/smb.conf
+
+13. Am Ende der Datei diesen Block einfügen:
+
+[paperless-consume]
+   path = /opt/paperless/consume
+   browseable = yes
+   writable = yes
+   guest ok = yes
+   create mask = 0777
+   directory mask = 0777
+
+14. consume Ordner Rechte setzen:
+
+chmod -R 777 /opt/paperless/consume
+
+15. Samba neustarten
+
+systemctl restart smbd
+
+16. im Windows Datei Explorer
+
+\\Ihre IP\paperless-consume 
+
+
+
+
+ARCHIV INFORMATIONEN
+
+##### Alte Befehle für Debian 12  ###############################
+
+Paperless Installation
+
+1. Debian 12 downloaden und als VM installieren
+
+https://www.debian.org/download
+
+Netinst für 64-Bit-PC (AMD64) debian-12.9.0-amd64-netinst.iso. 
+
+Wenn Debian installiert und gestartet ist mit root Rechten weitermachen, also mit root einloggen:
+
+2. CURL und Sudo installieren:
+
+apt install curl sudo
+
+3. Docker installieren:
+
+curl -sSL https://get.docker.com | sh
+
+4. Docker compose installieren
+
+apt install docker-compose -y
+
+reboot
+
+Wieder mit root einloggen:
+
+5. neuen Nutzer für Paperless anlegen: 
+
+adduser paperless
+
+6. Nutzer paperless zu docker und sudo Gruppe zufügen:
+
+usermod -aG docker paperless
+usermod -aG sudo paperless
+
+7. ins Wurzelverzeichnis wechseln:
+
+cd /
+
+8. Im Wurzelverzeichnis den Ordner paperless anlegen:
+
+mkdir paperless
+
+9. Schreibrechte auf den Ordner paperless setzen:
+
+chmod -v 777 paperless
+
+10. Zum Nutzer paperless in der Konsole wechseln:
+
+su paperless
+
+11. den Ordner paperless betreten:
+
+cd /paperless
+
+12. Paperless Script herunterladen und sofort ausführen lassen:
+
+bash -c "$(curl --location --silent --show-error https://raw.githubusercontent.com/paperless-ngx/paperless-ngx/main/install-paperless-ngx.sh)"
+
+Beantworten Sie die Fragen die das Skript zur einrichtung stellt.
+
+Wenn das Script nach User und Gruppe fragt, vergeben sie für user 1000, und gruppe 1000
+
+Geben Sie eine korrekte E-Mail-Adresse ein. Paperless prüft diese.
+
+Paperless wird nun installiert. Wenn die Installation abgeschlossen ist geben Sie, um die IP-Adresse von Paperless sehen zu können ein:
+
+ip addr show
+
+Über die IP-Adresse:8000 errreichen Sie die Paperless-Oberfläche.

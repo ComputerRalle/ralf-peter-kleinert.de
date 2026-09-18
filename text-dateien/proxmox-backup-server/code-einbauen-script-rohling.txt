@@ -1,0 +1,10 @@
+<pre id="code-block-2" class="code-style"></pre>
+
+<script>
+    fetch('/text-dateien/proxmox-backup-server/pbs-verzeichnis-erstellen.txt')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("code-block-2").textContent = data;
+        })
+        .catch(error => console.error('Fehler beim Laden der Datei:', error));
+</script>

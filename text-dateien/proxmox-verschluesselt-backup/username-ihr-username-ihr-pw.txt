@@ -1,0 +1,2 @@
+username=Ihr-Username
+password=Ihr-Passwot
