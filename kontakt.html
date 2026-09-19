@@ -282,9 +282,9 @@
               </label>
             </div>
             <div class="u-align-left u-form-group u-form-submit">
-              <button type="submit" class="btn-ralf u-btn u-button-style u-custom-color-14 u-hover-custom-color-2 u-text-hover-white u-text-white u-btn-2">Im E-Mail-Programm öffnen</button>
+              <button type="submit" disabled class="btn-ralf u-btn u-button-style u-custom-color-14 u-hover-custom-color-2 u-text-hover-white u-text-white u-btn-2">Im E-Mail-Programm öffnen</button>
             </div>
-            <p id="kontakt-mailto-hinweis">Die Nachricht wird an Ihr eingerichtetes E-Mail-Programm übergeben. Bitte senden Sie sie dort selbst ab.</p>
+            <div class="u-form-group u-align-left"><p id="kontakt-mailto-hinweis" style="margin: 0; text-align: left;">Aus Sicherheitsgründen werden Ihre Formulareingaben auf dieser Website weder gespeichert noch direkt versendet. Mit einem Klick auf „Im E-Mail-Programm öffnen“ werden Ihr Name und Ihre Nachricht an Ihr eingerichtetes E-Mail-Programm übergeben. Dort können Sie die Nachricht prüfen und selbst absenden. So schütze ich mich vor massenhaften automatisierten Spam-Einsendungen über das Formular. Ihre Eingaben werden dabei nicht auf dem Webserver dieser Website oder bei einem zusätzlichen Formulardienst gespeichert.</p></div>
           </form>
         </div>
       </div>
@@ -454,9 +454,23 @@ c0-6.7,3.1-17,17-17h12.5v13.9H73.5z"></path></svg></span>
 <script>
 (function () {
     var form = document.getElementById('kontakt-mailto');
+    var consent = form.elements.namedItem('checkbox');
+    var submitButton = form.querySelector('button[type="submit"]');
+    function updateConsent() {
+        submitButton.disabled = !consent.checked;
+    }
+    consent.addEventListener('change', updateConsent);
+    window.addEventListener('pageshow', updateConsent);
+    form.addEventListener('reset', function () { setTimeout(updateConsent, 0); });
+    updateConsent();
     form.addEventListener('submit', function (event) {
         event.preventDefault();
         event.stopImmediatePropagation();
+        if (!consent.checked) {
+            updateConsent();
+            consent.reportValidity();
+            return;
+        }
         if (!form.reportValidity()) return;
         var name = form.elements.namedItem('name').value.trim();
         var message = form.elements.namedItem('message').value.trim();

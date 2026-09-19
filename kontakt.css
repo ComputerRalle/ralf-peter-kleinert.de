@@ -1014,3 +1014,7 @@
     width: auto;
   }
 }
+#kontakt-mailto button[type="submit"]:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
