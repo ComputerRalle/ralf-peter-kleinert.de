@@ -53931,6 +53931,7 @@ a.u-link.u-text-hover-color-var:hover {
 @media (max-width: 767px) {
   .u-footer .u-social-icons-1 {
     width: 540px;
+    margin-bottom: 30px;
   }
 }
 @media (max-width: 575px) {
