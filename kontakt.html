@@ -51,211 +51,7 @@
 <link rel="preload" href="//app.eu.usercentrics.eu/browser-ui/latest/loader.js" as="script">
 <link rel="preload" href="//sdp.eu.usercentrics.eu/latest/uc-block.bundle.js" as="script">
 <script id="usercentrics-cmp" async="" data-eu-mode="true" data-settings-id="rdKSWSBTj" src="https://app.eu.usercentrics.eu/browser-ui/latest/loader.js"></script>
-<script type="application/javascript" src="https://sdp.eu.usercentrics.eu/latest/uc-block.bundle.js"></script><script>
-    window.recaptchaRenderedV2 = false;
-    window.recaptchaFallback = false;
-    window.recaptchaSiteKeyV2 = '6LdfeIwrAAAAAMnDkaIExdHsV0Nsj8y-CU9AyTjZ';
-
-    function gdprConfirmed() {
-        return true;
-    }
-
-    function dynamicLoadScript() {
-        var script = document.createElement('script');
-        script.src = 'https://www.google.com/recaptcha/api.js?render=6LcxNiEqAAAAAL3HK-oyRHUpnwVro6g5Pv_S39K7';
-        script.async = true;
-        script.onload = function () {
-            var event = new CustomEvent("recaptchaLoaded");
-            document.dispatchEvent(event);
-        };
-        document.body.appendChild(script);
-    }
-
-    function showRecaptchaError(error) {
-        error = error || '';
-        var formError = document.querySelector('.u-form-send-error');
-
-        if (formError) {
-            formError.innerText = 'Fehler des Website-Besitzers: ' + error.replace(/:[\s\S]*/, '');
-            formError.style.display = 'block';
-        }
-
-        console.error('Error in grecaptcha: ', error);
-    }
-
-    document.addEventListener('DOMContentLoaded', function () {
-        var confirmButtons = document.querySelectorAll('.u-cookies-consent .u-button-confirm');
-        confirmButtons.forEach(function (button) {
-            button.onclick = dynamicLoadScript;
-        });
-    });
-    </script>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function(){
-            if (!gdprConfirmed()) {
-                return;
-            }
-            dynamicLoadScript();
-        });
-    </script>
-
-    <script>
-        document.addEventListener("recaptchaLoaded", function() {
-            if (!gdprConfirmed()) {
-                return;
-            }
-
-            (function (grecaptcha, sitekey, actions) {
-                var recaptcha = {
-                    execute: function (action, submitFormCb) {
-                        if (typeof grecaptcha === 'undefined' || typeof grecaptcha.execute !== 'function') {
-                            showRecaptchaError('reCAPTCHA script failed to load.');
-                            return;
-                        }
-
-                        try {
-                            grecaptcha.execute(sitekey, {action: action}).then((token) => {
-                                if (!token) {
-                                    throw new Error('Empty token received from reCAPTCHA');
-                                }
-
-                                var forms = document.getElementsByTagName('form');
-
-                                for (var i = 0; i < forms.length; i++) {
-                                    var response = forms[i].querySelector('[name="recaptchaResponse"]');
-
-                                    if (!response) {
-                                        response = document.createElement('input');
-                                        response.setAttribute('type', 'hidden');
-                                        response.setAttribute('name', 'recaptchaResponse');
-                                        forms[i].appendChild(response);
-                                    }
-
-                                    response.value = token;
-                                }
-
-                                submitFormCb();
-                            }).catch((e) => {
-                                showRecaptchaError(e.message);
-                            });
-                        } catch (e) {
-                            showRecaptchaError(e.message);
-                        }
-                    },
-
-                    executeContact: function (submitFormCb) {
-                        recaptcha.execute(actions['contact'], submitFormCb);
-                    }
-                };
-
-                window.recaptchaObject = recaptcha;
-                window.grecaptchaObject = grecaptcha;
-            })(
-                grecaptcha,
-                
-                '6LcxNiEqAAAAAL3HK-oyRHUpnwVro6g5Pv_S39K7',
-                {'contact': 'contact'}
-            );
-        });
-    </script>
-
-    <script>
-    window.showRecaptchaV2 = function (form) {
-        if (!form || !form.length) {
-            return;
-        }
-        if (typeof window.grecaptchaObject === 'undefined' || !window.grecaptchaObject) {
-            return;
-        }
-
-        const formEl = form[0];
-
-        let container = document.getElementById('recaptcha-v2-container');
-        if (!container) {
-            container = document.createElement('div');
-            container.id = 'recaptcha-v2-container';
-            formEl.parentElement.appendChild(container);
-        }
-
-        let tokenReceived = false;
-        let timeoutHandle;
-
-        if (window.recaptchaRenderedV2 === false || typeof window.recaptchaRenderedV2 === 'undefined') {
-            window.recaptchaRenderedV2 = window.grecaptchaObject.render('recaptcha-v2-container', {
-                'sitekey': window.recaptchaSiteKeyV2,
-                'size': 'invisible',
-                'callback': function (token) {
-                    clearTimeout(timeoutHandle);
-
-                    if (!token) {
-                        showRecaptchaError('reCAPTCHA v2 token was empty. Please try again.');
-                        return;
-                    }
-
-                    tokenReceived = true;
-
-                    let recaptchaResponseV2 = formEl.querySelector('input[name="recaptchaResponseV2"]');
-
-                    if (!recaptchaResponseV2) {
-                        recaptchaResponseV2 = document.createElement('input');
-                        recaptchaResponseV2.type = 'hidden';
-                        recaptchaResponseV2.name = 'recaptchaResponseV2';
-                        formEl.appendChild(recaptchaResponseV2);
-                    }
-
-                    recaptchaResponseV2.value = token;
-
-                    if (window.recaptchaSiteKeyV2) {
-                        let siteKeyInput = formEl.querySelector('input[name="siteKey"]');
-
-                        if (siteKeyInput) {
-                            siteKeyInput.value = window.recaptchaSiteKeyV2;
-                        }
-                    }
-
-                    document.querySelectorAll('.u-form-send-error').forEach(el => {
-                        el.style.display = 'none';
-                    });
-
-                    const event = new CustomEvent('submit', {
-                        detail: { recaptchaPassed: true },
-                        bubbles: true,
-                        cancelable: true,
-                    });
-
-                    formEl.dispatchEvent(event);
-                },
-                'error-callback': function () {
-                    clearTimeout(timeoutHandle);
-                    showRecaptchaError('reCAPTCHA v2 error. Please try again.');
-                },
-                'expired-callback': function () {
-                    clearTimeout(timeoutHandle);
-                }
-            });
-
-            window.grecaptchaObject.reset(window.recaptchaRenderedV2);
-
-            setTimeout(() => {
-                window.grecaptchaObject.execute(window.recaptchaRenderedV2);
-            }, 300);
-
-            timeoutHandle = setTimeout(function () {
-                if (!tokenReceived) {
-                    showRecaptchaError('The Contact Form could not be submitted because Google reCAPTCHA v3 detected unusual activity from your connection. Please try again later, or complete the reCAPTCHA v2 challenge if it appears.');
-                }
-            }, 120000);
-        } else {
-            window.grecaptchaObject.reset(window.recaptchaRenderedV2);
-
-            setTimeout(() => {
-                window.grecaptchaObject.execute(window.recaptchaRenderedV2);
-            }, 300);
-        }
-    };
-    </script>
-<meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
+<script type="application/javascript" src="https://sdp.eu.usercentrics.eu/latest/uc-block.bundle.js"></script><meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
   <body data-path-to-root="./" data-include-products="false" class="u-body u-clearfix u-xl-mode" data-lang="de" style="background-position: 50% 50%;"><header class=" u-border-no-bottom u-border-no-left u-border-no-right u-border-no-top u-clearfix u-header u-section-row-container" id="header-mit-navigation-hauptmenue" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="" style="border-style: solid;"><div class="u-section-rows" style="">
         <div class="u-border-2 u-border-custom-color-20 u-border-no-left u-border-no-right u-border-no-top u-clearfix u-custom-color-2 u-section-row u-section-row-1" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="" id="haupt-menue">
           <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
@@ -471,17 +267,13 @@
     <section class="u-align-center u-clearfix u-container-align-center u-container-align-center-lg u-container-align-center-xl u-section-3" id="kontaktformular-mit-eingabefeldern">
       <div class="u-clearfix u-sheet u-sheet-1">
         <div class="u-custom-color-19 u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-form u-form-1">
-          <form action="scripts/form-c710-kontaktformular-mit-eingabefeldern.php" class="u-clearfix u-form-spacing-15 u-form-vertical u-inner-form" style="padding: 15px;" source="customphp" name="form">
+          <form id="kontakt-mailto" action="mailto:digitaleasy@ralf-peter-kleinert.de" method="post" enctype="text/plain" class="u-clearfix u-form-spacing-15 u-form-vertical u-inner-form" style="padding: 15px;" name="kontakt">
             <div class="u-form-group u-form-name u-label-none">
               <label for="name-6797" class="u-label">Name</label>
               <input type="text" placeholder="Ihr Name" id="name-6797" name="name" class="u-border-2 u-border-grey-30 u-input u-input-rectangle" required="">
             </div>
-            <div class="u-form-email u-form-group u-label-none">
-              <label for="email-6797" class="u-label">Email</label>
-              <input type="email" placeholder="Ihre E-Mail" id="email-6797" name="email" class="u-border-2 u-border-grey-30 u-input u-input-rectangle" required="">
-            </div>
             <div class="u-form-group u-form-message u-label-none">
-              <label for="message-6797" class="u-label">Address</label>
+              <label for="message-6797" class="u-label">Nachricht</label>
               <textarea placeholder="Ihre Nachricht" rows="4" cols="50" id="message-6797" name="message" class="u-border-2 u-border-grey-30 u-input u-input-rectangle" required=""></textarea>
             </div>
             <div class="u-form-checkbox u-form-group u-label-none u-form-group-4">
@@ -490,12 +282,9 @@
               </label>
             </div>
             <div class="u-align-left u-form-group u-form-submit">
-              <a href="#" class="btn-ralf u-btn u-btn-submit u-button-style u-custom-color-14 u-hover-custom-color-2 u-text-hover-white u-text-white u-btn-2">Einreichen</a>
-              <input type="submit" value="submit" class="u-form-control-hidden">
+              <button type="submit" class="btn-ralf u-btn u-button-style u-custom-color-14 u-hover-custom-color-2 u-text-hover-white u-text-white u-btn-2">Im E-Mail-Programm öffnen</button>
             </div>
-            <div class="u-form-send-message u-form-send-success">Vielen Dank. Ihre Nachricht wurde verschickt.</div>
-            <div class="u-form-send-error u-form-send-message">Konnte nicht gesendet werden. Haben Sie die Datenverarbeitung akzeptiert?</div>
-            <input type="hidden" value="" name="recaptchaResponse">
+            <p id="kontakt-mailto-hinweis">Die Nachricht wird an Ihr eingerichtetes E-Mail-Programm übergeben. Bitte senden Sie sie dort selbst ab.</p>
           </form>
         </div>
       </div>
@@ -662,4 +451,20 @@ c0-6.7,3.1-17,17-17h12.5v13.9H73.5z"></path></svg></span>
         </div>
       </div></footer><span style="height: 48px; width: 48px; margin-left: 0px; margin-right: auto; margin-top: 0px; right: 0px; bottom: 15px;" class="u-back-to-top u-file-icon u-icon u-text-custom-color-20" data-href="#"><img src="images/e77d2435.png" alt=""></span>
   
+<script>
+(function () {
+    var form = document.getElementById('kontakt-mailto');
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        if (!form.reportValidity()) return;
+        var name = form.elements.namedItem('name').value.trim();
+        var message = form.elements.namedItem('message').value.trim();
+        var body = 'Name: ' + name + '\r\n\r\nNachricht:\r\n' + message;
+        window.location.href = 'mailto:digitaleasy@ralf-peter-kleinert.de'
+            + '?subject=' + encodeURIComponent('Kontakt über ralf-peter-kleinert.de')
+            + '&body=' + encodeURIComponent(body);
+    }, true);
+})();
+</script>
 </body></html>
