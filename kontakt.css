@@ -134,28 +134,14 @@
   min-height: 390px;
 }
 
-.u-section-3 .u-form-1 {
-  height: 370px;
+.u-section-3 .u-custom-html-1 {
+  height: auto;
   background-image: none;
   margin: 10px 371px 10px -1px;
 }
 
-.u-section-3 .u-form-group-4 {
-  margin-left: 0;
-}
-
-.u-section-3 .u-btn-1 {
-  background-image: none;
-  font-family: Raleway, sans-serif;
-  padding: 0;
-}
-
-.u-section-3 .u-btn-2 {
-  background-image: none;
-}
-
 @media (max-width: 1199px) {
-  .u-section-3 .u-form-1 {
+  .u-section-3 .u-custom-html-1 {
     width: 570px;
     margin-right: 331px;
   }
@@ -166,7 +152,7 @@
     min-height: 488px;
   }
 
-  .u-section-3 .u-form-1 {
+  .u-section-3 .u-custom-html-1 {
     margin-bottom: -8px;
     height: 486px;
     margin-right: initial;
@@ -180,7 +166,7 @@
     min-height: 506px;
   }
 
-  .u-section-3 .u-form-1 {
+  .u-section-3 .u-custom-html-1 {
     margin-bottom: 10px;
     width: auto;
     margin-right: initial;
@@ -1013,8 +999,4 @@
     margin-left: initial;
     width: auto;
   }
-}
-#kontakt-mailto button[type="submit"]:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
 }

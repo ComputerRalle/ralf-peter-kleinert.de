@@ -7,12 +7,10 @@
     <meta property="og:title" content="Suchle - die Suche auf ralf-peter-kleinert.de">
     <meta property="og:description" content="Suchen Sie auf ralf-peter-kleinert.de die Informationen die Sie aus den Bereichen IT, Social Media oder Video interessieren. ">
     <meta property="og:image" content="https://ralf-peter-kleinert.de/images/Suchle-1-large.webp">
-    <meta property="og:url" content="https://ralf-peter-kleinert.de/suchen.html">
+    <meta property="og:url" content="https://ralf-peter-kleinert.de/suchen.php">
     <title>Suchle - die Suche auf ralf-peter-kleinert.de</title>
     <link rel="stylesheet" href="nicepage.css" media="screen">
-<link rel="stylesheet" href="suchle.css" media="screen">
-<script src="search-index.js" defer></script>
-<script src="search.js" defer></script>
+<link rel="stylesheet" href="suchen.css" media="screen">
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
     
@@ -28,230 +26,18 @@
 		"name": "Ralf-Peter Kleinert",
 		"logo": "images/BannerHintergrund1.png",
 		"sameAs": [
-				"https://www.facebook.com/ralf.peter.kleinert.81",
+				"https://www.facebook.com/ComputerRalle.de",
 				"https://www.youtube.com/@ComputerRalle",
 				"https://www.linkedin.com/in/ralf-peter-kleinert/",
-				"https://mastodon.social/@digitaleasy",
-				"https://computerralle.blogspot.com/"
+				"https://www.instagram.com/computerralle/"
 		]
 }</script>
     <meta name="theme-color" content="#0cbcf5">
     <meta property="og:type" content="website">
   <meta name="author" content="Ralf-Peter Kleinert">
-<meta name="email" content="digitaleasy@ralf-peter-kleinert.de">
-<meta name="copyright" content="Copyright © by Ralf-Peter Kleinert">
-<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-<meta name="facebook-domain-verification" content="7cwzmpfwunyhwzz0dh72lsvrhynk3y"><link rel="preconnect" href="//app.eu.usercentrics.eu">
-<link rel="preconnect" href="//api.eu.usercentrics.eu">
-<link rel="preconnect" href="//sdp.eu.usercentrics.eu">
-<link rel="preload" href="//app.eu.usercentrics.eu/browser-ui/latest/loader.js" as="script">
-<link rel="preload" href="//sdp.eu.usercentrics.eu/latest/uc-block.bundle.js" as="script">
-<script id="usercentrics-cmp" async="" data-eu-mode="true" data-settings-id="rdKSWSBTj" src="https://app.eu.usercentrics.eu/browser-ui/latest/loader.js"></script>
-<script type="application/javascript" src="https://sdp.eu.usercentrics.eu/latest/uc-block.bundle.js"></script><script>
-    window.recaptchaRenderedV2 = false;
-    window.recaptchaFallback = false;
-    window.recaptchaSiteKeyV2 = '6LdfeIwrAAAAAMnDkaIExdHsV0Nsj8y-CU9AyTjZ';
-
-    function gdprConfirmed() {
-        return true;
-    }
-
-    function dynamicLoadScript() {
-        var script = document.createElement('script');
-        script.src = 'https://www.google.com/recaptcha/api.js?render=6LcxNiEqAAAAAL3HK-oyRHUpnwVro6g5Pv_S39K7';
-        script.async = true;
-        script.onload = function () {
-            var event = new CustomEvent("recaptchaLoaded");
-            document.dispatchEvent(event);
-        };
-        document.body.appendChild(script);
-    }
-
-    function showRecaptchaError(error) {
-        error = error || '';
-        var formError = document.querySelector('.u-form-send-error');
-
-        if (formError) {
-            formError.innerText = 'Fehler des Website-Besitzers: ' + error.replace(/:[\s\S]*/, '');
-            formError.style.display = 'block';
-        }
-
-        console.error('Error in grecaptcha: ', error);
-    }
-
-    document.addEventListener('DOMContentLoaded', function () {
-        var confirmButtons = document.querySelectorAll('.u-cookies-consent .u-button-confirm');
-        confirmButtons.forEach(function (button) {
-            button.onclick = dynamicLoadScript;
-        });
-    });
-    </script>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function(){
-            if (!gdprConfirmed()) {
-                return;
-            }
-            dynamicLoadScript();
-        });
-    </script>
-
-    <script>
-        document.addEventListener("recaptchaLoaded", function() {
-            if (!gdprConfirmed()) {
-                return;
-            }
-
-            (function (grecaptcha, sitekey, actions) {
-                var recaptcha = {
-                    execute: function (action, submitFormCb) {
-                        if (typeof grecaptcha === 'undefined' || typeof grecaptcha.execute !== 'function') {
-                            showRecaptchaError('reCAPTCHA script failed to load.');
-                            return;
-                        }
-
-                        try {
-                            grecaptcha.execute(sitekey, {action: action}).then((token) => {
-                                if (!token) {
-                                    throw new Error('Empty token received from reCAPTCHA');
-                                }
-
-                                var forms = document.getElementsByTagName('form');
-
-                                for (var i = 0; i < forms.length; i++) {
-                                    var response = forms[i].querySelector('[name="recaptchaResponse"]');
-
-                                    if (!response) {
-                                        response = document.createElement('input');
-                                        response.setAttribute('type', 'hidden');
-                                        response.setAttribute('name', 'recaptchaResponse');
-                                        forms[i].appendChild(response);
-                                    }
-
-                                    response.value = token;
-                                }
-
-                                submitFormCb();
-                            }).catch((e) => {
-                                showRecaptchaError(e.message);
-                            });
-                        } catch (e) {
-                            showRecaptchaError(e.message);
-                        }
-                    },
-
-                    executeContact: function (submitFormCb) {
-                        recaptcha.execute(actions['contact'], submitFormCb);
-                    }
-                };
-
-                window.recaptchaObject = recaptcha;
-                window.grecaptchaObject = grecaptcha;
-            })(
-                grecaptcha,
-                
-                '6LcxNiEqAAAAAL3HK-oyRHUpnwVro6g5Pv_S39K7',
-                {'contact': 'contact'}
-            );
-        });
-    </script>
-
-    <script>
-    window.showRecaptchaV2 = function (form) {
-        if (!form || !form.length) {
-            return;
-        }
-        if (typeof window.grecaptchaObject === 'undefined' || !window.grecaptchaObject) {
-            return;
-        }
-
-        const formEl = form[0];
-
-        let container = document.getElementById('recaptcha-v2-container');
-        if (!container) {
-            container = document.createElement('div');
-            container.id = 'recaptcha-v2-container';
-            formEl.parentElement.appendChild(container);
-        }
-
-        let tokenReceived = false;
-        let timeoutHandle;
-
-        if (window.recaptchaRenderedV2 === false || typeof window.recaptchaRenderedV2 === 'undefined') {
-            window.recaptchaRenderedV2 = window.grecaptchaObject.render('recaptcha-v2-container', {
-                'sitekey': window.recaptchaSiteKeyV2,
-                'size': 'invisible',
-                'callback': function (token) {
-                    clearTimeout(timeoutHandle);
-
-                    if (!token) {
-                        showRecaptchaError('reCAPTCHA v2 token was empty. Please try again.');
-                        return;
-                    }
-
-                    tokenReceived = true;
-
-                    let recaptchaResponseV2 = formEl.querySelector('input[name="recaptchaResponseV2"]');
-
-                    if (!recaptchaResponseV2) {
-                        recaptchaResponseV2 = document.createElement('input');
-                        recaptchaResponseV2.type = 'hidden';
-                        recaptchaResponseV2.name = 'recaptchaResponseV2';
-                        formEl.appendChild(recaptchaResponseV2);
-                    }
-
-                    recaptchaResponseV2.value = token;
-
-                    if (window.recaptchaSiteKeyV2) {
-                        let siteKeyInput = formEl.querySelector('input[name="siteKey"]');
-
-                        if (siteKeyInput) {
-                            siteKeyInput.value = window.recaptchaSiteKeyV2;
-                        }
-                    }
-
-                    document.querySelectorAll('.u-form-send-error').forEach(el => {
-                        el.style.display = 'none';
-                    });
-
-                    const event = new CustomEvent('submit', {
-                        detail: { recaptchaPassed: true },
-                        bubbles: true,
-                        cancelable: true,
-                    });
-
-                    formEl.dispatchEvent(event);
-                },
-                'error-callback': function () {
-                    clearTimeout(timeoutHandle);
-                    showRecaptchaError('reCAPTCHA v2 error. Please try again.');
-                },
-                'expired-callback': function () {
-                    clearTimeout(timeoutHandle);
-                }
-            });
-
-            window.grecaptchaObject.reset(window.recaptchaRenderedV2);
-
-            setTimeout(() => {
-                window.grecaptchaObject.execute(window.recaptchaRenderedV2);
-            }, 300);
-
-            timeoutHandle = setTimeout(function () {
-                if (!tokenReceived) {
-                    showRecaptchaError('The Contact Form could not be submitted because Google reCAPTCHA v3 detected unusual activity from your connection. Please try again later, or complete the reCAPTCHA v2 challenge if it appears.');
-                }
-            }, 120000);
-        } else {
-            window.grecaptchaObject.reset(window.recaptchaRenderedV2);
-
-            setTimeout(() => {
-                window.grecaptchaObject.execute(window.recaptchaRenderedV2);
-            }, 300);
-        }
-    };
-    </script>
-<meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
+<meta name="email" content="kontakt@ralf-peter-kleinert.de">
+<meta name="copyright" content="Copyright © by Ralf-Peter Kleinert ComputerRalle DIGITAL-easy">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"><meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
   <body data-path-to-root="./" data-include-products="false" class="u-body u-xl-mode" data-lang="de" style="background-position: 50% 50%;"><header class=" u-border-no-bottom u-border-no-left u-border-no-right u-border-no-top u-clearfix u-header u-section-row-container" id="header-mit-navigation-hauptmenue" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="" style="border-style: solid;"><div class="u-section-rows" style="">
         <div class="u-border-2 u-border-custom-color-20 u-border-no-left u-border-no-right u-border-no-top u-clearfix u-custom-color-2 u-section-row u-section-row-1" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="" id="haupt-menue">
           <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
@@ -264,7 +50,7 @@
                 </a>
               </div>
               <div class="u-custom-menu u-nav-container">
-                <ul class="u-custom-font u-font-raleway u-nav u-spacing-2 u-unstyled u-nav-1" role="menubar"><li role="none" class="u-nav-item"><a tabindex="-1" role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="index.html" style="padding: 12px 22px;">Start</a>
+                <ul class="u-custom-font u-font-raleway u-nav u-spacing-2 u-unstyled u-nav-1" role="menubar"><li role="none" class="u-nav-item"><a tabindex="-1" role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="/" style="padding: 12px 22px;">Start</a>
 </li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="inhaltsverzeichnis.html" style="padding: 12px 22px;">Inhalt</a>
 </li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-38 u-nav-link u-text-active-white u-text-hover-white" href="sicherheit-in-der-it.html" style="padding: 12px 22px;">IT-Sicherheit &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-2" aria-label="IT-Sicherheit > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="sicherheit-in-der-it/uebersicht-it-cyber-security.html">Übersicht: IT-Sicherheit</a>
 </li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="sicherheit-in-der-it/verschluesselung-von-daten.html">Verschlüsselung &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-3" aria-label="Verschlüsselung > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-14 u-button-style u-custom-color-2 u-hover-custom-color-14 u-nav-link" href="sicherheit-in-der-it/verschluesselung-von-daten/cryptomator-kostenlos.html">Cryptomator Dateien verschlüsseln</a>
@@ -343,7 +129,7 @@
                 <div class="u-container-style u-custom-color-2 u-inner-container-layout u-sidenav u-sidenav-1">
                   <div class="u-inner-container-layout u-sidenav-overflow">
                     <div class="u-menu-close" tabindex="-1" aria-label="Close menu"></div>
-                    <ul class="u-align-left u-custom-font u-font-raleway u-nav u-popupmenu-items u-spacing-0 u-text-active-custom-color-5 u-text-hover-custom-color-5 u-text-white u-unstyled u-nav-10" role="menubar"><li role="none" class="u-nav-item"><a tabindex="-1" role="menuitem" class="u-button-style u-nav-link" href="index.html">Start</a>
+                    <ul class="u-align-left u-custom-font u-font-raleway u-nav u-popupmenu-items u-spacing-0 u-text-active-custom-color-5 u-text-hover-custom-color-5 u-text-white u-unstyled u-nav-10" role="menubar"><li role="none" class="u-nav-item"><a tabindex="-1" role="menuitem" class="u-button-style u-nav-link" href="/">Start</a>
 </li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="inhaltsverzeichnis.html">Inhalt</a>
 </li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="sicherheit-in-der-it.html">IT-Sicherheit &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-11" aria-label="IT-Sicherheit > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="sicherheit-in-der-it/uebersicht-it-cyber-security.html">Übersicht: IT-Sicherheit</a>
 </li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="sicherheit-in-der-it/verschluesselung-von-daten.html">Verschlüsselung &gt;</a><div class="u-nav-popup"><ul role="menu" class="u-custom-font u-font-raleway u-h-spacing-22 u-nav u-unstyled u-v-spacing-12 u-nav-12" aria-label="Verschlüsselung > menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="sicherheit-in-der-it/verschluesselung-von-daten/cryptomator-kostenlos.html">Cryptomator Dateien verschlüsseln</a>
@@ -450,29 +236,50 @@
           
         </div>
       </div></header>
-    <main class="u-clearfix"><div class="u-sheet"><div id="suchform">
-<img class="suchle-logo" src="images/Suchle-1.png" width="879" height="351" alt="Suchle">
-<form id="search" action="suchen.html" method="get" role="search">
-<label class="suchle-label" for="suchbegriff">Website durchsuchen</label>
-<input type="search" name="q" id="suchbegriff" placeholder="Website durchsuchen" minlength="3" required aria-describedby="suchle-hint">
-<button class="suchle-submit" type="submit">Suchle-Suche</button>
-<p id="suchle-hint" class="suchle-hint">Bitte geben Sie mindestens 3 Zeichen ein.</p>
-</form>
-<details class="suchle-tips"><summary>Tipps zur Suche</summary><p>Mehrere Wörter finden Seiten mit allen Begriffen. Mit „oder“ beziehungsweise „OR“ finden Sie Seiten mit mindestens einem Begriff. Anführungszeichen suchen eine genaue Phrase.</p></details>
-<div id="search-results" role="status" aria-live="polite" aria-atomic="true"></div>
-<noscript><p>Bitte aktivieren Sie JavaScript, um die Suche zu verwenden.</p></noscript>
-</div></div></main>
+    <section class="u-clearfix u-section-1" id="suchle-bild-block">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-container-style u-expanded-width-xs u-group u-image u-image-contain u-opacity u-opacity-55 lazyload u-image-1" data-image-width="1000" data-image-height="400" data-bg="url(&quot;images/Suchle-1-large.webp?rand=9c12&quot;)">
+          <div class="u-container-layout u-container-layout-1"></div>
+        </div>
+        <div class="u-custom-php u-custom-php-1" data-custom-php="<!--custom_php--><?php 
+//ob_start(); // auf manchen Servern kann es erforderlich sein, diese Zeile zu entkommentieren
+include(&quot;wdw_suche/search_config.php&quot;);
+?><!--/custom_php-->"></div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-2" id="sec-086f">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-container-align-center u-container-style u-custom-color-19 u-expanded-width-xs u-group u-opacity u-opacity-55 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <div class="u-custom-php u-custom-php-1" data-custom-php="<!--custom_php-->			<div id=&quot;suchform&quot;>
+		<form  id=&quot;search&quot; method=&quot;get&quot; action=&quot;<?php echo htmlentities($_SERVER['PHP_SELF']); ?>&quot;   onsubmit=&quot;return showWait();&quot;>
+		<p><label for=&quot;suchbegriff&quot;>Bitte geben Sie mindestens 3 Buchstaben ein:</label></p>
+		<p>
+		<input type=&quot;search&quot; name=&quot;q&quot; id=&quot;suchbegriff&quot; placeholder=&quot;Suchbegriff(e)&quot; size=&quot;20&quot;  />
+		<input type=&quot;submit&quot; value=&quot;Suchen&quot; />
+		</p>
+		</form>
+	</div>
+	<p></p>
+	<div id=&quot;output&quot;>
+	<?php include(&quot;wdw_suche/search.php&quot;);?>	
+	</div>	<!--/custom_php-->"></div>
+          </div>
+        </div>
+      </div>
+    </section>
     
     
     
-    <footer class="u-align-center u-clearfix u-container-align-center u-custom-color-2 u-footer u-footer" id="footer-mit-navigation"><div class="u-clearfix u-sheet u-sheet-1">
+    <footer class="u-align-center u-clearfix u-container-align-center u-container-align-center-lg u-container-align-center-md u-container-align-center-sm u-container-align-center-xl u-custom-color-2 u-footer u-footer" id="footer-mit-navigation"><div class="u-clearfix u-sheet u-sheet-1">
         <p class="u-small-text u-text u-text-variant u-text-1">
-          <a href="datenschutzerklaerung.html" data-page-id="735813554" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1">Datenschutz</a> | <a href="impressum.html" data-page-id="63266619" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-2">Impressum</a> | <a href="inhaltsverzeichnis.html" data-page-id="50765561" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-3">Inhalt</a> | <a href="nutzungsbedingungen.html" data-page-id="117449462" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-4">Nutzungsbedingungen</a> | <a href="hinweise-haftungsausschluss.html" data-page-id="98103025" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-5">Haftung</a> | <a href="hinweise-haftungsausschluss.html#affiliate-info-ausfuehrlich" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-6">Affiliate</a>&nbsp;|&nbsp;<a href="kontakt.html" data-page-id="125601662" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-7">Kontakt</a> | <a href="newsletter.html" data-page-id="103346126" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-8">Newsletter</a>&nbsp;| <a href="preise.html" data-page-id="130192720" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-9">Preise</a>&nbsp;| <a href="support.html" data-page-id="86002539" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-10">Support </a>|&nbsp;<a href="ueber-mich.html" data-page-id="38997572" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-11">Über mich</a> | <a href="downloads.html" data-page-id="70811588" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-12" title="Downloads und kostenlose Downloads">Downloads</a> |<span style="font-weight: 700;">
+          <a href="datenschutzerklaerung.html" data-page-id="735813554" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-1">Datenschutz</a> | <a href="impressum.html" data-page-id="63266619" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-2">Impressum</a> | <a href="inhaltsverzeichnis.html" data-page-id="50765561" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-3">Inhalt</a> | <a href="nutzungsbedingungen.html" data-page-id="117449462" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-4">Nutzungsbedingungen</a> | <a href="hinweise-haftungsausschluss.html" data-page-id="98103025" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-5">Haftung</a> | <a href="/hinweise-haftungsausschluss.html#affiliate-info-ausfuehrlich" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-6">Affiliate</a>&nbsp;|&nbsp;<a href="kontakt.html" data-page-id="125601662" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-7">Kontakt</a> | <a href="newsletter.html" data-page-id="103346126" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-8">Newsletter</a>&nbsp;| <a href="preise.html" data-page-id="130192720" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-9">Preise</a>&nbsp;| <a href="support.html" data-page-id="86002539" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-10">Support </a>|&nbsp;<a href="ueber-mich.html" data-page-id="38997572" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-11">Über mich</a> | <a href="downloads.html" data-page-id="70811588" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-12" title="Downloads und kostenlose Downloads">Downloads</a> |<span style="font-weight: 700;">
             <a href="https://digital-easy.de" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-13" title="DIGITAL-easy" target="_blank">digital-easy.de</a>&nbsp;| <a href="https://blog.ralf-peter-kleinert.de" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-14" title="BLOG Ralf-Peter Kleinert" target="_blank">blog.ralf-peter-kleinert.de</a>&nbsp;| <span style="font-weight: 400;">
               <a href="https://computerralle.de" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-15" title="#ComputerRalle" target="_blank" rel="noopener">computerralle.de</a></span> |&nbsp;<a href="hinweise-haftungsausschluss.html#agb-allgemeine-geschaeftsbedingungen" data-page-id="98103025" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-16">AGB</a>&nbsp;| <span style="font-weight: 400;">
               <a href="https://portal.dnb.de/opac/simpleSearch?query=ralf-peter+kleinert&amp;cqlMode=true" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-custom-color-29 u-btn-17" title="Bücher von Ralf-Peter Kleinert in der Deutschen Nationalbibliothek" target="_blank">Nationalbibliothek</a></span></span>
         </p>
-        <p class="u-text u-text-2"> Copyright © Ralf-Peter Kleinert DIGITAL-easy #ComputerRalle<br>SSR-Entertainment seit 2005&nbsp;<br> Alle Rechte vorbehalten.
+        <p class="u-text u-text-2"> Copyright © Ralf-Peter Kleinert DIGITAL-easy #ComputerRalle<br><span class="u-text-color-var" style="--text-color-var: #ffff00;">ralf-peter-kleinert.de seit 2016</span>
+          <br> Alle Rechte vorbehalten.
         </p>
         <div class="u-social-icons u-social-icons-1">
           <a class="u-social-url" title="facebook" target="_blank" href="https://www.facebook.com/ComputerRalle.de" rel="nofollow"><span class="u-icon u-social-facebook u-social-icon u-text-custom-color-29 u-icon-1"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 112 112" style=""><use xlink:href="#svg-1c85"></use></svg><svg class="u-svg-content" viewBox="0 0 112 112" x="0" y="0" id="svg-1c85"><circle fill="currentColor" cx="56.1" cy="56.1" r="55"></circle><path fill="#FFFFFF" d="M73.5,31.6h-9.1c-1.4,0-3.6,0.8-3.6,3.9v8.5h12.6L72,58.3H60.8v40.8H43.9V58.3h-8V43.9h8v-9.2
@@ -484,13 +291,8 @@ c0-6.7,3.1-17,17-17h12.5v13.9H73.5z"></path></svg></span>
       C42.2,34.8,39.2,37.9,34.6,37.9z M89.6,83.7H76.2V62.2c0-5.4-1.9-9.1-6.8-9.1c-3.7,0-5.9,2.5-6.9,4.9c-0.4,0.9-0.4,2.1-0.4,3.3v22.5
       H48.7c0,0,0.2-36.5,0-40.3h13.4v5.7c1.8-2.7,5-6.7,12.1-6.7c8.8,0,15.4,5.8,15.4,18.1V83.7z"></path></svg></span>
           </a>
-          <a class="u-social-url" target="_blank" data-type="Custom" title="Mastodon" href="https://mastodon.social/@digitaleasy" rel="nofollow noopener"><span class="u-file-icon u-icon u-social-custom u-social-icon u-text-custom-color-29 u-icon-4"><img src="images/mastodon1-4909f8ae.png" alt=""></span>
+          <a class="u-social-url" target="_blank" data-type="Instagram" title="Instagram" href="https://www.instagram.com/computerralle/"><span class="u-icon u-social-icon u-social-instagram u-text-custom-color-29 u-icon-4"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 112 112" style=""><use xlink:href="#svg-35b7"></use></svg><svg class="u-svg-content" viewBox="0 0 112 112" x="0" y="0" id="svg-35b7"><circle fill="currentColor" cx="56.1" cy="56.1" r="55"></circle><rect x="27" y="27" width="58" height="58" rx="17" fill="none" stroke="#FFFFFF" stroke-width="6"></rect><circle cx="56" cy="56" r="14" fill="none" stroke="#FFFFFF" stroke-width="6"></circle><circle cx="74" cy="38" r="4" fill="#FFFFFF"></circle></svg></span>
           </a>
-          <a class="u-social-url" target="_blank" data-type="Instagram" title="Instagram" aria-label="Instagram" href="https://www.instagram.com/computerralle/"><span class="u-icon u-social-instagram u-social-icon u-text-custom-color-29 u-icon-5"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 112 112" style=""><use xlink:href="#svg-35b7"></use></svg><svg class="u-svg-content" viewBox="0 0 112 112" x="0" y="0" id="svg-35b7"><circle fill="currentColor" cx="56.1" cy="56.1" r="55"></circle><rect x="27" y="27" width="58" height="58" rx="17" fill="none" stroke="#FFFFFF" stroke-width="6"></rect><circle cx="56" cy="56" r="14" fill="none" stroke="#FFFFFF" stroke-width="6"></circle><circle cx="74" cy="38" r="4" fill="#FFFFFF"></circle></svg></span>
-          </a>
-        </div>
-        <div class="u-clearfix u-custom-html u-expanded-width u-custom-html-1">
-          <a href="javascript:UC_UI.showSecondLayer();">Cookie-Einstellungen</a>
         </div>
       </div></footer><span style="height: 48px; width: 48px; margin-left: 0px; margin-right: auto; margin-top: 0px; right: 0px; bottom: 15px;" class="u-back-to-top u-file-icon u-icon u-text-custom-color-20" data-href="#"><img src="images/e77d2435.png" alt=""></span>
   
