@@ -16,7 +16,7 @@ include("wdw_suche/search_config.php");
     <link rel="stylesheet" href="style.css" media="screen">
 	<link rel="stylesheet" href="suchen.css" media="screen">
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
-    <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="functions.js" defer=""></script>
     <link rel="canonical" href="https://ralf-peter-kleinert.de/suchen.php">
     <link rel="icon" href="images/favicon1.ico">
     <link id="u-theme-google-font" rel="stylesheet" href="fonts.css">
